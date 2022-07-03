@@ -1,0 +1,11 @@
+회원가입 member table
+create table crackermember(
+name varchar2(30) not null,
+memberid varchar2(30) primary key, --기본키, unique, not null, 무결성 제약 조건
+memberpwd varchar2(30) not null,
+memberemail1 varchar2(20) not null,
+memberemail2 varchar2(20) not null,
+membertel1 varchar2(10) not null,
+membertel2 varchar2(10) not null,
+membertel3 varchar2(10) not null,
+logtime date);
