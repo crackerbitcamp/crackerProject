@@ -57,11 +57,9 @@ li{
 	margin-top: 8px;
 }
 #section li{	
-	width: 100px;
+	width: 100%;
 	line-height: 1.8;
-	overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+	
 }
 
 #rightbar{
@@ -180,6 +178,9 @@ width: 70%;
 }
 
 #index_cate_subject{
+overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 	width: 80%;
     float: left;
 }
@@ -217,7 +218,7 @@ width: 70%;
 					<li>
 						<div id="index_cate_user_text1">
 							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.최대 길이 확인하기</a></div>
-							<div id="index_cate_em"> <a href="#">[덧글 수]</a></div>
+							<div id="index_cate_em"><a href="#">[덧글 수]</a></div>
 						</div>
 					</li>
 					
