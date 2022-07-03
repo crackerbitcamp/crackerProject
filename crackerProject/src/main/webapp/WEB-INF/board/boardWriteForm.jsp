@@ -25,7 +25,7 @@
 		</tr>
 		<tr>
 			<td align="center">
-			내용
+			내용123123
 			</td>
 			<td>
 			  <textarea rows="15" cols="50" id="content" name="content" placeholder="내용 입력"></textarea>
