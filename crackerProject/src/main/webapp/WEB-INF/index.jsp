@@ -149,44 +149,45 @@ width: 70%;
 
 
 #content{
- 	
-	padding: 0 20px;
+	padding: 0 3%;
 }
 
 #section1 {
-  	width: 44%;
+  	width: 47%;
     float: left;
-    margin: 0 40px 0 0;
 }
+#section1 h4 {
+  	text-align: left;
+}
+
 #section2{
- 	width: 44%;
-    float: left;
-    margin: 0 40px 0 0;
+ 	width: 47%;
+    float: right;
 }
-#hottext ul li{
-		text-align: left;
-        display: -webkit-box;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-	    -webkit-line-clamp: 1;
-	    -webkit-box-orient: vertical;
-	    word-break: break-all;
-}
+
 #index_cate_user_text1{
 	width: 100%;
 	height: auto;
+	clear: both;
 }
 
 #index_cate_subject{
-overflow: hidden;
+	overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 	width: 80%;
     float: left;
 }
+
 #index_cate_em{
  	float: left;
+ 	width: auto;
 }
+#index_cate_hit{
+    float: left;
+    width: auto;
+}
+
 </style>
 </head>
 <body>
@@ -218,7 +219,22 @@ overflow: hidden;
 					<li>
 						<div id="index_cate_user_text1">
 							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.최대 길이 확인하기</a></div>
-							<div id="index_cate_em"><a href="#">[덧글 수]</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
 						</div>
 					</li>
 					
