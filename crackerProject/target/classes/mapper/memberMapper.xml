@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="memberSQL">
+	<insert id="memberWrite" parameterType="member">
+		insert into crackermember values(
+								#{membername},
+								#{memberid},
+								#{memberpwd},
+								#{memberemail1},
+								#{memberemail2},
+								#{membertel1},
+								#{membertel2},
+								#{membertel3},
+								sysdate
+								)
+	</insert>
+	<select id="memberIdCheck" parameterType="String" resultType="String">
+		select * from crackermember where memberid = #{memberid}
+	</select>
+	<select id="memberLoginCheck" parameterType="java.util.Map" resultType="member">
+		select * from crackermember where memberid = #{memberid} and memberpwd = #{memberpwd}
+	</select>
+</mapper>
