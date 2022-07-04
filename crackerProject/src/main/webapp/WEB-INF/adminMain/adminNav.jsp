@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-TEST
+	네비입니다.
 </body>
 </html>
