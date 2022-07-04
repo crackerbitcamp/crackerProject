@@ -1,4 +1,11 @@
-
+	/*아이디 찾기*/
+function idinfo(){
+		url = "/index/member/memberFindIdForm";
+		name = '';
+		specs = "width=550,height=128,top=200,left=100";
+		window.open(url,name,specs);
+}
+	
 $(function(){
 		$('#memberLoginId').focusout(function(){
 			if(!$('#memberLoginId').val()){
@@ -22,7 +29,7 @@ $(function(){
 		$.ajax({
 			data : $('#memberLoginForm').serialize(),
 			type : 'post',
-			url : '/temp/member/memberLoginCheck',
+			url : '/index/member/memberLoginCheck',
 			success:function(data){
 				if(!data){
 					swal('로그인 실패','아이디 또는 비밀번호가 틀렸습니다. 다시로그인해주세요.','warning')
@@ -37,6 +44,8 @@ $(function(){
 		});
 	});
 	
+	
+
 	/*회원가입 script*/
 
     var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
@@ -55,7 +64,7 @@ $(function(){
 			$.ajax({
 				data :{'memberid' : $('#memberWriteId').val()},
 				type : 'post',
-				url : '/temp/member/memberIdCheck',
+				url : '/index/member/memberIdCheck',
 				success:function(data){
 					if(data == 'fail'){
 						$('#memberWriteIdDiv').html('아이디가 중복되었습니다. 새로운 아이디를 입력해주세요.');
@@ -132,7 +141,7 @@ $(function(){
 		$('#checkemail').attr('value',email);
 		$.ajax({
 			type : 'get',
-			url : '/temp/member/emailcheck?email='+email,
+			url : '/index/member/emailcheck?email='+email,
 			success:function(data){
 				alert(data);
 				$('#mail-Check-Num').attr('disabled',false);
@@ -211,13 +220,13 @@ $(function(){
 			$.ajax({
 				type : 'post',
 				data : $('#memberWriteForm').serialize(),
-				url : '/temp/member/memberWrite',
+				url : '/index/member/memberWrite',
 				success:function(data){
-					swal('생성 완료',""+data.memberid+"님 환영 합니다.",'success').then(function(){
-						location.href='/temp'
+					swal('생성 완료',""+data+"님 환영 합니다.",'success').then(function(){
+						location.href='/index'
 					})
 				},error:function(e){
-					alert(e);
+					console.log(e);
 				}
 			});	
 		}
@@ -227,5 +236,56 @@ $(function(){
 		var check = $('#emailselect option:selected').val();
 		$('#memberWriteEmail2').attr('value',check);
 		$('#memberWriteEmailDiv').empty();
+	});
+	
+	//Id 찾기 핸드폰 인증번호 
+	var code2;
+	$('#findIdBtn').click(function(){
+		swal('인증번호전송 완료\n 인증번호를 확인해주세요',"",'success')
+		$.ajax({
+	        type:"get",
+	        url:"/index/member/phoneCheck",
+	        data : {'findtel' : $('#findtel').val()},
+	        success:function(data){
+	        		console.log(data);
+	        		$("#phonecheck").attr("disabled",false);
+	        		$(".successPhoneChk").text("인증번호를 입력한 뒤 본인인증을 눌러주십시오.");
+	        		$(".successPhoneChk").css("color","green");
+	        		code2 = data;
+	        	}
+	    });
+	});
+	
+	// blur -> focus가 벗어나는 경우 발생
+	$('#phonecheck').blur(function () {
+		const inputCode = $(this).val();
+		if(inputCode === code2){
+			$('#findIdCheckDiv').attr('value','ok');
+			$('#phonecheckDiv').html('인증번호가 일치합니다.');
+			$('#phonecheckDiv').css('color','green');
+			$('#phonecheck').attr('disabled',true);
+		}else{
+			$('#phonecheckDiv').html('인증번호가 불일치 합니다. 다시 확인해주세요!.');
+			$('#phonecheckDiv').css('color','red');
+			$('#findIdCheckDiv').attr('value','fail');
+		}
+	});
+	
+	$('#btn_next').click(function(){
+		if($('#findIdCheckDiv').val() == 'ok'){
+		$.ajax({
+			  	type:"post",
+		        url:"/index/member/memberfindIdcheck",
+		        data : $('#findidForm').serialize(),
+		        success:function(data){
+		        	alert(data)
+		        	location.href='/index/member/memberFindId?memberid='+data;
+		        },error:function(e){
+		        	console.log(e);
+		        }
+		});
+		}else{
+			swal('휴대폰 인증을 먼저해주세요.',"",'warning')
+		}
 	});
 }); 
