@@ -25,6 +25,7 @@
     <property name="username" value="rlawjdgur1442@gmail.com" />
     <property name="password" value="obryfgsqxhkguwzh" />
     <property name="javaMailProperties">
+    
     <props>
       <prop key="mail.smtp.auth">true</prop>
       <prop key="mail.smtp.starttls.enable">true</prop>

@@ -48,7 +48,27 @@ li{
 	margin-left:1%;
 	margin-right:1%;
 	border: 1px red solid;
+	
 }
+
+.card {
+	float : left;
+	display : flex;
+	margin-left : 8px;
+	margin-top : 60px;
+}
+
+.card2 {
+	position: sticky;
+	position: -webkit-sticky;
+	display : inline-block;
+	top : 30px;
+	width : 100%;
+	height : 50%;
+	
+}
+
+
 #section h4{
 	font-size: 18px;
     font-weight: bold;
@@ -66,6 +86,9 @@ li{
 	position: relative;
 	float: right;
 	width: 14%;
+	height : 2000px;
+	border : 1px solid red;
+	
 }
 
 #section h2 {
@@ -75,6 +98,49 @@ li{
 	font-size: 50px;
 	font-weight: bold;
 }
+
+#content{
+	padding: 0 3%;
+}
+
+#section1, #section3 {
+  	width: 47%;
+    float: left;
+    margin-bottom : 15px;
+}
+#section1 h4 , #section3 h4 {
+  	text-align: left;
+}
+
+#section2, #section4 {
+ 	width: 47%;
+    float: right;
+}
+
+#index_cate_user_text1{
+	width: 100%;
+	height: auto;
+	clear: both;
+}
+
+#index_cate_subject{
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+	width: 80%;
+    float: left;
+}
+
+#index_cate_em{
+ 	float: left;
+ 	width: auto;
+}
+#index_cate_hit{
+    float: left;
+    width: auto;
+}
+
+
 
 #footer {
 	position: relative;
@@ -148,45 +214,6 @@ width: 70%;
 }
 
 
-#content{
- 	
-	padding: 0 20px;
-}
-
-#section1 {
-  	width: 44%;
-    float: left;
-    margin: 0 40px 0 0;
-}
-#section2{
- 	width: 44%;
-    float: left;
-    margin: 0 40px 0 0;
-}
-#hottext ul li{
-		text-align: left;
-        display: -webkit-box;
-	    overflow: hidden;
-	    text-overflow: ellipsis;
-	    -webkit-line-clamp: 1;
-	    -webkit-box-orient: vertical;
-	    word-break: break-all;
-}
-#index_cate_user_text1{
-	width: 100%;
-	height: auto;
-}
-
-#index_cate_subject{
-overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-	width: 80%;
-    float: left;
-}
-#index_cate_em{
- 	float: left;
-}
 </style>
 </head>
 <body>
@@ -210,45 +237,164 @@ overflow: hidden;
 			<h2>BOARD</h2>
 			<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
 		</div>
+		
 	<div id="section">	
 		<div id="content">
 			<div id="section1">
-				<a href="#"><h4>실시간인기 글</h4></a>
-				<ul id="hottext" style="padding: 0;">
+				<br>
+				<a href="#"><h4>실시간 인기 글</h4></a>
+				<ul id="hottext" style="padding: 0px;">
 					<li>
 						<div id="index_cate_user_text1">
 							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.최대 길이 확인하기</a></div>
-							<div id="index_cate_em"><a href="#">[덧글 수]</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
 						</div>
 					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+			
 					
 				
 				</ul>
 			</div>
+			<br>
 			<div id="section2">	
-				<a href="#"><h4>실시간인기 글</h4></a>
-				<ul id="hottext" style="padding: 0;">
+				<a href="#"><h4>실시간 인기 글</h4></a>
+				<ul id="hottext" style="padding: 0px;">
+					<li><a href="#">카테고리 제목이 보여집니다.</a></li>
+					<li><a href="#">board의 제목이 보여집니다.제목이어디까지보입니까제목이어디까지?어디까지</a></li>
+					<li><a href="#">board의 제목이 보여집니다.</a></li>
+					<li><a href="#">board의 제목이 보여집니다.</a></li>
+					<li><a href="#">board의 제목이 보여집니다.</a></li>
+					
+				</ul>
+			</div>
+			
+			<div id="section3">
+				<br>
+				<a href="#"><h4>실시간 인기 글</h4></a>
+				<ul id="hottext" style="padding: 0px;">
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.최대 길이 확인하기</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+					<li>
+						<div id="index_cate_user_text1">
+							<div id="index_cate_subject"><a href="#">제목이 보여집니다.최대 길이 확인하기 목이 보여집니다.</a></div>
+							<div id="index_cate_em"><a href="#">[&&]</a></div>
+							<div id="index_cate_hit"><a href="#">[hit]</a></div>
+						</div>
+					</li>
+			
+					
+				
+				</ul>
+			</div>
+			
+			<div id="section4">	
+				<br>
+				<a href="#"><h4>실시간 인기 글</h4></a>
+				<ul id="hottext" style="padding: 0px;">
 					<li><a href="#">카테고리 제목이 보여집니다.</a></li>
 					<li><a href="#">board의 제목이 보여집니다.</a></li>
 					<li><a href="#">board의 제목이 보여집니다.</a></li>
 					<li><a href="#">board의 제목이 보여집니다.</a></li>
 					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
-					<li><a href="#">board의 제목이 보여집니다.</a></li>
 					
 				</ul>
 			</div>
-	  	</div> 
+		
+			
+			<div class="imagecard">
+				<div class="card" style="width: 300px;">
+  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<div class="card-body">
+  					<h5 class="card-title">제목</h5>
+   			 		<p class="card-text">내용</p>
+ 			 		</div>
+				</div>
+			
+				<div class="card" style="width: 300px;">
+  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<div class="card-body">
+  					<h5 class="card-title">제목</h5>
+   			 		<p class="card-text">내용</p>
+ 			 		</div>
+				</div>
+			
+				<div class="card" style="width: 300px;">
+  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<div class="card-body">
+  					<h5 class="card-title">제목</h5>
+   				 	<p class="card-text">내용</p>
+ 				 	</div>
+				</div>
+   				   
+  			</div> <!-- imagecard -->		
+	  	</div> <!-- content -->
 	</div><!-- "section" -->
 		
 		<div id="rightbar">
+			<div class="card2">
+  				<div class="card-body">
+  				<h5 class="card-title">여긴뭐지??</h5>
+   				<h6 class="card-subtitle mb-2 text-muted">뭐할까요??</h6>
+    			<p class="card-text">어베레렐러러어러러ㅓ럴ㅇ라아라녀안녕하ㅔ요 우리는 크래커~~~</p>
+    			<a href="#" class="card-link">Card link</a>
+    			<a href="#" class="card-link">Another link</a>
+  				</div>
+			</div>
 		</div><!-- "rightbar"  -->
 	</div> <!-- container -->
 	
