@@ -273,3 +273,40 @@ footer .copyright-wrap span{
 #memberloginsubmitBtn:hover{
 	cursor: pointer;
 }
+
+#find-Idfieldset-wrap{
+	font-family: "굴림",Gulim,"돋움",Dotum;
+	font-weight: bold;
+}
+.label.txt{
+	line-height: 25px;
+	color : #333;
+}
+
+.input_txt{
+	border: none;
+	width:150px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:30px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+}
+
+.btn_ct{
+	width: 97px;
+	height:30px;
+	background : white;
+	border-radius: 2rem;
+	background-position: 0 -210px;
+}
+
+.btn_ct:hover{
+	cursor: pointer;
+}
+
+.btn_next{
+	width : 100px;
+	height: 33px;
+	margin: 10px;
+	margin-left: 70px;
+}

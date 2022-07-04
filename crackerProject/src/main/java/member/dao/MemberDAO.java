@@ -12,4 +12,6 @@ public interface MemberDAO {
 
 	public MemberDTO memberLoginCheck(Map<String, String> map);
 
+	public MemberDTO memberfindIdcheck(Map<String, String> map1);
+
 }
