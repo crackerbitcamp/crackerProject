@@ -9,6 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class AdminController {
 	
+
 	@GetMapping(value="/adminMain")
 	public ModelAndView adminMain() {
 		ModelAndView mav = new ModelAndView();
@@ -21,4 +22,5 @@ public class AdminController {
 		mav.setViewName("/admin/adminMain");
 		return mav;
 	}
+	
 }

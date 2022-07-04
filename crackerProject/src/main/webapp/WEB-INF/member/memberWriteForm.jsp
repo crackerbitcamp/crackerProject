@@ -21,7 +21,7 @@
 	<input type = "email" id = "checkemail">
 		<div class="write-input-wrap">	
 			<div class = "write-input-name-wrap">아이디</div>  
-			<input type = "text" placeholder="ID입력" id = "memberWriteId" name = "memberㅑd">
+			<input type = "text" placeholder="ID입력" id = "memberWriteId" name = "memberid">
 			<div id="memberWriteIdDiv" class="memberWrite"></div>
 			<div class = "write-input-name-wrap">비밀번호</div>  
 			<input type = "password" placeholder="비밀번호 입력" id = "memberWritePwd" name = "memberpwd">

@@ -33,8 +33,8 @@
 					</div>
 					<div class="login-stay-sign-in">
 						<i class="far fa-check-circle"></i>
-						<span style="margin-left: 120px;"><a href = "#" id = "idifo">아이디</a> / <a href="#" id="pwdinfo">비밀번호 찾기</a>
-						 / <a href="/temp/member/memberWriteForm" id = "writeinfo">회원가입</a></span>
+						<span style="margin-left: 120px;"><a href = "#" id = "idifo" onclick="idinfo()">아이디</a> / <a href="#" id="pwdinfo">비밀번호 찾기</a>
+						 / <a href="/index/member/memberWriteForm" id = "writeinfo">회원가입</a></span>
 					</div>
 					<div class = "login-img">
 						<span><img alt="img" src="../image/naverlogo.png" width="30" height="30"></span><span><img alt="img" src="../image/kakaologo.jpg" width="30" height="30"></span><span><img alt="facebook"></span>

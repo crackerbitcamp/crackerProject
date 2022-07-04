@@ -1,5 +1,6 @@
 package member.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import member.service.MemberService;
 
 @Controller
 @RequestMapping(value = "/member",produces="application/text;charset=utf-8" )
+
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
@@ -36,9 +38,10 @@ public class MemberController {
 	
 	@PostMapping("/memberWrite")
 	@ResponseBody
-	public MemberDTO memberWrite(@RequestParam Map<String,String>map) {
+	public String memberWrite(@RequestParam Map<String,String>map) {
 		MemberDTO memberDTO = memberService.memberWrite(map);
-		return memberDTO;
+		System.out.println("memberDTO" + memberDTO);
+		return memberDTO.getMembername();
 	}
 	@PostMapping("/memberIdCheck")
 	@ResponseBody
@@ -52,4 +55,29 @@ public class MemberController {
 		System.out.println("email 확인 : " + email);
 		return memberService.emailcheck(email);
 	}
+	@GetMapping("/memberFindIdForm")
+	public ModelAndView memberFindIdForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/member/memberFindIdForm");
+		return mav;
+	}
+	
+	@GetMapping("/phoneCheck")
+	@ResponseBody
+	public String phoneCheck(@RequestParam String findtel) {
+		return memberService.phoneCheck(findtel);
+	}
+	
+	@PostMapping("/memberfindIdcheck")
+	@ResponseBody
+	public String memberfindIdcheck(@RequestParam Map<String,String>map) {
+		 MemberDTO memberDTO  = memberService.memberfindIdcheck(map);
+		 return memberDTO.getMemberid();
+	}
+	@GetMapping("/memberFindId")
+	public String memberFindId() {
+		
+		return "/member/memberFindId";
+	}
 }
+

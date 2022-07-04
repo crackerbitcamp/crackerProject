@@ -5,8 +5,59 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+
+.header {
+	text-align : center;
+}
+
+.line {
+	margin-top : -10px;
+	border-bottom : 1px solid #A9A9A9;
+}
+
+img {
+	margin-right: 15px;
+}
+
+.managerinfo {
+	margin-left : 55px;
+	margin-top : 20px;
+	margin-bottom : 30px;
+	
+}
+
+li {
+	margin-left : 15px;
+	list-style: none;
+	margin-bottom : 30px;
+}
+
+</style>
 </head>
 <body>
+	<div class="wrap">
+		<div class="header">
+			<h1 class="logo"><img src="../image/home/logo.png"
+				 onclick= "location.href='/index/admin/adminmain'" style="cursor: pointer;"></h1>
+		</div> <!-- header -->
+		<div class="line"></div>
+		<div class="managerinfo"><img src="../image/snapchat.svg"><a>adminINFO</a></div>
+		<div class="line"></div>
+		<br>
+		<div class="management">
+			<ul>
+				<li><img src="../image/person.svg"><a href="#">사용자 관리</a>
+				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a>
+				<li><img src="../image/person.svg"><a href="#">사용자 관리</a>
+				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a>
+				<li><img src="../image/person.svg"><a href="#">사용자 관리</a>
+				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a>
+			
+			</ul>
+		</div> <!-- management -->
+		
+	</div> <!-- wrap -->
 
 </body>
 </html>
