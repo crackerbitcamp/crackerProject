@@ -8,12 +8,11 @@
 <title>Insert title here</title>
 <style>
 div {
-	border: red solid 1px;
+	/* border: red solid 1px; */
 }
 
 body {
-	margin: 0;
-	padding: 0;
+	margin : 0 auto;
 	height: 1500px;
 	width: 1500px;
 }
@@ -22,6 +21,7 @@ body {
 	width: 20%;
 	height: 100%;
 	float: left;
+	background : #808080;
 }
 
 #header {
@@ -35,12 +35,8 @@ body {
 	float: left;
 	width: 75%;
 	height: 100%;
-	background: #ffff00;
+	background: #F0F8FF;
 }
-
-
-
-
 
 #section {
 	width: 90%;

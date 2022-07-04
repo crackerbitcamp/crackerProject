@@ -7,14 +7,12 @@
 <title>Insert title here</title>
 <style type="text/css">
 
-li{
-	width: 400px;
-	list-style: none;
-}
 #wrap {
 	width: 1600px;
 	margin: 0 auto;	/* 위아래여백,좌우여백  */
 }
+
+/* container */
 
 #container:after { /* after는 컨테이너 뒤에 붙는거 해제하라는 뜻 */
 	content: '';
@@ -40,6 +38,16 @@ li{
 	text-align: center; /* 오른쪽으로 정렬 */
 }
 
+.search {
+	text-align: -webkit-center;
+}
+
+/* section */
+
+#content{
+	padding: 0 3%;
+}
+
 #section {
 	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
@@ -51,44 +59,35 @@ li{
 	
 }
 
-.card {
-	float : left;
-	display : flex;
-	margin-left : 8px;
-	margin-top : 60px;
+#section1, #section3 {
+  	width: 47%;
+    float: left;
+    margin-bottom : 15px;
 }
 
-.card2 {
-	position: sticky;
-	position: -webkit-sticky;
-	display : inline-block;
-	top : 30px;
-	width : 100%;
-	height : 50%;
-	
+#section2, #section4 {
+ 	width: 47%;
+    float: right;
 }
 
+
+li{
+	width: 400px;
+	list-style: none;
+}
 
 #section h4{
 	font-size: 18px;
     font-weight: bold;
 }
+
 #section ul{
 	margin-top: 8px;
 }
+
 #section li{	
 	width: 100%;
 	line-height: 1.8;
-	
-}
-
-#rightbar{
-	position: relative;
-	float: right;
-	width: 14%;
-	height : 2000px;
-	border : 1px solid red;
-	
 }
 
 #section h2 {
@@ -99,22 +98,8 @@ li{
 	font-weight: bold;
 }
 
-#content{
-	padding: 0 3%;
-}
-
-#section1, #section3 {
-  	width: 47%;
-    float: left;
-    margin-bottom : 15px;
-}
 #section1 h4 , #section3 h4 {
   	text-align: left;
-}
-
-#section2, #section4 {
- 	width: 47%;
-    float: right;
 }
 
 #index_cate_user_text1{
@@ -140,7 +125,33 @@ li{
     width: auto;
 }
 
+.card {
+	float : left;
+	display : flex;
+	margin-left : 8px;
+	margin-top : 60px;
+}
 
+.card2 {
+	position: sticky;
+	position: -webkit-sticky;
+	display : inline-block;
+	top : 30px;
+	width : 100%;
+	height : 50%;
+	
+}
+
+#rightbar{
+	position: relative;
+	float: right;
+	width: 14%;
+	height : 2000px;
+	border : 1px solid red;
+	
+}
+
+/* footer */
 
 #footer {
 	position: relative;
@@ -208,11 +219,6 @@ li{
 width: 70%;
 }
 
-.search {
-	
-	text-align: -webkit-center;
-}
-
 
 </style>
 </head>
@@ -221,7 +227,7 @@ width: 70%;
 
 	<div id="header">
 		<h1 align="center"><img src="./image/home/LOGO2.jpeg" width="50%" height="50%"
-				 onclick= "" style="cursor: pointer; margin-top : 50px;"></h1>
+				 onclick= "location.href='/index'" style="cursor: pointer; margin-top : 50px;"></h1>
 	<br>
 	<hr>
 	</div> <!-- header -->
