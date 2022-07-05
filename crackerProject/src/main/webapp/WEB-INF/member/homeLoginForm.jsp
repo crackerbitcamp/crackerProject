@@ -66,7 +66,7 @@ float: right;
       <div class="info">
       	<dl class="infotext">
       		<dd id=infologin><a href="#" >아이디&비밀번호 찾기</a></dd>
-         	<dd id="member"><img src="./image/home/person.svg"/><a href="#">회원가입</a></dd>
+         	<dd id="member"><img src="/index/image/home/person.svg"/><a href="#">회원가입</a></dd>
          	
       	</dl>
         

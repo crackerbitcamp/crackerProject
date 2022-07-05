@@ -8,5 +8,6 @@ memberemail2 varchar2(20) not null,
 membertel1 varchar2(10) not null,
 membertel2 varchar2(10) not null,
 membertel3 varchar2(10) not null,
-membernickname varchar2(30) not null,
-logtime date);
+logtime date,
+membernickname varchar2(30) not null
+);
