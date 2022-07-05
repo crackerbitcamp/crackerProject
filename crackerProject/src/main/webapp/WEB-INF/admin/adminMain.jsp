@@ -13,43 +13,36 @@ body {
 	height: 1500px;
 	width: 1500px;
 }
-
 #nav {
 	width: 20%;
 	height: 100%;
 	float: left;
 	background: #808080;
 }
-
 #header {
 	width: 75%;
-	height: 10%;
+	height: 5%;
 	text-align: center;
 	float: left;
 }
-
 #container {
 	float: left;
 	width: 75%;
 	height: 100%;
 	background: #F0F8FF;
 }
-
 #section {
 	width: 90%;
 	height: 90%;
 }
-
 #section:after {
 	conternt: '';
 	display: block;
 	clear: both;
 }
-
 div {
-	border: red solid 1px;
+/* 	border: red solid 1px; */
 }
-
 #sectionHeader {
 	margin-top: 2%;
 	margin-left: 3%;
@@ -58,7 +51,6 @@ div {
 	height: 5%;
 	background: #ffffff;
 }
-
 .section {
 	float: left;
 	margin-top: 5%;
@@ -68,7 +60,6 @@ div {
 	background: #ffffff;
 	box-shadow: 1px 1px 3px #333333;
 }
-
 #section:after {
 	conternt: '';
 	display: block;

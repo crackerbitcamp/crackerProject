@@ -18,6 +18,7 @@
 
 img {
 	margin-right: 15px;
+	fill: white;
 }
 
 .managerinfo {
@@ -33,6 +34,12 @@ li {
 	margin-bottom : 30px;
 }
 
+a {
+	color : #FFFFFF;
+	text-decoration-line: none;
+	
+}
+
 </style>
 </head>
 <body>
@@ -42,22 +49,21 @@ li {
 				 onclick= "location.href='/index/admin/adminmain'" style="cursor: pointer;"></h1>
 		</div> <!-- header -->
 		<div class="line"></div>
-		<div class="managerinfo"><img src="../image/snapchat.svg"><a>adminINFO</a></div>
+		<div class="managerinfo"><img src="../image/snapchat.svg"><a href="#">관리자닉네임</a></div>
 		<div class="line"></div>
 		<br>
 		<div class="management">
 			<ul>
-				<li><img src="../image/person.svg"><a href="#">사용자 관리</a>
-				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a>
-				<li><img src="../image/person.svg"><a href="#">사용자 관리</a>
-				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a>
-				<li><img src="../image/person.svg"><a href="#">사용자 관리</a>
-				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a>
+				<li><img src="../image/person.svg"><a href="#">사용자 관리</a> </li>
+				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
+				<li><img src="../image/person.svg"><a href="#">사용자 관리</a></li>
+				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
+				<li><img src="../image/person.svg"><a href="#">사용자 관리</a></li>
+				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
 			
 			</ul>
 		</div> <!-- management -->
 		
 	</div> <!-- wrap -->
-
 </body>
 </html>
