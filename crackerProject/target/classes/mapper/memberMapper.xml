@@ -27,4 +27,9 @@
 	<select id="memberfindIdcheck" parameterType="java.util.Map" resultType="member">
 		select * from crackermember where membername = #{membername} and membertel1 = #{membertel1} and membertel2 = #{membertel2} and membertel3 = #{membertel3}
 	</select>
+	
+	<select id="getMember" parameterType="String" resultType="member">
+		select * from crackermember where memberid = #{memberid}
+	</select>
+	
 </mapper>
