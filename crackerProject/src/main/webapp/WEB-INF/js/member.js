@@ -35,7 +35,7 @@ $(function(){
 					swal('로그인 실패','아이디 또는 비밀번호가 틀렸습니다. 다시로그인해주세요.','warning')
 				}else{
 					swal('로그인 완료',""+data.membername+"님 환영 합니다.",'success').then(function(){
-						location.href='/temp'
+						location.href='/index'
 					})
 				}
 			},error:function(e){

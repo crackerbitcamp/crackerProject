@@ -15,7 +15,7 @@
  </c:if>
  
   <c:if test="${memId != null }">
- 	<%-- <jsp:include page="../member/loginOk.jsp" /> --%>
+ 	<jsp:include page="../member/loginOk.jsp" />
  </c:if>
 
   
