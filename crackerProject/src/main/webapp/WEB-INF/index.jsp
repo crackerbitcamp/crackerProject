@@ -368,7 +368,7 @@ width: 70%;
 			
 			<div class="imagecard">
 				<div class="card" style="width: 300px;">
-  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<img src="/index/image/home/person.svg" class="card-img-top" style="height: 10rem;">
   					<div class="card-body">
   					<h5 class="card-title">제목</h5>
    			 		<p class="card-text">내용</p>
@@ -376,7 +376,7 @@ width: 70%;
 				</div>
 			
 				<div class="card" style="width: 300px;">
-  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<img src="/index/image/home/person.svg" class="card-img-top" style="height: 10rem;">
   					<div class="card-body">
   					<h5 class="card-title">제목</h5>
    			 		<p class="card-text">내용</p>
@@ -384,7 +384,7 @@ width: 70%;
 				</div>
 			
 				<div class="card" style="width: 300px;">
-  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<img src="/index/image/home/person.svg" class="card-img-top" style="height: 10rem;">
   					<div class="card-body">
   					<h5 class="card-title">제목</h5>
    				 	<p class="card-text">내용</p>
