@@ -24,6 +24,8 @@ import member.service.MemberService;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
+	
+	//로그인
 	@GetMapping("/memberLoginForm")
 	public ModelAndView memberLoginForm() {
 		ModelAndView mav = new ModelAndView();
@@ -44,8 +46,27 @@ public class MemberController {
       }
       return memberDTO;
    }
-
-	
+   
+   @GetMapping("/memberLogout")
+   public String memberlogout(HttpSession session) {
+	   session.invalidate();
+	   return "/index";
+   }
+   
+   //회원정보 수정
+   @GetMapping("/memberUpdatePasswordCheckForm")
+   public ModelAndView memberUpdateForm(HttpSession session) {
+	   String memberid = (String)session.getAttribute("memId");
+	   MemberDTO memberDTO = memberService.getMember(memberid);
+	   ModelAndView mav = new ModelAndView();
+	   Map<String,Object>map = new HashMap<String,Object>();
+	   map.put("memberDTO", memberDTO);
+	   mav.addObject("memberDTO",map.get("memberDTO"));
+	   mav.setViewName("/member/memberUpdatePasswordCheckForm");
+	   return mav;
+   }
+   
+   //회원가입
 	@GetMapping(value = "memberWriteForm")
 	public ModelAndView memberWriteForm() {
 		ModelAndView mav = new ModelAndView();

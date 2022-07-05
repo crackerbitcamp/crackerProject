@@ -143,4 +143,11 @@ public class MemberServiceImpl implements MemberService{
 		MemberDTO memberDTO = memberDAO.memberfindIdcheck(map1);
 		return memberDTO;
 	}
+
+
+	@Override
+	public MemberDTO getMember(String memberid) {
+		MemberDTO memberDTO = memberDAO.getMember(memberid);
+		return memberDTO;
+	}
 }

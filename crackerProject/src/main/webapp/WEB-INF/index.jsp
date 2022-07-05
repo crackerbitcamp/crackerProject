@@ -226,7 +226,7 @@ width: 70%;
 <div id="wrap">
 
 	<div id="header">
-		<h1 align="center"><img src="./image/home/LOGO2.jpeg" width="50%" height="50%"
+		<h1 align="center"><img src="/index/image/home/LOGO2.jpeg" width="50%" height="50%"
 				 onclick= "location.href='/index'" style="cursor: pointer; margin-top : 50px;"></h1>
 	<br>
 	<hr>
@@ -238,7 +238,7 @@ width: 70%;
 			<jsp:include page="/WEB-INF/main/nav.jsp"></jsp:include>
 			<p class="search">
 				<input type="search" name="keyword" id="keyword" value="" style="width:200px; border:1px solid black; margin-left : 15px;" >
-				<img src="./image/home/search.svg" >
+				<img src="/index/image/home/search.svg" >
 			</p>
 			<h2>BOARD</h2>
 			<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
@@ -364,7 +364,7 @@ width: 70%;
 			
 			<div class="imagecard">
 				<div class="card" style="width: 300px;">
-  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<img src="/index/image/home/person.svg" class="card-img-top" style="height: 10rem;">
   					<div class="card-body">
   					<h5 class="card-title">제목</h5>
    			 		<p class="card-text">내용</p>
@@ -372,7 +372,7 @@ width: 70%;
 				</div>
 			
 				<div class="card" style="width: 300px;">
-  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<img src="/index/image/home/person.svg" class="card-img-top" style="height: 10rem;">
   					<div class="card-body">
   					<h5 class="card-title">제목</h5>
    			 		<p class="card-text">내용</p>
@@ -380,7 +380,7 @@ width: 70%;
 				</div>
 			
 				<div class="card" style="width: 300px;">
-  					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
+  					<img src="/index/image/home/person.svg" class="card-img-top" style="height: 10rem;">
   					<div class="card-body">
   					<h5 class="card-title">제목</h5>
    				 	<p class="card-text">내용</p>

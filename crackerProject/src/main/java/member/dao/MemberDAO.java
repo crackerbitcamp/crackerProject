@@ -14,4 +14,6 @@ public interface MemberDAO {
 
 	public MemberDTO memberfindIdcheck(Map<String, String> map1);
 
+	public MemberDTO getMember(String memberid);
+
 }

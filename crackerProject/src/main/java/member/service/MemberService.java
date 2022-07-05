@@ -17,4 +17,6 @@ public interface MemberService {
 	public String phoneCheck(String findtel);
 
 	public MemberDTO memberfindIdcheck(Map<String, String> map);
+
+	public MemberDTO getMember(String memberid);
 }
