@@ -32,4 +32,9 @@ public class MemberDAOImpl implements MemberDAO {
 		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.memberfindIdcheck",map1);
 		return memberDTO;
 	}
+	@Override
+	public MemberDTO getMember(String memberid) {
+		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.getMember",memberid);
+		return memberDTO;
+	}
 }
