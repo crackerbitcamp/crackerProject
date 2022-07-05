@@ -46,10 +46,13 @@ a {
 	<div class="wrap">
 		<div class="header">
 			<h1 class="logo"><img src="../image/home/logo.png"
-				 onclick= "location.href='/index/admin/adminmain'" style="cursor: pointer;"></h1>
+				 onclick= "location.href='/index/admin/adminMain'" style="cursor: pointer;"></h1>
 		</div> <!-- header -->
 		<div class="line"></div>
-		<div class="managerinfo"><img src="../image/snapchat.svg"><a href="#">관리자닉네임</a></div>
+		
+		<input type="button" value="회원가입" id="adminWriteFormBtn">
+		<input type="button" value="로그인" id="adminLoginFormBtn"> 
+		<!-- <div class="managerinfo"><img src="../image/snapchat.svg"><a href="#">관리자닉네임</a></div> -->
 		<div class="line"></div>
 		<br>
 		<div class="management">
@@ -65,5 +68,15 @@ a {
 		</div> <!-- management -->
 		
 	</div> <!-- wrap -->
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	$('#adminWriteFormBtn').click(function(){
+		location.href="/index/admin/adminWriteForm";
+	
+	
+	});
+</script>
 </body>
 </html>
+
