@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Map;
 
 import board.bean.BoardDTO;
-import board.bean.CommentDTO;
 
 public interface BoardDAO {
 
@@ -24,9 +23,6 @@ public interface BoardDAO {
 
 	public int getTotalSearchA(Map<String, String> map);
 
-	public void commentWrite(Map<String, String> map);
-
-	public List<CommentDTO> commentView(Map<String, String> map);
 
 	
 

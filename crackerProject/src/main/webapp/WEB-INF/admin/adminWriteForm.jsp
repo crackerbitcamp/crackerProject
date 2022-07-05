@@ -45,13 +45,16 @@ table {
 			<td align="center">이메일</td>
 			<td>
 			<input type="text" name="adminmail1" id="adminmail1" placeholder="이메일 입력">
+			
 			@
 			<input type="text" list="adminmail2" name="adminmail2" placeholder="직접입력">
 			<datalist id="adminmail2">
 				<option value="gmail.com">
 				<option value="daum.net">
   	  			<option value="naver.com">
-			</datalist></td>
+			</datalist> 
+			<div id="adminmail1Div"></div> 
+			</td>
 		<tr>
 
 
@@ -75,7 +78,7 @@ $('#adminWriteBtn').click(function(){
 	//초기화
 	$('#adminnameDiv').html(''); //
 	$('#adminidDiv').html('');
-	$('#adminmail1').html('');
+	$('#adminmail1Div').html('');
 	
 	if( $('#adminname').val() == ''){
 		$('#adminnameDiv').html('이름을 입력하세요');
@@ -86,19 +89,19 @@ $('#adminWriteBtn').click(function(){
 		$('#adminidDiv').css('color','red');
 		$('#adminidDiv').css('font-size','8pt');	
 	}else if ( $('#adminmail1').val() == '') {
-		$('#adminemail1Div').html('이메일을 입력하세요');
-		$('#adminemail1Div').css('color','red');
-		$('#adminemail1Div').css('font-size','8pt');	
+		$('#adminmail1Div').html('이메일을 입력하세요');
+		$('#adminmail1Div').css('color','red');
+		$('#adminmail1Div').css('font-size','8pt');	
 	}
 	else {
 		
 		$.ajax({
 			type : 'post',
-			url : '/index/admin/write',
+			url : '/index/admin/adminWrite',
 			data : $('#adminWriteForm').serialize(),
 			success : function() {
 				alert('회원가입ㅊㅋㅊㅋ');
-				location.href = "/index/adminInclude/adminMain";
+				location.href = "/index/admin/adminMain";
 			},
 			error : function(err) {
 				console.log(err);

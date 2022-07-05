@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import board.bean.CommentDTO;
+import comment.bean.CommentDTO;
 import comment.dao.CommentDAO;
 
 @Service

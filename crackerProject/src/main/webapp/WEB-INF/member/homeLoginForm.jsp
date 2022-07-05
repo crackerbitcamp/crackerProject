@@ -3,7 +3,7 @@
 
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" 
 integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
+<script type="text/javascript" src = "/index/js/member.js"></script>
 <style type="text/css">
 body{ 
 font-size: 14px;
@@ -65,8 +65,9 @@ float: right;
     	border: 1px #000000 solid; background: #000000;" onclick="location.href='/index/member/memberLoginForm'">로그인</button>
       <div class="info">
       	<dl class="infotext">
-      		<dd id=infologin><a href="#" >아이디&비밀번호 찾기</a></dd>
-         	<dd id="member"><img src="./image/home/person.svg"/><a href="#">회원가입</a></dd>
+         	
+      		<dd id=infologin><a href="#" onclick="idinfo()">아이디&비밀번호 찾기</a></dd>
+         	<dd id="member"><img src="/index/image/home/person.svg"/><a href="#" onclick="location.href='/index/member/memberWriteForm'">회원가입</a></dd>
          	
       	</dl>
         
@@ -81,60 +82,5 @@ float: right;
 <div id="loginResultDiv"> </div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript">
-
-$('#loginBtn').click(function(){
-	   
-	   $('#idDiv').empty();
-	   $('#pwdDiv').empty();
-	   	
-	   if($('#id').val() == ''){
-	      $('#idDiv').html('아이디를 입력해주세요.');
-	      $('#idDiv').css({
-	                  'color':'red',
-	                  'font-size':'8pt'
-	                  });
-	      
-	   }
-	   else if($('#pwd').val() == ''){
-	      $('#pwdDiv').html('비밀번호를 입력해주세요.');
-	      $('#pwdDiv').css('color','red');
-	      $('#pwdDiv').css('font-size','8pt');
-	   }
-	   else{
-		   //1번인 경우 loginService.java 파일 건들면 안됨
-	       // $('#loginForm').submit(); // 단순 sumbit 은 action 으로 넘어감
-	      
-		   //2번 경우
-		   $.ajax({
-			   type: 'post',
-			   url: '/SpringProject/member/login',
-			   data: {'id' : $('#id').val(),
-				   	  'pwd' : $('#pwd').val()},
-			   dataType: 'text',
-			   success: function(data){
-				   data = data.trim();
-				   
-				   if(data == 'ok') {
-					   location.href = "/SpringProject/index";
-					   
-				   }else if(data == 'fail'){
-					   $('#loginResultDiv').text('로그인 실패');
-					   $('#loginResultDiv').css({
-			                  'color':'red',
-			                  'font-size':'13pt'
-			                  });
-					   
-				   }
-				   
-			   },
-			   error: function(err){
-				   console.log(err);
-			   }
-		   });
-	   }
-	   
-	});
-</script>
 
 

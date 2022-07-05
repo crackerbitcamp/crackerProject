@@ -11,13 +11,11 @@ import org.springframework.stereotype.Service;
 
 import board.bean.BoardDTO;
 import board.bean.BoardPaging;
-import board.bean.CommentDTO;
 import board.dao.BoardDAO;
 
 @Service
 public class BoardServiceImpl implements BoardService {
-	@Autowired
-	private CommentDTO commentDTO;
+
 	@Autowired
 	private HttpSession session;
 	@Autowired
@@ -128,26 +126,6 @@ public class BoardServiceImpl implements BoardService {
 		sendMap.put("list",list);
 		sendMap.put("boardPaging",boardPaging);
 		
-		
-		return sendMap;
-	}
-	@Override
-	public void commentWrite(Map<String,String> map) {
-		String id = (String)session.getAttribute("memId");
-
-		map.put("nickName" ,id);
-		boardDAO.commentWrite(map);
-		
-	}
-	
-	@Override
-	public Map<String, Object> commentView(Map<String, String> map) {
-
-		List<CommentDTO> list = boardDAO.commentView(map);
-		
-		Map<String,Object> sendMap = new HashMap<String,Object>();
-
-		sendMap.put("list",list);
 		
 		return sendMap;
 	}

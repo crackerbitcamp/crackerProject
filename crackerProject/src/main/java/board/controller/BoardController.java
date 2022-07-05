@@ -179,16 +179,5 @@ public class BoardController {
 	public Map<String,Object> boardSearch(@RequestParam Map<String,String> map) {
 		return boardService.boardSearch(map); 
 	}
-	
-	@ResponseBody
-	@PostMapping(value="commentWrite")
-	public void commentWrite(@RequestParam Map<String,String> map){
-		boardService.commentWrite(map);
-	}
-	
-	@ResponseBody
-	@PostMapping(value="commentView")
-	public Map<String,Object> commentView(@RequestParam Map<String,String> map){
-		return boardService.commentView(map);
-	}
+
 }

@@ -14,12 +14,17 @@
 	<context:component-scan base-package="member.bean"></context:component-scan>
 	<context:component-scan base-package="member.dao"></context:component-scan>
 	<context:component-scan base-package="member.service"></context:component-scan>
+	<context:component-scan base-package="board.bean"></context:component-scan>
+	<context:component-scan base-package="board.dao"></context:component-scan>
+	<context:component-scan base-package="board.service"></context:component-scan>
 	<context:component-scan base-package="product.bean"></context:component-scan>
 	<context:component-scan base-package="product.dao"></context:component-scan>
 	<context:component-scan base-package="product.service"></context:component-scan>
-	<context:component-scan base-package="board.service"></context:component-scan>
-	<context:component-scan base-package="board.bean"></context:component-scan>
-	<context:component-scan base-package="board.dao"></context:component-scan>
+
+	<context:component-scan base-package="admin.bean"></context:component-scan>
+	<context:component-scan base-package="admin.dao"></context:component-scan>
+	<context:component-scan base-package="admin.service"></context:component-scan>
+
 	
 <!-- Gmail -->
   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">

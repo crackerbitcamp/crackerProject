@@ -1,150 +1,160 @@
 $(document).ready(function(){
 	$.ajax({
-		type: 'post',
-		url: '/index/board/getBoardList',
-		data: 'pg=' + $('#pg').val(),
-		dataType: 'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			//console.log(JSON.stringify(data));
+		type : 'post',
+		url : '/index/board/getBoardList',
+		data : 'pg=' + $('#pg').val(),
+		dataType : 'json',
+		success : function(data){
 			$.each(data.list, function(index, items){
-				//console.log(index, items.seq, items.subject, items.id, items.logtime, items.hit);
 				
-				$('<tr/>').append( $('<td/>', {
-					
-				}).append( $('<a/>', {
-					href: '#',
-					text: items.subject,
-					/*id: 'subjectA',
-					class: 'subjectA_'+items.seq (고유키) */ 
-					class: 'subjectA subjectA_'+items.seq
-				}))
-			).append($('<td/>', {
+				$('<tr/>').addClass('a')
+					.append($('<td/>',{
+					align: 'center',
+					text: items.seq
+				})).append($('<td/>',{
+					}).append($('<a/>',{
+						href:'#',
+						text: items.subject,
+						class: 'subjectA subjectA_'+items.seq
+					}))
+				).append($('<td/>',{
+					align: 'center',
 					text: items.id
-				})).append($('<td/>', {
-					text: items.hit
-				})).appendTo($('#board1ListTable'));
+				})).append($('<td/>',{
+					align: 'center',
+					text: items.logtime.toLocaleString()
+				})).append($('<td/>',{
+					align: 'center',
+					text: items.hit				
+				})).appendTo($('#boardListTable'));
+
+				$('.subjectA_'+items.seq).click(function(){
+					if(data.memId == null){
+						alert('먼저 로그인하세요')
+					}else{
+						location.href = '/index/board/boardView?seq='
+										+items.seq+'&pg='+$('#pg').val();
+					}
+				});
 				
-			}); //each
-			
+				//답글
+				for(i=0; i<items.lev; i++){
+					$('.subjectA_'+items.seq).before('&emsp;');
+				}
+				if(items.pseq != 0){
+					$('.subjectA_'+items.seq)
+						.before(
+							$(
+								'<img>'
+								,{src:'/index/image/reply.gif'
+								}
+							)
+						)
+				}//if
+				
+				
+			});//each
+
+			//페이징처리
+			$('#boardPagingDiv').html(data.boardPaging.pagingHTML);
 		},
 		error: function(e){
 			console.log(e);
 		}
-	});
+		
+	});//ajax
+	
 });
 
-$(document).ready(function(){
-	$.ajax({
-		type: 'post',
-		url: '/index/board/getBoardList',
-		data: 'pg=' + $('#pg').val(),
-		dataType: 'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			//console.log(JSON.stringify(data));
-			$.each(data.list, function(index, items){
-				//console.log(index, items.seq, items.subject, items.id, items.logtime, items.hit);
+
+//검색 
+
+
+	
+$('#boardSearchBtn').click(function(){
+	if($('#keyword').val()==''){
+		 location.href = "boardList"
+		alert('검색어를 입력하세요');
+	}else{
+		//기존의 <tr> 제거
+		$(document).on('click','#boardSearchBtn',function(){
+			$('.a').remove();
+			//alert('리무브 진입');
+		});
+		//$('#boardListTable tr:gt(0)').remove();
+		
+		$.ajax({
+			type: 'post',
+			url:'/SpringProject/board/boardSearch',
+			data:{	
+				'pg' : $('input[name="pg"]').val(),
+				'searchOption': $('#searchOption').val(),
+				'keyword' : $('#keyword').val()
+			},
+			dataType:'json',
+			success: function(data){
 				
-				$('<tr/>').append( $('<td/>', {
-					
-				}).append( $('<a/>', {
-					href: '#',
-					text: items.subject,
-					/*id: 'subjectA',
-					class: 'subjectA_'+items.seq (고유키) */ 
-					class: 'subjectA subjectA_'+items.seq
-				}))
-			).append($('<td/>', {
-					text: items.id
-				})).append($('<td/>', {
-					text: items.hit
-				})).appendTo($('#board2ListTable'));
+				$.each(data.list, function(index, items){
 				
-			}); //each
-			
-		},
-		error: function(e){
+					$('<tr/>').addClass('a')
+						.append($('<td/>',{
+						align: 'center',
+						text: items.seq
+					})).append($('<td/>',{
+						}).append($('<a/>',{
+							href:'#',
+							text: items.subject,
+							class: 'subjectA subjectA_'+items.seq
+						}))
+					).append($('<td/>',{
+						align: 'center',
+						text: items.id
+					})).append($('<td/>',{
+						align: 'center',
+						text: items.logtime.toLocaleString()
+					})).append($('<td/>',{
+						align: 'center',
+						text: items.hit				
+					})).appendTo($('#boardListTable'));
+					//로그인 여부 비동적
+					$('.subjectA_'+items.seq).click(function(){
+						if(data.memId == null){
+							alert('먼저 로그인하세요')
+						}else{
+							location.href = '/SpringProject/board/boardView?seq='
+											+items.seq+'&pg='+$('#pg').val();
+						}
+					});
+					//답글
+					for(i=0; i<items.lev; i++){
+						$('.subjectA_'+items.seq).before('&emsp;');
+					}
+					if(items.pseq != 0){
+						$('.subjectA_'+items.seq)
+							.before(
+								$(
+									'<img>'
+									,{src:'SpringProject/image/reply.gif'
+									}
+								)
+							)
+					}//if
+				
+				
+				});//each
+				//페이징 처리
+				$('#boardPagingDiv').html(data.boardPaging.pagingHTML);
+			},
+			error: function(e){
 			console.log(e);
-		}
-	});
-});
-
-$(document).ready(function(){
-	$.ajax({
-		type: 'post',
-		url: '/index/board/getBoardList',
-		data: 'pg=' + $('#pg').val(),
-		dataType: 'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			//console.log(JSON.stringify(data));
-			$.each(data.list, function(index, items){
-				//console.log(index, items.seq, items.subject, items.id, items.logtime, items.hit);
-				
-				$('<tr/>').append( $('<td/>', {
-					
-				}).append( $('<a/>', {
-					href: '#',
-					text: items.subject,
-					/*id: 'subjectA',
-					class: 'subjectA_'+items.seq (고유키) */ 
-					class: 'subjectA subjectA_'+items.seq
-				}))
-			).append($('<td/>', {
-					text: items.id
-				})).append($('<td/>', {
-					text: items.hit
-				})).appendTo($('#board3ListTable'));
-				
-			}); //each
+			}
 			
-		},
-		error: function(e){
-			console.log(e);
-		}
-	});
-});
-
-$(document).ready(function(){
-	$.ajax({
-		type: 'post',
-		url: '/index/board/getBoardList',
-		data: 'pg=' + $('#pg').val(),
-		dataType: 'json',
-		success: function(data){
-			//alert(JSON.stringify(data));
-			//console.log(JSON.stringify(data));
-			$.each(data.list, function(index, items){
-				//console.log(index, items.seq, items.subject, items.id, items.logtime, items.hit);
-				
-				$('<tr/>').append( $('<td/>', {
-					
-				}).append( $('<a/>', {
-					href: '#',
-					text: items.subject,
-					/*id: 'subjectA',
-					class: 'subjectA_'+items.seq (고유키) */ 
-					class: 'subjectA subjectA_'+items.seq
-				}))
-			).append($('<td/>', {
-					text: items.id
-				})).append($('<td/>', {
-					text: items.hit
-				})).appendTo($('#board4ListTable'));
-				
-			}); //each
 			
-		},
-		error: function(e){
-			console.log(e);
-		}
-	});
-});
-
-
-
-
+		});//ajax
+	}//else
+	
+	
+});//click
 
 
 

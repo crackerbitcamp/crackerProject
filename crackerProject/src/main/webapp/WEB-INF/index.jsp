@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -180,7 +182,7 @@ width: 70%;
 <div id="wrap">
 
 	<div id="header">
-		<h1 align="center"><img src="./image/home/LOGO2.jpeg" width="50%" height="50%"
+		<h1 align="center"><img src="/index/image/home/LOGO2.jpeg" width="50%" height="50%"
 				 onclick= "location.href='/index'" style="cursor: pointer; margin-top : 50px;"></h1>
 	<br>
 	<hr>
@@ -192,32 +194,32 @@ width: 70%;
 			<jsp:include page="/WEB-INF/main/nav.jsp"></jsp:include>
 			<p class="search">
 				<input type="search" name="keyword" id="keyword" value="" style="width:200px; border:1px solid black; margin-left : 15px;" >
-				<img src="./image/home/search.svg" >
+				<img src="/index/image/home/search.svg" >
 			</p>
 			<h2>BOARD</h2>
 			<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
 		</div>
-		
-	<div id="content">	
-		<div id="textSection">
-			
-			<div id="indexSection1" class="section">
 
-				<jsp:include page="${indexSection1 }" />
+		<div id="content">	
+			<div id="textSection">
+				
+				<div id="indexSection1" class="section">
+	
+					<jsp:include page="${indexSection1 }" />
+				</div>
+				<div id="indexSection2" class="section">
+	
+					<jsp:include page="${indexSection2 }" />
+				</div>
+				<div id="indexSection3" class="section">
+	
+					<jsp:include page="${indexSection3 }" />
+				</div>
+				<div id="indexSection4" class="section">
+	
+					<jsp:include page="${indexSection4 }" />
+				</div>
 			</div>
-			<div id="indexSection2" class="section">
-
-				<jsp:include page="${indexSection2 }" />
-			</div>
-			<div id="indexSection3" class="section">
-
-				<jsp:include page="${indexSection3 }" />
-			</div>
-			<div id="indexSection4" class="section">
-
-				<jsp:include page="${indexSection4 }" />
-			</div>
-		</div>
 			
 
 		
@@ -250,7 +252,7 @@ width: 70%;
   			</div> <!-- imagecard -->		
 	  	</div> <!-- content -->
 	  	
-	</div><!-- "container" -->
+	
 		
 		<div id="rightbar">
 			<div class="card2">
@@ -264,9 +266,6 @@ width: 70%;
 			</div>
 		</div><!-- "rightbar"  -->
 	</div> <!-- container -->
-	
-
-	
 
 </div> <!-- wrap -->
 	<div id="footer">

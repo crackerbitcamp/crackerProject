@@ -5,6 +5,7 @@
 <head>
 <link rel="stylesheet" href="../css/member.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src = "./js/member.js"></script>
 <style type="text/css" >
 </style>
   <meta charset="utf-8">
