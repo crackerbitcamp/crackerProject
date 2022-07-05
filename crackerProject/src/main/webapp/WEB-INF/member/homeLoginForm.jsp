@@ -62,7 +62,7 @@ float: right;
    <div id="login">
       <p class="intro" align="center">CRACKER</p>
       <button type="button" class="btn btn-primary btn-lg btn-block" style="width: 100%;
-    	border: 1px #000000 solid; background: #000000;" >로그인</button>
+    	border: 1px #000000 solid; background: #000000;" onclick="location.href='/index/member/memberLoginForm'">로그인</button>
       <div class="info">
       	<dl class="infotext">
       		<dd id=infologin><a href="#" >아이디&비밀번호 찾기</a></dd>

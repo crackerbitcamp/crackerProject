@@ -3,6 +3,8 @@ package member.controller;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,7 +19,7 @@ import member.bean.MemberDTO;
 import member.service.MemberService;
 
 @Controller
-@RequestMapping(value = "/member",produces="application/text;charset=utf-8" )
+@RequestMapping(value = "/member",produces="application/json;charset=utf-8" )
 
 public class MemberController {
 	@Autowired
@@ -28,6 +30,21 @@ public class MemberController {
 		mav.setViewName("/member/memberLoginForm");
 		return mav;
 	}
+	
+   @PostMapping("/memberLoginCheck")
+   @ResponseBody
+   public MemberDTO memberLoginCheck(@RequestParam Map<String,String>map, HttpSession session) {
+      MemberDTO memberDTO = memberService.memberLoginCheck(map);
+      if(memberDTO != null) {
+	      String email = memberDTO.getMemberemail1()+"@"+memberDTO.getMemberemail2();
+	      session.setAttribute("memId", memberDTO.getMemberid());
+	      session.setAttribute("memName", memberDTO.getMembername());
+	      session.setAttribute("memEmail", email);
+	      session.setAttribute("memNickname", memberDTO.getMembernickname());
+      }
+      return memberDTO;
+   }
+
 	
 	@GetMapping(value = "memberWriteForm")
 	public ModelAndView memberWriteForm() {
@@ -41,7 +58,7 @@ public class MemberController {
 	public String memberWrite(@RequestParam Map<String,String>map) {
 		MemberDTO memberDTO = memberService.memberWrite(map);
 		System.out.println("memberDTO" + memberDTO);
-		return memberDTO.getMembername();
+		return memberDTO.getMembernickname();
 	}
 	@PostMapping("/memberIdCheck")
 	@ResponseBody

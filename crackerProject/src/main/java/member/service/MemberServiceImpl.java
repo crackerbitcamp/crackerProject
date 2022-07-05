@@ -83,7 +83,7 @@ public class MemberServiceImpl implements MemberService{
 		memberDTO.setMembertel1(map.get("membertel1"));
 		memberDTO.setMembertel2(map.get("membertel2"));
 		memberDTO.setMembertel3(map.get("membertel3"));
-		
+		memberDTO.setMembernickname(map.get("membernickname"));
 		memberDAO.memberWrite(memberDTO);
 		 
 		 return memberDTO;

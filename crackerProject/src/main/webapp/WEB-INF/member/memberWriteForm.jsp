@@ -18,7 +18,7 @@
 	<input type = "text" id = "checkId">
 	<input type = "text" id = "checkPwd">
 	<input type = "text" id = "checkPhone">
-	<input type = "email" id = "checkemail">
+	<input type = "email" id = "checkemail" value="fail">
 		<div class="write-input-wrap">	
 			<div class = "write-input-name-wrap">아이디</div>  
 			<input type = "text" placeholder="ID입력" id = "memberWriteId" name = "memberid">
@@ -32,6 +32,10 @@
 			<div class = "write-input-name-wrap">이름</div>  
 			<input type = "text" placeholder="이름 입력 " id = "memberWriteName" name = "membername">
 			<div id ="memberWriteNameDiv" class="memberWrite"></div>
+			
+			<div class = "write-input-name-wrap">닉네임</div>
+			<input type = "text" placeholder="닉네임 입력" id = "memberWriteNickname" name = "membernickname">
+			<div id ="memberWriteNicknameDiv" class="memberWrite"></div>
 			<div class = "write-input-name-wrap">이메일</div>  
 			<input type = "email" placeholder="email입력" id = "memberWriteEmail1" name = "memberemail1">&nbsp;@&nbsp;
 			<input type = "email" id="memberWriteEmail2" placeholder="직접 입력" name ="memberemail2">
