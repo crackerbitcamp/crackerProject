@@ -34,8 +34,8 @@ $(function(){
 				if(!data){
 					swal('로그인 실패','아이디 또는 비밀번호가 틀렸습니다. 다시로그인해주세요.','warning')
 				}else{
-					swal('로그인 완료',""+data.membername+"님 환영 합니다.",'success').then(function(){
-						location.href='/temp'
+					swal('로그인 완료',""+data.membernickname+"님 환영 합니다.",'success').then(function(){
+						location.href='/index'
 					})
 				}
 			},error:function(e){
@@ -43,7 +43,6 @@ $(function(){
 			}
 		});
 	});
-	
 	
 
 	/*회원가입 script*/
@@ -65,6 +64,7 @@ $(function(){
 				data :{'memberid' : $('#memberWriteId').val()},
 				type : 'post',
 				url : '/index/member/memberIdCheck',
+				dataType : 'text',
 				success:function(data){
 					if(data == 'fail'){
 						$('#memberWriteIdDiv').html('아이디가 중복되었습니다. 새로운 아이디를 입력해주세요.');
@@ -138,7 +138,6 @@ $(function(){
 	$('#mail-Check-Btn').click(function(){
 		var email = $('#memberWriteEmail1').val() + '@'+$('#memberWriteEmail2').val();
 		console.log(email);
-		$('#checkemail').attr('value',email);
 		$.ajax({
 			type : 'get',
 			url : '/index/member/emailcheck?email='+email,
@@ -155,14 +154,13 @@ $(function(){
 	// blur -> focus가 벗어나는 경우 발생
 	$('#mail-Check-Num').blur(function () {
 		const inputCode = $(this).val();
-		if(inputCode === code){
+		if(inputCode == code){
 			$('#memberWriteEmailDiv').html('인증번호가 일치합니다.');
 			$('#memberWriteEmailDiv').css('color','green');
 			$('#mail-Check-Num').attr('disabled',true);
 			$('#memberWriteEmail1').attr('readonly',true);
 			$('#memberWriteEmail2').attr('readonly',true);
-			$('#memberWriteEmail2').attr('onFocus', 'this.initialSelect = this.selectedIndex');
-	         $('#memberWriteEmail2').attr('onChange', 'this.selectedIndex = this.initialSelect');
+			$('#checkemail').attr('value','ok');
 		}else{
 			$('#memberWriteEmailDiv').html('인증번호가 불일치 합니다. 다시 확인해주세요!.');
 			$('#memberWriteEmailDiv').css('color','red');
@@ -213,7 +211,7 @@ $(function(){
 			|| !$('#memberWritephone1').val() || !$('#memberWritephone2').val()
 			|| !$('#phoneselect').val() == '-----------선택-----------'
 			|| $('#checkId').val() == 'fail' || $('#checkPwd').val() == 'fail'
-			|| $('#checkPhone').val() == 'fail'){
+			|| $('#checkPhone').val() == 'fail' || $('#checkemail').val() == 'fail'){
 			swal('생성 실패',"내용을 입력해주세요",'warning');
 			//location.reload();
 		}else{
@@ -221,6 +219,7 @@ $(function(){
 				type : 'post',
 				data : $('#memberWriteForm').serialize(),
 				url : '/index/member/memberWrite',
+				dataType : 'text',
 				success:function(data){
 					swal('생성 완료',""+data+"님 환영 합니다.",'success').then(function(){
 						location.href='/index'

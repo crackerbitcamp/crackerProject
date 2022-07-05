@@ -16,7 +16,8 @@ public class MemberDTO {
 	memberemail2,
 	membertel1,
 	membertel2,
-	membertel3;
+	membertel3,
+	membernickname;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
 	Date logtime;
 }

@@ -14,7 +14,8 @@
 								#{membertel1},
 								#{membertel2},
 								#{membertel3},
-								sysdate
+								sysdate,
+								#{membernickname}
 								)
 	</insert>
 	<select id="memberIdCheck" parameterType="String" resultType="String">
