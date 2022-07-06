@@ -59,6 +59,8 @@ public class BoardServiceImpl implements BoardService {
 		sendMap.put("boardPaging", boardPaging);
 		return sendMap;
 	}
+	
+	
 	@Override
 	public BoardPaging getBoardPaging(String pg) {
 		int totalA = boardDAO.getTotalA();
@@ -140,6 +142,103 @@ public class BoardServiceImpl implements BoardService {
 	public void boardDelete(int seq) {
 		boardDAO.boardDelete(seq);
 		
+	}
+	
+	@Override
+	public Map<String, Object> getBoardListbest(String pg) {
+		int endNum = Integer.parseInt(pg)*10;
+		int startNum = endNum - 9;
+		//DB 1페이지당 5개
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("endNum", endNum);
+		map.put("startNum", startNum);
+		List<BoardDTO> list = boardDAO.getAllBoardList(map);
+		//세션
+		String memId= (String)session.getAttribute("memId");
+		//페이징 처리
+		boardPaging = this.getBoardPaging(pg);
+		//새로고침 방지
+		if(session.getAttribute("memId") != null) {
+			session.setAttribute("memHit", 0);
+		}
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("memId",memId);
+		sendMap.put("list", list);
+		sendMap.put("boardPaging", boardPaging);
+		return sendMap;
+	}
+	@Override
+	public Map<String, Object> getBoardListhot(String pg) {
+		int endNum = Integer.parseInt(pg)*10;
+		int startNum = endNum - 9;
+		//DB 1페이지당 5개
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("endNum", endNum);
+		map.put("startNum", startNum);
+		List<BoardDTO> list = boardDAO.getAllBoardList(map);
+		//세션
+		String memId= (String)session.getAttribute("memId");
+		//페이징 처리
+		boardPaging = this.getBoardPaging(pg);
+		//새로고침 방지
+		if(session.getAttribute("memId") != null) {
+			session.setAttribute("memHit", 0);
+		}
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("memId",memId);
+		sendMap.put("list", list);
+		sendMap.put("boardPaging", boardPaging);
+		return sendMap;
+	}
+	@Override
+	public Map<String, Object> getBoardListinfo(String pg) {
+		int endNum = Integer.parseInt(pg)*10;
+		int startNum = endNum - 9;
+		//DB 1페이지당 5개
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("endNum", endNum);
+		map.put("startNum", startNum);
+		List<BoardDTO> list = boardDAO.getAllBoardList(map);
+		//세션
+		String memId= (String)session.getAttribute("memId");
+		//페이징 처리
+		boardPaging = this.getBoardPaging(pg);
+		//새로고침 방지
+		if(session.getAttribute("memId") != null) {
+			session.setAttribute("memHit", 0);
+		}
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("memId",memId);
+		sendMap.put("list", list);
+		sendMap.put("boardPaging", boardPaging);
+		return sendMap;
+	}
+	@Override
+	public Map<String, Object> getBoardListtest(String pg) {
+		int endNum = Integer.parseInt(pg)*10;
+		int startNum = endNum - 9;
+		//DB 1페이지당 5개
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		map.put("endNum", endNum);
+		map.put("startNum", startNum);
+		List<BoardDTO> list = boardDAO.getAllBoardList(map);
+		//세션
+		String memId= (String)session.getAttribute("memId");
+		//페이징 처리
+		boardPaging = this.getBoardPaging(pg);
+		//새로고침 방지
+		if(session.getAttribute("memId") != null) {
+			session.setAttribute("memHit", 0);
+		}
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("memId",memId);
+		sendMap.put("list", list);
+		sendMap.put("boardPaging", boardPaging);
+		return sendMap;
 	}
 	
 

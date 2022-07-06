@@ -66,6 +66,7 @@ public class boardDAOMyBatis implements BoardDAO {
 	}
 
 	@Override
+
 	public void boardUpdate(Map<String, String> map) {
 		sqlSession.update("boardSQL.boardUpdate", map);
 		
@@ -74,7 +75,11 @@ public class boardDAOMyBatis implements BoardDAO {
 	@Override
 	public void boardDelete(int seq) {
 		sqlSession.delete("boardSQL.boardDelete", seq);
-		
+	}
+
+	public List<BoardDTO> getAllBoardList(Map<String, Integer> map) {
+		return sqlSession.selectList("boardSQL.getBoardList",map);
+
 	}
 
 

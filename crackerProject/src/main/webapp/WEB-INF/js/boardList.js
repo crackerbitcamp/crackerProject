@@ -58,7 +58,7 @@ $(document).ready(function(){
 			$('#boardPagingDiv').html(data.boardPaging.pagingHTML);
 		},
 		error: function(e){
-			console.log(e);
+			 console.log(JSON.stringify(error));
 		}
 		
 	});//ajax
@@ -133,6 +133,7 @@ $('#boardSearchBtn').click(function(){
 							.before(
 								$(
 									'<img>'
+
 									,{src:'index/image/reply.gif'
 									}
 								)
@@ -154,19 +155,6 @@ $('#boardSearchBtn').click(function(){
 	
 	
 });//click
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

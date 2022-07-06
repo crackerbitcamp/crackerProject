@@ -11,3 +11,4 @@ membertel3 varchar2(10) not null,
 logtime date,
 membernickname varchar2(30) not null
 );
+
