@@ -7,6 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
+<form id="loginForm">
+
 	<div>
 		<div>
 			<div>아이디 :</div>
@@ -31,13 +33,27 @@
 		
 
 	</div>
+	
+</form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
 $('#adminLoginBtn').click(function(){
 	$.ajax({
 		type: 'post',
 		url:'/index/admin/adminLogin',
-		data: $('#loginForm').serialize(),
+		data:{'adminId' :$('#adminId').val(),
+			'adminPwd' :$('#adminPwd').val()},
+		dataType:"text",
+		success:function(data){
+			alert(data);
+			if(data =='ok'){
+				location.href="/index/admin/adminMain";
+			}else{
+				alert('다시확인해주세요');
+			}
+		},error:function(e){
+			console.log(e);
+		}
 	});//ajax
 	
 });
