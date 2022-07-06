@@ -38,8 +38,8 @@ public class AdminServiceImpl implements AdminService {
 	public Map<String, Object> getadminMemberList(String pg) {
 		
 		//DB - 1페이지당 5개씩
-		int endNum = Integer.parseInt(pg) * 4;
-		int startNum = endNum - 3;
+		int endNum = Integer.parseInt(pg) * 3;
+		int startNum = endNum - 2;
 		System.out.println(startNum+"  /  "+endNum);
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();
