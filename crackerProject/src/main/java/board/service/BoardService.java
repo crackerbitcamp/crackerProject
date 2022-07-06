@@ -3,7 +3,7 @@ package board.service;
 
 import java.util.Map;
 
-
+import board.bean.BoardDTO;
 import board.bean.BoardPaging;
 
 public interface BoardService {
@@ -19,5 +19,21 @@ public interface BoardService {
 	public void boardReply(Map<String, String> map);
 
 	public Map<String, Object> boardSearch(Map<String, String> map);
+
+
+	public BoardDTO getBoard(String seq);
+
+	public void boardUpdate(Map<String, String> map);
+
+	public void boardDelete(int seq);
+
+	public Map<String, Object> getBoardListbest(String pg);
+
+	public Map<String, Object> getBoardListhot(String pg);
+
+	public Map<String, Object> getBoardListinfo(String pg);
+
+	public Map<String, Object> getBoardListtest(String pg);
+
 
 }

@@ -36,7 +36,7 @@ public class AdminDAOMyBatis implements AdminDAO {
 	@Override
 	public List<MemberDTO> getadminMemberList(Map<String, Integer> map) {
 		System.out.println(map.get("adminname"));
-		return sqlSession.selectList("adminSQL.getadminMemberList");
+		return sqlSession.selectList("adminSQL.getadminMemberList", map);
 
 	}
 	

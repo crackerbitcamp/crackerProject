@@ -57,6 +57,7 @@ $(function(){
 		
 	});
 	
+	// 댓글
 	$('#commentBtn').click(function(){
 		$.ajax({
 			url : '/index/board/commentWrite',

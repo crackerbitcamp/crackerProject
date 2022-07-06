@@ -24,6 +24,14 @@ public interface BoardDAO {
 	public int getTotalSearchA(Map<String, String> map);
 
 
+	public void boardUpdate(Map<String, String> map);
+
+	public void boardDelete(int seq);
+
+	public List<BoardDTO> getAllBoardList(Map<String, Integer> map);
+
+
+
 	
 
 }

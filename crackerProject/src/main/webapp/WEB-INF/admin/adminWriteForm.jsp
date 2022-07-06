@@ -22,7 +22,7 @@ table {
 </head>
 <body>
 <h2 align="center">회원가입</h2>
-<form name="writeForm" id="writeForm" >
+<form name="adminWriteForm" id="adminWriteForm" >
 <table border="1" align="center">
 <tr>
 <td width="100" align="center">이름</td>
@@ -40,6 +40,25 @@ table {
 		<div id="adminidDiv"></div>
 		</td>
 </tr>
+
+<tr>
+<td align="center">비밀번호</td>
+<td>
+		<input type="password" name="adminpwd" id="adminpwd" placeholder="비밀번호 입력" >
+		<div id="adminpwdDiv"></div>
+		</td>
+</tr>
+
+<tr>
+<td align="center">재확인</td>
+<td>
+		<input type="password" name="adminrepwd" id="adminrepwd" placeholder="비밀번호 확인">
+		<div id="adminrepwdDiv"></div>
+		</td>
+</tr>
+
+
+
 
 		<tr>
 			<td align="center">이메일</td>
@@ -79,6 +98,8 @@ $('#adminWriteBtn').click(function(){
 	$('#adminnameDiv').html(''); //
 	$('#adminidDiv').html('');
 	$('#adminmail1Div').html('');
+	$('#adminpwdDiv').html('');
+	$('#adminrepwdDiv').html('');
 	
 	if( $('#adminname').val() == ''){
 		$('#adminnameDiv').html('이름을 입력하세요');
@@ -88,6 +109,14 @@ $('#adminWriteBtn').click(function(){
 		$('#adminidDiv').html('아이디를 입력하세요');
 		$('#adminidDiv').css('color','red');
 		$('#adminidDiv').css('font-size','8pt');	
+	}else if ( $('#adminpwd').val() == '') {
+		$('#adminpwdDiv').html('비밀번호를 입력하세요');
+		$('#adminpwdDiv').css('color','red');
+		$('#adminpwdDiv').css('font-size','8pt');	
+	}else if ( $('#adminpwd').val() != $('#adminrepwd').val()) {
+		$('#adminrepwdDiv').html('비밀번호가 맞지 않습니다');
+		$('#adminrepwdDiv').css('color','red');
+		$('#adminrepwdDiv').css('font-size','8pt');	
 	}else if ( $('#adminmail1').val() == '') {
 		$('#adminmail1Div').html('이메일을 입력하세요');
 		$('#adminmail1Div').css('color','red');
@@ -100,7 +129,7 @@ $('#adminWriteBtn').click(function(){
 			url : '/index/admin/adminWrite',
 			data : $('#adminWriteForm').serialize(),
 			success : function() {
-				alert('로그인 성공');
+				alert('회원가입을 축하합니다');
 				location.href = "/index/admin/adminMain";
 			},
 			error : function(err) {
