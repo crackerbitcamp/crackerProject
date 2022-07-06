@@ -25,6 +25,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
 
+import board.bean.BoardDTO;
 import board.service.BoardService;
 
 
@@ -35,7 +36,7 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	
+	// 글작성
 	@GetMapping(value="boardWriteForm")
 	public ModelAndView boardWriteForm() {
 		ModelAndView mav = new ModelAndView();
@@ -46,6 +47,7 @@ public class BoardController {
 		
 		return mav;
 	}
+	// 이미지 업로드
 	@ResponseBody
 	@RequestMapping(value = "imageUpload")
     public void communityImageUpload(HttpServletRequest req, HttpServletResponse resp, MultipartHttpServletRequest multiFile) throws Exception{
@@ -111,7 +113,7 @@ public class BoardController {
 	}
 	
 	
-	//(required = false,defaultValue="1") 안들어올때도 있다 기본은 1
+	// 리스트
 	@GetMapping(value="boardList")
 	public ModelAndView boardList(@RequestParam(required = false,defaultValue="1") String pg) {
 		ModelAndView mav = new ModelAndView();
@@ -130,6 +132,8 @@ public class BoardController {
 		return boardService.getBoardList(pg);
 	}
 	
+
+	// 글보기
 	// 인덱스 getBoardListbest
 	@ResponseBody
 	@PostMapping(value="getBoardListbest")
@@ -159,6 +163,7 @@ public class BoardController {
 	}
 	
 		
+
 	@GetMapping(value="boardView")
 	public ModelAndView boardView(@RequestParam String seq, @RequestParam String pg) {
 		ModelAndView mav = new ModelAndView();
@@ -173,13 +178,39 @@ public class BoardController {
 		return mav;
 	}
 	
-	
 	@PostMapping(value="getBoardView")
 	@ResponseBody
 	public Map<String,Object> getBoardView(@RequestParam String seq) {
 		return boardService.getBoardView(seq);
 	}
 	
+	// 글 업데이트
+	@GetMapping(value="boardUpdateForm")
+	public ModelAndView boardUpdateForm(@RequestParam String seq, @RequestParam String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.addObject("seq",seq);
+		mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		mav.addObject("display", "/WEB-INF/board/boardUpdateForm.jsp");
+		mav.setViewName("/index");
+		return mav;
+	}
+	
+	@PostMapping(value="getBoard")
+	@ResponseBody
+	public BoardDTO getBoard(@RequestParam String seq) {
+		return boardService.getBoard(seq);
+	}
+	
+	@ResponseBody
+	@PostMapping(value="boardUpdate")
+	public void boardUpdate(@RequestParam Map<String,String> map ){
+		boardService.boardUpdate(map);
+		
+	}
+	
+	// 답글
 	@GetMapping(value="boardReplyForm")
 	public ModelAndView boardReplyForm(@RequestParam String seq
 									,@RequestParam String pg) {
@@ -200,6 +231,14 @@ public class BoardController {
 	public void boardReply(@RequestParam Map<String, String> map) {
 		boardService.boardReply(map);
 	}
+	
+	//글 삭제
+	@ResponseBody
+	@PostMapping(value="boardDelete")
+	public void boardDelete(@RequestParam int seq) {
+		boardService.boardDelete(seq);
+	}
+	
 	
 	@ResponseBody
 	@PostMapping(value="boardSearch")

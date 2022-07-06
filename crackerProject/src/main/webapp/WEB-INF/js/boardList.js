@@ -6,7 +6,6 @@ $(document).ready(function(){
 		dataType : 'json',
 		success : function(data){
 			$.each(data.list, function(index, items){
-				
 				$('<tr/>').addClass('a')
 					.append($('<td/>',{
 					align: 'center',
@@ -134,7 +133,8 @@ $('#boardSearchBtn').click(function(){
 							.before(
 								$(
 									'<img>'
-									,{src:'/index/image/reply.gif'
+
+									,{src:'index/image/reply.gif'
 									}
 								)
 							)
