@@ -59,6 +59,8 @@ public class BoardServiceImpl implements BoardService {
 		sendMap.put("boardPaging", boardPaging);
 		return sendMap;
 	}
+	
+	
 	@Override
 	public BoardPaging getBoardPaging(String pg) {
 		int totalA = boardDAO.getTotalA();
