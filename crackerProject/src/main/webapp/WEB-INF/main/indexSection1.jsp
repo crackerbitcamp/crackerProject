@@ -5,38 +5,14 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
-.subjectA:link {color: black; text-decoration: none;}
-.subjectA:visited {color: black; text-decoration: none;}
-.subjectA:hover {color: green; text-decoration: underline;}
-.subjectA:active {color: #d81e5b; text-decoration: none;}
 
-#currentPaging {
-	color: red;
-	text-decoration: underline;
-	cursor: pointer;
-}
-#paging {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
-}
-.subjectA {
-	width: 320px;
-	display:inline-block;
-	white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-}
-</style>
 
 </head>
 <body>
-	
 	<input type="hidden" id="pg" value="${requestScope.pg }">
-	<table id="board1ListTable"  cellspacing="2" cellpadding="6" >
+	<table id="boardListTable1"  cellspacing="2" cellpadding="6" >
 	<tr>
-		<td><a><h4>카테고리제목</h4></a></td>
+		<div><a><h4>카테고리제목</h4></a></div>
 	</tr>
 	
 	<!-- 동적처리 -->
@@ -44,7 +20,7 @@
 	</table>
 	
 	
-
+<script type="text/javascript" src="/index/js/indexList.js"></script>
 	
 </body>
 </html>
