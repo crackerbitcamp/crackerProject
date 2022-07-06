@@ -1,5 +1,6 @@
 package admin.dao;
 
+
 import java.util.List;
 import java.util.Map;
 
@@ -10,16 +11,24 @@ import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.AdminDTO;
 import member.bean.MemberDTO;
-import member.dao.MemberDAO;
+
 
 @Repository
 @Transactional
 public class AdminDAOMyBatis implements AdminDAO {
+	
+
 	@Autowired
-	private SqlSession sqlSession = null;
+	private SqlSession sqlSession;
 
 	@Override
+	public AdminDTO adminLogin(Map<String, String> map) {
+		return sqlSession.selectOne("adminSQL.adminLogin",map);
+		
+	}	
+	@Override
 	public void adminWrite(Map<String, String> map) {
+		
 		sqlSession.insert("adminSQL.adminWrite", map);
 		
 	}

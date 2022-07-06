@@ -22,6 +22,9 @@
 					where rn >= #{startNum} and rn <= #{endNum}
 	]]>
 	</select>
-
+	
+	<select id="adminLogin" parameterType="java.util.Map" resultType="admin">
+		select * from adminmember where adminid=#{adminId} and adminpwd=#{adminPwd}
+	</select>
 
 </mapper>

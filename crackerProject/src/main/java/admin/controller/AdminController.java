@@ -1,5 +1,6 @@
 package admin.controller;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,12 +14,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.service.AdminService;
 
+
 @RequestMapping(value="admin")
 @Controller
 public class AdminController {
-	
 	@Autowired
 	private AdminService adminService;
+	
 
 	@GetMapping(value="/adminMain")
 	public ModelAndView adminMain() {
@@ -42,12 +44,29 @@ public class AdminController {
 		return mav;
 		
 	}
+
+	@GetMapping(value="/adminLoginForm")
+	public ModelAndView adminLoginForm() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("/admin/adminLoginForm");
+		
+		return mav;
+		
+	}
+	@ResponseBody
+	@PostMapping(value="/adminLogin")
+	public String adminLogin(@RequestParam Map<String, String> map) {
+		System.out.println("아이디 = "+map.get("adminId"));
+		return adminService.adminLogin(map);
+	}
 	
 	@PostMapping(value="/adminWrite")
 	@ResponseBody
 	public void adminWrite(@RequestParam Map<String,String> map) {
 		System.out.println(map.get("adminid"));
 		adminService.adminWrite(map);
+
 	}
 	
 	@GetMapping(value="/adminMemberList")

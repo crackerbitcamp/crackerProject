@@ -1,12 +1,16 @@
 package admin.service;
 
+
+import java.util.Map;
+
+
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
 import org.apache.ibatis.session.SqlSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,9 +27,35 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	private AdminDAO adminDAO;
+	
+	@Autowired
+	private AdminDTO adminDTO;
+	@Autowired
+	private HttpSession session;
+	
+
 	@Autowired
 	private MemberDTO memberDTO;
 	
+	@Override
+	public String adminLogin(Map<String, String> map) {
+		
+		adminDTO = adminDAO.adminLogin(map);
+		
+		if(adminDTO != null) {
+			session.setAttribute("sionAdminName",adminDTO.getAdminname());
+			session.setAttribute("sionAdminPwd",adminDTO.getAdminpwd());
+			session.setAttribute("sionAdminId",adminDTO.getAdminid());
+			session.setAttribute("sionAdminEmail",adminDTO.getAdminmail1()
+					+"@"
+					+adminDTO.getAdminmail2());
+			
+			return "ok";
+		}else {
+			return "fail";
+		}
+		
+	}
 
 
 	@Override
@@ -57,12 +87,6 @@ public class AdminServiceImpl implements AdminService {
 		
 		return sendMap;
 	}
-
-	
-
-	
-	
-	
 
 
 }
