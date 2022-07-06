@@ -100,12 +100,13 @@ $('#adminWriteBtn').click(function(){
 			url : '/index/admin/adminWrite',
 			data : $('#adminWriteForm').serialize(),
 			success : function() {
-				alert('회원가입ㅊㅋㅊㅋ');
+				alert('로그인 성공');
 				location.href = "/index/admin/adminMain";
 			},
 			error : function(err) {
 				console.log(err);
-			} 
+			}
+			
 		});
 	}
 });

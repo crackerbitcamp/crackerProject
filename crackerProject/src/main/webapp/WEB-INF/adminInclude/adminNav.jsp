@@ -73,8 +73,9 @@ a {
 <script type="text/javascript">
 	$('#adminWriteFormBtn').click(function(){
 		location.href="/index/admin/adminWriteForm";
-	
-	
+	});
+	$('#adminLoginFormBtn').click(function(){
+		location.href="/index/admin/adminLoginForm";
 	});
 </script>
 </body>
