@@ -65,5 +65,17 @@ public class boardDAOMyBatis implements BoardDAO {
 		return sqlSession.selectOne("boardSQL.getTotalSearchA", map);
 	}
 
+	@Override
+	public void boardUpdate(Map<String, String> map) {
+		sqlSession.update("boardSQL.boardUpdate", map);
+		
+	}
+
+	@Override
+	public void boardDelete(int seq) {
+		sqlSession.delete("boardSQL.boardDelete", seq);
+		
+	}
+
 
 }

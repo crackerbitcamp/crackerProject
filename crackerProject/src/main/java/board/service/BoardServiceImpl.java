@@ -127,6 +127,20 @@ public class BoardServiceImpl implements BoardService {
 		
 		return sendMap;
 	}
+	@Override
+	public BoardDTO getBoard(String seq) {
+		// TODO Auto-generated method stub
+		return boardDAO.getBoardView(seq);
+	}
+	@Override
+	public void boardUpdate(Map<String, String> map) {
+		boardDAO.boardUpdate(map);
+	}
+	@Override
+	public void boardDelete(int seq) {
+		boardDAO.boardDelete(seq);
+		
+	}
 	
 
 }
