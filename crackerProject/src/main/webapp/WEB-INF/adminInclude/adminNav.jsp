@@ -57,7 +57,7 @@ a {
 		<br>
 		<div class="management">
 			<ul>
-				<li><img src="../image/person.svg"><a href="#">사용자 관리</a> </li>
+				<li><img src="../image/person.svg"><a href="/index/admin/adminMemberList">사용자 관리</a> </li>
 				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
 				<li><img src="../image/person.svg"><a href="#">사용자 관리</a></li>
 				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
