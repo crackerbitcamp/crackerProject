@@ -127,11 +127,38 @@ public class BoardController {
 	@ResponseBody
 	@PostMapping(value="getBoardList")
 	public Map<String,Object> getBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
-		
-	
 		return boardService.getBoardList(pg);
 	}
 	
+	// 인덱스 getBoardListbest
+	@ResponseBody
+	@PostMapping(value="getBoardListbest")
+	public Map<String,Object> getAllBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
+		return boardService.getBoardListbest(pg);
+	}
+	
+	//인덱스 getBoardListhot
+	@ResponseBody
+	@PostMapping(value="getBoardListhot")
+	public Map<String,Object> getBoardListhot(@RequestParam(required = false,defaultValue="1" )String pg){
+		return boardService.getBoardListhot(pg);
+	}
+	
+	//인덱스 getBoardListinfo
+	@ResponseBody
+	@PostMapping(value="getBoardListinfo")
+	public Map<String,Object> getBoardListinfo(@RequestParam(required = false,defaultValue="1" )String pg){
+		return boardService.getBoardListinfo(pg);
+	}
+	
+	//인덱스 getBoardListtest
+	@ResponseBody
+	@PostMapping(value="getBoardListtest")
+	public Map<String,Object> getBoardListtest(@RequestParam(required = false,defaultValue="1" )String pg){
+		return boardService.getBoardListtest(pg);
+	}
+	
+		
 	@GetMapping(value="boardView")
 	public ModelAndView boardView(@RequestParam String seq, @RequestParam String pg) {
 		ModelAndView mav = new ModelAndView();

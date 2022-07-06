@@ -15,6 +15,7 @@
 	margin: 0 auto;	/* 위아래여백,좌우여백  */
 }
 #boardListTable tr td {
+	width: auto;
 	padding: 0 auto;
 }
 /* container */
@@ -49,10 +50,8 @@
 
 /* section */
 
-#content{
-}
 
-#textSection {
+#content {
 	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
@@ -62,17 +61,20 @@
 	
 	
 }
+#textSection{
+}
+
+
 
 #indexSection1, #indexSection3 {
     float: left;
-    width: 45%;
     margin-right: 2%;
     margin-bottom : 15px;
 }
 
+
 #indexSection2, #indexSection4 {
     float: left;
-    width: 45%;
     margin-bottom : 15px;
   	
 }
@@ -174,7 +176,28 @@
 #keyword{
 width: 70%;
 }
+.subjectA:link {color: black; text-decoration: none;}
+.subjectA:visited {color: black; text-decoration: none;}
+.subjectA:hover {color: green; text-decoration: underline;}
+.subjectA:active {color: #d81e5b; text-decoration: none;}
 
+#currentPaging {
+	color: red;
+	text-decoration: underline;
+	cursor: pointer;
+}
+#paging {
+	color: black;
+	text-decoration: none;
+	cursor: pointer;
+}
+.subjectA {
+	width: 320px;
+	display:inline-block;
+	white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
 
 </style>
 </head>
@@ -199,7 +222,9 @@ width: 70%;
 			<h2>BOARD</h2>
 			<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
 		</div>
-
+	
+		<input type="button" value="문의하기" onclick="location.href='/index/customer/customerWriteForm'">
+	
 		<div id="content">	
 			<div id="textSection">
 				
@@ -287,7 +312,6 @@ width: 70%;
 		
 	</div> <!-- footer -->
 	
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/index/js/boardList.js"></script>
+
 </body>
 </html>

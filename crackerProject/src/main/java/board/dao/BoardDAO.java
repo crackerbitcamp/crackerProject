@@ -23,6 +23,8 @@ public interface BoardDAO {
 
 	public int getTotalSearchA(Map<String, String> map);
 
+	public List<BoardDTO> getAllBoardList(Map<String, Integer> map);
+
 
 	
 

@@ -27,7 +27,7 @@
 <div class="mainnav">
 	<ul>
 
-		<li><a href="#">BOARD</a></li>
+		<li><a href="#">BOARD</a></li> <!-- 해당 카테고리 이동 경로 직접연결 -->
 		<li><a href="#">BOARD</a></li>
 		<li><a href="#">BOARD</a></li>
 		<li><a href="#">BOARD</a></li>

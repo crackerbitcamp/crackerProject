@@ -59,7 +59,7 @@ $(document).ready(function(){
 			$('#boardPagingDiv').html(data.boardPaging.pagingHTML);
 		},
 		error: function(e){
-			console.log(e);
+			 console.log(JSON.stringify(error));
 		}
 		
 	});//ajax
@@ -85,7 +85,7 @@ $('#boardSearchBtn').click(function(){
 		
 		$.ajax({
 			type: 'post',
-			url:'/SpringProject/board/boardSearch',
+			url:'/index/board/boardSearch',
 			data:{	
 				'pg' : $('input[name="pg"]').val(),
 				'searchOption': $('#searchOption').val(),
@@ -121,7 +121,7 @@ $('#boardSearchBtn').click(function(){
 						if(data.memId == null){
 							alert('먼저 로그인하세요')
 						}else{
-							location.href = '/SpringProject/board/boardView?seq='
+							location.href = '/index/board/boardView?seq='
 											+items.seq+'&pg='+$('#pg').val();
 						}
 					});
@@ -134,7 +134,7 @@ $('#boardSearchBtn').click(function(){
 							.before(
 								$(
 									'<img>'
-									,{src:'SpringProject/image/reply.gif'
+									,{src:'/index/image/reply.gif'
 									}
 								)
 							)
