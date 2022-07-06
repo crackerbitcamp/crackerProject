@@ -20,4 +20,12 @@ public interface BoardService {
 
 	public Map<String, Object> boardSearch(Map<String, String> map);
 
+	public Map<String, Object> getBoardListbest(String pg);
+
+	public Map<String, Object> getBoardListhot(String pg);
+
+	public Map<String, Object> getBoardListinfo(String pg);
+
+	public Map<String, Object> getBoardListtest(String pg);
+
 }

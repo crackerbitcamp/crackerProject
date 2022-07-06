@@ -65,5 +65,10 @@ public class boardDAOMyBatis implements BoardDAO {
 		return sqlSession.selectOne("boardSQL.getTotalSearchA", map);
 	}
 
+	@Override
+	public List<BoardDTO> getAllBoardList(Map<String, Integer> map) {
+		return sqlSession.selectList("boardSQL.getBoardList",map);
+	}
+
 
 }

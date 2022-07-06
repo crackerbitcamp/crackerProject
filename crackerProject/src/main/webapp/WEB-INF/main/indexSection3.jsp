@@ -10,7 +10,7 @@
 </head>
 <body>
 	<input type="hidden" id="pg" value="${requestScope.pg }">
-	<table id="boardListTable3"  cellspacing="2" cellpadding="6" >
+	<table id="infoBoardListTable"  cellspacing="2" cellpadding="6" >
 	<tr>
 		<div><a><h4>카테고리제목3</h4></a></div>
 	</tr>
@@ -18,6 +18,7 @@
 	<!-- 동적처리 -->
 	
 	</table>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/index/js/indexList.js"></script>
 </body>
 </html>

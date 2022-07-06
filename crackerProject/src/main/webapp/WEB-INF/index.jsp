@@ -222,7 +222,9 @@ width: 70%;
 			<h2>BOARD</h2>
 			<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
 		</div>
-
+	
+		<input type="button" value="문의하기" onclick="location.href='/index/customer/customerWriteForm'">
+	
 		<div id="content">	
 			<div id="textSection">
 				
