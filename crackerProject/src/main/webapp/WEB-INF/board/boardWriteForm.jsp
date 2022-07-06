@@ -12,9 +12,10 @@
 <body>
 
 <h4>글쓰기</h4>
+<div id="boaraWrite">
 <form name="boardWriteForm" id="boardWriteForm">
-<input type = "text" name="seq" value="${boardDTO.seq}">
-<input type = "text" name="pg" value="${pg}">
+<input type = "hidden" name="seq" value="${boardDTO.seq}">
+<input type = "hidden" name="pg" value="${pg}">
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
 			<td width="70" align="center">
@@ -37,14 +38,13 @@
 		<tr>
 			<td colspan="2" align ="center">
 			<input type ="button" value="글쓰기" id="boardWriteBtn">
-			<input type ="reset" value="다시작성">
+			<input type ="button" value="다시작성" id="boardWriteReturnBtn">
 			<input type= "button" value = "목록" onclick ="location.href='/index/board/boardList'">
 			</td>
-			
 		</tr>
 	</table>
 </form>
-
+</div>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/board_jQuery.js"></script>
 <script type="text/javascript" src="../js/info/ckeditor/ckeditor.js"></script>

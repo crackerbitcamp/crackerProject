@@ -54,7 +54,7 @@
 </div>
 
 <input type="button" value="목록"
-style = "margin: 5px;" onclick= "location.href='/SpringProject/board/boardList?pg=${pg}'">
+style = "margin: 5px;" onclick= "location.href='/index/board/boardList?pg=${pg}'">
 
 <span id = "boardViewSpan">
 	<input type="button" value="글수정" id="boardUpdateBtn">

@@ -7,6 +7,5 @@
 		<typeAlias type="member.bean.MemberDTO" alias="member"/>
 		<typeAlias type="board.bean.BoardDTO" alias="board"/>
 		<typeAlias type="comment.bean.CommentDTO" alias="comment"/>
-		<typeAlias type="admin.bean.AdminDTO" alias="admin"/>
 	</typeAliases>
 </configuration>
