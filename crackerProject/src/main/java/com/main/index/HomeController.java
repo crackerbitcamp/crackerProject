@@ -23,7 +23,8 @@ public class HomeController {
 	mav.addObject("indexSection2","/WEB-INF/main/indexSection2.jsp");
 	mav.addObject("indexSection3","/WEB-INF/main/indexSection3.jsp");
 	mav.addObject("indexSection4","/WEB-INF/main/indexSection4.jsp");
-	
+	mav.addObject("menu","/WEB-INF/main/menu.jsp");
+	mav.addObject("nav","/WEB-INF/main/nav.jsp");
 	mav.setViewName("index");
 			
 	return mav;

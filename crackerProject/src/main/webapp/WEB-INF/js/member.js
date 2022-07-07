@@ -248,8 +248,8 @@ $(function(){
 	
 	$('#updatetelBtn').click(function(){
 		if($('#findIdCheckDiv').val() == 'ok'){
-			$("#updateTel", opener.document).val($('#findtel').val()); //자식창에서 부모창으로 데이터 넘기기
-			$("#UpdateTelcheck", opener.document).val($('#findtel').val()); //자식창에서 부모창으로 데이터 넘기기
+			$("#updateTel", opener.document).val($('#findphone').val()); //자식창에서 부모창으로 데이터 넘기기
+			$("#UpdateTelcheck", opener.document).val($('#findphone').val()); //자식창에서 부모창으로 데이터 넘기기
 			window.close();
 		}else{
 			swal('전화번호 인증을 먼저해주세요','','warning');
@@ -333,7 +333,7 @@ $(function(){
 		$.ajax({
 	        type:"get",
 	        url:"/index/member/phoneCheck",
-	        data : {'findtel' : $('#findtel').val()},
+	        data : {'findphone' : $('#findphone').val()},
 	        success:function(data){
 	        		code2 = data;
 	        		console.log(data);
@@ -369,9 +369,13 @@ $(function(){
 			  	type:"post",
 		        url:"/index/member/memberfindIdcheck",
 		        data : $('#findidForm').serialize(),
+		        dataType : 'text',
 		        success:function(data){
-		        	alert(data)
-		        	location.href='/index/member/memberFindId?memberid='+data;
+		        	if(data == 'fail'){
+		        		swal('아이디와 휴대폰 번호를 다시 확인후 인증해주세요.',"",'warning')
+		        	}else{
+		        		swal('가입하신 아이디를 찾았습니다.',"가입하신 아이디는 "+data+"입니다.",'success')
+		        	}
 		        },error:function(e){
 		        	console.log(e);
 		        }
@@ -417,9 +421,16 @@ $(function(){
 			data : $('#findpwdForm').serialize(),
 			url : '/index/member/memberFindPwd',
 			type : 'post',
+			dataType : 'text',
 			success:function(data){
-				
-			},error:function(e){
+				if(data == 'fail'){
+					swal('비밀번호 변경에 실패하였습니다.',"",'warning')
+				}else{
+					swal('임시 비밀번호로 변경 되었습니다.','이메일에서 확인해주세요','success').then(function(){
+						window.close();
+					});
+					}
+				},error:function(e){
 				console.log(e);
 			}
 		});
