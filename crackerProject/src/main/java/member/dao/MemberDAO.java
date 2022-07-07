@@ -23,4 +23,6 @@ public interface MemberDAO {
 	public void memberPwdUpdate(Map<String, String> map1);
 
 
+
+
 }

@@ -27,13 +27,12 @@ public class AdminServiceImpl implements AdminService {
 	
 	@Autowired
 	private AdminDAO adminDAO;
-	
 	@Autowired
 	private AdminDTO adminDTO;
 	@Autowired
 	private HttpSession session;
-	
-
+	@Autowired
+	private AdminPaging adminPaging;
 	@Autowired
 	private MemberDTO memberDTO;
 	
@@ -68,8 +67,8 @@ public class AdminServiceImpl implements AdminService {
 	public Map<String, Object> getadminMemberList(String pg) {
 		
 		//DB - 1페이지당 5개씩
-		int endNum = Integer.parseInt(pg) * 3;
-		int startNum = endNum - 2;
+		int endNum = Integer.parseInt(pg) * 5;
+		int startNum = endNum - 4;
 		System.out.println(startNum+"  /  "+endNum);
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();
@@ -79,13 +78,42 @@ public class AdminServiceImpl implements AdminService {
 		
 		List<MemberDTO> list = adminDAO.getadminMemberList(map);
 		System.out.println(list);
-
+		
+		//페이징처리
+		adminPaging = this.adminPaging(pg);
 		
 		Map<String,Object> sendMap = new HashMap<String,Object>();
 		sendMap.put("list", list);
+		sendMap.put("adminPaging", adminPaging);
 
 		
 		return sendMap;
+	}
+
+
+	private AdminPaging adminPaging(String pg) {
+		
+		int totalA = adminDAO.getAdminMemberTotalA(); 
+		
+		adminPaging.setCurrentPage(Integer.parseInt(pg));
+		adminPaging.setPageBlock(3);
+		adminPaging.setPageSize(5);
+		adminPaging.setTotalA(totalA);
+		adminPaging.makePagingHTML();
+		
+		return adminPaging;
+		
+	}
+
+
+	@Override
+	public void adminMemberDelete(String[] check) {
+		Map<String, String[]> map = new HashMap<String, String[]>();
+		
+			map.put("check", check);
+		
+			adminDAO.adminMemberDelete(map);
+		
 	}
 
 
