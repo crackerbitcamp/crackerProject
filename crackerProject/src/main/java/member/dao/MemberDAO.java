@@ -21,4 +21,6 @@ public interface MemberDAO {
 	public MemberDTO memberFindPwd(Map<String, String> map);
 
 
+
+
 }
