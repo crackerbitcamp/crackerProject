@@ -16,4 +16,9 @@ public interface MemberDAO {
 
 	public MemberDTO getMember(String memberid);
 
+	public void memberUpdate(MemberDTO memberDTO);
+
+	public MemberDTO memberFindPwd(Map<String, String> map);
+
+
 }

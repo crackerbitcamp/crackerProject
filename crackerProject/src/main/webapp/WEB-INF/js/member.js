@@ -2,10 +2,23 @@
 function idinfo(){
 		url = "/index/member/memberFindIdForm";
 		name = '';
-		specs = "width=550,height=128,top=200,left=100";
+		specs = "width=550,height=600,top=200,left=100";
 		window.open(url,name,specs);
 }
-	
+function telUpdateForm(){
+	url = "/index/member/telUpdateForm";
+	name = '';
+	specs = "width=550,height=128,top=200,left=100";
+	window.open(url,name,specs);
+}
+
+function emailUpdateForm(){
+	url = "/index/member/emailUpdateForm";
+	name = "";
+	specs = "width=550, height=128, top=200, left=100";
+	window.open(url,name,specs);
+}
+
 $(function(){
 		$('#memberLoginId').focusout(function(){
 			if(!$('#memberLoginId').val()){
@@ -44,7 +57,23 @@ $(function(){
 		});
 	});
 	
-
+	/*회원가입 수정 script*/
+	$('#pwdcheckBtn').click(function(){
+		$.ajax({
+			data : $('#memberUpdateFormPasswordCheckForm').serialize(),
+			url : '/index/member/memberUpdatePasswordCheck',
+			type : 'post',
+			success:function(data){
+				if(!data){
+					swal('비밀번호가 틀렸습니다.','비밀번호가 틀렸습니다. 다시입력해주세요.','warning');
+				}else{
+					location.href = '/index/member/memberUpdateForm'
+				}
+			},error:function(e){
+				console.log(e);
+			}
+		});
+	});
 	/*회원가입 script*/
 
     var getCheck= RegExp(/^[a-zA-Z0-9]{4,12}$/);
@@ -142,13 +171,50 @@ $(function(){
 			type : 'get',
 			url : '/index/member/emailcheck?email='+email,
 			success:function(data){
-				alert(data);
 				$('#mail-Check-Num').attr('disabled',false);
 				code =data;
 			},error:function(e){
 				console.log(e);
 			}
 		});
+	});
+	
+	var updateEmailnumber;
+	$('#updateEmailBtn').click(function(){
+		var email = $('#updatememberemail1').val() + '@' + $('#updatememberemail2').val();
+		console.log(email);
+		$.ajax({
+			type : 'get',
+			url : '/index/member/updateEmailCheck?email='+email,
+			success:function(data){
+				alert(data);
+				$('#updateEmailcheck').attr('disabled',false);
+				updateEmailnumber = data;
+				$('#emailUpdateSet').attr('value',email);
+				$('#email1').attr('value',$('#updatememberemail1').val());
+				$('#email2').attr('value',$('#updatememberemail2').val());
+				console.log(updateEmailnumber);
+			},error:function(e){
+				console.log(e);
+			}
+		});
+	});
+	
+	$('#updateEmailcheck').blur(function(){
+		const inputCode = $(this).val();
+		if(inputCode == updateEmailnumber){
+			$('#updateEmailDiv').html('인증번호가 일치합니다.');
+			$('#updateEmailDiv').css('color','green');
+			$('#updateEmailDiv').css('margin-left','72px');
+			$('#updateEmailDiv').css('margin-top','10px');
+			$('#updateEmailcheck').attr('disabled',true);
+			$('#emailUpdatecheck').attr('value','ok');
+		}else{
+			$('#updateEmailDiv').html('인증번호가 일치하지 않습니다.');
+			$('#updateEmailDiv').css('color','red');
+			$('#updateEmailDiv').css('margin-left','72px');
+			$('#updateEmailDiv').css('margin-top','10px');
+		}
 	});
 	
 	// blur -> focus가 벗어나는 경우 발생
@@ -164,6 +230,29 @@ $(function(){
 		}else{
 			$('#memberWriteEmailDiv').html('인증번호가 불일치 합니다. 다시 확인해주세요!.');
 			$('#memberWriteEmailDiv').css('color','red');
+		}
+	});
+	
+	$('#emailupdate_btn').click(function(){
+		alert($('#emailUpdateSet').val())
+		if($('#emailUpdatecheck').val() == 'ok'){
+			alert(updateEmail);
+			$("#updateEmail1", opener.document).val($('#emailUpdateSet').val()); //자식창에서 부모창으로 데이터 넘기기
+			$("#memberemail1", opener.document).val($('#email1').val()); //자식창에서 부모창으로 데이터 넘기기
+			$("#memberemail2", opener.document).val($('#email2').val()); //자식창에서 부모창으로 데이터 넘기기
+			window.close();
+		}else{
+			swal('이메일 인증을 먼저해주세요','','warning');
+		}
+	});
+	
+	$('#updatetelBtn').click(function(){
+		if($('#findIdCheckDiv').val() == 'ok'){
+			$("#updateTel", opener.document).val($('#findtel').val()); //자식창에서 부모창으로 데이터 넘기기
+			$("#UpdateTelcheck", opener.document).val($('#findtel').val()); //자식창에서 부모창으로 데이터 넘기기
+			window.close();
+		}else{
+			swal('전화번호 인증을 먼저해주세요','','warning');
 		}
 	});
 	
@@ -246,11 +335,11 @@ $(function(){
 	        url:"/index/member/phoneCheck",
 	        data : {'findtel' : $('#findtel').val()},
 	        success:function(data){
+	        		code2 = data;
 	        		console.log(data);
 	        		$("#phonecheck").attr("disabled",false);
 	        		$(".successPhoneChk").text("인증번호를 입력한 뒤 본인인증을 눌러주십시오.");
 	        		$(".successPhoneChk").css("color","green");
-	        		code2 = data;
 	        	}
 	    });
 	});
@@ -258,14 +347,18 @@ $(function(){
 	// blur -> focus가 벗어나는 경우 발생
 	$('#phonecheck').blur(function () {
 		const inputCode = $(this).val();
-		if(inputCode === code2){
+		if(inputCode == code2){
 			$('#findIdCheckDiv').attr('value','ok');
 			$('#phonecheckDiv').html('인증번호가 일치합니다.');
 			$('#phonecheckDiv').css('color','green');
+			$('#phonecheckDiv').css('margin-left','72px');
+			$('#phonecheckDiv').css('margin-top','10px');
 			$('#phonecheck').attr('disabled',true);
 		}else{
 			$('#phonecheckDiv').html('인증번호가 불일치 합니다. 다시 확인해주세요!.');
 			$('#phonecheckDiv').css('color','red');
+			$('#phonecheckDiv').css('margin-left','72px');
+			$('#phonecheckDiv').css('margin-top','10px');
 			$('#findIdCheckDiv').attr('value','fail');
 		}
 	});
@@ -287,4 +380,49 @@ $(function(){
 			swal('휴대폰 인증을 먼저해주세요.',"",'warning')
 		}
 	});
+	
+	$('#membercancle_btn').click(function(){
+		location.href='/index';
+	});
+	
+	$('#memberUpdate_btn').click(function(){
+		if(!$('#updatePwd').val()){
+			swal('새비밀번호를 입력해주세요.',"",'warning')
+		}
+		
+		if($('#originalPwd').val() != $('#originalPwdWirte').val()){
+			swal('현재 비밀번호가 틀립니다. 다시입력해주세요',"",'warning')
+		}else if($('#updatePwd').val() != $('#reupdatePwd').val()){
+			swal('새비밀번호 확인이 틀립니다. 다시입력해주세요.',"",'warning')
+		}else if(!$('#updateNickName').val()){
+			swal('닉네임 공백을 사용하실수 없습니다.',"",'warning')
+		}else{
+			$.ajax({
+				data : $('#memberUpdateForm').serialize(),
+				url : '/index/member/memberUpdate',
+				type : 'post',
+				success:function(){
+					swal('수정이 완료되었습니다.',"",'success').then(function(){
+						location.href='/index'
+					})
+				},error:function(e){
+					console.log(e);
+				}
+			});
+		}
+	});
+	
+	$('#findEmailBtn').click(function(){
+		$.ajax({
+			data : $('#findpwdForm').serialize(),
+			url : '/index/member/memberFindPwd',
+			type : 'post',
+			success:function(data){
+				
+			},error:function(e){
+				console.log(e);
+			}
+		});
+	});
+	
 }); 

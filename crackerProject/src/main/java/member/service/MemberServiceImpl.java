@@ -109,21 +109,21 @@ public class MemberServiceImpl implements MemberService{
 
 	@Override
 	public String phoneCheck(String findtel) {
-		String api_key = "NCSFYVT2OWOGPS5N";
-	    String api_secret = "HGOBLW60MTMXGQ4O5QB7IQG2JJFKGZFG";
-	    makeRandomNumber();
-	    Message coolsms = new Message(api_key, api_secret);
-	    
-	    HashMap<String, String> params = new HashMap<String, String>();
-	    params.put("to", findtel);    // 수신전화번호
-	    params.put("from", "01035181404");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
-	    params.put("type", "SMS");
-	    params.put("text", "[cracker] 인증번호는" + "["+authNumber+"]" + "입니다."); // 문자 내용 입력
-	    try {
-			coolsms.send(params);
-		} catch (CoolsmsException e) {
-			e.printStackTrace();
-		}
+		makeRandomNumber();
+//		String api_key = "NCSFYVT2OWOGPS5N";
+//	    String api_secret = "HGOBLW60MTMXGQ4O5QB7IQG2JJFKGZFG";
+//	    Message coolsms = new Message(api_key, api_secret);
+//	    
+//	    HashMap<String, String> params = new HashMap<String, String>();
+//	    params.put("to", findtel);    // 수신전화번호
+//	    params.put("from", "01035181404");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
+//	    params.put("type", "SMS");
+//	    params.put("text", "[cracker] 인증번호는" + "["+authNumber+"]" + "입니다."); // 문자 내용 입력
+//	    try {
+//			coolsms.send(params);
+//		} catch (CoolsmsException e) {
+//			e.printStackTrace();
+//		}
 		return Integer.toString(authNumber);
 	}
 
@@ -149,5 +149,69 @@ public class MemberServiceImpl implements MemberService{
 	public MemberDTO getMember(String memberid) {
 		MemberDTO memberDTO = memberDAO.getMember(memberid);
 		return memberDTO;
+	}
+
+
+	@Override
+	public String updateEmailCheck(String email) {
+		makeRandomNumber();
+		String setFrom = ".com"; // email-config에 설정한 자신의 이메일 주소를 입력 
+		String toMail = email;
+		String title = "이메일 변경 이메일입니다."; // 이메일 제목 
+		String content = 
+				"홈페이지를 방문해주셔서 감사합니다." + 	//html 형식으로 작성 ! 
+                "<br><br>" + 
+			    "인증 번호는 " + authNumber + "입니다." + 
+			    "<br>" + 
+			    "해당 인증번호를 인증번호 확인란에 기입하여 주세요."; //이메일 내용 삽입
+		mailSend(setFrom, toMail, title, content);
+		return Integer.toString(authNumber);
+	}
+
+
+	@Override
+	public void memberUpdate(Map<String, String> map) {
+		String tel = map.get("membertel");
+		String memberid = map.get("memberid");
+		String membername = map.get("membername");
+		String memberemail1 = map.get("memberemail1");
+		String memberemail2 = map.get("memberemail2");
+		String membertel1 = tel.substring(0, 3);
+		String membertel2 = tel.substring(3,7);
+		String membertel3 = tel.substring(7,11);
+		String membernickname = map.get("membernickname");
+		String memberpwd = map.get("memberpwd");
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO.setMemberid(memberid);
+		memberDTO.setMembername(membername);
+		memberDTO.setMemberemail1(memberemail1);
+		memberDTO.setMemberemail2(memberemail2);
+		memberDTO.setMembertel1(membertel1);
+		memberDTO.setMembertel2(membertel2);
+		memberDTO.setMembertel3(membertel3);
+		memberDTO.setMembernickname(membernickname);
+		memberDTO.setMemberpwd(memberpwd);
+		memberDAO.memberUpdate(memberDTO);
+	}
+
+
+	@Override
+	public String memberFindPwd(Map<String, String> map) {
+		MemberDTO memberDTO = memberDAO.memberFindPwd(map);
+		String email = map.get("memberemail1")+map.get("memberemail2");
+		if(memberDTO != null) {
+			makeRandomNumber();
+			String setFrom = ".com"; // email-config에 설정한 자신의 이메일 주소를 입력 
+			String toMail = email;
+			String title = "비밀번호 변경 이메일입니다."; // 이메일 제목 
+			String content = 
+					"홈페이지를 방문해주셔서 감사합니다." + 	//html 형식으로 작성 ! 
+	                "<br><br>" + 
+				    "해당 비밀번호로 로그인 해주세요 비밀번호는 " + authNumber + "입니다." + 
+				    "<br>" + 
+				    "해당 인증번호를 인증번호 확인란에 기입하여 주세요."; //이메일 내용 삽입
+			mailSend(setFrom, toMail, title, content);
+		}
+		return Integer.toString(authNumber);
 	}
 }
