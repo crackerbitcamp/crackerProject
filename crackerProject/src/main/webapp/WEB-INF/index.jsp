@@ -227,7 +227,7 @@ width: 70%;
 	
 		<div id="content">	
 			<c:if test="${empty display}">
-			<a href="/index/board/boarcWriteForm">글쓰기</a>
+			<a href="/index/board/boardWriteForm">글쓰기</a>
 			<div id="textSection">
 				
 				<div id="indexSection1" class="section">
