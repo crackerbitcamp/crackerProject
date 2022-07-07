@@ -55,14 +55,37 @@ public class MemberController {
    
    //회원정보 수정
    @GetMapping("/memberUpdatePasswordCheckForm")
+   public ModelAndView memberUpdatePasswordCheckForm(HttpSession session) {
+	   String memberid = (String)session.getAttribute("memId");
+	   MemberDTO memberDTO = memberService.getMember(memberid);
+	   ModelAndView mav = new ModelAndView();
+	   mav.addObject("memberDTO",memberDTO);
+	   mav.addObject("menu","/WEB-INF/main/menu.jsp");
+	   mav.addObject("nav","/WEB-INF/main/nav.jsp");
+	   mav.addObject("display","/WEB-INF/member/memberUpdatePasswordCheckForm.jsp");
+	   mav.setViewName("/index");
+	   return mav;
+   }
+   
+   @PostMapping("/memberUpdatePasswordCheck")
+   @ResponseBody
+   public MemberDTO memberUpdatePasswordCheck(@RequestParam Map<String,String>map, HttpSession session) {
+	   String memberid = (String)session.getAttribute("memId");
+	   map.put("memberid", memberid);
+	   MemberDTO memberDTO = memberService.memberLoginCheck(map);
+	   return memberDTO;
+   }
+   
+   @GetMapping("/memberUpdateForm")
    public ModelAndView memberUpdateForm(HttpSession session) {
 	   String memberid = (String)session.getAttribute("memId");
 	   MemberDTO memberDTO = memberService.getMember(memberid);
 	   ModelAndView mav = new ModelAndView();
-	   Map<String,Object>map = new HashMap<String,Object>();
-	   map.put("memberDTO", memberDTO);
-	   mav.addObject("memberDTO",map.get("memberDTO"));
-	   mav.setViewName("/member/memberUpdatePasswordCheckForm");
+	   mav.addObject("memberDTO",memberDTO);
+	   mav.addObject("menu","/WEB-INF/main/menu.jsp");
+	   mav.addObject("nav","/WEB-INF/main/nav.jsp");
+	   mav.addObject("display","/WEB-INF/member/memberUpdateForm.jsp");
+	   mav.setViewName("/index");
 	   return mav;
    }
    
@@ -116,6 +139,38 @@ public class MemberController {
 	public String memberFindId() {
 		
 		return "/member/memberFindId";
+	}
+	
+	@GetMapping("/emailUpdateForm")
+	public ModelAndView emailUpdateForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/emailUpdateForm");
+		return mav;
+	}
+	
+	//update Email
+	@GetMapping("/updateEmailCheck")
+	@ResponseBody
+	public String updateEmailCheck(@RequestParam String email) {
+		return memberService.updateEmailCheck(email);
+	}
+	@GetMapping("/telUpdateForm")
+	public ModelAndView telUpdateForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("member/telUpdateForm");
+		return mav;
+	}
+	@PostMapping("/memberUpdate")
+	@ResponseBody
+	public void memberUpdate(@RequestParam Map<String,String>map, HttpSession session) {
+		memberService.memberUpdate(map);
+		session.invalidate();
+	}
+	@PostMapping("/memberFindPwd")
+	@ResponseBody
+	public String memberFindPwd(@RequestParam Map<String,String>map) {
+		System.out.println("map에 들어오나????" + map);
+		return memberService.memberFindPwd(map);
 	}
 }
 

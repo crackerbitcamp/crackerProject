@@ -98,7 +98,6 @@ body{
 .login-stay-sign-in{
 	width: 465px;
 	height: 52px;
-	
 	display: flex;
 	font-size: 15px;
 	color: #4e4e4e;
@@ -291,7 +290,15 @@ footer .copyright-wrap span{
 	height:30px;
 	box-shadow: 1px 1px 3px 1px #dadce0;
 }
-
+.input_txt input[type="email"]{
+	border: none;
+	width:150px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:30px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+	margin-left: 20px;
+}
 .btn_ct{
 	width: 97px;
 	height:30px;
@@ -309,4 +316,39 @@ footer .copyright-wrap span{
 	height: 33px;
 	margin: 10px;
 	margin-left: 70px;
+}
+
+#memberUpdateFormDiv{
+	margin-left:200px;
+	text-align:center;
+	height:200px; 
+	width:500px;
+	border:  1px solid;
+}
+
+#section{
+	min-height: 900px;
+}
+
+.updateForm-input{
+	width: 570px;
+	height: 52px;
+	display: flex;
+	font-size: 15px;
+	color: #4e4e4e;
+	align-items: center;
+	justify-content: flex-start;
+	border-bottom: solid 1px var(--border-gray-color);
+	padding: 32px;
+}
+
+#updateEmailDiv{
+	margin-left: 72px;
+	margin-top: 10px;
+}
+.updateinput{
+	background: var(--body-background-color);
+	border: none;
+	font-size: 24px;
+	margin-left: 5px;
 }

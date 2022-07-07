@@ -52,7 +52,7 @@ float: right;
 
 }
 #member:after{
-	url: (./image/person.svg)
+	url: (/index/image/person.svg)
 }
 </style>
 </head>

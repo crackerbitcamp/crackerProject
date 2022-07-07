@@ -31,5 +31,11 @@
 	<select id="getMember" parameterType="String" resultType="member">
 		select * from crackermember where memberid = #{memberid}
 	</select>
-	
+	<update id="memberUpdate" parameterType="member">
+		update crackermember set memberpwd = #{memberpwd}, memberemail1 = #{memberemail1}, memberemail2 = #{memberemail2}, membertel1 = #{membertel1}, membertel2 = #{membertel2}, membertel3 = #{membertel3}, membernickname = #{membernickname}
+		where memberid = #{memberid}
+	</update>
+	<select id="memberFindPwd" parameterType="java.util.Map" resultType="member">
+		select  * from crackermember where memberid = #{memberid} and memberemail1 = #{memberemail1} and memberemail2 = #{memberemail2}
+	</select>
 </mapper>
