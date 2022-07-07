@@ -48,9 +48,17 @@ public class MemberController {
    }
    
    @GetMapping("/memberLogout")
-   public String memberlogout(HttpSession session) {
+   public ModelAndView memberlogout(HttpSession session) {
+	   ModelAndView mav = new ModelAndView();
 	   session.invalidate();
-	   return "/index";
+	   mav.addObject("indexSection1","/WEB-INF/main/indexSection1.jsp");
+		mav.addObject("indexSection2","/WEB-INF/main/indexSection2.jsp");
+		mav.addObject("indexSection3","/WEB-INF/main/indexSection3.jsp");
+		mav.addObject("indexSection4","/WEB-INF/main/indexSection4.jsp");
+		mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		mav.setViewName("index");
+	   return mav;
    }
    
    //회원정보 수정
@@ -125,15 +133,22 @@ public class MemberController {
 	
 	@GetMapping("/phoneCheck")
 	@ResponseBody
-	public String phoneCheck(@RequestParam String findtel) {
-		return memberService.phoneCheck(findtel);
+	public String phoneCheck(@RequestParam String findphone) {
+		return memberService.phoneCheck(findphone);
 	}
 	
 	@PostMapping("/memberfindIdcheck")
 	@ResponseBody
 	public String memberfindIdcheck(@RequestParam Map<String,String>map) {
-		 MemberDTO memberDTO  = memberService.memberfindIdcheck(map);
-		 return memberDTO.getMemberid();
+		 MemberDTO memberDTO = memberService.memberfindIdcheck(map);
+		 System.out.println(memberDTO);
+		 String check;
+		 if(memberDTO == null) {
+			 check = "fail";
+		 }else {
+			 check = memberDTO.getMemberid();
+		 }
+		 return check;
 	}
 	@GetMapping("/memberFindId")
 	public String memberFindId() {
@@ -169,7 +184,6 @@ public class MemberController {
 	@PostMapping("/memberFindPwd")
 	@ResponseBody
 	public String memberFindPwd(@RequestParam Map<String,String>map) {
-		System.out.println("map에 들어오나????" + map);
 		return memberService.memberFindPwd(map);
 	}
 }

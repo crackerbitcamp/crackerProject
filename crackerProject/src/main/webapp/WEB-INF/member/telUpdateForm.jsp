@@ -22,7 +22,7 @@
 				<select style="width: 61px;">
 					<option>+82</option>
 				</select>
-				<input type = "text" class = "input_txt" placeholder="휴대전화번호" id="findtel" name = "findtel">
+				<input type = "text" class = "input_txt" placeholder="휴대전화번호" id="findphone" name = "findtel" maxlength="11">
 				<button class="btn_ct" id="findIdBtn" type="button">인증번호받기</button><br>
 				<input type = "text" id="phonecheck" name="phonecheck" disabled class="input_txt" style="width:217px; margin-left: 75px;" placeholder="인증번호 6자리 숫자 입력" maxlength="6">
 				<span class="point successPhoneChk">휴대폰 번호 입력후 인증번호 보내기를 해주십시오.</span>
