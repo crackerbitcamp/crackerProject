@@ -1,7 +1,8 @@
-고객센터  customer table
+문의하기 
+
 create table customer(
 seq number not null,
-id varchar2(30) primary key, --기본키, unique, not null, 무결성 제약 조건
+name varchar2(30) not null,
 email varchar2(40) not null,
 subject varchar2(255) not null,
 content varchar2(4000) not null,
