@@ -226,6 +226,8 @@ width: 70%;
 		<input type="button" value="문의하기" onclick="location.href='/index/customer/customerWriteForm'">
 	
 		<div id="content">	
+			<c:if test="${empty display}">
+			<a href="/index/board/boarcWriteForm">글쓰기</a>
 			<div id="textSection">
 				
 				<div id="indexSection1" class="section">
@@ -274,7 +276,11 @@ width: 70%;
  				 	</div>
 				</div>
    				   
-  			</div> <!-- imagecard -->		
+  			</div> <!-- imagecard -->	
+  			</c:if>	
+  			<c:if test="${not empty display}">
+				<jsp:include page="${display}"/>
+			</c:if>
 	  	</div> <!-- content -->
 	  	
 	
