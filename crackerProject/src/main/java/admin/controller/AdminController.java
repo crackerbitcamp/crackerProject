@@ -85,4 +85,12 @@ public class AdminController {
 		return adminService.getadminMemberList(pg);
 		
 	}
+	
+	@GetMapping(value="/adminMemberDelete")
+	public ModelAndView adminMemberDelete(@RequestParam String[] check) {
+		System.out.println(check);
+		adminService.adminMemberDelete(check);
+		
+		return new ModelAndView("redirect:/admin/adminMemberList");
+	}
 }
