@@ -1,15 +1,25 @@
 package admin.controller;
 
+import java.util.HashMap;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
+import admin.service.AdminService;
+
 
 @RequestMapping(value="admin")
 @Controller
 public class AdminController {
+	@Autowired
+	private AdminService adminService;
 	
 
 	@GetMapping(value="/adminMain")
@@ -34,8 +44,45 @@ public class AdminController {
 		return mav;
 		
 	}
-	
 
+	@GetMapping(value="/adminLoginForm")
+	public ModelAndView adminLoginForm() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.setViewName("/admin/adminLoginForm");
+		
+		return mav;
+		
+	}
+	@ResponseBody
+	@PostMapping(value="/adminLogin")
+	public String adminLogin(@RequestParam Map<String, String> map) {
+		System.out.println("아이디 = "+map.get("adminId"));
+		return adminService.adminLogin(map);
+	}
 	
+	@PostMapping(value="/adminWrite")
+	@ResponseBody
+	public void adminWrite(@RequestParam Map<String,String> map) {
+		System.out.println(map.get("adminid"));
+		adminService.adminWrite(map);
+
+	}
 	
+	@GetMapping(value="/adminMemberList")
+	public ModelAndView adminMemberList(@RequestParam(required = false, defaultValue = "1") String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.setViewName("/admin/adminMemberList");
+		
+		return mav;
+	}
+	
+	@PostMapping(value="/getadminMemberList")
+	@ResponseBody
+	public Map<String,Object> getadminMemberList(@RequestParam(required = false, defaultValue = "1") String pg) {
+		
+		return adminService.getadminMemberList(pg);
+		
+	}
 }

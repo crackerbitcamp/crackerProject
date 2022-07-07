@@ -76,7 +76,7 @@ div {
 	</div>
 
 	<div id="header"></div>
-
+	
 	<div id="container">
 		<c:if test="${empty display}">
 			<div id="sectionHeader"></div>

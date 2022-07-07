@@ -1,3 +1,7 @@
+$('#boardWriteReturnBtn').click(function() {
+	location.reload();
+});
+
 $('#boardWriteBtn').click(function(){
 	var content = CKEDITOR.instances.content.getData();
 	
