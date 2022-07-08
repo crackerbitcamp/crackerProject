@@ -1,4 +1,4 @@
-	/*아이디 찾기*/
+/*아이디 찾기*/
 function idinfo(){
 		url = "/index/member/memberFindIdForm";
 		name = '';

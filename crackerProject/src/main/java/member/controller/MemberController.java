@@ -1,19 +1,23 @@
 package member.controller;
 
-import java.util.HashMap;
+import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.apache.maven.model.Model;
+import org.apache.velocity.exception.ParseErrorException;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
+
 
 import member.bean.MemberDTO;
 import member.service.MemberService;
@@ -21,10 +25,9 @@ import member.service.MemberService;
 @Controller
 @RequestMapping(value = "/member",produces="application/json;charset=utf-8" )
 
-public class MemberController {
+public class MemberController{
 	@Autowired
 	private MemberService memberService;
-	
 	//로그인
 	@GetMapping("/memberLoginForm")
 	public ModelAndView memberLoginForm() {
@@ -51,10 +54,8 @@ public class MemberController {
    public ModelAndView memberlogout(HttpSession session) {
 	   ModelAndView mav = new ModelAndView();
 	   session.invalidate();
-	   mav.addObject("indexSection1","/WEB-INF/main/indexSection1.jsp");
-		mav.addObject("indexSection2","/WEB-INF/main/indexSection2.jsp");
-		mav.addObject("indexSection3","/WEB-INF/main/indexSection3.jsp");
-		mav.addObject("indexSection4","/WEB-INF/main/indexSection4.jsp");
+		mav.addObject("indexSection1","/WEB-INF/main/indexSection1.jsp");
+		mav.addObject("indexSection5","/WEB-INF/main/indexSection5.jsp");
 		mav.addObject("menu","/WEB-INF/main/menu.jsp");
 		mav.addObject("nav","/WEB-INF/main/nav.jsp");
 		mav.setViewName("index");
@@ -185,6 +186,21 @@ public class MemberController {
 	@ResponseBody
 	public String memberFindPwd(@RequestParam Map<String,String>map) {
 		return memberService.memberFindPwd(map);
+	}
+	
+	@GetMapping("/naverlogincallback")
+	public String naverlogincallback() {
+		return "/member/naverlogincallback";
+	}
+	@PostMapping("/naverdatacall")
+	@ResponseBody
+	public void naverdatacall(@RequestParam Map<String,String>map, HttpSession session) {
+		System.out.println("map!"+map);
+		session.setAttribute("naverName", map.get("naverName"));
+		session.setAttribute("naverTel", map.get("naverTel"));
+		session.setAttribute("naverEmail", map.get("naverEmail"));
+		session.setAttribute("naverNickName", map.get("naverNickName"));
+		
 	}
 }
 
