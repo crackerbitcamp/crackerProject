@@ -28,11 +28,57 @@ table {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+#adminMemberList{
+	margin-left : 20.36%;
+}
+
+#adminMemberList input {
+	margin-top : 30px;
+	margin-right : 45px;
+}
+
+#adminMemberList a {
+	text-decoration-line: none;
+	color : black;
+}
+
+#adminMemberList td {
+	font-size : 1.2em;
+}
+
+#memberid {
+	max-width : 214px;
+	width : 214px;
+	text-indent: 1.0em;
+}
+
+#memberemail {
+	max-width : 314px;
+	width : 314px;
+	text-indent: 3.5em;
+}
+
+#membertel {
+	max-width : 214px;
+	width : 214px;
+}
+
+#membername, #membernickname {
+	max-width : 114px;
+	width : 114px;
+	text-indent: 1.5em;
+
+}
+
+
+
 </style>
 
 </head>
 <body>
-<div style="margin-top:150px;">
+<div style="margin-top:100px;">
+	
 	
 	<h2 align="center">회원 리스트</h2>
 	<input type="hidden" id="pg" value="${pg }" /> <!-- requestScope 생략 가능 -->
@@ -60,20 +106,25 @@ table {
 		<form id="adminMemberListForm" method="get" action="/index/admin/adminMemberDelete">
 			<table id="adminMemberListTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows">
 			<tr>
-				<th width="100"><input type="checkbox" id="allSelect" value="전체선택" /> 아이디</th>
+				<th width="200"><input type="checkbox" id="allSelect" value="전체선택" style="float:left;"/> 아이디</th>
 				<th width="100">이름</th>
-				<th width="200">이메일</th>
+				<th width="300">이메일</th>
 				<th width="200">핸드폰번호</th>
 				<th width="100">닉네임</th>
 			</tr>
-		
+			
 			<!-- 동적 처리 -->
 
+
+			
+			
 		</table>
 		
+		<div id="adminMemberList" width ></div>
 		
-		<input type="button" id="adminMemberdDeleteBtn" value="선택삭제" style="margin: 15px 460px;" > 
-		<div id="adminMemberPagingDiv" style=" width: 700px; text-align: center; margin-left: 480px;" ></div>
+		
+		<input type="button" id="adminMemberdDeleteBtn" value="선택삭제" style="margin: 40px 350px;" > 
+		<div id="adminMemberPagingDiv" style=" width: 700px; text-align: center; margin: -30px; margin-left: 480px;" ></div>
 
 	</form>
 	
