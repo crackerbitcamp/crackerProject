@@ -8,7 +8,7 @@
 }
 
 .mainnav li a {
-	padding: 28px 14px 8px 0;
+	
 	margin-left: 11px;
 	margin-bottom: 15px;
 	color: #000000;
@@ -24,10 +24,10 @@
 
 </style>
 
-<div class="mainnav">
+<div class="mainnav" style="board: red 1px solid">
 	<ul>
 
-		<li><a href="#">BOARD</a></li> <!-- 해당 카테고리 이동 경로 직접연결 -->
+		<li><a href="/index/board/boardList">자유게시판</a></li> <!-- 해당 카테고리 이동 경로 직접연결 -->
 		<li><a href="#">BOARD</a></li>
 		<li><a href="#">BOARD</a></li>
 		<li><a href="#">BOARD</a></li>

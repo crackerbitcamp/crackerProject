@@ -245,5 +245,17 @@ public class BoardController {
 	public Map<String,Object> boardSearch(@RequestParam Map<String,String> map) {
 		return boardService.boardSearch(map); 
 	}
+	
+	@GetMapping()
+	public ModelAndView recipeBoardList(@RequestParam(required = false,defaultValue="1") String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		mav.addObject("display", "/WEB-INF/board/boardList.jsp");
+		mav.setViewName("/index");
+		
+		return mav;
+	}
 
 }
