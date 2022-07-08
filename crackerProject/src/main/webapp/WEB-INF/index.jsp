@@ -210,6 +210,11 @@
 		</div>
 		<!-- header -->
 
+	
+		<input type="button" value="문의하기" onclick="location.href='/index/customer/customerWriteForm'">
+	
+			
+
 		<div id="container">
 			<div id="menu">
 				<br>
@@ -273,9 +278,9 @@
    				   
   			</div> imagecard	 -->
 
-				</div>
-				<!-- content -->
+			</div>
 			</c:if>
+			<!-- content -->
 			<c:if test="${not empty display}">
 				<jsp:include page="${display}" />
 			</c:if>
@@ -297,6 +302,7 @@
 		<!-- container -->
 
 	</div>
+	
 	<!-- wrap -->
 	<div id="footer">
 		<div class="footerArea">
@@ -328,7 +334,7 @@
 
 	</div>
 	<!-- footer -->
-
+	
 
 </body>
 </html>

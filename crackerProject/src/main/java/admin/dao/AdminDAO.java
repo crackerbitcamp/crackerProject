@@ -22,5 +22,14 @@ public interface AdminDAO {
 	
 	public void adminWrite(Map<String, String> map);
 
+	public int getAdminMemberTotalA();
+
+	public void adminMemberDelete(Map<String, String[]> map);
+
+
+
+
+
+
 	
 }

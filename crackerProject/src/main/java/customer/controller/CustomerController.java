@@ -1,6 +1,9 @@
 package customer.controller;
 
+import java.util.HashMap;
 import java.util.Map;
+
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -27,9 +30,29 @@ public class CustomerController {
 		
 		return mav;
 	}
-	// customerWrite 문의하기 작성
+	
+	@PostMapping(value="getCustomer")
 	@ResponseBody
+	public Map<String, String> getCustomer(HttpSession session){
+		// session의 값을 가지고
+		// id name nicname email
+		Map<String, String> map = new HashMap<String, String>();
+		String name = (String)session.getAttribute("memName");
+		String email = (String)session.getAttribute("memEmail");
+		//id,email을의 변수를 변경후 map에 담는다.
+		
+		map.put("name", name);
+		map.put("email", email);
+		// System.out.println(map.get("id")); id값 확인
+		return map;
+	}
+	
+	
+	
+	
+	// customerWrite 문의하기 작성
 	@PostMapping(value="customerWrite")
+	@ResponseBody
 	public void customerWrite(@RequestParam Map<String,String> map) {
 		customerService.customerWrite(map);
 	}

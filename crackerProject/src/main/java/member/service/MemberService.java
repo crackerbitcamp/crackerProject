@@ -14,7 +14,7 @@ public interface MemberService {
 
 	public String emailcheck(String email);
 
-	public String phoneCheck(String findtel);
+	public String phoneCheck(String findphone);
 
 	public MemberDTO memberfindIdcheck(Map<String, String> map);
 
