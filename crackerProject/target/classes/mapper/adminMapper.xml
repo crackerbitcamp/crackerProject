@@ -4,6 +4,8 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="adminSQL">
+
+	<!-- 관리자 회원가입 -->
 	<insert id="adminWrite" parameterType="java.util.Map" >
 		insert into adminmember values (
 										#{adminname},
@@ -15,6 +17,7 @@
 		
 	</insert>
 	
+	<!-- 회원ㄹ ㅣ스트 -->
 	<select id="getadminMemberList" parameterType="java.util.Map" resultType="member">
 	<![CDATA[
   		select * from (select rownum rn, tt.*
@@ -23,8 +26,23 @@
 	]]>
 	</select>
 	
+	<!-- 회원 총 수 -->
+	  <select id="getAdminMemberTotalA" resultType="int">
+ 		 select count(*) from crackermember
+  	</select>
+	
+	<!-- 관리자 로그인 -->
 	<select id="adminLogin" parameterType="java.util.Map" resultType="admin">
 		select * from adminmember where adminid=#{adminId} and adminpwd=#{adminPwd}
 	</select>
+	
 
+	<!-- 회원 삭제 -->
+	<select id="adminMemberDelete" parameterType="java.util.Map" >
+		delete crackermember where memberid in 
+  		<foreach collection="check" item="memberid" open="(" close=")" separator=",">
+  		#{memberid}
+  		</foreach>
+	</select>
+	
 </mapper>

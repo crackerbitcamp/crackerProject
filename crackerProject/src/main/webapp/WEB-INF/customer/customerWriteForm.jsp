@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,16 +12,12 @@
 <form name="customerWriteForm" id="customerWriteForm">
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
-			<td width="150" align="center">아이디</td>
-			<td><input type = "text" name="id" id = "id" placeholder="아이디  입력">
-			<div id="idDiv"></div>
-			</td>
+			<td width="150" align="center">이름 </td>
+			<td> <input type="text" name="name" id="name" readonly></td>
 		</tr>
 		<tr>
 			<td width="150" align="center">이메일입력</td>
-			<td><input type = "text" name="email" id = "email" placeholder="이메일  입력">
-			<div id="emailDiv"></div>
-			</td>
+			<td> <input type="text" name="email" id="email" readonly> </td>
 		</tr>
 		<tr>
 			<td width="150" align="center">제목</td>
@@ -39,7 +36,7 @@
             <td colspan="2" align="center"> 
                	<input type="button" value="문의하기" id="customerWriteBtn">
                	<input type="reset" value="다시작성">
-				<input type="button" value="뒤로가기" onclick="location.href='history.back()'">
+				<input type="button" value="뒤로가기" onclick="location.href='/index'">
             </td>
          </tr>
          

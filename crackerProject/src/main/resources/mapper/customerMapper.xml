@@ -6,9 +6,9 @@
 
 	<!-- 문의하기 쓰기 -->
 	<insert id="customerWrite" parameterType = "java.util.Map">
-		insert into customer(seq,id,email,subject,content,logtime)
+		insert into customer(seq,name,email,subject,content,logtime)
 					values(seq_customer.nextval
-					,#{id}
+					,#{name}
 					,#{email}
 					,#{subject}
 					,#{content}
