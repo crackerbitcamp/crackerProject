@@ -8,29 +8,35 @@ $(document).ready(function(){
 			
 			$.each(data.list, function(index, items) {
 				
-				$('<tr/>').append($('<td/>',{
+				$('<tr/>').append($('<a/>',{
+					href : '../admin/adminMemberView'
+				}).append($('<td/>',{
+					id : 'memberid',
 					text : ' ' + items.memberid
 				}).prepend($('<input/>',{
 					type : 'checkbox',
-					name : 'check',
-					value : items.memberid
+					name : 'check'
 				})))
 				.append($('<td/>',{
-					align : 'center',
+					id : 'membername',
+					align : 'justify',
 					text : items.membername
 				}))
 				.append($('<td/>',{
-					align : 'center',
+					id : 'memberemail',
+					align : 'justify',
 					text : items.memberemail1 + '@' + items.memberemail2
 				}))
 				.append($('<td/>',{
+					id : 'membertel',
 					align : 'center',
 					text : items.membertel1 + '-' + items.membertel2 + '-' + items.membertel3
 				}))
 				.append($('<td/>',{
-					align : 'center',
+					id : 'membernickname',
+					align : 'justify',	
 					text : items.membernickname
-				})).appendTo($('#adminMemberListTable'));
+				}))).appendTo($('#adminMemberList'));
 				
 				
 			}); //each
