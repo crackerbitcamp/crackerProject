@@ -20,10 +20,14 @@ public class HomeController {
 	public ModelAndView index() {
 	ModelAndView mav = new ModelAndView();
 	mav.addObject("indexSection1","/WEB-INF/main/indexSection1.jsp");
-	mav.addObject("indexSection2","/WEB-INF/main/indexSection2.jsp");
-	mav.addObject("indexSection3","/WEB-INF/main/indexSection3.jsp");
-	mav.addObject("indexSection4","/WEB-INF/main/indexSection4.jsp");
 	
+
+	mav.addObject("indexSection5","/WEB-INF/main/indexSection5.jsp");
+	
+
+	mav.addObject("menu","/WEB-INF/main/menu.jsp");
+	mav.addObject("nav","/WEB-INF/main/nav.jsp");
+
 	mav.setViewName("index");
 			
 	return mav;

@@ -11,6 +11,8 @@ public interface AdminService {
 	public void adminWrite(Map<String, String> map);
 
 	public Map<String, Object> getadminMemberList(String pg);
+
+	public void adminMemberDelete(String[] check);
 		
 		
 	

@@ -1,6 +1,7 @@
 package member.bean;
 
 import java.util.Date;
+import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
@@ -21,4 +22,6 @@ public class MemberDTO {
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
 	Date logtime;
+
+
 }

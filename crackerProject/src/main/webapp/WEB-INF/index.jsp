@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
@@ -10,16 +10,17 @@
 <title>Insert title here</title>
 <style type="text/css">
 
+
 #wrap {
 	width: 1600px;
-	margin: 0 auto;	/* 위아래여백,좌우여백  */
+	margin: 0 auto; /* 위아래여백,좌우여백  */
 }
+
 #boardListTable tr td {
 	width: auto;
 	padding: 0 auto;
 }
 /* container */
-
 #container:after { /* after는 컨테이너 뒤에 붙는거 해제하라는 뜻 */
 	content: '';
 	display: block;
@@ -49,71 +50,47 @@
 }
 
 /* section */
-
-
 #content {
 	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
 	width: 65%;
-	margin-left:3%;
+	margin-left: 3%;
 	border: 1px red solid; /*솔리드 라인*/
+}
+
+#textSection {
 	
-	
 }
-#textSection{
-}
-
-
-
-#indexSection1, #indexSection3 {
-    float: left;
-    margin-right: 2%;
-    margin-bottom : 15px;
-}
-
-
-#indexSection2, #indexSection4 {
-    float: left;
-    margin-bottom : 15px;
-  	
-}
-
-
-
-
 
 .card {
-	float : left;
-	display : flex;
-	margin-left : 8px;
-	margin-top : 60px;
+	float: left;
+	display: flex;
+	margin-left: 8px;
+	margin-top: 60px;
 }
 
 .card2 {
 	position: sticky;
 	position: -webkit-sticky;
-	display : inline-block;
-	top : 30px;
-	width : 100%;
-	height : 50%;
-	
+	display: inline-block;
+	top: 30px;
+	width: 100%;
+	height: 50%;
 }
 
-#rightbar{
+#rightbar {
 	position: relative;
 	float: right;
 	width: 14%;
-	height : 2000px;
-	border : 1px solid red;
-	
+	height: 2000px;
+	border: 1px solid red;
 }
 
 /* footer */
-
 #footer {
 	position: relative;
-	bottom : 8px;
+	bottom: 8px;
 	background-color: #fff;
 }
 
@@ -132,6 +109,7 @@
 	display: block;
 	clear: both;
 }
+
 .btmnav {
 	float: right; /* 오른쪽 정렬 */
 	margin-right: 30px;
@@ -151,7 +129,6 @@
 .btmnav dd:last-child:after { /* 마지막 자식 작대기 없애기 */
 	content: '';
 	padding: 0 0;
-
 }
 
 .copy {
@@ -173,85 +150,108 @@
 	width: 80%;
 	color: red;
 }
-#keyword{
-width: 70%;
+
+#keyword {
+	width: 70%;
 }
-.subjectA:link {color: black; text-decoration: none;}
-.subjectA:visited {color: black; text-decoration: none;}
-.subjectA:hover {color: green; text-decoration: underline;}
-.subjectA:active {color: #d81e5b; text-decoration: none;}
+
+.subjectA:link {
+	color: black;
+	text-decoration: none;
+}
+
+.subjectA:visited {
+	color: black;
+	text-decoration: none;
+}
+
+.subjectA:hover {
+	color: green;
+	text-decoration: underline;
+}
+
+.subjectA:active {
+	color: #d81e5b;
+	text-decoration: none;
+}
 
 #currentPaging {
 	color: red;
 	text-decoration: underline;
 	cursor: pointer;
 }
+
 #paging {
 	color: black;
 	text-decoration: none;
 	cursor: pointer;
 }
+
 .subjectA {
 	width: 320px;
-	display:inline-block;
-	white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
+	display: inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
 }
-
 </style>
 </head>
 <body>
-<div id="wrap">
+	<div id="wrap">
 
-	<div id="header">
-		<h1 align="center"><img src="/index/image/home/LOGO2.jpeg" width="50%" height="50%"
-				 onclick= "location.href='/index'" style="cursor: pointer; margin-top : 50px;"></h1>
-	<br>
-	<hr>
-	</div> <!-- header -->
-
-	<div id="container">
-		<div id ="menu">
+		<div id="header">
+			<h1 align="center">
+				<img src="/index/image/home/LOGO2.jpeg" width="50%" height="50%"
+					onclick="location.href='/index'"
+					style="cursor: pointer; margin-top: 50px;">
+			</h1>
 			<br>
-			<jsp:include page="/WEB-INF/main/nav.jsp"></jsp:include>
-			<p class="search">
-				<input type="search" name="keyword" id="keyword" value="" style="width:200px; border:1px solid black; margin-left : 15px;" >
-				<img src="/index/image/home/search.svg" >
-			</p>
-			<h2>BOARD</h2>
-			<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
+			<hr>
 		</div>
+		<!-- header -->
+
 	
 		<input type="button" value="문의하기" onclick="location.href='/index/customer/customerWriteForm'">
 	
-		<div id="content">	
-			<c:if test="${empty display}">
-			<a href="/index/board/boarcWriteForm">글쓰기</a>
-			<div id="textSection">
-				
-				<div id="indexSection1" class="section">
-	
-					<jsp:include page="${indexSection1 }" />
-				</div>
-				<div id="indexSection2" class="section">
-	
-					<jsp:include page="${indexSection2 }" />
-				</div>
-				<div id="indexSection3" class="section">
-	
-					<jsp:include page="${indexSection3 }" />
-				</div>
-				<div id="indexSection4" class="section">
-	
-					<jsp:include page="${indexSection4 }" />
-				</div>
-			</div>
 			
 
-		
-			
-			<div class="imagecard">
+		<div id="container">
+			<div id="menu">
+				<br>
+				<jsp:include page="/WEB-INF/main/nav.jsp"></jsp:include>
+				<p class="search">
+					<input type="search" name="keyword" id="keyword" value=""
+						style="width: 200px; border: 1px solid black; margin-left: 15px;">
+					<img src="/index/image/home/search.svg">
+				</p>
+				<h2>BOARD</h2>
+				<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
+			</div>
+
+			<input type="button" value="문의하기"
+				onclick="location.href='/index/customer/customerWriteForm'">
+
+			<c:if test="${empty display}">
+				<div id="content">
+					<a href="/index/board/boardWriteForm">글쓰기</a>
+					
+					<div id="textSection">
+
+						<div id="indexSection1" class="section">
+
+							<jsp:include page="${indexSection1 }" />
+						</div>
+
+
+					</div>
+					
+					
+					<div style="border: blue 1px solid;" class="imagecard">
+						<div id="indexSection5">
+							<jsp:include page="${indexSection5 }" />
+						</div>
+					</div>
+					<!-- <div class="imagecard">
 				<div class="card" style="width: 300px;">
   					<img src="./image/home/person.svg" class="card-img-top" style="height: 10rem;">
   					<div class="card-body">
@@ -276,47 +276,64 @@ width: 70%;
  				 	</div>
 				</div>
    				   
-  			</div> <!-- imagecard -->	
-  			</c:if>	
-  			<c:if test="${not empty display}">
-				<jsp:include page="${display}"/>
-			</c:if>
-	  	</div> <!-- content -->
-	  	
-	
-		
-		<div id="rightbar">
-			<div class="card2">
-  				<div class="card-body">
-  				<h5 class="card-title">여긴뭐지??</h5>
-   				<h6 class="card-subtitle mb-2 text-muted">뭐할까요??</h6>
-    			<p class="card-text">어베레렐러러어러러ㅓ럴ㅇ라아라녀안녕하ㅔ요 우리는 크래커~~~</p>
-    			<a href="#" class="card-link">Card link</a>
-    			<a href="#" class="card-link">Another link</a>
-  				</div>
-			</div>
-		</div><!-- "rightbar"  -->
-	</div> <!-- container -->
+  			</div> imagecard	 -->
 
-</div> <!-- wrap -->
+			</div>
+			</c:if>
+			<!-- content -->
+			<c:if test="${not empty display}">
+				<jsp:include page="${display}" />
+			</c:if>
+
+
+			<div id="rightbar">
+				<div class="card2">
+					<div class="card-body">
+						<h5 class="card-title">여긴뭐지??</h5>
+						<h6 class="card-subtitle mb-2 text-muted">뭐할까요??</h6>
+						<p class="card-text">어베레렐러러어러러ㅓ럴ㅇ라아라녀안녕하ㅔ요 우리는 크래커~~~</p>
+						<a href="#" class="card-link">Card link</a> <a href="#"
+							class="card-link">Another link</a>
+					</div>
+				</div>
+			</div>
+			<!-- "rightbar"  -->
+		</div>
+		<!-- container -->
+
+	</div>
+	
+	<!-- wrap -->
 	<div id="footer">
 		<div class="footerArea">
 			<dl class="btmnav">
 				<dt class="blind">bottom navigation</dt>
-				<dd><a href="#">About</a></dd>
-				<dd><a href="#">개인정보보호</a></dd>
-				<dd><a href="#">광고문의</a></dd>
-				<dd><a href="#">Contact us</a></dd>
-				<dd><a href="#">Location</a></dd>		
+				<dd>
+					<a href="#">About</a>
+				</dd>
+				<dd>
+					<a href="#">개인정보보호</a>
+				</dd>
+				<dd>
+					<a href="#">광고문의</a>
+				</dd>
+				<dd>
+					<a href="#">Contact us</a>
+				</dd>
+				<dd>
+					<a href="#">Location</a>
+				</dd>
 			</dl>
-		
+
 			<p class="copy">
-				Copyright &copy; COMPANY Design<br>
-				Powered by Webazit, e-mail : <a href="mailto:cracker@community.com">cracker@community.com</a>
+				Copyright &copy; COMPANY Design<br> Powered by Webazit, e-mail
+				: <a href="mailto:cracker@community.com">cracker@community.com</a>
 			</p>
-		</div><!-- footerArea -->
-		
-	</div> <!-- footer -->
+		</div>
+		<!-- footerArea -->
+
+	</div>
+	<!-- footer -->
 	
 
 </body>

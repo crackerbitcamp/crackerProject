@@ -28,70 +28,116 @@ table {
 	text-decoration: none;
 	cursor: pointer;
 }
+
+#adminMemberList{
+	margin-left : 20.36%;
+}
+
+#adminMemberList input {
+	margin-top : 30px;
+	margin-right : 45px;
+}
+
+#adminMemberList a {
+	text-decoration-line: none;
+	color : black;
+}
+
+#adminMemberList td {
+	font-size : 1.2em;
+}
+
+#memberid {
+	max-width : 214px;
+	width : 214px;
+	text-indent: 1.0em;
+}
+
+#memberemail {
+	max-width : 314px;
+	width : 314px;
+	text-indent: 3.5em;
+}
+
+#membertel {
+	max-width : 214px;
+	width : 214px;
+}
+
+#membername, #membernickname {
+	max-width : 114px;
+	width : 114px;
+	text-indent: 1.5em;
+
+}
+
+
+
 </style>
 
 </head>
 <body>
-<h2 align="center">회원 리스트</h2>
-<input type="hidden" id="pg" value="${pg }" /> <!-- requestScope 생략 가능 -->
-
-<form id="boardSearchForm">
-	<input type="hidden" name="pg" id="searchPg" value="1">
+<div style="margin-top:100px;">
 	
-	<div style="text-align: center;">
-		<select name="searchOption">
-			<option value="membername">이름</option>
-			<option value="memberid">아이디</option>
-			<option value="memberemail">이메일</option>
-			<option value="membertel">핸드폰번호</option>
-			<option value="membernickname">닉네임</option>
+	
+	<h2 align="center">회원 리스트</h2>
+	<input type="hidden" id="pg" value="${pg }" /> <!-- requestScope 생략 가능 -->
+
+		<form id="adminMemberSearchForm">
+			<input type="hidden" name="pg" id="searchPg" value="1">
+	
+			<div style="text-align: center;">
+				<select name="searchOption">
+					<option value="membername">이름</option>
+					<option value="memberid">아이디</option>
+					<option value="memberemail">이메일</option>
+					<option value="membertel">핸드폰번호</option>
+					<option value="membernickname">닉네임</option>
 			
-		</select>
-		<input type="search" name="keyword" id="keyword" value="${keyword }"> 
-		<input type="button" id = "adminmemberSearchBtn" value="검색">
-	</div>
-</form>
+				</select>
+		
+				<input type="search" name="keyword" id="keyword" value="${keyword }"> 
+				<input type="button" id = "adminmemberSearchBtn" value="검색">
+		
+			</div>
+	
+		</form>
+		
+		<form id="adminMemberListForm" method="get" action="/index/admin/adminMemberDelete">
+			<table id="adminMemberListTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows">
+			<tr>
+				<th width="200"><input type="checkbox" id="allSelect" value="전체선택" style="float:left;"/> 아이디</th>
+				<th width="100">이름</th>
+				<th width="300">이메일</th>
+				<th width="200">핸드폰번호</th>
+				<th width="100">닉네임</th>
+			</tr>
+			
+			<!-- 동적 처리 -->
 
-<table id="adminMemberListTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows">
-	<tr>
-		<th width="100">이름</th>
-		<th width="100">아이디</th>
-		<th width="200">이메일</th>
-		<th width="200">핸드폰번호</th>
-		<th width="100">닉네임</th>
-	</tr>
-	
-	<!-- 동적 처리 -->
-	
-	
-	
-</table>
 
+			
+			
+		</table>
+		
+		<div id="adminMemberList" width ></div>
+		
+		
+		<input type="button" id="adminMemberdDeleteBtn" value="선택삭제" style="margin: 40px 350px;" > 
+		<div id="adminMemberPagingDiv" style=" width: 700px; text-align: center; margin: -30px; margin-left: 480px;" ></div>
+
+	</form>
+	
 </div>
 
-
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="../js/admin/adminMemberList.js"></script>
 <script type="text/javascript">
 
 
-function boardPaging(pg2) {
+function adminPaging(pg2) {
 	
-	var keyword = $('#keyword').val();
-	
-	if(keyword == ''){
-		location.href = "adminMemberList?pg=" + pg2;
-		
-	}else {
-		 /* location.href = "boardSearch?pg=" + pg2 + "&searchOption=${searchOption}&keyword=${keyword}";
-			한글 검색 안될 때 +encodeURIComponent("${keyword}");  */
-		
-		$('#searchPg').val(pg2); //serachPg가 1로 고정이 되어있기 때문에 검색이 끝나고 다시 검색 버튼을 누르면 searchPg를 1로 바꾸어야 한다
-		$('#adminmemberSearchBtn').trigger('click'); // trigger => 강제 이벤트 발생
-		
-		$('#searchPg').val(1);
-		//serachPg가 1로 고정이 되어있기 때문에 검색이 끝나고 다시 검색 버튼을 누르면 searchPg를 1로 바꾸어야 한다
-		
-	}
+	location.href="/index/admin/adminMemberList?pg="+pg2;
 	
 }
 
