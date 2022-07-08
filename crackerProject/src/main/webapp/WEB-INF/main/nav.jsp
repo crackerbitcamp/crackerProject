@@ -10,12 +10,15 @@
  	<jsp:include page="../member/loginOk.jsp"></jsp:include>
  </c:if>  --%>
  
- <c:if test="${ sessionScope.memId == null }">
+ <c:if test="${ sessionScope.memId == null && naverEmail == null}">
  	<jsp:include page="../member/homeLoginForm.jsp" /> 
  </c:if>
  
   <c:if test="${memId != null }">
  	 <jsp:include page="../member/loginOk.jsp" /> 
+ </c:if>
+ <c:if test="${naverEmail != null }">
+ 	<jsp:include page="../member/naverOk.jsp" />
  </c:if>
 
   
