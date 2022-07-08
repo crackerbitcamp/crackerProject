@@ -10,17 +10,15 @@
 </head>
 <body>
 	<input type="hidden" id="pg" value="${requestScope.pg }">
-	<table id="bestBardListTable"  cellspacing="2" cellpadding="6" >
-	<tr>
-		<div><a><h4>카테고리제목</h4></a></div>
-	</tr>
 	
-	<!-- 동적처리 -->
+	<h1>자유게시판</h1>
+
 	
-	</table>
+		<jsp:include page="../board/boardList.jsp"></jsp:include>
 	
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>	
-<script type="text/javascript" src="/index/js/indexList.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
+</script>
+<script type="text/javascript" src="/index/js/boardList.js"></script>
 	
 </body>
 </html>
