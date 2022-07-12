@@ -36,8 +36,13 @@ li {
 	margin-bottom : 30px;
 }
 
+<<<<<<< HEAD
 #adminList {
 	color : #FFFFFF;
+=======
+a {
+	color : #000000;
+>>>>>>> branch 'main' of https://github.com/keems0un/crackerProject.git
 	text-decoration-line: none;
 	
 }

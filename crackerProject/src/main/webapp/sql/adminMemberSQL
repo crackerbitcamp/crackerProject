@@ -1,4 +1,5 @@
---comment 테이블 만들어 드릴게요 기달
+--관리자 회원
+
 create table commentText(
     seq number not null,
     nickname varchar2(30) not null,

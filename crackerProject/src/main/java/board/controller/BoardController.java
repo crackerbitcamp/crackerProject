@@ -171,7 +171,7 @@ public class BoardController {
 
 	@GetMapping(value="boardView")
 	public ModelAndView boardView(@RequestParam String seq, @RequestParam String pg) {
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();	
 		mav.addObject("pg",pg);
 		mav.addObject("seq",seq);
 		mav.addObject("menu","/WEB-INF/main/menu.jsp");
