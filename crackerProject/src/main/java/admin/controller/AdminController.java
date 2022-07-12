@@ -102,4 +102,14 @@ public class AdminController {
 	public Map<String, Object> adminMemberSearch(@RequestParam Map<String, String> map){ 
 		return adminService.adminMemberSearch(map);
 	}
+	
+	@GetMapping(value="/adminMemberView")
+	public ModelAndView adminMemberView() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/admin/adminMemberView.jsp");
+		mav.setViewName("/admin/adminMain");
+		return mav;
+	}
+
 }
