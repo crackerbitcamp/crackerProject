@@ -17,14 +17,20 @@
 	text-decoration:non;
 	cursor: pointer;
 }
+#customerListTable a{
+	color: 000000;
+}
+#customerseq{
+	display: contents;
+}
 </style>
 
 <input type="text" id="pg" value="${param.pg }"/>
 <table id="customerListTable" border="1" bordercolor="black" cellspacing="0" cellpadding="5" frame ="hsides" rules = "rows">
 	<tr>
-		<th width="100">글번호</th>
-		<th width="300">이름</th>
-		<th width="100">제목</th>
+		<th width="70">글번호</th>
+		<th width="100">이름</th>
+		<th width="300">제목</th>
 		<th width="100">날짜</th>
 	</tr>
 	<!-- 동적처리 -->

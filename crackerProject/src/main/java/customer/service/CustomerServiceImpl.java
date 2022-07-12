@@ -89,6 +89,7 @@ public class CustomerServiceImpl implements CustomerService {
 		List<CustomerDTO> list = customerDAO.getcustomerSearch(map);
 		//페이징 처리
 		int totalA = customerDAO.getTotalSearchA(map); //총글수
+		
 		customerPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
 		customerPaging.setPageBlock(3);
 		customerPaging.setPageSize(5);

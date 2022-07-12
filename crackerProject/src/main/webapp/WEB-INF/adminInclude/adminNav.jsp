@@ -37,7 +37,7 @@ li {
 }
 
 a {
-	color : #FFFFFF;
+	color : #000000;
 	text-decoration-line: none;
 	
 }

@@ -6,7 +6,11 @@ $(document).ready(function(){
 		dataType : 'json',
 		success : function(data){
 			$.each(data.list, function(index, items){
-				$('<tr/>')
+				$('<tr/>').append($('<a/>',{
+					id : 'customerseq',
+					href: '/index/customer/customerView?seq='+items.seq+'&pg='+$('#pg').val(),
+					class: 'customerseq'+items.seq
+				})
 				.append($('<td/>',{
 					align: 'center',
 					text: items.seq
@@ -18,13 +22,11 @@ $(document).ready(function(){
 				.append($('<td/>',{
 					href:'#',
 					text: items.subject,
-					class: 'subjectA subjectA_'+items.seq
 				}))
 				.append($('<td/>',{
 					align: 'center',
 					text: items.logtime.toLocaleString()
-				}))
-				.appendTo($('#customerListTable'));
+				}))).appendTo($('#customerListTable'));
 
 				$('.subjectA_'+items.seq).click(function(){
 					if(data.sionAdminId == null){
@@ -64,16 +66,26 @@ $('#customerSearchBtn').click(function(){
 				$.each(data.list, function(index, items){
 					//console.log(inex, items.seq, items.name,  items.subject, items.logtime)
 					$('<tr/>').append($('<a/>',{
-					}).append($('<td/>',{
+						id : 'customerseq',
+						href: '/index/customer/customerView?seq='+items.seq+'&pg='+$('#pg').val(),
+						class: 'customerseq'+items.seq
+					})
+					.append($('<td/>',{
+						align: 'center',
 						text: items.seq
-					})).append($('<td/>',{
-						text: items.name
-					})).append($('<td/>',{
-						text: items.subject
-					})).append($('<td/>',{
-						text: items.logtime
 					}))
-					).appendTo($('#customerListTable'));
+					.append($('<td/>',{
+						align: 'center',
+						text: items.name
+					}))
+					.append($('<td/>',{
+						href:'#',
+						text: items.subject,
+					}))
+					.append($('<td/>',{
+						align: 'center',
+						text: items.logtime.toLocaleString()
+					}))).appendTo($('#customerListTable'));
 					
 					$('<tr/>').click(function(){
 						if(data.sionAdminId == null){
@@ -82,7 +94,12 @@ $('#customerSearchBtn').click(function(){
 							location.href = '/index/customer/customerView?seq='+items.seq+'&pg='+$('#pg').val();
 						}
 					});
-				})
+				});
+				//페이징처리
+				$('#adminCustomerPagingDiv').html(data.customerPaging.pagingHTML);
+			},
+			error: function(e){
+				 console.log(e);
 			}
 		});
 	}
