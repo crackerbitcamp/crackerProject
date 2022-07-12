@@ -9,7 +9,8 @@ $(document).ready(function(){
 			$.each(data.list, function(index, items) {
 				
 				$('<tr/>').append($('<a/>',{
-					href : '../admin/adminMemberView'				
+					href : '../admin/adminMemberView',
+					id : 'adminMemberViewBtn'
 				}).append($('<td/>',{
 					id : 'memberid',
 					width : '200px',
@@ -90,6 +91,22 @@ $(document).ready(function(){
 }); //document
 
 
+// 회원리스트 view
+
+$('#adminMemberViewBtn').click(function(){
+	$.ajax({
+		type : 'post',
+		url : '/index/admin/adminMemberView',
+		data : '',
+		dataType : 'json',
+		success : function(data){
+			
+		},
+		error: function(e){
+			console.log(e);
+		}
+	});
+});
 
 
 // 검색

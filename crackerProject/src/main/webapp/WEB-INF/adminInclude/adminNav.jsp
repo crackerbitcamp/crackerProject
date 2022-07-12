@@ -36,7 +36,7 @@ li {
 	margin-bottom : 30px;
 }
 
-a {
+#adminList {
 	color : #FFFFFF;
 	text-decoration-line: none;
 	
@@ -67,12 +67,12 @@ a {
 		<div class="management">
 			<c:if test="${sionAdminId != null }">
 			<ul>
-				<li><img src="../image/person.svg"><a href="/index/admin/adminMemberList">사용자 관리</a> </li>
-				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
-				<li><img src="../image/person.svg"><a href="#">사용자 관리</a></li>
-				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
-				<li><img src="../image/person.svg"><a href="#">사용자 관리</a></li>
-				<li><img src="../image/gear.svg"><a href="#">사용자 관리</a></li>
+				<li><img src="../image/person.svg"><a href="/index/admin/adminMemberList" id="adminList">사용자 관리</a> </li>
+				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
+				<li><img src="../image/person.svg"><a href="#" id="adminList">사용자 관리</a></li>
+				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
+				<li><img src="../image/person.svg"><a href="#" id="adminList">사용자 관리</a></li>
+				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
 			
 			</ul>
 			</c:if>
