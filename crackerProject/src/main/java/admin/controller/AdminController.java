@@ -99,8 +99,7 @@ public class AdminController {
 	
 	@PostMapping(value="/adminMemberSearch")
 	@ResponseBody
-	public Map<String, Object> adminMemberSearch(@RequestParam Map<String, Object> map){ 
-		
+	public Map<String, Object> adminMemberSearch(@RequestParam Map<String, String> map){ 
 		return adminService.adminMemberSearch(map);
 	}
 }

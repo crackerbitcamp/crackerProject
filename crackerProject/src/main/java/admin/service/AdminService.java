@@ -14,7 +14,7 @@ public interface AdminService {
 
 	public void adminMemberDelete(String[] check);
 
-	public Map<String, Object> adminMemberSearch(Map<String, Object> map);
+	public Map<String, Object> adminMemberSearch(Map<String, String> map);
 		
 		
 	

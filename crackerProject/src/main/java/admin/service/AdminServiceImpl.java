@@ -91,7 +91,7 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
-	private AdminPaging adminPaging(String pg) {
+	public AdminPaging adminPaging(String pg) {
 		
 		int totalA = adminDAO.getAdminMemberTotalA(); 
 		
@@ -118,19 +118,19 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
-	public Map<String, Object> adminMemberSearch(Map<String, Object> map) {
+	public Map<String, Object> adminMemberSearch(Map<String, String> map) {
 		
 		
-		int endNum = Integer.parseInt((String)map.get("pg")) * 5;
+		int endNum = Integer.parseInt(map.get("pg")) * 5;
 		int startNum = endNum - 4;
 		
-		map.put("startNum",startNum);
-		map.put("endNum",endNum);
+		map.put("startNum",startNum+"");
+		map.put("endNum",endNum+"");
 		
-		List<MemberDTO> list = adminDAO.getadminMemberSerach(map);
+		List<MemberDTO> list = adminDAO.getadminMemberSearch(map);
 		
 		int totalA = adminDAO.getTotalSearchA(map); //총글수
-		adminPaging.setCurrentPage(Integer.parseInt((String) map.get("pg")));
+		adminPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
 		adminPaging.setPageBlock(3);
 		adminPaging.setPageSize(5);
 		adminPaging.setTotalA(totalA);
@@ -140,7 +140,7 @@ public class AdminServiceImpl implements AdminService {
 		sendMap.put("list", list);
 		sendMap.put("adminPaging", adminPaging);
 		
-		return map;
+		return sendMap;
 	}
 
 

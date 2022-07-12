@@ -94,7 +94,7 @@ $(document).ready(function(){
 
 // 검색
 
-$('#adminmemberSearchBtn').click(function(){
+$('#adminMemberSearchBtn').click(function(){
 	if($('#keyword').val() == '') 
 		alert('검색어를 입력하세요');
 	else{

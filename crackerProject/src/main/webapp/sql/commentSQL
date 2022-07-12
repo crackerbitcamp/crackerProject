@@ -1,0 +1,11 @@
+--comment 테이블 만들어 드릴게요 기달
+create table comment(
+
+seq number not null,
+
+nickname varchar2(50) not null,
+
+commentcontent varchar2(1000) not null,
+
+
+logtime date default SYSDATE);

@@ -85,7 +85,7 @@ table {
 				</select>
 		
 				<input type="search" name="keyword" id="keyword" value="${keyword }"> 
-				<input type="button" id = "adminmemberSearchBtn" value="검색">
+				<input type="button" id = "adminMemberSearchBtn" value="검색">
 		
 			</div>
 	
@@ -129,7 +129,7 @@ function adminPaging(pg2) {
 		}else {
 		
 		$('#searchPg').val(pg2); 
-		$('#adminmemberSearchBtn').trigger('click');
+		$('#adminMemberSearchBtn').trigger('click');
 		
 		$('#searchPg').val(1);
 		}

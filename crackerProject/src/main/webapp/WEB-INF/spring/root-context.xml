@@ -21,6 +21,11 @@
 	<context:component-scan base-package="admin.dao"></context:component-scan>
 	<context:component-scan base-package="admin.service"></context:component-scan>
 	
+	
+ 	<context:component-scan base-package="comment.bean"></context:component-scan>
+	<context:component-scan base-package="comment.dao"></context:component-scan>
+	<context:component-scan base-package="comment.service"></context:component-scan>
+
  	<context:component-scan base-package="customer.bean"></context:component-scan>
 	<context:component-scan base-package="customer.dao"></context:component-scan>
 	<context:component-scan base-package="customer.service"></context:component-scan>

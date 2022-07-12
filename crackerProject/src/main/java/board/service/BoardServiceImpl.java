@@ -145,30 +145,7 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 	
-	@Override
-	public Map<String, Object> getBoardListbest(String pg) {
-		int endNum = Integer.parseInt(pg)*10;
-		int startNum = endNum - 9;
-		//DB 1페이지당 5개
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("endNum", endNum);
-		map.put("startNum", startNum);
-		List<BoardDTO> list = boardDAO.getAllBoardList(map);
-		//세션
-		String memId= (String)session.getAttribute("memId");
-		//페이징 처리
-		boardPaging = this.getBoardPaging(pg);
-		//새로고침 방지
-		if(session.getAttribute("memId") != null) {
-			session.setAttribute("memHit", 0);
-		}
-		
-		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
-		sendMap.put("list", list);
-		sendMap.put("boardPaging", boardPaging);
-		return sendMap;
-	}
+	
 	@Override
 	public Map<String, Object> getBoardListhot(String pg) {
 		int endNum = Integer.parseInt(pg)*10;
@@ -193,15 +170,16 @@ public class BoardServiceImpl implements BoardService {
 		sendMap.put("boardPaging", boardPaging);
 		return sendMap;
 	}
+	
 	@Override
-	public Map<String, Object> getBoardListinfo(String pg) {
-		int endNum = Integer.parseInt(pg)*10;
-		int startNum = endNum - 9;
+	public Map<String, Object> getRecipeBoardList(String pg) {
+		int endNum = Integer.parseInt(pg)*5;
+		int startNum = endNum - 4;
 		//DB 1페이지당 5개
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("endNum", endNum);
 		map.put("startNum", startNum);
-		List<BoardDTO> list = boardDAO.getAllBoardList(map);
+		List<BoardDTO> list = boardDAO.getRecipeBoardList(map);
 		//세션
 		String memId= (String)session.getAttribute("memId");
 		//페이징 처리
@@ -210,7 +188,6 @@ public class BoardServiceImpl implements BoardService {
 		if(session.getAttribute("memId") != null) {
 			session.setAttribute("memHit", 0);
 		}
-		
 		Map<String,Object> sendMap = new HashMap<String,Object>();
 		sendMap.put("memId",memId);
 		sendMap.put("list", list);
@@ -218,29 +195,22 @@ public class BoardServiceImpl implements BoardService {
 		return sendMap;
 	}
 	@Override
-	public Map<String, Object> getBoardListtest(String pg) {
-		int endNum = Integer.parseInt(pg)*10;
-		int startNum = endNum - 9;
-		//DB 1페이지당 5개
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("endNum", endNum);
-		map.put("startNum", startNum);
-		List<BoardDTO> list = boardDAO.getAllBoardList(map);
-		//세션
-		String memId= (String)session.getAttribute("memId");
-		//페이징 처리
-		boardPaging = this.getBoardPaging(pg);
-		//새로고침 방지
-		if(session.getAttribute("memId") != null) {
-			session.setAttribute("memHit", 0);
+	public Map<String, Object> getRecipeBoardView(String seq) {
+		
+		if(session.getAttribute("memHit") != null) {
+			boardDAO.setHit(seq);
+			session.removeAttribute("memHit");
 		}
 		
-		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
-		sendMap.put("list", list);
-		sendMap.put("boardPaging", boardPaging);
-		return sendMap;
+		Map<String, Object> map = new HashMap<String, Object>();
+		
+		String memId=(String)session.getAttribute("memId");
+		BoardDTO boardDTO=boardDAO.getRecipeBoardView(seq);
+		map.put("memId",memId);
+		map.put("boardDTO",boardDTO);
+		return map;
 	}
+	
 	
 
 }
