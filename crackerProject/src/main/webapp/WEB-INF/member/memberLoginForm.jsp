@@ -5,7 +5,8 @@
 <head>
 <link rel="stylesheet" href="../css/member.css">
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8"></script>
+<script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.2.js" charset="utf-8" ></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <style type="text/css" >
 </style>
   <meta charset="utf-8">
@@ -38,8 +39,9 @@
 						 / <a href="/index/member/memberWriteForm" id = "writeinfo">회원가입</a></span>
 					</div>
 					<div class = "login-img">
-					<div id="naver_id_login" style="text-align:center"><a href="${url}">이미지</a></div>
-						<span> <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img alt="img" src="../image/naverlogo.png"width="30" height="30"></a></span><span><img alt="img" src="../image/kakaologo.jpg" width="30" height="30"></span><span><img alt="facebook"></span>
+						<span> <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img alt="img" src="../image/naverlogo.png"width="30" height="30"></a></span>
+						<span><a onclick="javascript:kakaoLogin();"><img alt="img" src="../image/kakaologo.jpg" width="30" height="30"></a></span>
+						<span><img alt="facebook"></span>
 					</div>
 				</form>
 			</section>
@@ -54,5 +56,5 @@
   <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
   <script type="text/javascript" src="../js/member.js"></script>
   <script type="text/javascript" src="../js/naver.js"></script>
-  
+  <script type="text/javascript" src="../js/kakao.js"></script>
 </html>
