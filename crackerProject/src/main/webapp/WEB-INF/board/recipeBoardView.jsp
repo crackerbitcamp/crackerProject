@@ -103,7 +103,7 @@ $('#commentBtn').click(function(){
 				alert('댓글 작성 완료');
 				if($('#category').val() == 'freedomCategory'){
 					
-					location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val()';
+					location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
 				}else{
 					
 					location.href='/index/board/recipeBoardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
