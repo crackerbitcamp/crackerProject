@@ -30,8 +30,9 @@ public interface BoardDAO {
 
 	public List<BoardDTO> getAllBoardList(Map<String, Integer> map);
 
+	public List<BoardDTO> getRecipeBoardList(Map<String, Integer> map);
 
+	public BoardDTO getRecipeBoardView(String seq);
 
-	
 
 }

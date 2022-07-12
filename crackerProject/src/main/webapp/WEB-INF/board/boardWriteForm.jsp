@@ -18,6 +18,17 @@
 <input type = "hidden" name="pg" value="${pg}">
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
+			<td>
+			카테고리
+			</td>
+			<td>
+			<select id = "category" >
+				<option value="freedomCategory">자유</option>
+				<option value="recipeCategory">레시피</option>
+			</select>
+			</td>
+		</tr>
+		<tr>
 			<td width="70" align="center">
 			제목
 			</td>

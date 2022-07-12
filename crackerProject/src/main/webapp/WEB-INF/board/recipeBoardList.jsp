@@ -9,9 +9,18 @@
 <title>Insert title here</title>
 
 <style type="text/css">
-#recipeBoardListDiv .a{
+#recipeBoardListDiv .recipeCard{
 	float: left;
-	margin: 10px 10px;
+	margin: 10px;
+	border : #dddddd solid 1px;
+	padding: 5px 5px 5px 5px;
+	box-shadow: 1px 1px 3px #333333;
+	width: 210px;
+	height: 300px;
+	
+}
+#recipeBoardListDiv .recipeCard:hover{
+	cursor:pointer;
 }
 </style>
 </head>
@@ -19,51 +28,75 @@
 	<form id="recipeBoardListForm">
 	<div>
 	
-		<input type="hidden" id="pg"> 래시피 리스트
-		<div id="recipeBoardListDiv"></div>
+		<input type="hidden" id="pg" value="${pg }"> 
+	<div id="recipeBoardListDiv"></div>
 	</div>
 
 
 	</form>
-	<script type="text/javascript"
-		src="http://code.jquery.com/jquery-3.6.0.min.js">
-		
-	</script>
-	<script type="text/javascript">
-		$(function() {
-			var images = $('#content img:first-child').attr('src');
-			$.ajax({
-				type : 'post',
-				url : '/index/board/getBoardList',
-				data : 'pg=' + $('#pg').val(),
-				dataType : 'json',
-				success : function(data) {
+<script type="text/javascript"
+	src="http://code.jquery.com/jquery-3.6.0.min.js">
+	
+</script>
+<script type="text/javascript">
+	$(function() {
+		var images = $('#content img:first-child').attr('src');
+		$.ajax({
+			type : 'post',
+			url : '/index/board/getRecipeBoardList',
+			data : 'pg=' + $('#pg').val(),
+			dataType : 'json',
+			success : function(data) {
 
-					$.each(data.list, function(index, items) {
+				$.each(data.list, function(index, items) {
 
-						$('<input/>', {
-							type : 'hidden',
-							id : 'contentA'
-						}).appendTo($('#recipeBoardListDiv'));
-						$('#contentA').html(items.content);
-						var img = $('#contentA img:first-child').attr('src');
-						
-						$('<div/>').addClass('a').append($('<div/>').append($('<img>', {
+					$('<input/>', {
+						type : 'hidden',
+						id : 'contentA'
+					}).appendTo($('#recipeBoardListDiv'));
+					$('#contentA').html(items.content);
+					var img = $('#contentA img:first-child').attr('src');
+					
+					
+					$('<div/>',{
+						class : 'recipeCard recipeCard_'+items.seq
+					}).append($('<img>', {
+							align: 'center',
 							src : img,
 							width : '200px',
-							heigth : '200px'
-						}))).append($('<div/>', {
+							height : '200px'
+						})).append($('<div/>', {
+							align: 'center',
 							text : items.subject
-						})).appendTo($('#recipeBoardListDiv'))
-					});
+						})).append($('<div/>', {
+							align: 'center',
+							text : items.email
+							
+						})).append($('<div/>', {
+							align: 'center',
+							text : items.logtime
+					})).appendTo($('#recipeBoardListDiv'));
+					$('.recipeCard_'+items.seq).click(function(){
+						if(data.memId == null){
+							alert('먼저 로그인하세요')
+						}else{
+							location.href = '/index/board/recipeBoardView?seq='
+											+items.seq+'&pg='+$('#pg').val();
+						}
+						
+					});//카드 클래스 클릭
+				});
 
-				},
-				error : function(e) {
-					console.log(JSON.stringify(error));
-				}
+			},
+			error : function(e) {
+				console.log(e);
+			}
 
-			});//ajax
-		});
-	</script>
+		});//ajax
+		
+		
+	});
+	
+</script>
 </body>
 </html>

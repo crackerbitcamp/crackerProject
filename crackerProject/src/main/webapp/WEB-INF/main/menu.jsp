@@ -27,18 +27,10 @@
 <div class="mainnav" style="board: red 1px solid">
 	<ul>
 
-		<li><a href="/index/board/boardList">자유게시판</a></li> <!-- 해당 카테고리 이동 경로 직접연결 -->
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
-		<li><a href="#">BOARD</a></li>
+		<li><a href="/index/board/boardList">전체</a></li>
+		<li><a href="#">인기</a></li>
+		<li><a href="#">자유게시판</a></li> <!-- 해당 카테고리 이동 경로 직접연결 -->
+		<li><a href="/index/board/recipeBoardList">레시피 게시판</a></li>
 		
 	</ul>
 </div>	
