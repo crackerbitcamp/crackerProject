@@ -106,6 +106,9 @@ div {
 		<c:if test="${not empty display}">
 			<jsp:include page="${display}" />
 		</c:if>
+		
+	
+		
 	</div>
 </body>
 </html>

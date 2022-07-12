@@ -26,6 +26,10 @@ public interface AdminDAO {
 
 	public void adminMemberDelete(Map<String, String[]> map);
 
+	public List<MemberDTO> getadminMemberSerach(Map<String, Object> map);
+
+	public int getTotalSearchA(Map<String, Object> map);
+
 
 
 
