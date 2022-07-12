@@ -53,6 +53,16 @@ public class AdminDAOMyBatis implements AdminDAO {
 		sqlSession.delete("adminSQL.adminMemberDelete", map);
 		
 	}
+	@Override
+	public List<MemberDTO> getadminMemberSerach(Map<String, Object> map) {
+		
+		return sqlSession.selectList("adminSQL.getadminMemberSerach");
+	}
+	@Override
+	public int getTotalSearchA(Map<String, Object> map) {
+		
+		return sqlSession.selectOne("adminSQL.getTotalSearchA", map);
+	}
 
 	
 }

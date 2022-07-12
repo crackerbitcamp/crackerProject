@@ -7,15 +7,11 @@
 <title>회원 리스트</title>
 
 <style type="text/css">
-.subjectA:link {color: black; text-decoration: none;}
-.subjectA:visited x`{color: black; text-decoration: none;}
-.subjectA:hover {color: green; text-decoration: underline;}
-.subjectA:active {color: #d81e5b; text-decoration: none;}
 
 table {
-	margin-left : auto;
-	margin-right : auto;
+	margin : auto;
 	margin-top : 30px;
+
 }
 
 #currentPaging {
@@ -29,49 +25,44 @@ table {
 	cursor: pointer;
 }
 
-#adminMemberList{
-	margin-left : 20.36%;
+#adminMemberPagingDiv {
+	text-align: center;
+	margin-top: 30px;
 }
 
-#adminMemberList input {
-	margin-top : 30px;
-	margin-right : 45px;
+#adminMemberListTable {
+	border-bottom-style : hidden;
+	border-top-color : black;
+	border-bottom-color : black;
+	
+}
+#adminMemberListTable input[name='check'] {
+	margin-right : 50px;
 }
 
-#adminMemberList a {
+#adminMemberListTable tr {
+	display: block;
+}
+
+#adminMemberListTable th {
+	border-top:none;
+	font-size : 1.3em;
+	
+}
+
+#adminMemberListTable td {
+	font-size : 1.2em;
+	border-top : none;
+}
+
+#adminMemberListTable a {
 	text-decoration-line: none;
 	color : black;
 }
 
-#adminMemberList td {
-	font-size : 1.2em;
+#membername {
+	margin-left : 20px;
 }
-
-#memberid {
-	max-width : 214px;
-	width : 214px;
-	text-indent: 1.0em;
-}
-
-#memberemail {
-	max-width : 314px;
-	width : 314px;
-	text-indent: 3.5em;
-}
-
-#membertel {
-	max-width : 214px;
-	width : 214px;
-}
-
-#membername, #membernickname {
-	max-width : 114px;
-	width : 114px;
-	text-indent: 1.5em;
-
-}
-
-
 
 </style>
 
@@ -90,9 +81,6 @@ table {
 				<select name="searchOption">
 					<option value="membername">이름</option>
 					<option value="memberid">아이디</option>
-					<option value="memberemail">이메일</option>
-					<option value="membertel">핸드폰번호</option>
-					<option value="membernickname">닉네임</option>
 			
 				</select>
 		
@@ -104,29 +92,23 @@ table {
 		</form>
 		
 		<form id="adminMemberListForm" method="get" action="/index/admin/adminMemberDelete">
-			<table id="adminMemberListTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows">
-			<tr>
-				<th width="200"><input type="checkbox" id="allSelect" value="전체선택" style="float:left;"/> 아이디</th>
-				<th width="100">이름</th>
-				<th width="300">이메일</th>
-				<th width="200">핸드폰번호</th>
-				<th width="100">닉네임</th>
-			</tr>
 			
-			<!-- 동적 처리 -->
-
-
-			
-			
-		</table>
-		
-		<div id="adminMemberList" width ></div>
+				<table id="adminMemberListTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows" >
+					<tr>
+						<th width="200"><input type="checkbox" id="allSelect" value="전체선택" style="float:left;"/> 아이디</th>
+						<th width="100">이름</th>
+						<th width="300">이메일</th>
+						<th width="200">핸드폰번호</th>
+						<th width="100">닉네임</th>
+					</tr>
+				<!-- 동적 처리 -->			
+				</table>
 		
 		
-		<input type="button" id="adminMemberdDeleteBtn" value="선택삭제" style="margin: 40px 350px;" > 
-		<div id="adminMemberPagingDiv" style=" width: 700px; text-align: center; margin: -30px; margin-left: 480px;" ></div>
+<!-- 			<input type="button" id="adminMemberdDeleteBtn" value="선택삭제" />  -->
+			<div id="adminMemberPagingDiv" ></div>
 
-	</form>
+		</form>
 	
 </div>
 
@@ -138,8 +120,22 @@ table {
 function adminPaging(pg2) {
 	
 	location.href="/index/admin/adminMemberList?pg="+pg2;
+
+	var keyword = $('#keyword').val();
 	
+		if(keyword == ''){
+		location.href = "/index/admin/adminMemberList?pg="+pg2;
+		
+		}else {
+		
+		$('#searchPg').val(pg2); 
+		$('#adminmemberSearchBtn').trigger('click');
+		
+		$('#searchPg').val(1);
+		}
 }
+
+
 
 </script>
 

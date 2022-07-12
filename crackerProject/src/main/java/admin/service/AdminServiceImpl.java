@@ -69,7 +69,7 @@ public class AdminServiceImpl implements AdminService {
 		//DB - 1페이지당 5개씩
 		int endNum = Integer.parseInt(pg) * 5;
 		int startNum = endNum - 4;
-		System.out.println(startNum+"  /  "+endNum);
+	
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();
 		map.put("startNum",startNum);
@@ -115,6 +115,34 @@ public class AdminServiceImpl implements AdminService {
 			adminDAO.adminMemberDelete(map);
 		
 	}
+
+
+	@Override
+	public Map<String, Object> adminMemberSearch(Map<String, Object> map) {
+		
+		
+		int endNum = Integer.parseInt((String)map.get("pg")) * 5;
+		int startNum = endNum - 4;
+		
+		map.put("startNum",startNum);
+		map.put("endNum",endNum);
+		
+		List<MemberDTO> list = adminDAO.getadminMemberSerach(map);
+		
+		int totalA = adminDAO.getTotalSearchA(map); //총글수
+		adminPaging.setCurrentPage(Integer.parseInt((String) map.get("pg")));
+		adminPaging.setPageBlock(3);
+		adminPaging.setPageSize(5);
+		adminPaging.setTotalA(totalA);
+		adminPaging.makePagingHTML();
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("list", list);
+		sendMap.put("adminPaging", adminPaging);
+		
+		return map;
+	}
+
 
 
 }
