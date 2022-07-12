@@ -36,4 +36,5 @@ public interface BoardService {
 	public Map<String, Object> getBoardListtest(String pg);
 
 
+
 }
