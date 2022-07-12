@@ -82,5 +82,17 @@ public class boardDAOMyBatis implements BoardDAO {
 
 	}
 
+	@Override
+	public List<BoardDTO> getRecipeBoardList(Map<String, Integer> map) {
+	
+		return sqlSession.selectList("boardSQL.getRecipeBoardList",map);
+	}
+
+	@Override
+	public BoardDTO getRecipeBoardView(String seq) {
+		
+		return sqlSession.selectOne("boardSQL.getRecipeBoardView",Integer.parseInt(seq));
+	}
+
 
 }

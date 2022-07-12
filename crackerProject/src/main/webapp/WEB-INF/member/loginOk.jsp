@@ -69,7 +69,6 @@ float: right;
       <div class="info">
       	<dl class="infotext">
       		<dd id=infologin><img src="/index/image/home/person.svg"/ style="margin-bottom: 5px;"><a href="#" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'">회원정보수정</a></dd>
-      		<dd id="infologin" style="margin-left: 20px;">내정보</dd>
          	<dd id="member"><a href="#">내가쓴글</a></dd>
          	
       	</dl>

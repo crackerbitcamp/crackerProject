@@ -108,6 +108,8 @@ public class BoardController {
 	@ResponseBody
 	@PostMapping(value="boardWrite")
 	public void boardWrite(@RequestParam Map<String,String> map ){
+		System.out.println("카테고리 오나 확인 = " + map.get("category"));
+		
 		boardService.boardWrite(map);
 		
 	}
@@ -126,6 +128,25 @@ public class BoardController {
 		return mav;
 	}
 	
+	@GetMapping(value="recipeBoardList")
+	public ModelAndView recipeBoardList(@RequestParam(required = false,defaultValue="1") String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		mav.addObject("display", "/WEB-INF/board/recipeBoardList.jsp");
+		mav.setViewName("/index");
+		
+		return mav;
+	}
+	
+	@ResponseBody
+	@PostMapping(value="getRecipeBoardList")
+	public Map<String,Object> getRecipeBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
+		System.out.println();
+		return boardService.getRecipeBoardList(pg);
+	}
+	
 	@ResponseBody
 	@PostMapping(value="getBoardList")
 	public Map<String,Object> getBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
@@ -133,13 +154,7 @@ public class BoardController {
 	}
 	
 
-	// 글보기
-	// 인덱스 getBoardListbest
-	@ResponseBody
-	@PostMapping(value="getBoardListbest")
-	public Map<String,Object> getAllBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
-		return boardService.getBoardListbest(pg);
-	}
+	
 	
 	//인덱스 getBoardListhot
 	@ResponseBody
@@ -148,19 +163,7 @@ public class BoardController {
 		return boardService.getBoardListhot(pg);
 	}
 	
-	//인덱스 getBoardListinfo
-	@ResponseBody
-	@PostMapping(value="getBoardListinfo")
-	public Map<String,Object> getBoardListinfo(@RequestParam(required = false,defaultValue="1" )String pg){
-		return boardService.getBoardListinfo(pg);
-	}
 	
-	//인덱스 getBoardListtest
-	@ResponseBody
-	@PostMapping(value="getBoardListtest")
-	public Map<String,Object> getBoardListtest(@RequestParam(required = false,defaultValue="1" )String pg){
-		return boardService.getBoardListtest(pg);
-	}
 	
 		
 
@@ -178,10 +181,30 @@ public class BoardController {
 		return mav;
 	}
 	
+	@GetMapping(value="recipeBoardView")
+	public ModelAndView recipeBoardView(@RequestParam String seq, @RequestParam String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.addObject("seq",seq);
+		mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		mav.addObject("display", "/WEB-INF/board/recipeBoardView.jsp");
+		mav.setViewName("/index");
+		
+		
+		return mav;
+	}
+	
 	@PostMapping(value="getBoardView")
 	@ResponseBody
 	public Map<String,Object> getBoardView(@RequestParam String seq) {
 		return boardService.getBoardView(seq);
+	}
+	
+	@PostMapping(value="getRecipeBoardView")
+	@ResponseBody
+	public Map<String,Object> getRecipeBoardView(@RequestParam String seq) {
+		return boardService.getRecipeBoardView(seq);
 	}
 	
 	// 글 업데이트
@@ -246,16 +269,7 @@ public class BoardController {
 		return boardService.boardSearch(map); 
 	}
 	
-	@GetMapping()
-	public ModelAndView recipeBoardList(@RequestParam(required = false,defaultValue="1") String pg) {
-		ModelAndView mav = new ModelAndView();
-		mav.addObject("pg",pg);
-		mav.addObject("menu","/WEB-INF/main/menu.jsp");
-		mav.addObject("nav","/WEB-INF/main/nav.jsp");
-		mav.addObject("display", "/WEB-INF/board/boardList.jsp");
-		mav.setViewName("/index");
-		
-		return mav;
-	}
+	
+	
 
 }
