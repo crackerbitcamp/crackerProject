@@ -12,7 +12,7 @@
 
 
 #wrap {
-	width: 1600px;
+	width: 90%;
 	margin: 0 auto; /* 위아래여백,좌우여백  */
 }
 
@@ -53,10 +53,17 @@
 #content {
 	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
+	float: left; 
+	width: 95%;
+	border: 1px red solid; /*솔리드 라인*/
+}
+#display{
+	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
+	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
 	width: 65%;
 	margin-left: 3%;
-	border: 1px red solid; /*솔리드 라인*/
+	border: 1px blue solid; /*솔리드 라인*/
 }
 
 #textSection {
@@ -82,7 +89,7 @@
 #rightbar {
 	position: relative;
 	float: right;
-	width: 14%;
+	width: 10%;
 	height: 2000px;
 	border: 1px solid red;
 }
@@ -211,9 +218,6 @@
 		<!-- header -->
 
 	
-		<input type="button" value="문의하기" onclick="location.href='/index/customer/customerWriteForm'">
-	
-			
 
 		<div id="container">
 			<div id="menu">
@@ -230,7 +234,7 @@
 
 			<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'">
-
+			<div id="display">
 			<c:if test="${empty display}">
 				<div id="content">
 					<a href="/index/board/boardWriteForm">글쓰기</a>
@@ -241,7 +245,7 @@
 
 							<jsp:include page="${indexSection1 }" />
 						</div>
-
+						
 
 					</div>
 					
@@ -285,7 +289,7 @@
 				<jsp:include page="${display}" />
 			</c:if>
 
-
+			</div>
 			<div id="rightbar">
 				<div class="card2">
 					<div class="card-body">

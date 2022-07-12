@@ -4,6 +4,8 @@ import java.util.Date;
 
 import org.springframework.stereotype.Component;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Component
 public class CommentDTO {
@@ -15,6 +17,7 @@ public class CommentDTO {
 				pseq,
 				reply,
 				likIt;
+	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
 	private Date logtime;
 	public String getNickName() {
 		return nickName;
