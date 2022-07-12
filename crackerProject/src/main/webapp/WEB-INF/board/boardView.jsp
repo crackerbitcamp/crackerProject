@@ -75,9 +75,11 @@ $(function() {
 		data : 'seq='+ $('#seq').val(),
 		error : function(){
 			alert("통신 에러");
+			
 		},
 		success : function(data) {
-				$('#goodcount').html(data);
+			$('#goodcount').html(data);
+		}
 	});
 });
 
@@ -91,12 +93,13 @@ $('#goodBtn').click(function() {
 			alert("통신 에러");
 		},
 		success : function(data) {
-		  if(data == 0){
-		        	alert("추천완료.");
+			if(data == 0){
+		        alert("추천완료.");
+		        document.location.reload();
 		        	
-		        }
-		        else if (data == 1){
+			}else if (data == 1){
 		        alert("추천취소");
+		        document.location.reload();
 		    }
 		}
 	});

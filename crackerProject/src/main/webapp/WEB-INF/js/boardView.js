@@ -80,7 +80,7 @@ $(function(){
 		data : 'seq='+$('input[name=seq]').val(),
 		dataType : 'json',
 		success:function(data){
-			alert(JSON.stringify(data));
+//			alert(JSON.stringify(data));
 			$.each(data.list, function(index, items){
 				$('<tr/>')
 				.append($('<td/>',{
