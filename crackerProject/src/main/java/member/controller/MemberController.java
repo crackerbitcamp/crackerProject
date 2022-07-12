@@ -1,14 +1,9 @@
 package member.controller;
 
-import java.io.IOException;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
-import org.apache.maven.model.Model;
-import org.apache.velocity.exception.ParseErrorException;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -28,10 +23,12 @@ import member.service.MemberService;
 public class MemberController{
 	@Autowired
 	private MemberService memberService;
+	
 	//로그인
 	@GetMapping("/memberLoginForm")
-	public ModelAndView memberLoginForm() {
+	public ModelAndView memberLoginForm(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		
 		mav.setViewName("/member/memberLoginForm");
 		return mav;
 	}
@@ -55,6 +52,7 @@ public class MemberController{
 	   ModelAndView mav = new ModelAndView();
 	   session.invalidate();
 		mav.addObject("indexSection1","/WEB-INF/main/indexSection1.jsp");
+
 		mav.addObject("indexSection5","/WEB-INF/main/indexSection5.jsp");
 		mav.addObject("menu","/WEB-INF/main/menu.jsp");
 		mav.addObject("nav","/WEB-INF/main/nav.jsp");

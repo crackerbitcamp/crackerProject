@@ -10,8 +10,7 @@ $(function(){
 			$('#seqSpan').html(data.boardDTO.seq);
 			$('#idSpan').html(data.boardDTO.id);
 			$('#hitSpan').html(data.boardDTO.hit);
-			$('#content').html(data.boardDTO.content);
-			
+			$('#content').html(data.boardDTO.content);  
 			if(data.memId == data.boardDTO.id){
 				$('#boardViewSpan').show();
 			}
@@ -81,7 +80,7 @@ $(function(){
 		data : 'seq='+$('input[name=seq]').val(),
 		dataType : 'json',
 		success:function(data){
-			alert(JSON.stringify(data));
+//			alert(JSON.stringify(data));
 			$.each(data.list, function(index, items){
 				$('<tr/>')
 				.append($('<td/>',{

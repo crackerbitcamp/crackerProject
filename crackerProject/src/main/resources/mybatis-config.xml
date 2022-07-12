@@ -9,5 +9,6 @@
 		<typeAlias type="comment.bean.CommentDTO" alias="comment"/>
 		<typeAlias type="admin.bean.AdminDTO" alias="admin"/>
 		<typeAlias type="customer.bean.CustomerDTO" alias="customer"/>
+		<typeAlias type="good.bean.GoodDTO" alias="good"/>
 	</typeAliases>
 </configuration>
