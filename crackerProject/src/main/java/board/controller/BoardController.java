@@ -71,6 +71,8 @@ public class BoardController {
 			            if(!uploadFile.exists()) {
 			            	uploadFile.mkdir();
 			            }
+			            
+			            file.transferTo(uploadFile);
 			            String fileName2 = UUID.randomUUID().toString();
 			            uploadPath = uploadPath + "/" + fileName2 +fileName;
 			            
