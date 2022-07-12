@@ -12,7 +12,7 @@
 
 
 #wrap {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto; /* 위아래여백,좌우여백  */
 }
 
@@ -193,6 +193,16 @@
 	text-decoration: none;
 	cursor: pointer;
 }
+#header{
+	width: 100%;
+	height: 450px;
+	background-image: url("/index/image/header_background1.jpg");
+	background-size: cover;
+	background-position: center center;
+}
+#container{
+	margin: 2% 5% 5% 2%;
+}
 
 .subjectA {
 	width: 320px;
@@ -201,19 +211,105 @@
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
+#header .header_menu_item{
+	margin: 20px 0 0 50px;
+	float: right;
+	color: white;
+}
+#header .header_login_item{
+	margin: 20px 0 0 50px;
+	/* float: right; */
+	color: white;
+}
+#header_menu_ul{
+	width:70%;
+	/* float: left; */
+	list-style : none;
+}
+#header_login_ul{
+	width:10%;
+	/* float: left; */
+	
+	list-style : none;
+}
+#header .header_menu_item span{
+	font-size: 20px;
+}
+#header_menuDiv:after{
+	display: block;
+	clear: both;
+}
+/*  #searchForm{
+	position: absolute;
+	left: 40%;
+	top:50%;
+	
+}  */
+
+.main-search {
+    position: relative;
+    margin: 34px 15px 0 15px;
+    height: 48px;
+    border: 1px solid #ff792a;
+    border-radius: 50px;
+    background-color: #ffffff;
+}
+.main-search {
+    margin: 45px auto 0 auto;
+    height: 50px;
+    width: 738px;
+    border: 2px solid #ff7100;
+    border-radius: 80px;
+    overflow: hidden;
+}
+.main-search input[type=text] {
+    display: block;
+    width: 100%;
+    font-size: 0.813rem;
+    color: #cbcbcb;
+    line-height: 44px;
+    border: 0;
+}
+
+.main-search input[type=text] {
+    height: 50px;
+    font-size: 1.1rem;
+    line-height: 50px;
+    color: #000;
+}
+
+.main-search input[type=text]:placeholder-shown {
+    line-height: 50px;
+    color: #cbcbcb;
+    opacity: 1;
+}
+
 </style>
 </head>
 <body>
 	<div id="wrap">
 
 		<div id="header">
-			<h1 align="center">
-				<img src="/index/image/home/LOGO2.jpeg" width="50%" height="50%"
-					onclick="location.href='/index'"
-					style="cursor: pointer; margin-top: 50px;">
-			</h1>
-			<br>
-			<hr>
+			<div id="header_menuDiv">
+				<ul id="header_menu_ul">
+					<li class="header_menu_item"><span>전체 게시판</span></li>
+					<li class="header_menu_item"><span>자유 게시판 </span></li>
+					<li class="header_menu_item"><span>레시피 게시판</span></li>
+				</ul>
+				
+				<ul id="header_login_ul">
+					<li class="header_login_item">
+						<button ></button>
+					</li>
+				</ul>
+			</div>
+			<!-- 헤어 상위 메뉴바 아래 -->
+			<div id = "searchForm">
+				<fieldset class="main-search">
+					<input type="text" id="boardSearch">
+					<input type="button" id="boardSearchBtn" value="검색">
+				</fieldset>
+			</div>
 		</div>
 		<!-- header -->
 
