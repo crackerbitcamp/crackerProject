@@ -11,6 +11,7 @@ import lombok.Data;
 @Data
 @Component
 public class MemberDTO {
+	private int memberseq;
 	private String membername, memberid, 
 	memberpwd, 
 	memberemail1,
