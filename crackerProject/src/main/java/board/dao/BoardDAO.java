@@ -31,7 +31,4 @@ public interface BoardDAO {
 	public List<BoardDTO> getAllBoardList(Map<String, Integer> map);
 
 
-
-	
-
 }

@@ -82,5 +82,4 @@ public class boardDAOMyBatis implements BoardDAO {
 
 	}
 
-
 }

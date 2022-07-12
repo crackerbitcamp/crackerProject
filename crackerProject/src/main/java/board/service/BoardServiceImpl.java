@@ -28,6 +28,7 @@ public class BoardServiceImpl implements BoardService {
 		String id = (String)session.getAttribute("memId");
 		String name = (String)session.getAttribute("memName");
 		String email = (String)session.getAttribute("memEmail");
+		String goodcount = "0";
 
 		map.put("id", id);
 		map.put("name", name);
