@@ -35,7 +35,4 @@ public interface BoardDAO {
 	public BoardDTO getRecipeBoardView(String seq);
 
 
-
-	
-
 }

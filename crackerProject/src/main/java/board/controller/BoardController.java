@@ -269,7 +269,6 @@ public class BoardController {
 		return boardService.boardSearch(map); 
 	}
 	
-	
-	
+
 
 }

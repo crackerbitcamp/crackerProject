@@ -82,6 +82,7 @@ public class boardDAOMyBatis implements BoardDAO {
 
 	}
 
+
 	@Override
 	public List<BoardDTO> getRecipeBoardList(Map<String, Integer> map) {
 	
@@ -93,6 +94,7 @@ public class boardDAOMyBatis implements BoardDAO {
 		
 		return sqlSession.selectOne("boardSQL.getRecipeBoardView",Integer.parseInt(seq));
 	}
+
 
 
 }

@@ -37,4 +37,5 @@ public interface BoardService {
 	public Map<String, Object> getRecipeBoardView(String seq);
 
 
+
 }
