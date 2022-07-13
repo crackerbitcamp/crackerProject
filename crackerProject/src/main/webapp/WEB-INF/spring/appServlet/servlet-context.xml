@@ -13,14 +13,14 @@
 	<annotation-driven />
 
 	<!-- Handles HTTP GET requests for /resources/** by efficiently serving up static resources in the ${webappRoot}/resources directory -->
-	<resources mapping="/resources/**" location="/resources/" />
+		<resources location="/resources/" mapping="/resources/**" />
+	
 	<resources location="/WEB-INF/image/" mapping="/image/**"  />
 	<resources location="/WEB-INF/script/" mapping="/script/**"  />
 	<resources location="/WEB-INF/storage/" mapping="/storage/**"  />
 	<resources location="/WEB-INF/css/" mapping="/css/**"  />
 	<resources location="/WEB-INF/js/" mapping="/js/**"  />
 	<resources location="/ckeditor/" mapping="/ckeditor/**"></resources>
-	
 	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
 	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<beans:property name="prefix" value="/WEB-INF/" />
@@ -39,9 +39,8 @@
 	<context:component-scan base-package="customer.controller" />
 	<context:component-scan base-package="admin.controller"></context:component-scan>
 	<context:component-scan base-package="comment.controller"></context:component-scan>
-
 	<context:component-scan base-package="good.controller" />
-	<context:component-scan base-package="member.controller" />
+
 
 	
 </beans:beans>
