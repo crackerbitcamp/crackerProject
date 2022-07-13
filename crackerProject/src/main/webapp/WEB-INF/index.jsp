@@ -339,9 +339,8 @@
 	<!-- 우측상단 로그인 버튼 -->
 	<div >
 		<div id="userHistory_black">
-		
 		</div>
-		<c:if test="${memId==null}">
+		<c:if test="${memNickname==null}">
 			<div class="userHistory">
 				<i id="userHistory_triangle"></i>
 				<div>
@@ -358,7 +357,7 @@
 			
 			</div>
 		</c:if>
-		<c:if test="${memId!=null}">
+		<c:if test="${memNickname!=null}">
 		
 			<div class="userHistory">
 				로그인 되었습니다.
