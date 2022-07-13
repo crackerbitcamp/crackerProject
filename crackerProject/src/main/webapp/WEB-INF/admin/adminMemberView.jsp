@@ -14,6 +14,10 @@ table {
 
 }
 
+.historyback {
+	margin-left : 200px;
+}
+
 
 </style>
 
@@ -26,7 +30,13 @@ table {
 
 		<form id="adminMemberViewForm">
 			
-				<table id="adminMemberViewTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows" >
+			<div class="historyback">
+				<a href="#" onclick="history.back(); return false;" style="text-decoration : none;">이전</a>
+			</div>
+			
+			<table id="adminMemberViewTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows" >
+			
+			
 					<tr>
 						<th width="200">@@@님의 게시글</th>
 						<th width="200">@@@님의 댓글</th>

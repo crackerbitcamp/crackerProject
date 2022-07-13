@@ -7,7 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> 세션 2</h1>
 	<jsp:include page="../customer/customerList.jsp"></jsp:include>
 </body>
 </html>
