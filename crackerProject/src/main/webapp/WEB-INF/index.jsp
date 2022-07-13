@@ -8,79 +8,23 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- header -->
+<link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
+<link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
+<link href="/index/css/indexCSS/indexmodal.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
-.join_wrap_btn{
-	width: 100%;
-	height: 64px;
-	background-color: #f27935;
-	font-weight: 700;
-	font-size: 18px;
-	color: #fff;
-	letter-spacing: -.28px;
-	border: none;
-	margin-top: 50px;
-}
-.memberWriteModal{
-	position:fixed;
-	z-index:1000;
-	width:100%;
-	height: 100%;
-	
-	margin:auto;
-	display: none;
-	text-align:center;
-	background-color: rgba(0,0,0,0.4);
-}
-.modal_join_check_all{
-	margin-left: 29px;
-	margin-top: 50px;
-}
-.memberModal{
-	position: absolute;
-	top: 150px;
-	left:320px;
-	width : 750px;
-	height: 700px;
-	border: 1px solid red;
-	background-color: white;
-}
-
-.modalcheckbox{
-	display: inline-block;
-	font-size: 18px;
-	font-family: '나눔고딕',NanumGothic;
-	padding-left: 36px;
-	float: left;
-	vertical-align: top;
-	line-height: 24px;
-}
-
-.modalcenter{
-	width: 500px;
-	height: 671px;
-	margin: 0 auto;
-}
-
-.modalcheck{
-	width: 24px;
-	height: 24px;
-	margin-right: 10px;
-}
-
-.modaljoin_team{
-	padding: 21px 0 21px 28px;
-}
 
 #wrap {
-	width: 90%;
+	width: 100%;
 	margin: 0 auto; /* 위아래여백,좌우여백  */
 }
 
-#boardListTable tr td {
-	width: auto;
-	padding: 0 auto;
-}
 /* container */
+
+#container{
+	margin: 2% 5% 5% 2%;
+}
+
 #container:after { /* after는 컨테이너 뒤에 붙는거 해제하라는 뜻 */
 	content: '';
 	display: block;
@@ -126,25 +70,8 @@
 	border: 1px blue solid; /*솔리드 라인*/
 }
 
-#textSection {
-	
-}
 
-.card {
-	float: left;
-	display: flex;
-	margin-left: 8px;
-	margin-top: 60px;
-}
 
-.card2 {
-	position: sticky;
-	position: -webkit-sticky;
-	display: inline-block;
-	top: 30px;
-	width: 100%;
-	height: 50%;
-}
 
 #rightbar {
 	position: relative;
@@ -218,49 +145,12 @@
 	color: red;
 }
 
-#keyword {
-	width: 70%;
-}
 
-.subjectA:link {
-	color: black;
-	text-decoration: none;
-}
 
-.subjectA:visited {
-	color: black;
-	text-decoration: none;
-}
 
-.subjectA:hover {
-	color: green;
-	text-decoration: underline;
-}
 
-.subjectA:active {
-	color: #d81e5b;
-	text-decoration: none;
-}
 
-#currentPaging {
-	color: red;
-	text-decoration: underline;
-	cursor: pointer;
-}
 
-#paging {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
-}
-
-.subjectA {
-	width: 320px;
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
 </style>
 </head>
 <body>
@@ -295,17 +185,35 @@
 					</div>
 				</div>
 	<div id="wrap">
-		<div id="header">
-			<h1 align="center">
-				<img src="/index/image/home/LOGO2.jpeg" width="50%" height="50%"
-					onclick="location.href='/index'"
-					style="cursor: pointer; margin-top: 50px;">
-			</h1>
-			<br>
-			<hr>
-		</div>
+		<header id="header">
+			
+			<div id="header_menuDiv">
+				
+				<img alt="" src="/index/image/home/LOGO2.jpeg" width="100px" height="50px" id="headerLogo">
+				<div id="header_ul">
+					<ul id="header_menu_ul">
+						<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
+						<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
+						<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
+					</ul>
+					
+					<ul id="header_login_ul">
+						<li class="header_login_item">
+							<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
+						</li>
+					</ul>
+				
+				</div>
+			</div>
+				<!-- 헤어 상위 메뉴바 아래 -->
+			
+			<div id = "searchForm">
+				<img alt="돋보기" src="/index/image/home/search.svg">
+				<input type="text" id="boardSearch">
+				<input type="button" id="boardSearchBtn" value="검색">
+			</div>
+		</header>
 		<!-- header -->
-
 	
 
 		<div id="container">
@@ -319,7 +227,7 @@
 				</p>
 				<h2>BOARD</h2>
 				<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
-			</div>
+			</div> 
 
 			<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'">
@@ -427,58 +335,41 @@
 
 	</div>
 	<!-- footer -->
-</body>
-
+	
+	<!-- 우측상단 로그인 버튼 -->
+	<div >
+		<div id="userHistory_black">
+		
+		</div>
+		<c:if test="${memId==null}">
+			<div class="userHistory">
+				<i id="userHistory_triangle"></i>
+				<div>
+					<button class="userHistoryBtnClass" id="loginBtn">로그인</button>
+				
+				</div>
+				<div>
+					<button class="userHistoryBtnClass">아이디 비밀번호 찾기</button>
+				
+				</div>
+				<div>
+					<button class="userHistoryBtnClass" id="memberWriteBtn">회원가입</button>
+				</div>
+			
+			</div>
+		</c:if>
+		<c:if test="${memId!=null}">
+		
+			<div class="userHistory">
+				로그인 되었습니다.
+			
+			</div>
+		</c:if>
+	</div>
+	
+	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-
-<script type="text/javascript">
-	
-	$('#memberWrite').click(function(){
-		$('.memberWriteModal').fadeIn(300);
-		$('.memberWriteModal').css('display','block');
-		return false;
-	});
-	$('#check_all').click(function(){
-		if($("#check_all").is(":checked")){ 
-			$("input[name=modalchk]").prop("checked", true);
-		}
-		else $("input[name=modalchk]").prop("checked", false);
-	});
-
-	$('.join_wrap_btn').click(function(){
-		if($('modalchecked1').val() == 'true' && $('#modalchecked2').val() == 'true' || $('#modalchecked3').val() == 'true'){
-			location.href = '/index/member/memberWriteForm'
-		}
-	});
-	
-	$('#modalclose').click(function(){
-		$('.memberWriteModal').fadeOut(300);
-	});
-	
-	$('#modalcheck1').change(function(){
-		if($('#modalcheck1').is(":checked")){
-			$('#modalchecked1').prop('value','true');
-		}else{
-			$('#modalchecked1').prop('value','false');
-		}
-	});
-	
-	$('#modalcheck2').change(function(){
-		if($('#modalcheck2').is(":checked")){
-			$('#modalchecked2').prop('value','true');
-		}else{
-			$('#modalchecked2').prop('value','false');
-		}
-	});
-	
-	$('#modalcheck3').change(function(){
-		if($('#modalcheck3').is(":checked")){
-			$('#modalchecked3').prop('value','true');
-		}else{
-			$('#modalchecked3').prop('value','false');
-		}
-	});
-	
+<script type="text/javascript" src="/index/js/index.js">
 </script>
-
+</body>
 </html>

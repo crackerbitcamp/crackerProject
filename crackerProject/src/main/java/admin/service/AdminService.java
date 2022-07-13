@@ -13,6 +13,8 @@ public interface AdminService {
 	public Map<String, Object> getadminMemberList(String pg);
 
 	public void adminMemberDelete(String[] check);
+
+	public Map<String, Object> adminMemberSearch(Map<String, String> map);
 		
 		
 	

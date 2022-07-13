@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+/* header */
+#headerLogo:hover{
+	cursor:pointer;
+}
+
+#header_menu_ul{
+	display: flex;
+	list-style: none;
+	margin-top: 10px;
+	
+}
+
+#header_menu_ul li{
+	margin-left: 30px;
+	width: 150px;
+}
+#header_login_ul{
+	display: flex;
+	list-style: none;
+}
+
+#header_ul{
+	display:flex;
+	position: absolute;
+	left:50%;
+	
+}
+#memberImgBtn{
+	background: none;
+	border: 0;
+}
+
+
+#header{
+	position: relative;
+	width: 100%;
+	height: 450px;
+	background-image: url("/index/image/header_background1.jpg");
+	background-size: cover;
+	background-position: center center;
+}
+
+
+#header .header_menu_item span{
+	font-size: 20px;
+}
+
+#header_menuDiv{
+	display: flex;
+	position: fixed;
+	background-color: white;
+	width: 100%;
+	height: 60px;
+	border-bottom: 2px solid #f76900;
+	box-sizing: border-box;
+	z-index: 111;
+}
+
+#boardSearch{
+  width: 500px;
+  height: 60px;
+  font-size: 15px;
+  border: 0;
+  border-radius: 30px;
+  outline: none;
+  padding-left: 10px;
+  background-color: white;
+}
+
+#searchForm{
+	padding-right:20px;
+	padding-left:20px;
+	border-radius: 30px;
+	border: #f76900 3px solid;
+	position: absolute;
+	left: 50%;
+	top: 55%;
+	margin-left: -250px;
+	margin-top: -30px;
+	background-color: white
+}
+
+#userHistory_triangle{
+	
+	position: absolute;
+    top: -10px;
+    right: 95px;/* 라이트로 위치설정 */
+    width: 0;
+    border-width: 0 16px 16px;
+    border-color: #FFFFFF transparent;
+    border-style: solid;
+}

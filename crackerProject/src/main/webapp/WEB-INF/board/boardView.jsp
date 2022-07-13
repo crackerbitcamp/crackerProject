@@ -16,7 +16,7 @@
 
 
 
-<table width="600" border="1" bordercolor="black" cellspacing="0" cellpadding="5" frame ="hsides" rules = "rows">
+<table width="100%" border="1" bordercolor="black" cellspacing="0" cellpadding="5" frame ="hsides" rules = "rows">
 		<tr>
 			<td colspan="3">
 			
@@ -29,7 +29,7 @@
 			<td width="150" align="center">조회수 : <span id="hitSpan"></span></td>
 		</tr>
 		<tr>
-			<td colspan=3 height="300" valign="top" >
+			<td colspan=3 height="700" valign="top" >
 				<div style="width : 100%; height: 100%; overflow: auto;">
 					<pre id = "content" style="white-space:pre-line; word-break: break-all; overflow-wrap: anywhere; ">
 					</pre> 
@@ -75,9 +75,11 @@ $(function() {
 		data : 'seq='+ $('#seq').val(),
 		error : function(){
 			alert("통신 에러");
+			
 		},
 		success : function(data) {
-				$('#goodcount').html(data);
+			$('#goodcount').html(data);
+		}
 	});
 });
 
@@ -91,12 +93,13 @@ $('#goodBtn').click(function() {
 			alert("통신 에러");
 		},
 		success : function(data) {
-		  if(data == 0){
-		        	alert("추천완료.");
+			if(data == 0){
+		        alert("추천완료.");
+		        document.location.reload();
 		        	
-		        }
-		        else if (data == 1){
+			}else if (data == 1){
 		        alert("추천취소");
+		        document.location.reload();
 		    }
 		}
 	});

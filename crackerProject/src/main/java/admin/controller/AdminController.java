@@ -35,6 +35,7 @@ public class AdminController {
 		return mav;
 	}
 	
+	
 	@GetMapping(value="/adminWriteForm")
 	public ModelAndView adminWriteForm() {
 		ModelAndView mav = new ModelAndView();
@@ -73,7 +74,9 @@ public class AdminController {
 	public ModelAndView adminMemberList(@RequestParam(required = false, defaultValue = "1") String pg) {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
-		mav.setViewName("/admin/adminMemberList");
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/admin/adminMemberList.jsp");
+		mav.setViewName("/admin/adminMain");
 		
 		return mav;
 	}
@@ -93,4 +96,20 @@ public class AdminController {
 		
 		return new ModelAndView("redirect:/admin/adminMemberList");
 	}
+	
+	@PostMapping(value="/adminMemberSearch")
+	@ResponseBody
+	public Map<String, Object> adminMemberSearch(@RequestParam Map<String, String> map){ 
+		return adminService.adminMemberSearch(map);
+	}
+	
+	@GetMapping(value="/adminMemberView")
+	public ModelAndView adminMemberView() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/admin/adminMemberView.jsp");
+		mav.setViewName("/admin/adminMain");
+		return mav;
+	}
+
 }
