@@ -5,20 +5,14 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Map;
-import java.util.Set;
 import java.util.UUID;
 
-import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -56,11 +50,12 @@ public class BoardController {
 	// 이미지 업로드
 	@ResponseBody
 	@RequestMapping(value = "imageUpload")
-    public void communityImageUpload(HttpServletRequest req, HttpServletResponse resp, MultipartHttpServletRequest multiFile, HttpSession session) throws Exception{
+    public void communityImageUpload(HttpServletRequest req, HttpServletResponse resp, MultipartHttpServletRequest multiFile) throws Exception{
 		JsonObject jsonObject = new JsonObject();
 		PrintWriter printWriter = null;
 		OutputStream out = null;
 		MultipartFile file = multiFile.getFile("upload");
+		
 		if(file != null) {
 			if(file.getSize() >0 && StringUtils.isNotBlank(file.getName())) {
 				if(file.getContentType().toLowerCase().startsWith("image/")) {
@@ -68,16 +63,17 @@ public class BoardController {
 				    	 
 			            String fileName = file.getOriginalFilename();
 			            byte[] bytes = file.getBytes();
-			                 
-			            String uploadPath = session.getServletContext().getRealPath("/WEB-INF/storage"); //저장경로
+			           
+			            String uploadPath = req.getSession().getServletContext().getRealPath("/WEB-INF/storage"); //저장경로
 			            System.out.println("uploadPath:"+uploadPath);
 
 			            File uploadFile = new File(uploadPath);
 			            if(!uploadFile.exists()) {
 			            	uploadFile.mkdir();
 			            }
-			            String fileName2 = UUID.randomUUID().toString();
 			            
+			            file.transferTo(uploadFile);
+			            String fileName2 = UUID.randomUUID().toString();
 			            uploadPath = uploadPath + "/" + fileName2 +fileName;
 			            
 			            out = new FileOutputStream(new File(uploadPath));
@@ -92,14 +88,7 @@ public class BoardController {
 			            json.addProperty("url", fileUrl);
 			            printWriter.print(json);
 			            System.out.println(json);
-
-			            String url = this.getClass().getResource("").getPath(); 
-			            String test = url.substring(1,url.indexOf(".metadata"));
-			            System.out.println(test);
-			            File dirs = new File(test + "crackerProject\\crackerProject\\src\\main\\webapp\\WEB-INF\\storage\\");
-			            System.out.println(dirs);
-			            File file1 = new File(dirs+"/"+fileName2+fileName);
-			            file.transferTo(file1);
+			 
 			        }catch(IOException e){
 			            e.printStackTrace();
 			        } finally {
