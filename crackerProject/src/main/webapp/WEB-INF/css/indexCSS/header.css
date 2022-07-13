@@ -28,6 +28,8 @@
 	
 }
 #memberImgBtn{
+	position: absolute;
+	top: -3px;
 	background: none;
 	border: 0;
 }
@@ -91,4 +93,16 @@
     border-width: 0 16px 16px;
     border-color: #FFFFFF transparent;
     border-style: solid;
+}
+#memberImgBtn:hover{
+	cursor: pointer;
+}
+.menu_item_a{
+	text-decoration: none;
+}
+.menu_item_a:visited{
+	color: #f76900;
+}
+.menu_item_a:link{
+	color: #f76900;
 }
