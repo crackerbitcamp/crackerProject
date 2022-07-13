@@ -67,7 +67,7 @@ float: right;
       	<dl class="infotext">
          	
       		<dd id=infologin><a href="#" onclick="idinfo()">아이디&비밀번호 찾기</a></dd>
-         	<dd id="member"><img src="/index/image/home/person.svg"/><a href="#" onclick="location.href='/index/member/memberWriteForm'">회원가입</a></dd>
+         	<dd id="member"><img src="/index/image/home/person.svg"/><a href="#" onclick="" id="memberWrite">회원가입</a></dd>
          	
       	</dl>
         

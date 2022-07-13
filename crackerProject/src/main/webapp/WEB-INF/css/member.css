@@ -18,6 +18,29 @@ body{
 	background:var(--body-background-color);
 }
 
+.join_title{
+	padding-top:50px;
+	text-align: center;
+}
+
+.email-btn{
+	border-radius:5px;
+	margin-left: -4px;
+	background-color: rgba(0,0,0,0);
+	width : 100px;
+	height : 30px;
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+#memberupdateDiv{
+	justify-content: center;
+}
+
+.btn-primary:hover{
+	cursor: pointer;
+}
+
 .main-container{
 	width:100%;
 	display:flex;
@@ -319,12 +342,9 @@ footer .copyright-wrap span{
 }
 
 #memberUpdateFormDiv{
-	display:inline;
-	margin-left:600px;
-	text-align:center;
 	height:200px; 
 	width:300px;
-	border:  1px solid;
+	margin: auto;
 }
 
 #section{
@@ -352,4 +372,12 @@ footer .copyright-wrap span{
 	border: none;
 	font-size: 24px;
 	margin-left: 5px;
+}
+
+.updateIdName{
+	padding-right: 16px;
+}
+
+.updatePwdName{
+	margin-right: 5px;
 }

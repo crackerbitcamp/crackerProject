@@ -10,6 +10,8 @@
 <title>Insert title here</title>
 <!-- header -->
 <link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
+<link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
+<link href="/index/css/indexCSS/indexmodal.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 
 #wrap {
@@ -165,24 +167,56 @@
 </style>
 </head>
 <body>
+				<!-- 모달창 -->
+				
+				<div class= "memberWriteModal">
+					<div class = "memberModal">
+						<span style="float: right; cursor: pointer; font-size: 30px; margin: 10 20;" id = "modalclose">X</span>
+						<div class = "modalcenter">
+						<input type = "hidden" id = "modalchecked1" value="false">
+						<input type = "hidden" id = "modalchecked2" value="false">
+						<input type = "hidden" id = "modalchecked3" value="false">
+					
+							<h2>이용약관 동의</h2>	
+							<div class = "modal_join_check_all">
+								<label class = "modalcheckbox"><input type = "checkbox" id="check_all" class="modalcheck">모두 확인, 동의합니다.</label><br>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck1" name="modalchk" class="modalcheck" value = "1">만 14세 이상입니다.<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck2" name="modalchk" class="modalcheck" value = "1">이용약관 동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck3" name="modalchk" class="modalcheck" value = "1">개인정보 수집 및 이용동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" name="modalchk" class="modalcheck">선택정보 수집 및 이용동의</label>
+							</div>
+							<button class = "join_wrap_btn">동의하고 가입하기</button>
+						</div>
+					</div>
+				</div>
 	<div id="wrap">
 		<header id="header">
 			
 			<div id="header_menuDiv">
+			
+				<img alt="" src="/index/image/home/LOGO2.jpeg" width="100px" height="50px" id="headerLogo">
+				<div id="header_ul">
+					<ul id="header_menu_ul">
+						<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
+						<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
+						<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
+					</ul>
+					
+					<ul id="header_login_ul">
+						<li class="header_login_item">
+							<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
+						</li>
+					</ul>
 				
-				<img alt="" src="/index/image/home/logo.png" width="10%" height="60%">
-				
-				<ul id="header_menu_ul">
-					<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
-					<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
-					<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
-				</ul>
-				
-				<ul id="header_login_ul">
-					<li class="header_login_item">
-						<button></button>
-					</li>
-				</ul>
+				</div>
 			</div>
 				<!-- 헤더 상위 메뉴바 아래 -->
 			
@@ -207,7 +241,7 @@
 				</div>
 			</section>
 			
-				<div id="display">
+				<div id="display1">
 					<div id="imagecard">
 					
 						<div id="imagecard2">
@@ -245,11 +279,11 @@
 				</div>
 			</section>
 			
-				<div id="display2">
-			
+			<div id="display">
+		
 			<c:if test="${empty display}">
 			
-				<%-- <div id="content">
+				<div id="content">
 					<div id="textSection">
 						<div id="indexSection1" class="section">
 							<jsp:include page="${indexSection1 }" />
@@ -262,9 +296,11 @@
 						</div>
 					</div>
 
-				</div><!-- content --> --%>
+				</div><!-- content -->
 				
 			</c:if>
+			
+		</div>
 			
 			
 			<c:if test="${not empty display}">
@@ -285,12 +321,14 @@
 							class="card-link">Another link</a>
 					</div>
 				</div>
-			</div> "rightbar"  -->
+			</div> "rightbar"  
 			
-		</div><!-- container -->
+	 	</div>container -->
+	
+	
 	</div><!-- wrap -->
 	
-	
+
 	<div id="footer">
 		<div class="footerArea">
 			<dl class="btmnav">
@@ -320,6 +358,40 @@
 
 	</div><!-- footer -->
 	
-
+	<!-- 우측상단 로그인 버튼 -->
+	<div >
+		<div id="userHistory_black">
+		
+		</div>
+		<c:if test="${memId==null}">
+			<div class="userHistory">
+				<i id="userHistory_triangle"></i>
+				<div>
+					<button class="userHistoryBtnClass" id="loginBtn">로그인</button>
+				
+				</div>
+				<div>
+					<button class="userHistoryBtnClass">아이디 비밀번호 찾기</button>
+				
+				</div>
+				<div>
+					<button class="userHistoryBtnClass" id="memberWriteBtn">회원가입</button>
+				</div>
+			
+			</div>
+		</c:if>
+		<c:if test="${memId!=null}">
+		
+			<div class="userHistory">
+				로그인 되었습니다.
+			
+			</div>
+		</c:if>
+	</div>
+	
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/index/js/index.js">
+</script>
 </body>
 </html>
