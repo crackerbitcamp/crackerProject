@@ -9,7 +9,67 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.join_wrap_btn{
+	width: 100%;
+	height: 64px;
+	background-color: #f27935;
+	font-weight: 700;
+	font-size: 18px;
+	color: #fff;
+	letter-spacing: -.28px;
+	border: none;
+	margin-top: 50px;
+}
+.memberWriteModal{
+	position:fixed;
+	z-index:1000;
+	width:100%;
+	height: 100%;
+	
+	margin:auto;
+	display: none;
+	text-align:center;
+	background-color: rgba(0,0,0,0.4);
+}
+.modal_join_check_all{
+	margin-left: 29px;
+	margin-top: 50px;
+}
+.memberModal{
+	position: absolute;
+	top: 150px;
+	left:320px;
+	width : 750px;
+	height: 700px;
+	border: 1px solid red;
+	background-color: white;
+}
 
+.modalcheckbox{
+	display: inline-block;
+	font-size: 18px;
+	font-family: '나눔고딕',NanumGothic;
+	padding-left: 36px;
+	float: left;
+	vertical-align: top;
+	line-height: 24px;
+}
+
+.modalcenter{
+	width: 500px;
+	height: 671px;
+	margin: 0 auto;
+}
+
+.modalcheck{
+	width: 24px;
+	height: 24px;
+	margin-right: 10px;
+}
+
+.modaljoin_team{
+	padding: 21px 0 21px 28px;
+}
 
 #wrap {
 	width: 90%;
@@ -204,8 +264,37 @@
 </style>
 </head>
 <body>
+				<!-- 모달창 -->
+				
+				<div class= "memberWriteModal">
+					<div class = "memberModal">
+						<span style="float: right; cursor: pointer; font-size: 30px; margin: 10 20;" id = "modalclose">X</span>
+						<div class = "modalcenter">
+						<input type = "hidden" id = "modalchecked1" value="false">
+						<input type = "hidden" id = "modalchecked2" value="false">
+						<input type = "hidden" id = "modalchecked3" value="false">
+					
+							<h2>이용약관 동의</h2>	
+							<div class = "modal_join_check_all">
+								<label class = "modalcheckbox"><input type = "checkbox" id="check_all" class="modalcheck">모두 확인, 동의합니다.</label><br>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck1" name="modalchk" class="modalcheck" value = "1">만 14세 이상입니다.<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck2" name="modalchk" class="modalcheck" value = "1">이용약관 동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck3" name="modalchk" class="modalcheck" value = "1">개인정보 수집 및 이용동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" name="modalchk" class="modalcheck">선택정보 수집 및 이용동의</label>
+							</div>
+							<button class = "join_wrap_btn">동의하고 가입하기</button>
+						</div>
+					</div>
+				</div>
 	<div id="wrap">
-
 		<div id="header">
 			<h1 align="center">
 				<img src="/index/image/home/LOGO2.jpeg" width="50%" height="50%"
@@ -236,6 +325,7 @@
 				onclick="location.href='/index/customer/customerWriteForm'">
 			<div id="display">
 			<c:if test="${empty display}">
+
 				<div id="content">
 					<a href="/index/board/boardWriteForm">글쓰기</a>
 					
@@ -306,7 +396,6 @@
 		<!-- container -->
 
 	</div>
-	
 	<!-- wrap -->
 	<div id="footer">
 		<div class="footerArea">
@@ -338,7 +427,58 @@
 
 	</div>
 	<!-- footer -->
-	
-
 </body>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+	
+	$('#memberWrite').click(function(){
+		$('.memberWriteModal').fadeIn(300);
+		$('.memberWriteModal').css('display','block');
+		return false;
+	});
+	$('#check_all').click(function(){
+		if($("#check_all").is(":checked")){ 
+			$("input[name=modalchk]").prop("checked", true);
+		}
+		else $("input[name=modalchk]").prop("checked", false);
+	});
+
+	$('.join_wrap_btn').click(function(){
+		if($('modalchecked1').val() == 'true' && $('#modalchecked2').val() == 'true' || $('#modalchecked3').val() == 'true'){
+			location.href = '/index/member/memberWriteForm'
+		}
+	});
+	
+	$('#modalclose').click(function(){
+		$('.memberWriteModal').fadeOut(300);
+	});
+	
+	$('#modalcheck1').change(function(){
+		if($('#modalcheck1').is(":checked")){
+			$('#modalchecked1').prop('value','true');
+		}else{
+			$('#modalchecked1').prop('value','false');
+		}
+	});
+	
+	$('#modalcheck2').change(function(){
+		if($('#modalcheck2').is(":checked")){
+			$('#modalchecked2').prop('value','true');
+		}else{
+			$('#modalchecked2').prop('value','false');
+		}
+	});
+	
+	$('#modalcheck3').change(function(){
+		if($('#modalcheck3').is(":checked")){
+			$('#modalchecked3').prop('value','true');
+		}else{
+			$('#modalchecked3').prop('value','false');
+		}
+	});
+	
+</script>
+
 </html>

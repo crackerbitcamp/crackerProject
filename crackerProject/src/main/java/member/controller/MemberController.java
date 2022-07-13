@@ -1,7 +1,9 @@
 package member.controller;
 
+import java.net.http.HttpRequest;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,9 +28,8 @@ public class MemberController{
 	
 	//로그인
 	@GetMapping("/memberLoginForm")
-	public ModelAndView memberLoginForm(HttpSession session) {
+	public ModelAndView memberLoginForm() {
 		ModelAndView mav = new ModelAndView();
-		
 		mav.setViewName("/member/memberLoginForm");
 		return mav;
 	}
