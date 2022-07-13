@@ -72,7 +72,6 @@ public class BoardController {
 			            	uploadFile.mkdir();
 			            }
 			            
-			            file.transferTo(uploadFile);
 			            String fileName2 = UUID.randomUUID().toString();
 			            uploadPath = uploadPath + "/" + fileName2 +fileName;
 			            
@@ -88,6 +87,14 @@ public class BoardController {
 			            json.addProperty("url", fileUrl);
 			            printWriter.print(json);
 			            System.out.println(json);
+			            
+			            String url = this.getClass().getResource("").getPath();
+	                     String test = url.substring(1,url.indexOf(".metadata"));
+	                     System.out.println(test);
+	                     File dirs = new File(test + "crackerProject\\crackerProject\\src\\main\\webapp\\WEB-INF\\storage\\");
+	                     System.out.println(dirs);
+	                     File file1 = new File(dirs+"/"+fileName2+fileName);
+	                     file.transferTo(file1);
 			 
 			        }catch(IOException e){
 			            e.printStackTrace();
