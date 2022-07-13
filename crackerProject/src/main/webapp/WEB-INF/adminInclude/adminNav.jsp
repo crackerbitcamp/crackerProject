@@ -7,47 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<style type="text/css">
 
-.header {
-	text-align : center;
-}
-
-.line {
-	margin-top : -10px;
-	border-bottom : 1px solid #A9A9A9;
-}
-
-img {
-	margin-right: 15px;
-	fill: white;
-}
-
-.managerinfo {
-	margin-left : 55px;
-	margin-top : 20px;
-	margin-bottom : 30px;
-	
-}
-
-li {
-	margin-left : 15px;
-	list-style: none;
-	margin-bottom : 30px;
-}
-
-<<<<<<< HEAD
-#adminList {
-	color : #FFFFFF;
-=======
-a {
-	color : #000000;
->>>>>>> branch 'main' of https://github.com/keems0un/crackerProject.git
-	text-decoration-line: none;
-	
-}
-
-</style>
 </head>
 <body>
 	<div class="wrap">
@@ -55,19 +15,19 @@ a {
 			<h1 class="logo"><img src="../image/home/logo.png"
 				 onclick= "location.href='/index/admin/adminMain'" style="cursor: pointer;"></h1>
 		</div> <!-- header -->
-		<div class="line"></div>
+		<div class="line">
 		<c:if test="${sionAdminId == null}">
 			<input type="button" value="회원가입" id="adminWriteFormBtn">
 			<input type="button" value="로그인" id="adminLoginFormBtn"> 
 		
 		</c:if>
 		<c:if test="${sionAdminId != null}">
-			<div> <a> ${sionAdminName} 님</a></div>
-			<div> ${sionAdminEmail}</div>
+			<div class="adminmember"> ${sionAdminName} 님 </div>
+			<div class="adminmember"> ${sionAdminEmail}</div>
 		</c:if>
 		
 		<!-- <div class="managerinfo"><img src="../image/snapchat.svg"><a href="#">관리자닉네임</a></div> -->
-		<div class="line"></div>
+		</div>
 		<br>
 		<div class="management">
 			<c:if test="${sionAdminId != null }">

@@ -66,12 +66,13 @@ public class CustomerController {
 	
 	//클릭시 글보기
 	@GetMapping(value="customerView")
-	public ModelAndView customerView(@RequestParam String seq, @RequestParam String pg) {
+	public ModelAndView customerView(@RequestParam String seq, @RequestParam(required = false,defaultValue="1" )String pg) {
 	ModelAndView mav = new ModelAndView();
 	mav.addObject("pg",pg);
 	mav.addObject("seq",seq);
-	
-	mav.setViewName("/customer/customerView");
+	mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+	mav.addObject("display", "/WEB-INF/customer/customerView.jsp");
+	mav.setViewName("/admin/adminMain");
 	
 	return mav;
 	}	
