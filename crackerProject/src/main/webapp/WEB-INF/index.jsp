@@ -8,6 +8,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<!-- header -->
+<link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 
 
@@ -16,11 +18,15 @@
 	margin: 0 auto; /* 위아래여백,좌우여백  */
 }
 
-#boardListTable tr td {
-	width: auto;
-	padding: 0 auto;
-}
+
+
+
 /* container */
+
+#container{
+	margin: 2% 5% 5% 2%;
+}
+
 #container:after { /* after는 컨테이너 뒤에 붙는거 해제하라는 뜻 */
 	content: '';
 	display: block;
@@ -66,25 +72,8 @@
 	border: 1px blue solid; /*솔리드 라인*/
 }
 
-#textSection {
-	
-}
 
-.card {
-	float: left;
-	display: flex;
-	margin-left: 8px;
-	margin-top: 60px;
-}
 
-.card2 {
-	position: sticky;
-	position: -webkit-sticky;
-	display: inline-block;
-	top: 30px;
-	width: 100%;
-	height: 50%;
-}
 
 #rightbar {
 	position: relative;
@@ -158,161 +147,43 @@
 	color: red;
 }
 
-#keyword {
-	width: 70%;
-}
 
-.subjectA:link {
-	color: black;
-	text-decoration: none;
-}
 
-.subjectA:visited {
-	color: black;
-	text-decoration: none;
-}
 
-.subjectA:hover {
-	color: green;
-	text-decoration: underline;
-}
 
-.subjectA:active {
-	color: #d81e5b;
-	text-decoration: none;
-}
 
-#currentPaging {
-	color: red;
-	text-decoration: underline;
-	cursor: pointer;
-}
-
-#paging {
-	color: black;
-	text-decoration: none;
-	cursor: pointer;
-}
-#header{
-	width: 100%;
-	height: 450px;
-	background-image: url("/index/image/header_background1.jpg");
-	background-size: cover;
-	background-position: center center;
-}
-#container{
-	margin: 2% 5% 5% 2%;
-}
-
-.subjectA {
-	width: 320px;
-	display: inline-block;
-	white-space: nowrap;
-	overflow: hidden;
-	text-overflow: ellipsis;
-}
-#header .header_menu_item{
-	margin: 20px 0 0 50px;
-	float: right;
-	color: white;
-}
-#header .header_login_item{
-	margin: 20px 0 0 50px;
-	/* float: right; */
-	color: white;
-}
-#header_menu_ul{
-	width:70%;
-	/* float: left; */
-	list-style : none;
-}
-#header_login_ul{
-	width:10%;
-	/* float: left; */
-	
-	list-style : none;
-}
-#header .header_menu_item span{
-	font-size: 20px;
-}
-#header_menuDiv:after{
-	display: block;
-	clear: both;
-}
-/*  #searchForm{
-	position: absolute;
-	left: 40%;
-	top:50%;
-	
-}  */
-
-.main-search {
-    position: relative;
-    margin: 34px 15px 0 15px;
-    height: 48px;
-    border: 1px solid #ff792a;
-    border-radius: 50px;
-    background-color: #ffffff;
-}
-.main-search {
-    margin: 45px auto 0 auto;
-    height: 50px;
-    width: 738px;
-    border: 2px solid #ff7100;
-    border-radius: 80px;
-    overflow: hidden;
-}
-.main-search input[type=text] {
-    display: block;
-    width: 100%;
-    font-size: 0.813rem;
-    color: #cbcbcb;
-    line-height: 44px;
-    border: 0;
-}
-
-.main-search input[type=text] {
-    height: 50px;
-    font-size: 1.1rem;
-    line-height: 50px;
-    color: #000;
-}
-
-.main-search input[type=text]:placeholder-shown {
-    line-height: 50px;
-    color: #cbcbcb;
-    opacity: 1;
-}
 
 </style>
 </head>
 <body>
 	<div id="wrap">
-
-		<div id="header">
+		<header id="header">
+			
 			<div id="header_menuDiv">
+				
+				<img alt="" src="/index/image/home/LOGO2.jpeg" width="100px" height="60px">
+				
 				<ul id="header_menu_ul">
-					<li class="header_menu_item"><span>전체 게시판</span></li>
-					<li class="header_menu_item"><span>자유 게시판 </span></li>
-					<li class="header_menu_item"><span>레시피 게시판</span></li>
+					<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
+					<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
+					<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
 				</ul>
 				
 				<ul id="header_login_ul">
 					<li class="header_login_item">
-						<button ></button>
+						<button></button>
 					</li>
 				</ul>
 			</div>
-			<!-- 헤어 상위 메뉴바 아래 -->
+				<!-- 헤어 상위 메뉴바 아래 -->
+			
 			<div id = "searchForm">
-				<fieldset class="main-search">
-					<input type="text" id="boardSearch">
-					<input type="button" id="boardSearchBtn" value="검색">
-				</fieldset>
+				<img alt="돋보기" src="/index/image/home/search.svg">
+				<input type="text" id="boardSearch">
+				<input type="button" id="boardSearchBtn" value="검색">
 			</div>
-		</div>
+		</header>
 		<!-- header -->
-
 	
 
 		<div id="container">
@@ -326,7 +197,7 @@
 				</p>
 				<h2>BOARD</h2>
 				<jsp:include page="/WEB-INF/main/menu.jsp"></jsp:include>
-			</div>
+			</div> 
 
 			<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'">
