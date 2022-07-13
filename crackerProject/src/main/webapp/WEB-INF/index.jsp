@@ -11,8 +11,8 @@
 <!-- header -->
 <link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
+<link href="/index/css/indexCSS/indexmodal.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
-
 
 #wrap {
 	width: 100%;
@@ -154,6 +154,36 @@
 </style>
 </head>
 <body>
+				<!-- 모달창 -->
+				
+				<div class= "memberWriteModal">
+					<div class = "memberModal">
+						<span style="float: right; cursor: pointer; font-size: 30px; margin: 10 20;" id = "modalclose">X</span>
+						<div class = "modalcenter">
+						<input type = "hidden" id = "modalchecked1" value="false">
+						<input type = "hidden" id = "modalchecked2" value="false">
+						<input type = "hidden" id = "modalchecked3" value="false">
+					
+							<h2>이용약관 동의</h2>	
+							<div class = "modal_join_check_all">
+								<label class = "modalcheckbox"><input type = "checkbox" id="check_all" class="modalcheck">모두 확인, 동의합니다.</label><br>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck1" name="modalchk" class="modalcheck" value = "1">만 14세 이상입니다.<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck2" name="modalchk" class="modalcheck" value = "1">이용약관 동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck3" name="modalchk" class="modalcheck" value = "1">개인정보 수집 및 이용동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" name="modalchk" class="modalcheck">선택정보 수집 및 이용동의</label>
+							</div>
+							<button class = "join_wrap_btn">동의하고 가입하기</button>
+						</div>
+					</div>
+				</div>
 	<div id="wrap">
 		<header id="header">
 			
@@ -203,6 +233,7 @@
 				onclick="location.href='/index/customer/customerWriteForm'">
 			<div id="display">
 			<c:if test="${empty display}">
+
 				<div id="content">
 					<a href="/index/board/boardWriteForm">글쓰기</a>
 					
@@ -273,7 +304,6 @@
 		<!-- container -->
 
 	</div>
-	
 	<!-- wrap -->
 	<div id="footer">
 		<div class="footerArea">
