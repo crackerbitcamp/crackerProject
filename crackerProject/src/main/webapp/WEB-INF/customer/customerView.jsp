@@ -39,9 +39,8 @@
 		</tr>
 		 <tr>
             <td colspan="2" align="center"> 
-               	<input type="button" value="답변하기" id="customerWriteBtn">
                	<input type="button" value="뒤로가기" onclick="history.back(-1)">
-				<input type="button" value="홈으로" onclick="location.href='/index/admin/Main'">
+				<input type="button" value="확인" onclick="location.href='/index/admin/adminMain'">
             </td>
          </tr>
          

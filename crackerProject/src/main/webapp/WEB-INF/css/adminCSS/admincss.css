@@ -1,0 +1,251 @@
+@charset "UTF-8";
+/* index */
+body {
+	margin: 0 auto;
+	height: 1500px;
+	width: 100%;
+	letter-spacing: normal;
+}
+
+li {
+	margin-left : 15px;
+	list-style: none;
+	margin-bottom : 30px;
+}
+
+a {
+	color : #333333;
+	text-decoration-line: none;
+	font
+}
+
+.header {
+	text-align : center;
+	padding: 20px 0 20px 0;
+}
+
+/* admin_nav */
+#nav {
+	width: 16%;
+	height: 100%;
+	float: left;
+	background: #353535;
+}
+#header {
+/* 	width: 75%;
+	height: 5%;
+	text-align: center;
+	float: left; */
+}
+#container {
+	float: left;
+	width: 84%;
+	height: 100%;
+	background: #EEEEEE;
+}
+#section {
+	width: 90%;
+	height: 90%;
+}
+
+#section:after {
+	conternt: '';
+	display: block;
+	clear: both;
+}
+
+#section:after {
+	conternt: '';
+	display: block;
+	clear: both;
+}
+
+#sectionHeader {
+	margin: 2% 0 2% 3%;
+	float: left;
+	width: 92%;
+	height: 5%;
+	background: #ffffff;
+	box-shadow: 1px 1px 3px #333333;
+}
+#sectioncontainer{
+	width: 94%;
+	height: 100%;
+	margin: 2% 0 0 3%;
+
+}
+.section {
+	float: left;
+	width: 48.5%;
+	height: 30%;
+	background: #ffffff;
+	box-shadow: 1px 1px 3px #333333;
+	margin: 0 1% 1% 0;
+}
+#section:after {
+	conternt: '';
+	display: block;
+	clear: both;
+}
+
+.line {
+	text-align: center;
+	padding: 10px 0 10px 0 ;
+	border-top: 1px solid #A9A9A9;
+	border-bottom : 1px solid #A9A9A9;
+}
+
+.adminmember{
+	color: white;
+	padding: 6px;
+}
+
+.managerinfo {
+	margin-left : 55px;
+	margin-top : 20px;
+	margin-bottom : 30px;
+	
+}
+
+.management img {
+	margin-right: 15px;
+	fill: white;
+}
+
+#adminList {
+	color : #FFFFFF;
+}
+
+/* #Session2 */
+
+.subjectA:link {color: black; text-decoration: none;}
+.subjectA:visited {color : black; text-decoration: none;}
+.subjectA:hover {color: blue; text-decoration: underline;}
+.subjectA:active {color: #d81e5b; text-decoration: none;}
+#samePage {color: red; text-decoration: none;}
+#otherPage {color: black; text-decoration: none;}
+
+#currentPaging{
+	width: 40px;
+	height: 40px;
+	background-color: #222;
+    font-style: normal;
+    color: #fff;
+    display: inline-block;
+    line-height: 40px;
+}
+#paging{
+	width: 40px;
+	height: 40px;
+	color:black;
+	text-decoration:non;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 40px;
+}
+
+#customerseq{
+	display: contents;
+}
+#Allcustomer {
+}
+#Allcustomer h3 {
+	padding-top: 1%;
+	padding-left: 20px;
+	line-height: 40px;
+    display: inline-block;
+
+}
+#customerSearchForm{
+	display: initial;
+    float: right;
+    margin: 24px 12px 0 0;
+    position: relative;
+}
+
+#keyword{
+	transition: border-color .2s;
+    position: relative;
+    z-index: 5;
+    float: right;
+    width: 120px;
+    height: 40px;
+    margin: 0 40px 0 0px;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    line-height: 40px;
+    color: #222;
+}
+#customerSearchBtn{
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    z-index: 6;
+    width: 40px;
+    height: 40px;
+}
+
+#customerListTable{
+	margin-left: auto; margin-right: auto;
+	clear: both;
+	width: 100%
+	
+	/*style="border:1; cellspacing:0; cellpadding:7; frame:hsides; rules:rows;"  */
+}
+
+hr{
+	background-color: #EEEEEE;
+	
+	margin-right: 0px;
+    margin-left: 0px;
+
+	
+}
+
+#searchOption{
+	position: relative;
+    width: auto;
+    height: 40px;
+    padding: 0 20px 0 0px;
+    background-color: #fff;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    line-height: 40px;
+    font-size: 14px;
+    color: #222;
+    cursor: pointer;
+    outline: 0;
+}
+#customerListTable td{
+	font-size: initial;
+    font-weight: 800;
+    padding: 1% 0.5% 1% 0.5%;
+	
+}
+
+.thHead{
+	font-size: initial;
+    font-weight: 800;
+    padding: 1% 0.5% 1% 0.5%;
+ 	color: #777777; 
+	/*
+	font-size: initial;
+    font-weight: 600;
+    padding: 2% 0.5% 2% 0.5%; 
+    */
+	
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
