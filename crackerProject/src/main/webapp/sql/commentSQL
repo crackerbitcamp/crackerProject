@@ -12,6 +12,5 @@ create table commentText(
     likeIt number default 0 NOT NULL, --좋아요
     logtime DATE DEFAULT SYSDATE
 );
-);
 
 create sequence seq_comment nocycle nocache;
