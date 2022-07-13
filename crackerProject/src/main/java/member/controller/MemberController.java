@@ -44,6 +44,7 @@ public class MemberController{
 	      session.setAttribute("memName", memberDTO.getMembername());
 	      session.setAttribute("memEmail", email);
 	      session.setAttribute("memNickname", memberDTO.getMembernickname());
+	      session.setAttribute("memLogin", memberDTO.getMembernickname());
       }
       return memberDTO;
    }
@@ -198,7 +199,7 @@ public class MemberController{
 		session.setAttribute("naverTel", map.get("naverTel"));
 		session.setAttribute("naverEmail", map.get("naverEmail"));
 		session.setAttribute("naverNickName", map.get("naverNickName"));
-		
+		session.setAttribute("memLogin", map.get("naverNickName"));
 	}
 }
 

@@ -50,8 +50,9 @@ public class KakaoController {
         System.out.println("닉네임 : " + userInfo.get("nickname"));
        
         JSONObject kakaoInfo =  new JSONObject(userInfo);
-        session.setAttribute("memNickname", kakaoInfo.get("nickname"));
+        session.setAttribute("kakaoNickname", kakaoInfo.get("nickname"));
         session.setAttribute("kakaoEmail", kakaoInfo.get("email"));
+        session.setAttribute("memLogin", kakaoInfo.get("nickname"));
 		return "/member/kakaocallback";
 	}
 
