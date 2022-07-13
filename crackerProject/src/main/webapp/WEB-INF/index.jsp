@@ -10,6 +10,7 @@
 <title>Insert title here</title>
 <!-- header -->
 <link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
+<link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
 
 
@@ -17,9 +18,6 @@
 	width: 100%;
 	margin: 0 auto; /* 위아래여백,좌우여백  */
 }
-
-
-
 
 /* container */
 
@@ -161,19 +159,21 @@
 			
 			<div id="header_menuDiv">
 				
-				<img alt="" src="/index/image/home/LOGO2.jpeg" width="100px" height="60px">
+				<img alt="" src="/index/image/home/LOGO2.jpeg" width="100px" height="50px" id="headerLogo">
+				<div id="header_ul">
+					<ul id="header_menu_ul">
+						<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
+						<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
+						<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
+					</ul>
+					
+					<ul id="header_login_ul">
+						<li class="header_login_item">
+							<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
+						</li>
+					</ul>
 				
-				<ul id="header_menu_ul">
-					<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
-					<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
-					<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
-				</ul>
-				
-				<ul id="header_login_ul">
-					<li class="header_login_item">
-						<button></button>
-					</li>
-				</ul>
+				</div>
 			</div>
 				<!-- 헤어 상위 메뉴바 아래 -->
 			
@@ -306,6 +306,40 @@
 	</div>
 	<!-- footer -->
 	
-
+	<!-- 우측상단 로그인 버튼 -->
+	<div >
+		<div id="userHistory_black">
+		
+		</div>
+		<c:if test="${memId==null}">
+			<div class="userHistory">
+				<i id="userHistory_triangle"></i>
+				<div>
+					<button class="userHistoryBtnClass" id="loginBtn">로그인</button>
+				
+				</div>
+				<div>
+					<button class="userHistoryBtnClass">아이디 비밀번호 찾기</button>
+				
+				</div>
+				<div>
+					<button class="userHistoryBtnClass" id="memberWriteBtn">회원가입</button>
+				</div>
+			
+			</div>
+		</c:if>
+		<c:if test="${memId!=null}">
+		
+			<div class="userHistory">
+				로그인 되었습니다.
+			
+			</div>
+		</c:if>
+	</div>
+	
+	
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/index/js/index.js">
+</script>
 </body>
 </html>
