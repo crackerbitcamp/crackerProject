@@ -29,7 +29,7 @@ $(document).ready(function(){
 					id : 'memberemail',
 					align : 'center',
 					width : '300px',
-					text : items.memberemail1 + '@' + items.memberemail2
+					text : items.memberemail
 				}))
 				.append($('<td/>',{
 					id : 'membertel',
@@ -112,7 +112,7 @@ $('#adminMemberViewBtn').click(function(){
 // 검색
 
 $('#adminMemberSearchBtn').click(function(){
-	if($('#keyword').val() == '') 
+	if($('#memberSearchkeyword').val() == '') 
 		alert('검색어를 입력하세요');
 	else{
 		$.ajax({
@@ -146,7 +146,7 @@ $('#adminMemberSearchBtn').click(function(){
 						id : 'memberemail',
 						align : 'center',
 						width : '300px',
-						text : items.memberemail1 + '@' + items.memberemail2
+						text : items.memberemail
 					}))
 					.append($('<td/>',{
 						id : 'membertel',

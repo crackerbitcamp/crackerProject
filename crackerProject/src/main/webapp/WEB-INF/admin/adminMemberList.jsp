@@ -83,7 +83,7 @@ table {
 					<option value="memberid">아이디</option>
 				</select>
 		
-					<input type="search" name="keyword" id="keyword" value="${keyword }">
+					<input type="search" name="memberSearchkeyword" id="memberSearchkeyword" value="${memberSearchkeyword }">
 					<input type="button" id = "adminMemberSearchBtn" value="검색">
 				
 		
