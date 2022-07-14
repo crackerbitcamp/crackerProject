@@ -21,22 +21,24 @@
 <div id = "memberupdateDiv">
 		<input type = "hidden" id = "originalPwd" value="${memberDTO.memberpwd }">
 		<form id = "memberUpdateForm">
-			<input type = "hidden" value="" name = "memberid">
+			<input type = "hidden" value="${memberDTO.memberid }" name = "memberid">
 			<input type = "hidden" value="${memberDTO.membername }" name = "membername">
-			<input type = "hidden" id = "memberemail" name = "memberemail" value="${memberDTO.memberemail }">
+			<input type = "hidden" id = "memberemail1" name = "memberemail1" value="${memberDTO.memberemail1 }">
+			<input type = "hidden" id = "memberemail2" name = "memberemail2" value="${memberDTO.memberemail2 }">
 			<input type = "hidden" name = "membertel" id="UpdateTelcheck" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}">
 			<h2>회원정보 수정</h2>
 			<hr style="border: 2px solid">
 			<div class="updateForm-input" style="padding: 32px;">
-				<span style="font-size: 24px;" id = "updateemail">아이디</span>
-				<input type = "text" id = "memberemail1"class="updateinput" value="${memberDTO.memberemail}" disabled>
-				<button type="button" class="btn_ct" style="margin-left: 25px;" id = "emailupdateBtn" onclick="emailUpdateForm()">변경</button>
+				<font size="5">아이디 ${memberDTO.memberid }</font>
 			</div>
-			
 			<div class="updateForm-input" style="padding: 32px;">
 				<font size="5">이름 &nbsp;&nbsp;${memberDTO.membername }</font>
 			</div>
-
+			<div class="updateForm-input" style="padding: 32px;">
+				<span style="font-size: 24px;" id = "updateemailsub"> 이메일 </span>
+				<input type = "text" id = "updateEmail1" class="updateinput" value="${memberDTO.memberemail1}@${memberDTO.memberemail2 }" disabled>
+				<button type="button" class="btn_ct" style="margin-left: 25px;" id = "emailupdateBtn" onclick="emailUpdateForm()">변경</button>
+			</div>
 			<div class="updateForm-input" style="padding: 32px;">
 				<font size="5">닉네임</font>
 				<input type = "text" id="updateNickName" name="membernickname" class="write-input-password" style="margin-left: 150px;" value="${memberDTO.membernickname }">
@@ -44,7 +46,7 @@
 			
 			<div class="updateForm-input" style="padding: 32px;">
 				<span style="font-size: 24px;" id = "updatetel">전화번호</span>
-				<input type = "text" id = "updateTel"class="updateinput" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}" disabled>
+				<input type = "text" id = "updateTel"class="updateinput" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}" disabled name = "memberemail">
 				<button type="button" class="btn_ct" id = "telUpdateBtn" onclick="telUpdateForm()">변경</button>
 			</div>
 			

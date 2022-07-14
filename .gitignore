@@ -3,7 +3,7 @@
 
 META-INF/
 **/db.properties
-*/target/**
+**/target/**
 
 
 ### Java ###

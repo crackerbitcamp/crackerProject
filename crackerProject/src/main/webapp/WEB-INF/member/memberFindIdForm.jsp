@@ -31,19 +31,16 @@
 				<button class="btn_next" id = "btn_next" name="btn_next" type="button">아이디 찾기</button>
 		</fieldset>
 	</form>
-	
-	
-	
 	<form id = "findpwdForm">
 		<fieldset id = "find-Pwdfindset-wrap">
 			<legend>비밀번호 찾기</legend>
 			<div class = "pwdbox">
-				<label class="label.txt" style="margin-right: 33px;">이름</label>
-				<input type = "text" id = "findname" class = "input_txt" name = "membername"><br>
-				<label class = "label.txt" id = "FindEmail" style="margin-right: 18px;">아이디</label>
-				<input type = "email" id = "findEmail" class="input_txt" name="memberemail" style="width: 220px;" placeholder="ex)cracker123@naver.com">
+				<label class="label.txt" style="margin-right: 18px;">아이디</label>
+				<input type = "text" id = "findId" class = "input_txt" name = "memberid"><br>
+				<label class = "label.txt" id = "FindEmail" style="margin-right: 18px;">이메일</label>
+				<input type = "email" id = "findEmail1" class="input_txt" name="memberemail1">@<input type="email" id = "findEmail2" class="input_txt" name = "memberemail2">
 				<button class="btn_ct" id="findEmailBtn" type="button">인증번호받기</button><br>
-				<span class="point successPhoneChk"></span>
+				<span class="point successPhoneChk">이메일</span>
 			</div>
 		</fieldset>
 	</form>

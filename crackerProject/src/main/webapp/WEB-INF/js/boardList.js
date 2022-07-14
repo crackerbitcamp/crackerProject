@@ -6,6 +6,7 @@ $(document).ready(function(){
 		dataType : 'json',
 		success : function(data){
 			$.each(data.list, function(index, items){
+//					alert(JSON.stringify(data));
 				$('<tr/>').addClass('a')
 					.append($('<td/>',{
 					align: 'center',
@@ -18,7 +19,7 @@ $(document).ready(function(){
 					}))
 				).append($('<td/>',{
 					align: 'center',
-					text: items.id
+					text: items.nickname
 				})).append($('<td/>',{
 					align: 'center',
 					text: items.logtime.toLocaleString()
@@ -28,7 +29,7 @@ $(document).ready(function(){
 				})).appendTo($('#boardListTable'));
 
 				$('.subjectA_'+items.seq).click(function(){
-					if(data.memId == null){
+					if(data.memLogin == null){
 						alert('먼저 로그인하세요')
 					}else{
 						location.href = '/index/board/boardView?seq='
@@ -107,7 +108,7 @@ $('#boardSearchBtn').click(function(){
 						}))
 					).append($('<td/>',{
 						align: 'center',
-						text: items.id
+						text: items.nickname
 					})).append($('<td/>',{
 						align: 'center',
 						text: items.logtime.toLocaleString()
@@ -117,7 +118,7 @@ $('#boardSearchBtn').click(function(){
 					})).appendTo($('#boardListTable'));
 					//로그인 여부 비동적
 					$('.subjectA_'+items.seq).click(function(){
-						if(data.memId == null){
+						if(data.memLogin == null){
 							alert('먼저 로그인하세요')
 						}else{
 							location.href = '/index/board/boardView?seq='

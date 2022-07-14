@@ -12,11 +12,17 @@
 <link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/indexmodal.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 <style type="text/css">
 body{
 	margin: 0;
 }
-
 
 #wrap {
 	width: 100%;
@@ -35,54 +41,121 @@ body{
 	clear: both; /* flex 써도 됨 */
 }
 
-
-.display_title_text, .display_title_text2 {
-	float : left;
-	display : block;
+ .display_title_text{
 	padding-right : 15px;
 	padding-left : 15px;
 	color : #f76900;
-	line-height: : 1.35em;
-	text-align: left;
+	text-align: left; 
 }
 
-.display_title_list, .display_title_list2 {
+.display_title_list{
+	position : relative;
 	float : right;
-	color : #f76900;
-	line-height: 3em;
+	color : #CBCBCB;
 	text-decoration:none;
+	top : -30px;
+	left : -20px;
+	
 }
 
 #imagecard {
-	text-align : center;	
+	padding-top : 17.8px;
+	text-align : center;
+	height: 800px;
+	border-bottom: 1px solid #f76900;
+	/* border : 1px solid red; */
+
 }
 
-#imagecard1, #imagecard2, #imagecard3, #imagecard4, #imagecard5, #imagecard6{
+#imagecard1 {
+	position: relative;
 	float : left;
 	display : block;
-	width : 33.3333%;
+	width : 518px;
+	height : 230px;
+	
 	
 }
 
 .imagecard2 {
 	width: 95%;
-	margin : 8px;
 }
+
+#imagecard1 a {
+	text-decoration: none;
+	height: 93%;
+	width: 95%;
+	background-color: rgba(0,0,0,0.2);
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 2.6%;
+}
+
+#imagecard1 a:hover{
+
+	text-decoration: none;
+	height: 93%;
+	width: 95%;
+	background-color: rgba(0,0,0,0.67);
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 2.6%;
+}
+
+.info_inner {
+	position: absolute;
+	top : 40%;
+	width : 85%;
+	
+}
+
+.info_inner_title {
+	font-size : 3rem;
+	color : #fff;
+	text-shadow : 5px 2px 5px #000000;
+	text-align : center;
+	font-weight: bolder;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#imagecard1 a:hover .info_inner_title {
+	font-size : 4rem;
+	color : #fff;
+	text-shadow : 5px 2px 5px #000000;
+	text-align : center;
+	font-weight: bolder;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#imagecard1 a:hover .info_inner {
+	position: absolute;
+	top : 30%;
+	width : 85%;
+}
+
+
 
 #content {
 	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; 
-	width: 95%;
-	border: 1px red solid; /*솔리드 라인*/
+	width: 97.25%;
+	/* border: 1px red solid; /*솔리드 라인*/ */
 }
 
 #display {
-	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
+	padding: 0; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
 	width: 100%;
 	border: 1px blue solid; /*솔리드 라인*/
+	background-color: #f3f3f3;
 }
 
 /* #rightbar {
@@ -202,32 +275,35 @@ body{
 					</div>
 				</div>
 	<div id="wrap">
+		<div id="header_menuDiv">
+		
+			<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
+			<div id="header_ul">
+				<ul id="header_menu_ul">
+					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
+					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>자유 게시판 </span></a></li>
+					<li class="header_menu_item"><a href="/index/board/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
+				</ul>
+				
+				<ul id="header_login_ul">
+					<li class="header_login_item">
+						<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
+					</li>
+				</ul>
+			
+			</div>
+		</div>
+		<div id="display">
+				<c:if test="${empty display}">
 		<header id="header">
 			
-			<div id="header_menuDiv">
-			
-				<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
-				<div id="header_ul">
-					<ul id="header_menu_ul">
-						<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
-						<li class="header_menu_item"><a href="#" class="menu_item_a"><span>자유 게시판 </span></a></li>
-						<li class="header_menu_item"><a href="/index/board/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
-					</ul>
-					
-					<ul id="header_login_ul">
-						<li class="header_login_item">
-							<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
-						</li>
-					</ul>
-				
-				</div>
-			</div>
 				<!-- 헤더 상위 메뉴바 아래 -->
-			
-			<div id = "searchForm">
-				<img alt="돋보기" src="/index/image/home/search.svg">
-				<input type="text" id="boardSearch">
-				<input type="button" id="boardSearchBtn" value="검색">
+			<div id="searchFormOutDiv">
+				<div id = "searchForm">
+					<img alt="돋보기" src="/index/image/home/search.svg">
+					<input type="text" id="boardSearch">
+					<input type="button" id="boardSearchBtn" value="검색">
+				</div>
 			</div>
 		</header>
 		<!-- header -->
@@ -238,57 +314,93 @@ body{
 		<!-- 	<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'"> -->
 				
-			<section class="section">
-				<div class="display_title">
-					<h2 class="display_title_text">레시피 리스트</h2>
-					<a class="display_title_list" href="#">리스트 더보기</a>
-				</div>
-			</section>
-			
-			<div id="display">
-				<c:if test="${empty display}">
+		
+					<div class="display_title">
+						<h2 class="display_title_text">레시피 리스트</h2>
+						<a class="display_title_list" href="#">리스트 더보기</a>
+					</div>
 				
-					<div id="imagecard" style="border: red 1px solid;">
+					<div id="imagecard">
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/korea.jpeg" onclick="">
-							<div id="steak">한식</div>
+							<a href="#">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">한식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
 						</div>
 						
-						<div id="imagecard2">
+						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/steak.jpeg" onclick="">
-							<div id="steak">양식</div>
+							<a href="#">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">양식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
 						</div>
 						
-						<div id="imagecard3">
+						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/japan.jpeg" onclick="">
-							<div id="japan">일식</div>
+							<a href="#">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">일식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
 						</div>
 						
-						<div id="imagecard4">
+						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/china.jpeg" onclick="">
-							<div id="china">중식</div>
+							<a href="#">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">중식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
 						</div>
 						
-						<div id="imagecard5">
+						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/vietnam.jpeg" onclick="">
-							<div id="vietnam">아시아</div>
+							<a href="#">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">아시아</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
 						</div>
 						
-						<div id="imagecard6">
+						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/ddukbokki.jpeg" onclick="">
-							<div id="ddubokki">분식</div>
+							<a href="#">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">분식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
 						</div>
 
 					</div>	
-				
-			
-			<section class="section">
-				<div class="display_title2">
-					<h2 class="display_title_text2">자유 게시판</h2>
-					<a class="display_title_list2" href="#">게시물 더보기</a>
-				</div>
-			</section>
 		
 			
 				<div id="content">
@@ -305,7 +417,8 @@ body{
 					</div>
 
 				</div><!-- content -->
-				
+				</div> <!-- container -->
+			
 			</c:if>
 			
 			
@@ -316,7 +429,7 @@ body{
 				
 		</div> <!-- display -->
 
-	</div> <!-- container -->
+	</div> <!-- wrap -->
 			
 			
 			
@@ -334,8 +447,6 @@ body{
 			
 	 	</div>container -->
 	
-	
-	</div><!-- wrap -->
 	
 
 	<div id="footer">

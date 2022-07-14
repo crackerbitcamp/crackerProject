@@ -51,6 +51,9 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberDTO emailDB(String email) {
 		System.out.println("DAO email = " + email);
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO = sqlSession.selectOne("memberSQL.emailDB",email);
+		System.out.println(memberDTO);
 		return sqlSession.selectOne("memberSQL.emailDB",email);
 	}
 

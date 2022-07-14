@@ -25,12 +25,12 @@ public class BoardServiceImpl implements BoardService {
 	
 	@Override
 	public void boardWrite(Map<String, String> map) {
-		String id = (String)session.getAttribute("memId");
 		String name = (String)session.getAttribute("memName");
 		String email = (String)session.getAttribute("memEmail");
+		String nickname = (String) session.getAttribute("memLogin");
 		String goodcount = "0";
-
-		map.put("id", id);
+		
+		map.put("nickname", nickname);
 		map.put("name", name);
 		map.put("email", email);
 		
@@ -46,16 +46,16 @@ public class BoardServiceImpl implements BoardService {
 		map.put("startNum", startNum);
 		List<BoardDTO> list = boardDAO.getBoardList(map);
 		//세션
-		String memId= (String)session.getAttribute("memId");
+		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
 		boardPaging = this.getBoardPaging(pg);
 		//새로고침 방지
-		if(session.getAttribute("memId") != null) {
+		if(session.getAttribute("memLogin") != null) {
 			session.setAttribute("memHit", 0);
 		}
 		
 		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
+		sendMap.put("memLogin",memLogin);
 		sendMap.put("list", list);
 		sendMap.put("boardPaging", boardPaging);
 		return sendMap;
@@ -82,9 +82,9 @@ public class BoardServiceImpl implements BoardService {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		String memId=(String)session.getAttribute("memId");
+		String memLogin=(String)session.getAttribute("memLogin");
 		BoardDTO boardDTO=boardDAO.getBoardView(seq);
-		map.put("memId",memId);
+		map.put("memLogin",memLogin);
 		map.put("boardDTO",boardDTO);
 		return map;
 	}
@@ -92,11 +92,11 @@ public class BoardServiceImpl implements BoardService {
 	public void boardReply(Map<String, String> map) {
 		BoardDTO boardDTO = boardDAO.getBoardView(map.get("pseq"));
 		
-		String id = (String)session.getAttribute("memId");
+		String nickname = (String)session.getAttribute("memLogin");
 		String name = (String)session.getAttribute("memName");
 		String email = (String)session.getAttribute("memEmail");
 		
-		map.put("id",id);
+		map.put("nickname",nickname);
 		map.put("name",name);
 		map.put("email",email);
 		map.put("ref",boardDTO.getRef()+"");
@@ -145,32 +145,6 @@ public class BoardServiceImpl implements BoardService {
 		
 	}
 	
-	
-	@Override
-	public Map<String, Object> getBoardListhot(String pg) {
-		int endNum = Integer.parseInt(pg)*10;
-		int startNum = endNum - 9;
-		//DB 1페이지당 5개
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("endNum", endNum);
-		map.put("startNum", startNum);
-		List<BoardDTO> list = boardDAO.getAllBoardList(map);
-		//세션
-		String memId= (String)session.getAttribute("memId");
-		//페이징 처리
-		boardPaging = this.getBoardPaging(pg);
-		//새로고침 방지
-		if(session.getAttribute("memId") != null) {
-			session.setAttribute("memHit", 0);
-		}
-		
-		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
-		sendMap.put("list", list);
-		sendMap.put("boardPaging", boardPaging);
-		return sendMap;
-	}
-	
 	@Override
 	public Map<String, Object> getRecipeBoardList(String pg) {
 		int endNum = Integer.parseInt(pg)*5;
@@ -181,15 +155,15 @@ public class BoardServiceImpl implements BoardService {
 		map.put("startNum", startNum);
 		List<BoardDTO> list = boardDAO.getRecipeBoardList(map);
 		//세션
-		String memId= (String)session.getAttribute("memId");
+		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
 		boardPaging = this.getBoardPaging(pg);
 		//새로고침 방지
-		if(session.getAttribute("memId") != null) {
+		if(session.getAttribute("memLogin") != null) {
 			session.setAttribute("memHit", 0);
 		}
 		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
+		sendMap.put("memLogin",memLogin);
 		sendMap.put("list", list);
 		sendMap.put("boardPaging", boardPaging);
 		return sendMap;
@@ -204,9 +178,9 @@ public class BoardServiceImpl implements BoardService {
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		String memId=(String)session.getAttribute("memId");
+		String memLogin=(String)session.getAttribute("memLogin");
 		BoardDTO boardDTO=boardDAO.getRecipeBoardView(seq);
-		map.put("memId",memId);
+		map.put("memLogin",memLogin);
 		map.put("boardDTO",boardDTO);
 		return map;
 	}
