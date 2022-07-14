@@ -391,6 +391,8 @@ body{
 		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
+				로그인 되었습니다.
+			
 				<span>
 					${memLogin}님 로그인 되었습니다.
 				</span>

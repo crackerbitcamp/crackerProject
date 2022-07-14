@@ -6,7 +6,6 @@
 <mapper namespace="memberSQL">
 	<insert id="memberWrite" parameterType="member">
 		insert into crackermember values(
-								seq_crakermember.nextval,
 								#{membername},
 								#{memberid},
 								#{memberpwd},
@@ -15,8 +14,9 @@
 								#{membertel1},
 								#{membertel2},
 								#{membertel3},
-								#{membernickname},
-								sysdate)
+								sysdate,
+								#{membernickname}
+								)
 	</insert>
 	<select id="memberIdCheck" parameterType="String" resultType="String">
 		select * from crackermember where memberid = #{memberid}

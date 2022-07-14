@@ -23,7 +23,7 @@
 			<section class="login-input-section-wrap">
 				<form id = "memberLoginForm">
 					<div class="login-input-wrap">	
-						<input placeholder="아이디" type="text" id = "memberLoginId" name = "memberid"></input>
+						<input placeholder="ex)cracker123@naver.com" type="text" id = "memberLoginEmail" name = "memberemail"></input>
 					</div>
 						<div id="memberLoginIdDiv" class="memberLogin"></div>
 					<div class="login-input-wrap password-wrap">	
@@ -35,13 +35,12 @@
 					</div>
 					<div class="login-stay-sign-in">
 						<i class="far fa-check-circle"></i>
-						<span style="margin-left: 120px;"><a href = "#" id = "idifo" onclick="idinfo()">아이디</a> / <a href="#" id="pwdinfo">비밀번호 찾기</a>
+						<span style="margin-left: 120px;"><a href = "#" id = "idifo" onclick="idinfo()">아이디 /비밀번호 찾기</a>
 						 / <a href="/index/member/memberWriteForm" id = "writeinfo">회원가입</a></span>
 					</div>
 					<div class = "login-img">
 						<span> <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img alt="img" src="../image/naverlogo.png"width="30" height="30"></a></span>
 						<span><a onclick="javascript:kakaoLogin();"><img alt="img" src="../image/kakaologo.jpg" width="30" height="30"></a></span>
-						<span><img alt="facebook"></span>
 					</div>
 				</form>
 			</section>

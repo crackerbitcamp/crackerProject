@@ -13,17 +13,14 @@
 <body>
 	<input type = "text" id = "emailUpdatecheck" value="fail">
 	<input type = "text" id = "emailUpdateSet">
-	<input type = "text" id = "email1">
-	<input type = "text" id = "email2">
 	<form id = "emailUpdateForm">
 		<fieldset id="find-Idfieldset-wrap">
 			<legend>이메일 변경 </legend>
 			<div class="idbox">
 				<label class="label.txt" style="margin-right: 35px;">이름</label>
 				<input type = "text" id = "updateEmail" class = "input_txt" name = "findName"><br>
-				<label class ="label.txt" id="FindTel">이메일</label>
-				<input type = "email" placeholder="email입력" id = "updatememberemail1" name = "memberemail1" class="input_txt" style="margin-left: 17px;">&nbsp;@&nbsp;
-				<input type = "email" id="updatememberemail2" placeholder="직접 입력" name ="updatememberemail2" class="input_txt">
+				<label class ="label.txt" id="FindTel">아이디</label>
+				<input type = "email" placeholder="ex)cracker123@naver.com" id = "updatememberemail" name = "memberemail" class="input_txt" style="margin-left: 17px; width: 220px;" >
 				<button class="btn_ct" id="updateEmailBtn" type="button">인증번호받기</button><br>
 				<input type = "text" id="updateEmailcheck" name="updateEmailcheck" disabled class="input_txt" style="width:217px; margin-left: 75px;" placeholder="인증번호 6자리 숫자 입력" maxlength="6">
 				<span class="point successPhoneChk">이메일 입력후 인증번호 보내기를 해주십시오.</span>
