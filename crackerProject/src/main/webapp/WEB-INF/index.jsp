@@ -13,6 +13,10 @@
 <link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/indexmodal.css" rel="stylesheet" type="text/css" />
 <style type="text/css">
+body{
+	margin: 0;
+}
+
 
 #wrap {
 	width: 100%;
@@ -204,9 +208,9 @@
 				<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
 				<div id="header_ul">
 					<ul id="header_menu_ul">
-						<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
-						<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
-						<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
+						<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
+						<li class="header_menu_item"><a href="#" class="menu_item_a"><span>자유 게시판 </span></a></li>
+						<li class="header_menu_item"><a href="/index/board/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
 					</ul>
 					
 					<ul id="header_login_ul">
@@ -365,6 +369,7 @@
 	<!-- 우측상단 로그인 버튼 -->
 	<div >
 		<div id="userHistory_black">
+		
 		</div>
 		<c:if test="${memLogin==null}">
 			<div class="userHistory">
@@ -386,8 +391,13 @@
 		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
-				${memLogin }님 로그인 되었습니다.
-			
+				<span>
+					${memLogin}님 로그인 되었습니다.
+				</span>
+				
+				<div>
+					<button type="button" id="logoutBtn">로그아웃</button>
+				</div>
 			</div>
 		</c:if>
 	</div>
