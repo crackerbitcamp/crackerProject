@@ -313,9 +313,9 @@ footer .copyright-wrap span{
 	height:30px;
 	box-shadow: 1px 1px 3px 1px #dadce0;
 }
-.input_txt input[type="email"]{
+.input_txt input [type="email"]{
 	border: none;
-	width:150px;
+	width:300px;
 	margin-top: 10px;
 	font-size: 14px;
 	height:30px;
@@ -381,3 +381,4 @@ footer .copyright-wrap span{
 .updatePwdName{
 	margin-right: 5px;
 }
+

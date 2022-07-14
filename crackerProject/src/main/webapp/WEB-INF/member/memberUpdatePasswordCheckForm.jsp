@@ -10,7 +10,7 @@
 <body>
 		<form id = "memberUpdateFormPasswordCheckForm">
 			<div id = "memberUpdateFormDiv">
-				<b class = "updateIdName">아이디</b><input type="text" value="${memberDTO.memberid }" disabled class="write-input-name-wrap"><br>
+				<b class = "updateIdName">아이디</b><input type="text" value="${memberDTO.memberemail }" disabled class="write-input-name-wrap"><br>
 				<b class = "updatePwdName">비밀번호</b><input type = "password" name = "memberpwd" class="write-input-name-wrap"><br>
 				<button type="button" id = "pwdcheckBtn" class="btn_ct" style="margin-top: 20px; margin-right: 20px;">다음</button><button type = "button" class="btn_ct">취소</button>
 			</div>

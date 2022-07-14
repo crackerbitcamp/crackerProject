@@ -382,7 +382,7 @@
 		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
-				${memLogin }님 로그인 되었습니다.
+				로그인 되었습니다.
 			
 			</div>
 		</c:if>
