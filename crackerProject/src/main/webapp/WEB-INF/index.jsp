@@ -176,6 +176,7 @@ body{
 					<div class = "memberModal">
 						<span style="float: right; cursor: pointer; font-size: 30px; margin: 10 20;" id = "modalclose">X</span>
 						<div class = "modalcenter">
+						<input type = "hidden" id = "modalcheck_all" value="false">
 						<input type = "hidden" id = "modalchecked1" value="false">
 						<input type = "hidden" id = "modalchecked2" value="false">
 						<input type = "hidden" id = "modalchecked3" value="false">

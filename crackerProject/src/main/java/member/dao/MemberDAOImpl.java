@@ -21,6 +21,7 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberDTO memberLoginCheck(Map<String, String> map) {
 		System.out.println(map);
 		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.memberLoginCheck",map);
+		System.out.println(memberDTO);
 		return memberDTO;
 	}
 	@Override
