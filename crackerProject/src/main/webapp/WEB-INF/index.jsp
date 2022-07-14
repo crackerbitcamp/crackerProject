@@ -20,6 +20,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
 <style type="text/css">
+body{
+	margin: 0;
+}
 
 #wrap {
 	width: 100%;
@@ -58,7 +61,7 @@
 #imagecard {
 	padding-top : 17.8px;
 	text-align : center;
-	height: 500px;
+	height: 800px;
 	border-bottom: 1px solid #f76900;
 	/* border : 1px solid red; */
 
@@ -152,6 +155,7 @@
 	float: left; /* 정렬 : 오른쪽 */
 	width: 100%;
 	border: 1px blue solid; /*솔리드 라인*/
+	background-color: #f3f3f3;
 }
 
 /* #rightbar {
@@ -270,32 +274,35 @@
 					</div>
 				</div>
 	<div id="wrap">
+		<div id="header_menuDiv">
+		
+			<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
+			<div id="header_ul">
+				<ul id="header_menu_ul">
+					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
+					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>자유 게시판 </span></a></li>
+					<li class="header_menu_item"><a href="/index/board/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
+				</ul>
+				
+				<ul id="header_login_ul">
+					<li class="header_login_item">
+						<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
+					</li>
+				</ul>
+			
+			</div>
+		</div>
+		<div id="display">
+				<c:if test="${empty display}">
 		<header id="header">
 			
-			<div id="header_menuDiv">
-			
-				<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
-				<div id="header_ul">
-					<ul id="header_menu_ul">
-						<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
-						<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
-						<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
-					</ul>
-					
-					<ul id="header_login_ul">
-						<li class="header_login_item">
-							<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
-						</li>
-					</ul>
-				
-				</div>
-			</div>
 				<!-- 헤더 상위 메뉴바 아래 -->
-			
-			<div id = "searchForm">
-				<img alt="돋보기" src="/index/image/home/search.svg">
-				<input type="text" id="boardSearch">
-				<input type="button" id="boardSearchBtn" value="검색">
+			<div id="searchFormOutDiv">
+				<div id = "searchForm">
+					<img alt="돋보기" src="/index/image/home/search.svg">
+					<input type="text" id="boardSearch">
+					<input type="button" id="boardSearchBtn" value="검색">
+				</div>
 			</div>
 		</header>
 		<!-- header -->
@@ -306,12 +313,7 @@
 		<!-- 	<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'"> -->
 				
-			
-			<div id="display">
-			
-				<c:if test="${empty display}">
-				
-
+		
 					<div class="display_title">
 						<h2 class="display_title_text">레시피 리스트</h2>
 						<a class="display_title_list" href="#">리스트 더보기</a>
@@ -414,7 +416,8 @@
 					</div>
 
 				</div><!-- content -->
-				
+				</div> <!-- container -->
+			
 			</c:if>
 			
 			
@@ -425,7 +428,7 @@
 				
 		</div> <!-- display -->
 
-	</div> <!-- container -->
+	</div> <!-- wrap -->
 			
 			
 			
@@ -443,8 +446,6 @@
 			
 	 	</div>container -->
 	
-	
-	</div><!-- wrap -->
 	
 
 	<div id="footer">
@@ -479,6 +480,7 @@
 	<!-- 우측상단 로그인 버튼 -->
 	<div >
 		<div id="userHistory_black">
+		
 		</div>
 		<c:if test="${memLogin==null}">
 			<div class="userHistory">
@@ -500,8 +502,15 @@
 		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
-				${memLogin }님 로그인 되었습니다.
+				로그인 되었습니다.
 			
+				<span>
+					${memLogin}님 로그인 되었습니다.
+				</span>
+				
+				<div>
+					<button type="button" id="logoutBtn">로그아웃</button>
+				</div>
 			</div>
 		</c:if>
 	</div>

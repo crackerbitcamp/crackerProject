@@ -1,4 +1,4 @@
-문의하기 
+문의하기 SQL
 
 create table customer(
 seq number not null,
@@ -9,4 +9,4 @@ content varchar2(4000) not null,
 logtime DATE DEFAULT SYSDATE
 );
 
-create sequence seq_customer nocycle nocache;
+create sequence seq_customer nocycle nocache

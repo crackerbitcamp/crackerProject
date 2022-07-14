@@ -88,32 +88,9 @@ public class MemberServiceImpl implements MemberService{
 		}
 		
 	@Override
-	public MemberDTO memberWrite(Map<String, String> map) {
+	public void memberWrite(Map<String, String> map) {
 		System.out.println("membberService Map정보 : " +  map);
-		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setMemberid(map.get("memberid"));
-		memberDTO.setMemberpwd(map.get("memberpwd"));
-		memberDTO.setMembername(map.get("membername"));
-		memberDTO.setMemberemail1(map.get("memberemail1"));
-		memberDTO.setMemberemail2(map.get("memberemail2"));
-		memberDTO.setMembertel1(map.get("membertel1"));
-		memberDTO.setMembertel2(map.get("membertel2"));
-		memberDTO.setMembertel3(map.get("membertel3"));
-		memberDTO.setMembernickname(map.get("membernickname"));
-		memberDAO.memberWrite(memberDTO);
-		 
-		 return memberDTO;
-	}
-
-	@Override
-	public String memberIdCheck(String memberid) {
-		String check = memberDAO.memberIdCheck(memberid);
-		if(check == null) {
-			check = "ok";
-		}else {
-			check = "fail";
-		}
-		return check;
+		memberDAO.memberWrite(map);
 	}
 
 	@Override
@@ -163,8 +140,8 @@ public class MemberServiceImpl implements MemberService{
 
 
 	@Override
-	public MemberDTO getMember(String memberid) {
-		MemberDTO memberDTO = memberDAO.getMember(memberid);
+	public MemberDTO getMember(String memberemail) {
+		MemberDTO memberDTO = memberDAO.getMember(memberemail);
 		return memberDTO;
 	}
 
@@ -189,20 +166,17 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public void memberUpdate(Map<String, String> map) {
 		String tel = map.get("membertel");
-		String memberid = map.get("memberid");
 		String membername = map.get("membername");
-		String memberemail1 = map.get("memberemail1");
-		String memberemail2 = map.get("memberemail2");
+		String memberemail = map.get("memberemail");
 		String membertel1 = tel.substring(0, 3);
 		String membertel2 = tel.substring(3,7);
 		String membertel3 = tel.substring(7,11);
 		String membernickname = map.get("membernickname");
 		String memberpwd = map.get("memberpwd");
+		
 		MemberDTO memberDTO = new MemberDTO();
-		memberDTO.setMemberid(memberid);
 		memberDTO.setMembername(membername);
-		memberDTO.setMemberemail1(memberemail1);
-		memberDTO.setMemberemail2(memberemail2);
+		memberDTO.setMemberemail(memberemail);
 		memberDTO.setMembertel1(membertel1);
 		memberDTO.setMembertel2(membertel2);
 		memberDTO.setMembertel3(membertel3);
@@ -219,11 +193,11 @@ public class MemberServiceImpl implements MemberService{
 		System.out.println("service Map" + map);
 		MemberDTO memberDTO = memberDAO.memberFindPwd(map);
 		if(memberDTO != null) {
-			String email = map.get("memberemail1")+"@"+map.get("memberemail2");
+			String email = map.get("memberemail");
 			check = email;
 			makeRandomString();
 			Map<String,String>map1 = new HashMap<String,String>();
-			map1.put("memberid", memberDTO.getMemberid());
+			map1.put("memberemail", memberDTO.getMemberemail());
 			map1.put("authString", authString);
 			memberDAO.memberPwdUpdate(map1);
 			String setFrom = ".com"; // email-config에 설정한 자신의 이메일 주소를 입력 
@@ -236,6 +210,18 @@ public class MemberServiceImpl implements MemberService{
 				    "<br>" + 
 				    "해당 인증번호를 인증번호 확인란에 기입하여 주세요."; //이메일 내용 삽입
 			mailSend(setFrom, toMail, title, content);
+		}else {
+			check = "fail";
+		}
+		return check;
+	}
+	@Override
+	public String emailDB(String email) {
+		System.out.println("중복체크 확인 email = " + email);
+		MemberDTO memberDTO = memberDAO.emailDB(email);
+		String check = null;
+		if(memberDTO == null) {
+			check = "ok";
 		}else {
 			check = "fail";
 		}
