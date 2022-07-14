@@ -17,17 +17,17 @@ public class GoodServiceImpl implements GoodService {
 	private GoodDAO goodDAO;
 
 	@Override
-	public int goodCheck(String seq, String memEmail) {
+	public int goodCheck(String seq, String memId) {
 		Map<String,String> map = new HashMap<String, String>();
-		map.put("memId", memEmail);
+		map.put("memId", memId);
 		map.put("seq", seq);
 		return goodDAO.goodCheck(map);
 	}
 
 	@Override
-	public void insertGood(String seq, String memEmail) {
+	public void insertGood(String seq, String memId) {
 		Map<String,String> map = new HashMap<String, String>();
-		map.put("memId", memEmail);
+		map.put("memId", memId);
 		map.put("seq", seq);
 		goodDAO.insertGood(map);
 	}
@@ -39,17 +39,17 @@ public class GoodServiceImpl implements GoodService {
 	}
 
 	@Override
-	public void updateGoodCheck(String seq, String memEmail) {
+	public void updateGoodCheck(String seq, String memId) {
 		Map<String,String> map = new HashMap<String, String>();
-		map.put("memId", memEmail);
+		map.put("memId", memId);
 		map.put("seq", seq);
 		goodDAO.updateGoodCheck(map);
 	}
 
 	@Override
-	public void updateGoodCheckCancel(String seq, String memEmail) {
+	public void updateGoodCheckCancel(String seq, String memId) {
 		Map<String,String> map = new HashMap<String, String>();
-		map.put("memId", memEmail);
+		map.put("memId", memId);
 		map.put("seq", seq);
 		goodDAO.updateGoodCheckCancel(map);
 	}
@@ -61,9 +61,9 @@ public class GoodServiceImpl implements GoodService {
 	}
 
 	@Override
-	public void deleteGood(String seq, String memEmail) {
+	public void deleteGood(String seq, String memId) {
 		Map<String,String> map = new HashMap<String, String>();
-		map.put("memId", memEmail);
+		map.put("memId", memId);
 		map.put("seq", seq);
 		goodDAO.deleteGood(map);
 	}

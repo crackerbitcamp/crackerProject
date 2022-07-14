@@ -28,6 +28,10 @@ public interface BoardService {
 	public void boardDelete(int seq);
 
 
+
+	public Map<String, Object> getBoardListhot(String pg);
+
+
 	public Map<String, Object> getRecipeBoardList(String pg);
 
 	public Map<String, Object> getRecipeBoardView(String seq);
