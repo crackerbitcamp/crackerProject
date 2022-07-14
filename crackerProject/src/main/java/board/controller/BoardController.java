@@ -152,7 +152,6 @@ public class BoardController {
 	@ResponseBody
 	@PostMapping(value="getRecipeBoardList")
 	public Map<String,Object> getRecipeBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
-		System.out.println();
 		return boardService.getRecipeBoardList(pg);
 	}
 	
@@ -161,20 +160,6 @@ public class BoardController {
 	public Map<String,Object> getBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
 		return boardService.getBoardList(pg);
 	}
-	
-
-	
-	
-	//인덱스 getBoardListhot
-	@ResponseBody
-	@PostMapping(value="getBoardListhot")
-	public Map<String,Object> getBoardListhot(@RequestParam(required = false,defaultValue="1" )String pg){
-		return boardService.getBoardListhot(pg);
-	}
-	
-	
-	
-		
 
 	@GetMapping(value="boardView")
 	public ModelAndView boardView(@RequestParam String seq, @RequestParam String pg) {
