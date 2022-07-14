@@ -38,9 +38,9 @@
 						<span style="margin-left: 120px;"><a href = "#" id = "idifo" onclick="idinfo()">아이디 /비밀번호 찾기</a>
 						 / <a href="/index/member/memberWriteForm" id = "writeinfo">회원가입</a></span>
 					</div>
-					<div class = "login-img">
-						<span style="display: block;"> <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img alt="img" src="/index/image/naverlogo.png" style="width: 470px; height: 43px; object-fit: cover;"></a></span>
-						<span><a onclick="javascript:kakaoLogin();"><img alt="img" src="/index/image/kakaologo.png" style="width: 470px;height: 43px;  object-fit: cover; cursor: pointer;"></a></span>
+					<div class = "login-button-wrap">
+						<button id="naverIdLogin_loginButton" type="button" style="width: 470px; background: #2DB400; border: none;">네이버 로그인</button>
+						<button onclick="javascript:kakaoLogin();" style="width: 470px; background: #FEE500; border: none; margin-top: 10px;">카카오 로그인</button>
 					</div>
 				</form>
 			</section>
