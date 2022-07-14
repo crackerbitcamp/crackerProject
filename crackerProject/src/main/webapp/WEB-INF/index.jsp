@@ -17,7 +17,6 @@ body{
 	margin: 0;
 }
 
-
 #wrap {
 	width: 100%;
 	margin: 0 auto; /* 위아래여백,좌우여백  */
@@ -78,11 +77,12 @@ body{
 }
 
 #display {
-	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
+	padding: 0; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
 	width: 100%;
 	border: 1px blue solid; /*솔리드 라인*/
+	background-color: #f3f3f3;
 }
 
 /* #rightbar {
@@ -201,32 +201,35 @@ body{
 					</div>
 				</div>
 	<div id="wrap">
+		<div id="header_menuDiv">
+		
+			<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
+			<div id="header_ul">
+				<ul id="header_menu_ul">
+					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
+					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>자유 게시판 </span></a></li>
+					<li class="header_menu_item"><a href="/index/board/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
+				</ul>
+				
+				<ul id="header_login_ul">
+					<li class="header_login_item">
+						<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
+					</li>
+				</ul>
+			
+			</div>
+		</div>
+		<div id="display">
+				<c:if test="${empty display}">
 		<header id="header">
 			
-			<div id="header_menuDiv">
-			
-				<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
-				<div id="header_ul">
-					<ul id="header_menu_ul">
-						<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
-						<li class="header_menu_item"><a href="#" class="menu_item_a"><span>자유 게시판 </span></a></li>
-						<li class="header_menu_item"><a href="/index/board/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
-					</ul>
-					
-					<ul id="header_login_ul">
-						<li class="header_login_item">
-							<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
-						</li>
-					</ul>
-				
-				</div>
-			</div>
 				<!-- 헤더 상위 메뉴바 아래 -->
-			
-			<div id = "searchForm">
-				<img alt="돋보기" src="/index/image/home/search.svg">
-				<input type="text" id="boardSearch">
-				<input type="button" id="boardSearchBtn" value="검색">
+			<div id="searchFormOutDiv">
+				<div id = "searchForm">
+					<img alt="돋보기" src="/index/image/home/search.svg">
+					<input type="text" id="boardSearch">
+					<input type="button" id="boardSearchBtn" value="검색">
+				</div>
 			</div>
 		</header>
 		<!-- header -->
@@ -244,8 +247,7 @@ body{
 				</div>
 			</section>
 			
-			<div id="display">
-				<c:if test="${empty display}">
+			
 				
 					<div id="imagecard" style="border: red 1px solid;">
 						
