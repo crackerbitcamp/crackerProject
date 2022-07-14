@@ -1,10 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 작성</title>
+<title>레시피 작성</title>
 <link href="/index/css/boardCSS/boardWrite.css" rel="stylesheet"
 	type="text/css" />
 <style>
@@ -23,8 +23,12 @@
 
 			<div class="inputTextForm">
 				<select id="category">
-					<option value="freedomCategory">자유</option>
-					<option value="recipeCategory">레시피</option>
+					<option value="koreanFood">한식</option>
+					<option value="westernFood">양식</option>
+					<option value="japanese food">일식</option>
+					<option value="snackFood">분식</option>
+					<option value="chinese food">중식</option>
+					<option value="asianFood">아시아</option>
 				</select> <input type="text" name="subject" id="subject" placeholder="제목 입력">
 			</div>
 			<div id="subjectDiv"></div>
@@ -33,10 +37,10 @@
 			<div class="inputTextForm">
 				<textarea id="content" name="content" style='border: 0;'></textarea>
 
-			<button class="writeBottomBtnClass" type="button"  id="boardWriteBtn">글쓰기</button>
-			<button	class="writeBottomBtnClass" type="button"  id="boardWriteReturnBtn">다시작성</button>
+			<button class="writeBottomBtnClass" type="button"  id="recipeBoardWriteBtn">글쓰기</button>
+			<button	class="writeBottomBtnClass" type="button"  id="recipeBoardWriteReturnBtn">다시작성</button>
 			<button	class="writeBottomBtnClass" type="button" 
-				onclick="location.href='/index/board/boardList'">목록</button>
+				onclick="location.href='/index/board/recipeBoardList'">목록</button>
 			</div>
 
 			<div id="contentDiv"></div>

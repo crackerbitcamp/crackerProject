@@ -263,6 +263,14 @@ public class BoardController {
 		return boardService.boardSearch(map); 
 	}
 	
-
+	@GetMapping(value="recipeBoardWriteForm")
+	public ModelAndView recipeBoardWriteForm() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("display", "/WEB-INF/board/recipeBoardWriteForm.jsp");
+		mav.setViewName("/index");
+		
+		return mav;
+	}
 
 }
