@@ -19,7 +19,7 @@
 				<label class="label.txt" style="margin-right: 35px;">이름</label>
 				<input type = "text" id = "updateId" class = "input_txt" name = "updateId"><br>
 				<label class ="label.txt" id="FindTelsub">휴대전화</label>
-				<select style="width: 61px;">
+				<select style="width: 61px; height: 30px; border: none;">
 					<option>+82</option>
 				</select>
 				<input type = "text" class = "input_txt" placeholder="휴대전화번호" id="findphone" name = "findtel" maxlength="11">

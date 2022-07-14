@@ -331,9 +331,11 @@ footer .copyright-wrap span{
 .btn_ct{
 	width: 97px;
 	height:30px;
-	background : white;
 	border-radius: 2rem;
+	border: solid 1px #f76900;
 	background-position: 0 -210px;
+	color:white;
+	background:#f76900;
 }
 
 .btn_ct:hover{
@@ -345,6 +347,15 @@ footer .copyright-wrap span{
 	height: 33px;
 	margin: 10px;
 	margin-left: 70px;
+	border: solid 1px #f76900;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+	color:white;
+	background:#f76900;
+	border-radius: 2rem;
+}
+
+.btn_next:hover{
+	cursor: pointer;
 }
 
 #memberUpdateFormDiv{
@@ -366,7 +377,7 @@ footer .copyright-wrap span{
 	align-items: center;
 	justify-content: flex-start;
 	border-bottom: solid 1px var(--border-gray-color);
-	padding: 32px;
+	padding: 18px;
 }
 
 #updateEmailDiv{
@@ -374,7 +385,7 @@ footer .copyright-wrap span{
 	margin-top: 10px;
 }
 .updateinput{
-	background: var(--body-background-color);
+	background: none;
 	border: none;
 	font-size: 24px;
 	margin-left: 5px;

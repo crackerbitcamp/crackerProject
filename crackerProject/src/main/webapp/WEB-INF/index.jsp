@@ -510,7 +510,7 @@ body{
 				</span>
 				
 				<div>
-					<button type="button" id="logoutBtn">로그아웃</button>
+					<button type="button" id="logoutBtn" onclick="location.href='/index/member/memberLogout'">로그아웃</button>
 				</div>
 			</div>
 		</c:if>
