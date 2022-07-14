@@ -12,7 +12,7 @@
 
 <input type = "hidden" name="seq" id="seq" value="${seq}"/>
 <input type = "hidden" name="pg" value="${pg}"/>
-<input type = "text" id="memId"value="${memId }" />
+<input type = "text" id="memEmail"value="${memEmail }" />
 
 
 
@@ -88,7 +88,7 @@ $('#goodBtn').click(function() {
 		type : "post",  
         url : "/index/good/updateGood",       
         dataType : "json",   
-        data : {'seq' : $('#seq').val(), 'memId' : $('#memId').val()},
+        data : {'seq' : $('#seq').val(), 'memEmail' : $('#memEmail').val()},
         error : function(){
 			alert("통신 에러");
 		},
