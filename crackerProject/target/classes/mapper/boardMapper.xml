@@ -6,9 +6,10 @@
 
 	<!-- 글쓰기 -->
 	<insert id="boardWrite" parameterType = "java.util.Map">
-		insert into board(seq,id,name,email,subject,content,ref)
+		insert into board(seq,category,nickname,name,email,subject,content,ref)
 					values(seq_board.nextval
-					,#{id}
+					,#{category}
+					,#{nickname}
 					,#{name}
 					,#{email}
 					,#{subject}
@@ -53,7 +54,7 @@
 			update board set step=step+1 where ref = #{ref} and step > #{step};
 			<!-- insert -->
 			insert into board Values (seq_board.nextval
-									, #{id}
+									, #{nickname}
 									, #{name}
 									, #{email}
 									, #{subject}
@@ -125,4 +126,17 @@
 	<select id="commentOutput" parameterType="java.util.Map" resultType="comment">
 		select * from commentText where boardseq=#{seq}
 	</select>
+	<select id="getRecipeBoardList" parameterType ="java.util.Map" resultType="board">
+				
+		
+		select * from (select rownum rn, tt.*
+		from (select * from board order by ref desc, step asc)tt)
+					where rn &gt;= ${startNum} and rn &lt;=${endNum} and category='recipeCategory'
+		
+	</select>
+	
+	<select id="getRecipeBoardView" parameterType="Int" resultType="board">
+		select * from board where seq = #{seq} and category='recipeCategory'
+	</select>
+	
 </mapper>

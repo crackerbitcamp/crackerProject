@@ -17,7 +17,7 @@
 			<div class="main-wrap">
 			<header>
 				<div class="logo-wrap">
-					<img src="../image/logo.jpg" alt="로고 넣는부분">
+					<img src="/index/image/home/LOGO2.jpeg" alt="로고 넣는부분" style="width: 550px; height: 100px;">
 				</div>
 			</header>
 			<section class="login-input-section-wrap">
@@ -31,7 +31,7 @@
 					</div>
 						<div id="memberLoginpwdDiv" class="memberLogin"></div>
 					<div class="login-button-wrap">
-						<button id="memberloginsubmitBtn" type="button">로그인</button>
+						<button id="memberloginsubmitBtn" type="button" style="width: 470px;">로그인</button>
 					</div>
 					<div class="login-stay-sign-in">
 						<i class="far fa-check-circle"></i>
@@ -39,8 +39,8 @@
 						 / <a href="/index/member/memberWriteForm" id = "writeinfo">회원가입</a></span>
 					</div>
 					<div class = "login-img">
-						<span> <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img alt="img" src="../image/naverlogo.png"width="30" height="30"></a></span>
-						<span><a onclick="javascript:kakaoLogin();"><img alt="img" src="../image/kakaologo.jpg" width="30" height="30"></a></span>
+						<span style="display: block;"> <a id="naverIdLogin_loginButton" href="javascript:void(0)"><img alt="img" src="/index/image/naverlogo.png" style="width: 470px; height: 43px; object-fit: cover;"></a></span>
+						<span><a onclick="javascript:kakaoLogin();"><img alt="img" src="/index/image/kakaologo.png" style="width: 470px;height: 43px;  object-fit: cover; cursor: pointer;"></a></span>
 					</div>
 				</form>
 			</section>

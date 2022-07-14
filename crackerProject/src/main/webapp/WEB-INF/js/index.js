@@ -51,6 +51,7 @@ $('#memberWriteBtn').click(function(){
 $('#check_all').click(function(){
 	if($("#check_all").is(":checked")){ 
 		$("input[name=modalchk]").prop("checked", true);
+		$('#modalcheck_all').attr('value','true');
 	}
 	else $("input[name=modalchk]").prop("checked", false);
 });

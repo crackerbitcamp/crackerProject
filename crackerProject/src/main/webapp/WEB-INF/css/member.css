@@ -26,11 +26,16 @@ body{
 .email-btn{
 	border-radius:5px;
 	margin-left: -4px;
-	background-color: rgba(0,0,0,0);
+	background-color: #f76900;
 	width : 100px;
 	height : 30px;
+	border: solid 1px #f76900;	
 	margin-top: 15px;
 	margin-bottom: 5px;
+}
+
+.email-btn:hover{
+	cursor: pointer;
 }
 
 #memberupdateDiv{
@@ -108,12 +113,12 @@ body{
 	padding-top: 13px;
 }
 .login-button-wrap button{
-	width: 465px;
+	width: 550px;
 	height :48px;
 	font-size: 18px;
-	background: var(--naver-green-color);
+	background: #f76900;
 	color: white;
-	border: solid 1px var(--naver-green-border-color);
+	border: solid 1px #f76900;
 }
 .login-button-wrap button:hover{
 	cursor: pointer;
@@ -193,15 +198,15 @@ body{
 }
 
 .write-input-wrap input[type="text"]{
-	border: none;
-	width:300px;
+	border: solid 1px #f76900;
+	width:500px;
 	margin-top: 10px;
 	font-size: 14px;
-	height:30px;
+	height:50px;
 	box-shadow: 1px 1px 3px 1px #dadce0;
 }
 .write-input-wrap input[type="email"]{
-	border: none;
+	border: solid 1px #f76900;
 	width:150px;
 	margin-top: 10px;
 	font-size: 14px;
@@ -213,22 +218,23 @@ body{
 	font-size: 15px;
 	margin-top: 30px;
 	font-family: sans-serif;
+	border-color: #f76900;
 }
 .write-input-wrap input[type="tel"]{
-	border: none;
+	border: solid 1px #f76900;
 	width:150px;
 	margin-top: 10px;
 	font-size: 14px;
-	height:30px;
+	height:50px;
 	box-shadow: 1px 1px 3px 1px #dadce0;
 }
 
 .write-input-wrap input[type="password"]{
-	border: none;
-	width:300px;
+	border: solid 1px #f76900;
+	width:500px;
 	margin-top: 10px;
 	font-size: 14px;
-	height:30px;
+	height:50px;
 	box-shadow: 1px 1px 3px 1px #dadce0;
 }
 
@@ -246,17 +252,17 @@ body{
 	margin-top: 5px;
 }
 select{
-	border: none;
+	border: solid 1px #f76900;
 	width:150px;
 	margin-top: 10px;
 	font-size: 14px;
-	height:30px;
+	height:50px;
 	box-shadow: 1px 1px 3px 1px #dadce0;
 }
 
 footer{
    
-	padding-top: 95px;
+	padding-top: 30px;
 	padding-bottom: 15px;
 
 	display:flex;
