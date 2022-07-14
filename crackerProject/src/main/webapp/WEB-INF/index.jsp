@@ -26,7 +26,7 @@ body{
 /* container */
 
 #container{
-	margin: 2% 5% 5% 5%;
+	margin: 2% 5% 5% 2%;
 }
 
 #container:after { /* after는 컨테이너 뒤에 붙는거 해제하라는 뜻 */
@@ -53,19 +53,18 @@ body{
 	text-decoration:none;
 }
 
-
 #imagecard {
-	text-align : center;
+	text-align : center;	
+}
+
+#imagecard1, #imagecard2, #imagecard3, #imagecard4, #imagecard5, #imagecard6{
+	float : left;
+	display : block;
+	width : 33.3333%;
 	
 }
 
-#imagecard2 {
-	float : left;
-	display : block;
-	width : 33.3333%
-}
-
-.imagecard {
+.imagecard2 {
 	width: 95%;
 	margin : 8px;
 }
@@ -78,11 +77,11 @@ body{
 	border: 1px red solid; /*솔리드 라인*/
 }
 
-#display ,#display2 {
+#display {
 	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
-	width: 97.5%;
+	width: 100%;
 	border: 1px blue solid; /*솔리드 라인*/
 }
 
@@ -206,7 +205,7 @@ body{
 			
 			<div id="header_menuDiv">
 			
-				<img alt="" src="/index/image/home/LOGO2.jpeg" width="100px" height="50px" id="headerLogo">
+				<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
 				<div id="header_ul">
 					<ul id="header_menu_ul">
 						<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
@@ -238,54 +237,58 @@ body{
 		<!-- 	<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'"> -->
 				
-			<section class="section1">
+			<section class="section">
 				<div class="display_title">
 					<h2 class="display_title_text">레시피 리스트</h2>
 					<a class="display_title_list" href="#">리스트 더보기</a>
 				</div>
 			</section>
 			
-				<div id="display1">
-					<div id="imagecard">
-					
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/korea.jpeg" onclick="#">
+			<div id="display">
+				<c:if test="${empty display}">
+				
+					<div id="imagecard" style="border: red 1px solid;">
+						
+						<div id="imagecard1">
+							<img class="imagecard2" src="/index/image/home/korea.jpeg" onclick="">
+							<div id="steak">한식</div>
 						</div>
 						
 						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/steak.jpeg" onclick="#">
+							<img class="imagecard2" src="/index/image/home/steak.jpeg" onclick="">
+							<div id="steak">양식</div>
 						</div>
 						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/japan.jpeg" onclick="#">
+						<div id="imagecard3">
+							<img class="imagecard2" src="/index/image/home/japan.jpeg" onclick="">
+							<div id="japan">일식</div>
 						</div>
 						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/china.jpeg" onclick="#">
+						<div id="imagecard4">
+							<img class="imagecard2" src="/index/image/home/china.jpeg" onclick="">
+							<div id="china">중식</div>
 						</div>
 						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/vietnam.jpeg" onclick="#">
+						<div id="imagecard5">
+							<img class="imagecard2" src="/index/image/home/vietnam.jpeg" onclick="">
+							<div id="vietnam">아시아</div>
 						</div>
 						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/ddukbokki.jpeg" onclick="#">
+						<div id="imagecard6">
+							<img class="imagecard2" src="/index/image/home/ddukbokki.jpeg" onclick="">
+							<div id="ddubokki">분식</div>
 						</div>
-					
+
 					</div>	
-				</div>
+				
 			
-			
-			<section class="section2">
+			<section class="section">
 				<div class="display_title2">
 					<h2 class="display_title_text2">자유 게시판</h2>
 					<a class="display_title_list2" href="#">게시물 더보기</a>
 				</div>
 			</section>
-			
-			<div id="display">
 		
-			<c:if test="${empty display}">
 			
 				<div id="content">
 					<div id="textSection">
@@ -294,7 +297,7 @@ body{
 						</div>
 					</div> <!-- textSection -->
 									
-					<div style="border: blue 1px solid;" class="imagecard">
+					<div style="border: yellow 1px solid;" class="imagecard">
 						<div id="indexSection5">
 							<jsp:include page="${indexSection5 }" />
 						</div>
@@ -304,14 +307,15 @@ body{
 				
 			</c:if>
 			
-		</div>
-			
 			
 			<c:if test="${not empty display}">
 				<jsp:include page="${display}" />
 			</c:if>
+			
+				
+		</div> <!-- display -->
 
-			</div>
+	</div> <!-- container -->
 			
 			
 			
