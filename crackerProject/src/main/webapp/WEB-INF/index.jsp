@@ -365,6 +365,7 @@ body{
 	<!-- 우측상단 로그인 버튼 -->
 	<div >
 		<div id="userHistory_black">
+		
 		</div>
 		<c:if test="${memLogin==null}">
 			<div class="userHistory">
@@ -386,8 +387,13 @@ body{
 		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
-				${memLogin }님 로그인 되었습니다.
-			
+				<span>
+					${memLogin}님 로그인 되었습니다.
+				</span>
+				
+				<div>
+					<button type="button" id="logoutBtn">로그아웃</button>
+				</div>
 			</div>
 		</c:if>
 	</div>
