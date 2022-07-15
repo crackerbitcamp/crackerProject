@@ -1,0 +1,1 @@
+create table crackeremail(email varchar2(40) not null, category varchar2(30));

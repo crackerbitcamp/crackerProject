@@ -38,6 +38,10 @@
 	<context:component-scan base-package="recipeBoard.dao"></context:component-scan>
 	<context:component-scan base-package="recipeBoard.bean"></context:component-scan>
 	
+		<context:component-scan base-package="crackeremail.bean"></context:component-scan>
+	<context:component-scan base-package="crackeremail.dao"></context:component-scan>
+	<context:component-scan base-package="crackeremail.service"></context:component-scan>
+	
 <!-- Gmail -->
   <bean id="mailSender" class="org.springframework.mail.javamail.JavaMailSenderImpl">
     <property name="host" value="smtp.gmail.com" />

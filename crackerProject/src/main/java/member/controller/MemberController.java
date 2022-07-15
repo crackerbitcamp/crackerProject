@@ -15,7 +15,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import crackeremail.bean.CrackeremailDTO;
+import crackeremail.service.CrackerEmailService;
 import member.bean.MemberDTO;
 import member.service.MemberService;
 
@@ -25,7 +26,8 @@ import member.service.MemberService;
 public class MemberController{
 	@Autowired
 	private MemberService memberService;
-	
+	@Autowired
+	private CrackerEmailService crackerEmailService;
 	//로그인
 	@GetMapping("/memberLoginForm")
 	public ModelAndView memberLoginForm() {
@@ -43,6 +45,15 @@ public class MemberController{
 	      session.setAttribute("memNickname", memberDTO.getMembernickname());
 	      session.setAttribute("memEmail", memberDTO.getMemberemail());
 	      session.setAttribute("memLogin", memberDTO.getMembernickname());
+	      
+	      
+	      
+	     CrackeremailDTO crackeremailDTO = crackerEmailService.emailSelect(memberDTO.getMemberemail(),"member");
+	      System.out.println("있나 없나 확인 ::" + crackeremailDTO);
+	     if(crackeremailDTO == null) {
+	    	 crackerEmailService.memberemailInsert(memberDTO.getMemberemail(),"member");
+	     }
+	     
       }
       return memberDTO;
    }
@@ -204,6 +215,11 @@ public class MemberController{
 		session.setAttribute("naverEmail", map.get("naverEmail"));
 		session.setAttribute("naverNickName", map.get("naverNickName"));
 		session.setAttribute("memLogin", map.get("naverNickName"));
+	     CrackeremailDTO crackeremailDTO = crackerEmailService.emailSelect(map.get("naverEmail"),"naver");
+	      System.out.println("있나 없나 확인 ::" + crackeremailDTO);
+	     if(crackeremailDTO == null) {
+	    	 crackerEmailService.memberemailInsert(map.get("naverEmail"),"naver");
+	     }
 	}
 }
 

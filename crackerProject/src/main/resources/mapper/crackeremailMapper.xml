@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="emailSQL">
+ <!-- member로그인시 DB에 이미 들어가있나 없나 확인 -->
+	<select id="emailSelect" parameterType="java.util.Map" resultType="email">
+		select * from crackeremail where email = #{email} and category = #{category}
+	</select> 
+ 	<insert id="memberemailInsert" parameterType="java.util.Map">
+ 		insert into crackeremail values(
+ 										#{email},
+ 										#{category}
+ 										)
+ 	</insert>
+ </mapper>
+ 
+ 
