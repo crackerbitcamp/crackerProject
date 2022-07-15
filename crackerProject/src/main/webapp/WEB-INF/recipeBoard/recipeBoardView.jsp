@@ -64,23 +64,23 @@
 $(function(){
 	$.ajax({
 		type : 'post',
-		url : '/index/board/getRecipeBoardView',
+		url : '/index/recipeBoard/getRecipeBoardView',
 		data : 'seq=' + $('input[name=seq]').val(),
 		dataType:'json',
 		success : function(data){
-			//alert(JSON.stringify(data));
-			$('#subjectSpan').html(data.boardDTO.subject);
-			$('#seqSpan').html(data.boardDTO.seq);
-			$('#idSpan').html(data.boardDTO.id);
-			$('#hitSpan').html(data.boardDTO.hit);
-			$('#content').html(data.boardDTO.content);
+			alert(JSON.stringify(data));
+			$('#subjectSpan').html(data.subject);
+			$('#seqSpan').html(data.seq);
+			$('#idSpan').html(data.nickName);
+			$('#hitSpan').html(data.hit);
+			$('#content').html(data.content); 
 			
-			if(data.memId == data.boardDTO.id){
+			/* if(data.memId == data.boardDTO.id){
 				$('#boardViewSpan').show();
 			}
 			else{
 				$('#boardViewSpan').hide();
-			}
+			} */
 		},
 		
 		error:function(e){

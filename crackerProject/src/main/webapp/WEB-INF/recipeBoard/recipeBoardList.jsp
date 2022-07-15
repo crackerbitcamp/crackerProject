@@ -35,7 +35,7 @@
 	<div>
 	
 		<input type="hidden" id="pg" value="${pg}">
-		<input type="text" id='category' value = "${category}">
+		<input type="hidden" id='category' value = "${category}">
 	<div id="recipeBoardListDiv"></div>
 	</div>
 
@@ -96,7 +96,7 @@
 						if(data.memId == null){
 							alert('먼저 로그인하세요')
 						}else{
-							location.href = '/index/board/recipeBoardView?seq='
+							location.href = '/index/recipeBoard/recipeBoardView?seq='
 											+items.seq+'&pg='+$('#pg').val();
 						}
 						
