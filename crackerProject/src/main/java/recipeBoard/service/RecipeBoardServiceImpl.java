@@ -39,7 +39,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		map.put("startNum", startNum);
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardList(map);
 		//세션
-		String memId= (String)session.getAttribute("memLogin");
+		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
 //		recipeBoardPaging = this.getBoardPaging(pg);
 		//새로고침 방지
@@ -47,7 +47,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 			session.setAttribute("memHit", 0);
 		}
 		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
+		sendMap.put("memLogin",memLogin);
 		sendMap.put("list", list);
 //		sendMap.put("recipeBoardPaging", recipeBoardPaging);
 		return sendMap;
