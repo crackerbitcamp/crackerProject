@@ -310,7 +310,7 @@ body{
 	
 
 		<div id="container">
-			
+		
 		<!-- 	<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'"> -->
 				
@@ -510,7 +510,11 @@ body{
 				</span>
 				
 				<div>
+					<button type="button" id="logoutBtn">로그아웃</button>
+					<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+
 					<button type="button" id="logoutBtn" onclick="location.href='/index/member/memberLogout'">로그아웃</button>
+
 				</div>
 			</div>
 		</c:if>
@@ -518,7 +522,7 @@ body{
 	
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/index/js/index.js">
-</script>
+<script type="text/javascript" src="/index/js/recipeBoard/recipeBoard.js"></script>
+<script type="text/javascript" src="/index/js/index.js"></script>
 </body>
 </html>
