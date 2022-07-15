@@ -9,6 +9,6 @@ public interface RecipeBoardDAO {
 
 	public void recipeBoardWrite(Map<String, String> map);
 
-	public List<BoardDTO> getRecipeBoardList(Map<String, Integer> map);
+	public List<BoardDTO> getRecipeBoardList(Map<String, String> map);
 
 }

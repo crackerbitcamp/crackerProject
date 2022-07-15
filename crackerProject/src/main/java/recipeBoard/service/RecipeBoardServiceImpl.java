@@ -30,13 +30,13 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	}
 
 	@Override
-	public Map<String, Object> getRecipeBoardList(String pg) {
-		int endNum = Integer.parseInt(pg)*20;
+	public Map<String, Object> getRecipeBoardList(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg"))*20;
 		int startNum = endNum - 19;
 		//DB 1페이지당 5개
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("endNum", endNum);
-		map.put("startNum", startNum);
+		
+		map.put("endNum", endNum+"");
+		map.put("startNum", startNum+"");
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardList(map);
 		//세션
 		String memId= (String)session.getAttribute("memLogin");

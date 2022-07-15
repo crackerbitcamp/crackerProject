@@ -327,7 +327,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/korea.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=한식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -340,7 +340,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/steak.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=양식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -353,7 +353,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/japan.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=일식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -366,7 +366,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/china.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=중식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -379,7 +379,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/vietnam.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=아시아">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -392,7 +392,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/ddukbokki.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=분식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
