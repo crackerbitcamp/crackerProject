@@ -144,48 +144,6 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.boardDelete(seq);
 		
 	}
-	
-	@Override
-	public Map<String, Object> getRecipeBoardList(String pg) {
-		int endNum = Integer.parseInt(pg)*5;
-		int startNum = endNum - 4;
-		//DB 1페이지당 5개
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("endNum", endNum);
-		map.put("startNum", startNum);
-		List<BoardDTO> list = boardDAO.getRecipeBoardList(map);
-		//세션
-		String memLogin= (String)session.getAttribute("memLogin");
-		//페이징 처리
-		boardPaging = this.getBoardPaging(pg);
-		//새로고침 방지
-		if(session.getAttribute("memLogin") != null) {
-			session.setAttribute("memHit", 0);
-		}
-		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memLogin",memLogin);
-		sendMap.put("list", list);
-		sendMap.put("boardPaging", boardPaging);
-		return sendMap;
-	}
-	@Override
-	public Map<String, Object> getRecipeBoardView(String seq) {
-		
-		if(session.getAttribute("memHit") != null) {
-			boardDAO.setHit(seq);
-			session.removeAttribute("memHit");
-		}
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		
-		String memLogin=(String)session.getAttribute("memLogin");
-		BoardDTO boardDTO=boardDAO.getRecipeBoardView(seq);
-		map.put("memLogin",memLogin);
-		map.put("boardDTO",boardDTO);
-		return map;
-	}
-	
-	
-	
+
 
 }

@@ -144,7 +144,6 @@ public class BoardController {
 		return boardService.getBoardList(pg);
 	}
 
-
 	@GetMapping(value = "boardView")
 	public ModelAndView boardView(@RequestParam String seq, @RequestParam String pg) {
 		ModelAndView mav = new ModelAndView();
