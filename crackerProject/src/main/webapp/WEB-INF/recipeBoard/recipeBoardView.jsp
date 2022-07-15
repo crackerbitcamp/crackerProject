@@ -68,7 +68,7 @@ $(function(){
 		data : 'seq=' + $('input[name=seq]').val(),
 		dataType:'json',
 		success : function(data){
-			alert(JSON.stringify(data));
+			//alert(JSON.stringify(data));
 			$('#subjectSpan').html(data.subject);
 			$('#seqSpan').html(data.seq);
 			$('#idSpan').html(data.nickName);

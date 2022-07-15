@@ -48,7 +48,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 			session.setAttribute("memHit", 0);
 		}
 		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
+		sendMap.put("memLogin",memId);
 		sendMap.put("list", list);
 //		sendMap.put("recipeBoardPaging", recipeBoardPaging);
 		return sendMap;

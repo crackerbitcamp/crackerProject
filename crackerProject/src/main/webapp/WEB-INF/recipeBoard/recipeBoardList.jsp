@@ -28,15 +28,13 @@
 }
 
 #recipeBoardListDiv{
-	padding: 20px;
+	/* padding: 20px; */
 	position : relative;
 	float : left;
 	width: 1655px;
 	height: 1000px;
 	background : #ffffff;
-	display:flex;
-	
-	
+	/* display:flex; */
 	
 }
 #recipeBoardListDiv .recipeCard:hover{
@@ -86,7 +84,10 @@
 	color: #787878;
 	text-align : center;
 }
-
+#recipeBoardListDiv{
+	/* width: 1000px;
+	height: 1500px; */
+}
 </style>
 </head>
 <body>
