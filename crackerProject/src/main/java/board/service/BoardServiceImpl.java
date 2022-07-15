@@ -184,11 +184,7 @@ public class BoardServiceImpl implements BoardService {
 		map.put("boardDTO",boardDTO);
 		return map;
 	}
-	@Override
-	public Map<String, Object> getBoardListhot(String pg) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 	
 	
 
