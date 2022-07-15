@@ -17,8 +17,8 @@ public class CrackerEmailServiceImpl implements CrackerEmailService {
 		return crackeremailDTO;
 	}
 	@Override
-	public void memberemailInsert(String memberemail, String string) {
-		crackerEmailDAO.memberemailInsert(memberemail,string);
+	public void memberemailInsert(String memberemail,String membernickname, String string) {
+		crackerEmailDAO.memberemailInsert(memberemail,membernickname,string);
 		
 	}
 

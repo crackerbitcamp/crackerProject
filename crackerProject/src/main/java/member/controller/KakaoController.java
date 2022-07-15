@@ -61,11 +61,11 @@ public class KakaoController {
         session.setAttribute("memLogin", kakaoInfo.get("nickname"));
         
         String email = (String) kakaoInfo.get("email");
-        
+        String nickname = (String) kakaoInfo.get("nickname");
         CrackeremailDTO crackeremailDTO = crackerEmailService.emailSelect(email,"kakao");
 	      System.out.println("있나 없나 확인 ::" + crackeremailDTO);
 	     if(crackeremailDTO == null) {
-	    	 crackerEmailService.memberemailInsert(email,"kakao");
+	    	 crackerEmailService.memberemailInsert(email,nickname,"kakao");
 	     }
         
         

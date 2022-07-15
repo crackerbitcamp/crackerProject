@@ -9,6 +9,8 @@
 	</select> 
  	<insert id="memberemailInsert" parameterType="java.util.Map">
  		insert into crackeremail values(
+ 										seq_crakermember.nextval,
+ 										#{nickname},
  										#{email},
  										#{category}
  										)
