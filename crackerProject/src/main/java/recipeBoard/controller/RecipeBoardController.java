@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -74,15 +75,21 @@ public class RecipeBoardController {
 	
 	@ResponseBody
 	@PostMapping(value="getRecipeBoardList")
-	public Map<String,Object> getRecipeBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
+	public Map<String,Object> getRecipeBoardList(@RequestParam(required = false,defaultValue="1" )String pg
+												,@RequestParam(required = false,defaultValue="all") String category){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pg",pg);
+		map.put("category", category);
 		
-		
-		return recipeBoardService.getRecipeBoardList(pg);
+		return recipeBoardService.getRecipeBoardList(map);
 	}
 	
 	@GetMapping(value="recipeBoardList")
-	public ModelAndView recipeBoardList(@RequestParam(required = false,defaultValue="1") String pg) {
+	public ModelAndView recipeBoardList(@RequestParam(required = false,defaultValue="1") String pg
+										,@RequestParam(required = false,defaultValue="all") String category) {
 		ModelAndView mav = new ModelAndView();
+		System.out.println(category);
+		mav.addObject("category",category);
 		mav.addObject("pg",pg);
 		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardList.jsp");
 		mav.setViewName("/index");
