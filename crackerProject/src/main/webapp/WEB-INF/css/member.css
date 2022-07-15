@@ -305,6 +305,15 @@ footer .copyright-wrap span{
 #find-Idfieldset-wrap{
 	font-family: "굴림",Gulim,"돋움",Dotum;
 	font-weight: bold;
+	width: 95%;
+	margin-left:20px;
+}
+
+#find-Pwdfindset-wrap{
+font-family: "굴림",Gulim,"돋움",Dotum;
+	font-weight: bold;
+	width: 95%;
+	margin-left:20px;
 }
 .label.txt{
 	line-height: 25px;
@@ -329,7 +338,7 @@ footer .copyright-wrap span{
 	margin-left: 20px;
 }
 .btn_ct{
-	width: 97px;
+	min-width: 97px;
 	height:30px;
 	border-radius: 2rem;
 	border: solid 1px #f76900;
@@ -375,7 +384,7 @@ footer .copyright-wrap span{
 	font-size: 15px;
 	color: #4e4e4e;
 	align-items: center;
-	justify-content: flex-start;
+	justify-content: center;
 	border-bottom: solid 1px var(--border-gray-color);
 	padding: 18px;
 }
@@ -384,15 +393,25 @@ footer .copyright-wrap span{
 	margin-left: 72px;
 	margin-top: 10px;
 }
+
+#updateemail{
+	width : 200px;
+}
+
+#updatetel{
+	width: 400px; 
+	
+}
+
 .updateinput{
 	background: none;
 	border: none;
 	font-size: 24px;
-	margin-left: 5px;
+	margin: auto;
 }
 
 .updateIdName{
-	padding-right: 16px;
+	padding-right: 22px;
 }
 
 .updatePwdName{

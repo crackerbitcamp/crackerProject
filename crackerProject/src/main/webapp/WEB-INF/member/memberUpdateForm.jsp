@@ -27,40 +27,42 @@
          <input type = "hidden" name = "membertel" id="UpdateTelcheck" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}">
          <h2>회원정보 수정</h2>
          <hr style="border: 2px solid">
-         <div class="updateForm-input" style=" margin: 18px auto">
+         <div class="updateForm-input" style=" margin:auto; padding-top: 50px;">
             <span style="font-size: 24px;" id = "updateemail">아이디</span>
             <input type = "text" id = "memberemail1"class="updateinput" value="${memberDTO.memberemail}" disabled style="background: none;">
          </div>
          
-         <div class="updateForm-input" style=" margin: 18px auto">
-            <font size="5">이름 &nbsp;&nbsp;${memberDTO.membername }</font>
+         <div class="updateForm-input" style=" margin: auto">
+             <span style="font-size: 24px;" id = "updateemail">이름</span>
+            <input type = "text" id = "membername"class="updateinput" value="${memberDTO.membername}" style="background: none;">
          </div>
 
-         <div class="updateForm-input" style=" margin: 18px auto">
-            <font size="5">닉네임</font>
-            <input type = "text" id="updateNickName" name="membernickname" class="write-input-password" style="margin-left: 150px;" value="${memberDTO.membernickname }">
+         <div class="updateForm-input" style=" margin:  auto">
+            <span style="font-size: 24px;" id = "updateemail">닉네임</span>
+            <input type = "text" id = "updateNickName" name = "membernickname" class="updateinput" value="${memberDTO.membernickname }" style="background: none; border: 1px solid;">
          </div>
          
-         <div class="updateForm-input" style=" margin: 18px auto">
+         <div class="updateForm-input" style=" margin: auto">
             <span style="font-size: 24px;" id = "updatetel">전화번호</span>
             <input type = "text" id = "updateTel"class="updateinput" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}" disabled>
             <button type="button" class="btn_ct" id = "telUpdateBtn" onclick="telUpdateForm()">변경</button>
          </div>
          
-        <div class="updateForm-input" style=" margin: 18px auto"><font size="5">현재 비밀번호</font>
-         <input type = "password" id="originalPwdWirte" class="write-input-password" style="margin-left: 70px;">
+        <div class="updateForm-input" style=" margin: auto">
+        	<span style="font-size: 24px;" id = "updateemail">현재비밀번호</span>
+        	<input type = "password" id = "originalPwdWirte" name = "membernickname" class="updateinput" style="background: none; border: 1px solid;">
+        </div>
+         
+         <div class="updateForm-input" style=" margin: auto">
+            <span style="font-size: 24px;" id = "updateemail">새 비밀번호</span>
+            <input type = "password" id = "updatePwd" name = "memberpwd" class="updateinput" style="background: none; border: 1px solid;">
          </div>
          
-         <div class="updateForm-input" style=" margin: 18px auto">
-            <font size="5">새 비밀번호</font>
-            <input type = "password" id="updatePwd" name = "memberpwd" class="write-input-password" style="margin-left: 94px;">
+        <div class="updateForm-input" style=" margin: auto">
+           <span style="font-size: 24px;" id = "updateemail">비밀번호 재확인</span>
+            <input type = "password" id = "reupdatePwd" name = "memberpwd" class="updateinput" style="background: none; border: 1px solid;">
          </div>
-         
-        <div class="updateForm-input" style=" margin: 18px auto">
-            <font size="5">비밀번호 다시입력</font>
-            <input type = "password" id = "reupdatePwd"class="write-input-password" style="margin-left: 20px;">
-         </div>
-        <div class="updateForm-input" style=" margin: 18px auto">
+        <div class="updateForm-input" style=" margin: auto">
          <button class="btn_next" id = "memberUpdate_btn" name="memberUpdate_btn" type="button">수정</button>
          <button class="btn_next" id = "membercancle_btn" name="membercancle_btn" type="button">취소</button>
          </div>

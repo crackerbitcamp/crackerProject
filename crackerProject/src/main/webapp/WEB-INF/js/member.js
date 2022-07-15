@@ -2,7 +2,7 @@
 function idinfo(){
 		url = "/index/member/memberFindIdForm";
 		name = '';
-		specs = "width=550,height=600,top=200,left=100";
+		specs = "width=550,height=200,top=200,left=100";
 		window.open(url,name,specs);
 }
 function telUpdateForm(){

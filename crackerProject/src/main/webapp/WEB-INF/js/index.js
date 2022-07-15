@@ -53,13 +53,16 @@ $('#check_all').click(function(){
 		$("input[name=modalchk]").prop("checked", true);
 		$('#modalcheck_all').attr('value','true');
 	}
-	else $("input[name=modalchk]").prop("checked", false);
+	else{
+		$("input[name=modalchk]").prop("checked", false);
+		$('#modalcheck_all').attr('value','false');
+	}
 });
 
 $('.join_wrap_btn').click(function(){
-	if($('modalchecked1').val() == 'true' && $('#modalchecked2').val() == 'true' || $('#modalchecked3').val() == 'true'){
-		location.href = '/index/member/memberWriteForm'
-	}
+		if($('#modalcheck1').is(':checked') && $('#modalcheck2').is(':checked') && $('#modalcheck3').is(':checked')){
+			location.href = '/index/member/memberWriteForm'
+		}
 });
 
 $('#modalclose').click(function(){
