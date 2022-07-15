@@ -506,15 +506,21 @@ body{
 		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
-				<span>
-					${memLogin}님 로그인 되었습니다.
-				</span>
+					<c:if test="${memEmail != null }">
+						<button class="userHistoryBtnClass" id="logoutBtn" onclick="location.href='/index/member/memberLogout'" style="cursor: pointer;">로그아웃</button>
+						<button class="userHistoryBtnClass" id="UpdatePasswordCheckForm" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'" style="cursor: pointer;">회원 정보 수정</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
+					<c:if test="${naverEmail != null }">
+										<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
+					<c:if test="${kakaoEmail != null }">
+						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
 				
 				<div>
-					<button class="userHistoryBtnClass" id="logoutBtn" onclick="location.href='/index/member/memberLogout'" style="cursor: pointer;">로그아웃</button>
-					<button class="userHistoryBtnClass" id="UpdatePasswordCheckForm" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'" style="cursor: pointer;">회원 정보 수정</button>
-					<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
-
 				</div>
 			</div>
 		</c:if>
