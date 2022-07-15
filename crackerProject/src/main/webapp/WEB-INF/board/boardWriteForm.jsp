@@ -23,8 +23,8 @@
 
 			<div class="inputTextForm">
 				<select id="category">
-					<option value="freedomCategory">자유</option>
-					<option value="recipeCategory">레시피</option>
+					<option value="자유">자유</option>
+					<option value="질문">질문</option>
 				</select> <input type="text" name="subject" id="subject" placeholder="제목 입력">
 			</div>
 			<div id="subjectDiv"></div>

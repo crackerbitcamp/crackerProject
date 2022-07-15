@@ -19,6 +19,12 @@
 	height: 300px;
 	
 }
+
+#recipeBoardListDiv{
+	width: 1600px;
+	height: 1000px;
+	border: soild 1px red;
+}
 #recipeBoardListDiv .recipeCard:hover{
 	cursor:pointer;
 }
