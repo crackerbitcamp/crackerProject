@@ -8,6 +8,8 @@ import lombok.Data;
 @Data
 @Component
 public class CrackeremailDTO {
+	private int seq;
 	private String email;
 	private String category;
+	private String nickname;
 }
