@@ -23,6 +23,9 @@
 body{
 	margin: 0;
 }
+#display{
+	margin-top: 60px;
+}
 
 #wrap {
 	width: 100%;
@@ -280,9 +283,9 @@ body{
 			<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
 			<div id="header_ul">
 				<ul id="header_menu_ul">
-					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>전체 게시판</span></a></li>
-					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>자유 게시판 </span></a></li>
-					<li class="header_menu_item"><a href="/index/board/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
+					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>전체 게시판</span></a></li>
+					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>자유 게시판 </span></a></li>
+					<li class="header_menu_item"><a href="/index/recipeBoard/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
 				</ul>
 				
 				<ul id="header_login_ul">
@@ -310,7 +313,7 @@ body{
 	
 
 		<div id="container">
-			
+		
 		<!-- 	<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'"> -->
 				
@@ -510,6 +513,8 @@ body{
 				<div>
 					<button class="userHistoryBtnClass" id="logoutBtn" onclick="location.href='/index/member/memberLogout'" style="cursor: pointer;">로그아웃</button>
 					<button class="userHistoryBtnClass" id="UpdatePasswordCheckForm" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'" style="cursor: pointer;">회원 정보 수정</button>
+					<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+
 				</div>
 			</div>
 		</c:if>
@@ -517,7 +522,13 @@ body{
 	
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/index/js/index.js">
+<script type="text/javascript" src="/index/js/index.js"></script>
+<script type="text/javascript">
+$('#recipeBoardWriteFormBtn').click(function(){
+	
+	location.href="/index/recipeBoard/recipeBoardWriteForm";
+
+});
 </script>
 <script type="text/javascript" src="/index/js/member.js"></script>
 </body>

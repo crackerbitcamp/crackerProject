@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<jsp:include page="../board/recipeBoardList.jsp"/>
+	<jsp:include page="../recipeBoard/recipeBoardList.jsp"/>
 </body>
 </html>

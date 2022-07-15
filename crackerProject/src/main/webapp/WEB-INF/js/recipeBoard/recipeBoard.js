@@ -1,10 +1,15 @@
-$('#boardWriteReturnBtn').click(function() {
-	location.reload();
+$('#recipeBoardWriteFormBtn').click(function(){
+	
+	location.href="/index/recipeBoard/recipeBoardWriteForm";
+
 });
 
-$('#boardWriteBtn').click(function(){
-	var content = CKEDITOR.instances.content.getData();
+$('#recipeBoardWriteReturnBtn').click(function() {
+	location.reload();
+});
 	
+$('#recipeBoardWriteBtn').click(function(){
+	var content = CKEDITOR.instances.content.getData();
 	$('#subjectDiv').empty();
 	$(content).empty();
 	
@@ -21,24 +26,20 @@ $('#boardWriteBtn').click(function(){
 		$('#contentDiv').css('font-weight','bold');
 	}else{
 		$.ajax({
-			url:'/index/board/boardWrite',
+			url:'/index/recipeBoard/recipeBoardWrite',
 			type:'post',
-			data: {'subject' : $('#subject').val(),
+			data:{'subject' : $('#subject').val(),
 					'category' : $('#category').val(),
 					content},
 			success:function(){
 				alert('게시글을 등록하였습니다.');
-				
-					location.href='/index/board/boardList';
+				location.href='/index/recipeBoard/recipeBoardList';
 				
 			},
 			error:function(e){
 				console.log(e);
 			}
-		});
+		});//ajax
 	}
 	
 });
-
-
-
