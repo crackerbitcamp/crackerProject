@@ -25,4 +25,7 @@ public interface MemberService {
 	public void memberUpdate(Map<String, String> map);
 
 	public String memberFindPwd(Map<String, String> map);
+
+
+
 }

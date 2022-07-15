@@ -42,4 +42,13 @@
 			    memberemail1 = #{memberemail1} , memberemail2 = #{memberemail2} , membertel1 = #{membertel1}, membertel2 = #{membertel2}, membertel3 = #{membertel3}
 			    ,membernickname = #{membernickname} where memberid = #{memberid}
 	</update>	
+	
+	<!-- 하루당 사이트 가입자수 -->
+  	<select id="loginMember" resultType="int" parameterType="int">
+  		select count(*) from crackermember where (TO_DATE(SYSDATE) - TO_DATE(logtime)) &lt; #{i} 
+  	</select>
+  	
+  	<select id="dayLoginMember" resultType="int" parameterType="int">
+  		select count(*) from crackermember 
+  	</select>
 </mapper>

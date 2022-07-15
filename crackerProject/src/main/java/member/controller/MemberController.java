@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import admin.service.AdminService;
 import member.bean.MemberDTO;
 import member.service.MemberService;
 
@@ -25,6 +25,7 @@ import member.service.MemberService;
 public class MemberController{
 	@Autowired
 	private MemberService memberService;
+	
 	
 	//로그인
 	@GetMapping("/memberLoginForm")
