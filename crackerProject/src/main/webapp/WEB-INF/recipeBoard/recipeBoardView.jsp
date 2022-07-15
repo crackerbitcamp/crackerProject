@@ -64,23 +64,23 @@
 $(function(){
 	$.ajax({
 		type : 'post',
-		url : '/index/board/getRecipeBoardView',
+		url : '/index/recipeBoard/getRecipeBoardView',
 		data : 'seq=' + $('input[name=seq]').val(),
 		dataType:'json',
 		success : function(data){
 			//alert(JSON.stringify(data));
-			$('#subjectSpan').html(data.boardDTO.subject);
-			$('#seqSpan').html(data.boardDTO.seq);
-			$('#idSpan').html(data.boardDTO.id);
-			$('#hitSpan').html(data.boardDTO.hit);
-			$('#content').html(data.boardDTO.content);
+			$('#subjectSpan').html(data.subject);
+			$('#seqSpan').html(data.seq);
+			$('#idSpan').html(data.nickName);
+			$('#hitSpan').html(data.hit);
+			$('#content').html(data.content); 
 			
-			if(data.memId == data.boardDTO.id){
+			/* if(data.memId == data.boardDTO.id){
 				$('#boardViewSpan').show();
 			}
 			else{
 				$('#boardViewSpan').hide();
-			}
+			} */
 		},
 		
 		error:function(e){
@@ -98,16 +98,11 @@ $('#commentBtn').click(function(){
 			url : '/index/board/commentWrite',
 			type : 'post',
 			data : {'commentContent' : $('#commentContent').val(),
-					'seq' : $('input[name=seq]').val()},
+					'seq' : $('input[name=seq]').val(),
+					'pg' : $('#pg').val()},
 			success : function(){
-				alert('댓글 작성 완료');
-				if($('#category').val() == 'freedomCategory'){
-					
-					location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
-				}else{
-					
-					location.href='/index/board/recipeBoardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
-				}
+				alert('댓글 작성 완료');	
+				location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
 			},
 			error:function(e){
 				console.log(e);

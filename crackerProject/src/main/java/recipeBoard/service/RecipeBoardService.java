@@ -2,9 +2,11 @@ package recipeBoard.service;
 
 import java.util.Map;
 
+import recipeBoard.bean.RecipeBoardDTO;
+
 public interface RecipeBoardService {
 
-	public Map<String, Object> getRecipeBoardView(String seq);
+	public RecipeBoardDTO getRecipeBoardView(String seq);
 
 	public Map<String, Object> getRecipeBoardList(Map<String, String> map);
 

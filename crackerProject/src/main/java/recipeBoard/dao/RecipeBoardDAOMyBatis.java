@@ -9,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import board.bean.BoardDTO;
+import recipeBoard.bean.RecipeBoardDTO;
 
 @Repository
 @Transactional
@@ -16,6 +17,7 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 	
 	@Autowired
 	private SqlSession sqlSession=null;
+	
 	
 	@Override
 	public void recipeBoardWrite(Map<String, String> map) {
@@ -27,6 +29,12 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 	public List<BoardDTO> getRecipeBoardList(Map<String, String> map) {
 		
 		return sqlSession.selectList("recipeBoardSQL.getRecipeBoardList",map);
+	}
+
+	@Override
+	public RecipeBoardDTO getRecipeBoardView(String seq) {
+		
+		return sqlSession.selectOne("recipeBoardSQL.getRecipeBoardView",Integer.parseInt(seq));
 	}
 
 }

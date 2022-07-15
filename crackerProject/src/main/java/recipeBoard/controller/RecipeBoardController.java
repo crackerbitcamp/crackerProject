@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
 
+import recipeBoard.bean.RecipeBoardDTO;
 import recipeBoard.service.RecipeBoardService;
 
 @Controller
@@ -60,7 +61,7 @@ public class RecipeBoardController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
 		mav.addObject("seq",seq);
-		mav.addObject("display", "/WEB-INF/recipeboard/recipeBoardView.jsp");
+		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardView.jsp");
 		mav.setViewName("/index");
 		
 		
@@ -69,7 +70,8 @@ public class RecipeBoardController {
 	
 	@PostMapping(value="getRecipeBoardView")
 	@ResponseBody
-	public Map<String,Object> getRecipeBoardView(@RequestParam String seq) {
+	public RecipeBoardDTO getRecipeBoardView(@RequestParam String seq) {
+		
 		return recipeBoardService.getRecipeBoardView(seq);
 	}
 	

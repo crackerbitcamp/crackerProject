@@ -40,11 +40,7 @@
 <div style="margin-right:1px;">
 	<button type="button" id="goodBtn">추천</button><span id="goodcount"></span>
 </div>
-
-<table style="border:1px red solid;" id="commentInside">
-
-
-</table>
+<img>
 
 <div>
 	<div>
@@ -52,6 +48,10 @@
 		<input type="text" id="commentContent"> 
 		<input type="button" id="commentBtn" value="댓글입력">
 	</div>
+	<ul style="border:1px red solid;" id="commentInside">
+	
+	
+	</ul>
 </div>
 
 <input type="button" value="목록"

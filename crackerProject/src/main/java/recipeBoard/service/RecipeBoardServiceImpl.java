@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import board.bean.BoardDTO;
+import recipeBoard.bean.RecipeBoardDTO;
 import recipeBoard.bean.RecipeBoardPaging;
 import recipeBoard.dao.RecipeBoardDAO;
 
@@ -24,9 +25,9 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	@Autowired
 	private RecipeBoardPaging recipeBoardPaging;
 	@Override
-	public Map<String, Object> getRecipeBoardView(String seq) {
-		// TODO Auto-generated method stub
-		return null;
+	public RecipeBoardDTO getRecipeBoardView(String seq) {
+		
+		return recipeBoardDAO.getRecipeBoardView(seq);
 	}
 
 	@Override
@@ -47,7 +48,9 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 			session.setAttribute("memHit", 0);
 		}
 		Map<String,Object> sendMap = new HashMap<String,Object>();
+
 		sendMap.put("memLogin",memLogin);
+
 		sendMap.put("list", list);
 //		sendMap.put("recipeBoardPaging", recipeBoardPaging);
 		return sendMap;

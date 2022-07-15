@@ -28,15 +28,13 @@
 }
 
 #recipeBoardListDiv{
-	padding: 20px;
+	/* padding: 20px; */
 	position : relative;
 	float : left;
 	width: 1655px;
 	height: 1000px;
 	background : #ffffff;
-	display:flex;
-	
-	
+	/* display:flex; */
 	
 }
 #recipeBoardListDiv .recipeCard:hover{
@@ -86,7 +84,10 @@
 	color: #787878;
 	text-align : center;
 }
-
+#recipeBoardListDiv{
+	/* width: 1000px;
+	height: 1500px; */
+}
 </style>
 </head>
 <body>
@@ -101,7 +102,7 @@
 	<div>
 	
 		<input type="hidden" id="pg" value="${pg}">
-		<input type="text" id='category' value = "${category}">
+		<input type="hidden" id='category' value = "${category}">
 	<div id="recipeBoardListDiv"></div>
 	</div>
 
@@ -160,10 +161,10 @@
 							text : items.logtime
 					})).appendTo($('#recipeBoardListDiv'));
 					$('.recipeCard_'+items.seq).click(function(){
-						if(data.memId == null){
+						if(data.memLogin == null){
 							alert('먼저 로그인하세요')
 						}else{
-							location.href = '/index/board/recipeBoardView?seq='
+							location.href = '/index/recipeBoard/recipeBoardView?seq='
 											+items.seq+'&pg='+$('#pg').val();
 						}
 						
