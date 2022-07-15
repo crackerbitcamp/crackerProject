@@ -28,13 +28,9 @@ $('#boardWriteBtn').click(function(){
 					content},
 			success:function(){
 				alert('게시글을 등록하였습니다.');
-				if($('#category').val() == 'freedomCategory'){
-					
+				
 					location.href='/index/board/boardList';
-				}else{
-					
-					location.href='/index/board/recipeBoardList';
-				}
+				
 			},
 			error:function(e){
 				console.log(e);

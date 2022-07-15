@@ -46,14 +46,7 @@
 <br><br>
 <form id = "boardSearchForm" name = "boardSearchForm" >
 	<input type="hidden" name="pg" id="searchPg" value="1"/>
-	<div style = "text-align:center;">
-		<select name = "searchOption" id = "searchOption">
-			<option value ="subject">제목</option>
-			<option value ="nickname">작성자</option>
-		</select>
-		<input type ="search" name="keyword" id="keyword" value="${keyword}">
-		<input type ="button" id = "boardSearchBtn" value="검색">
-	</div>
+
 </form>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
