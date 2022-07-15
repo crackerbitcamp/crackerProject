@@ -525,7 +525,13 @@ body{
 	
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/index/js/recipeBoard/recipeBoard.js"></script>
 <script type="text/javascript" src="/index/js/index.js"></script>
+<script type="text/javascript">
+$('#recipeBoardWriteFormBtn').click(function(){
+	
+	location.href="/index/recipeBoard/recipeBoardWriteForm";
+
+});
+</script>
 </body>
 </html>

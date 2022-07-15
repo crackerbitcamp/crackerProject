@@ -16,7 +16,7 @@
 <body>
 	
 	<div id="boardWriteFormOutDiv" >
-		<form name="boardWriteForm" id="boardWriteForm">
+		<form class="boardWriteForm" name="recipeBoardWriteForm" id="recipeBoardWriteForm">
 			
 			<input type="hidden" name="seq" value="${boardDTO.seq}"> <input
 				type="hidden" name="pg" value="${pg}">
@@ -36,9 +36,11 @@
 
 			<div class="inputTextForm">
 				<textarea id="content" name="content" style='border: 0;'></textarea>
-	
+			
 				<button class="writeBottomBtnClass" type="button"  id="recipeBoardWriteBtn">글쓰기</button>
+				
 				<button	class="writeBottomBtnClass" type="button"  id="recipeBoardWriteReturnBtn">다시작성</button>
+				
 				<button	class="writeBottomBtnClass" type="button" 
 					onclick="location.href='/index/recipeBoard/recipeBoardList'">목록</button>
 			</div>
