@@ -39,24 +39,26 @@
 
 	<!-- 회원 삭제 -->
 	<select id="adminMemberDelete" parameterType="java.util.Map" >
-		delete crackermember where memberid in 
-  		<foreach collection="check" item="memberid" open="(" close=")" separator=",">
+		delete crackermember where memberemail in 
+  		<foreach collection="check" item="memberemail" open="(" close=")" separator=",">
   		#{memberid}
   		</foreach>
 	</select>
 	
 	<!-- 회원 검색 -->
-	<select id="getadminMemberSerach" parameterType="java.util.Map" resultType="member">
+	<select id="getadminMemberSearch" parameterType="java.util.Map" resultType="member">
  
   		select * from (select rownum rn, tt. * from 
-  		(select * from crackermember where ${searchOption} like '%'||#{keyword}||'%' order by memberid desc)tt) 
+  		(select * from crackermember where ${searchOption} like '%'||#{memberSearchkeyword}||'%' order by memberemail desc)tt) 
   		where rn &gt;= #{startNum} and rn &lt;= #{endNum}
   		
   	</select>
   	
   	  <!-- 검색한 총 글 수 -->
   	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
-  		select count(*) from crackermember where ${searchOption} like '%'||#{keyword}||'%'	
+  		select count(*) from crackermember where ${searchOption} like '%'||#{memberSearchkeyword}||'%'	
   	</select>
+  	
+  	
 	
 </mapper>

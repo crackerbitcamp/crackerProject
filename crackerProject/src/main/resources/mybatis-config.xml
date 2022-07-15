@@ -12,5 +12,6 @@
 		<typeAlias type="customer.bean.CustomerDTO" alias="customer"/>
 		<typeAlias type="good.bean.GoodDTO" alias="good"/>
 		<typeAlias type="recipeBoard.bean.RecipeBoardDTO" alias="recipeBoard"/>
+		<typeAlias type="crackeremail.bean.CrackeremailDTO" alias="email"/>
 	</typeAliases>
 </configuration>

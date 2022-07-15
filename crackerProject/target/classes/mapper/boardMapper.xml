@@ -6,9 +6,10 @@
 
 	<!-- 글쓰기 -->
 	<insert id="boardWrite" parameterType = "java.util.Map">
-		insert into board(seq,id,name,email,subject,content,ref)
+		insert into board(seq,category,nickname,name,email,subject,content,ref)
 					values(seq_board.nextval
-					,#{id}
+					,#{category}
+					,#{nickname}
 					,#{name}
 					,#{email}
 					,#{subject}
@@ -53,7 +54,7 @@
 			update board set step=step+1 where ref = #{ref} and step > #{step};
 			<!-- insert -->
 			insert into board Values (seq_board.nextval
-									, #{id}
+									, #{nickname}
 									, #{name}
 									, #{email}
 									, #{subject}
@@ -125,4 +126,8 @@
 	<select id="commentOutput" parameterType="java.util.Map" resultType="comment">
 		select * from commentText where boardseq=#{seq}
 	</select>
+	
+	
+	
+	
 </mapper>
