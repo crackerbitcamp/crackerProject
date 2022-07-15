@@ -31,8 +31,8 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 
 	@Override
 	public Map<String, Object> getRecipeBoardList(String pg) {
-		int endNum = Integer.parseInt(pg)*5;
-		int startNum = endNum - 4;
+		int endNum = Integer.parseInt(pg)*20;
+		int startNum = endNum - 19;
 		//DB 1페이지당 5개
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		map.put("endNum", endNum);
