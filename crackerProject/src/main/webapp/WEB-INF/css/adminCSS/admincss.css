@@ -19,6 +19,14 @@ a {
 	font
 }
 
+h3 {
+	padding-top: 1%;
+	padding-left: 20px;
+	line-height: 40px;
+    display: inline-block;
+
+}
+
 .header {
 	text-align : center;
 	padding: 20px 0 20px 0;
@@ -75,6 +83,7 @@ a {
 
 }
 .section {
+	position: relative;
 	float: left;
 	width: 48.5%;
 	height: 30%;
@@ -128,7 +137,7 @@ a {
 #currentPaging{
 	width: 40px;
 	height: 40px;
-	background-color: #222;
+	background-color: #f76900;
     font-style: normal;
     color: #fff;
     display: inline-block;
@@ -149,13 +158,7 @@ a {
 }
 #Allcustomer {
 }
-#Allcustomer h3 {
-	padding-top: 1%;
-	padding-left: 20px;
-	line-height: 40px;
-    display: inline-block;
 
-}
 #customerSearchForm{
 	display: initial;
     float: right;
@@ -189,17 +192,6 @@ a {
 	margin-left: auto; margin-right: auto;
 	clear: both;
 	width: 100%
-	
-	/*style="border:1; cellspacing:0; cellpadding:7; frame:hsides; rules:rows;"  */
-}
-
-hr{
-	background-color: #EEEEEE;
-	
-	margin-right: 0px;
-    margin-left: 0px;
-
-	
 }
 
 #searchOption{
@@ -209,7 +201,7 @@ hr{
     padding: 0 20px 0 0px;
     background-color: #fff;
     box-sizing: border-box;
-    border: 1px solid #ddd;
+    border: 0px solid #ddd;
     line-height: 40px;
     font-size: 14px;
     color: #222;
@@ -217,17 +209,18 @@ hr{
     outline: 0;
 }
 #customerListTable td{
-	font-size: initial;
+	font-size: 14px;
     font-weight: 800;
-    padding: 1% 0.5% 1% 0.5%;
+    padding: 1.5% 1% 1.5% 1%;
 	
 }
 
 .thHead{
-	font-size: initial;
+	font-size: 14px;
     font-weight: 800;
-    padding: 1% 0.5% 1% 0.5%;
- 	color: #777777; 
+    padding: 1.5% 1% 1.5% 1%;
+ 	color: white; 
+ 	background-color: #f76900;
 	/*
 	font-size: initial;
     font-weight: 600;
@@ -236,10 +229,30 @@ hr{
 	
 }
 
+#adminCustomerPagingDiv{
+	text-align: center;
+	
+	width : auto; 
+	position: absolute;
+	margin-top: 24px; 
+	margin-bottom: 24px;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
 
 
+/* customerView */
 
-
+#customerView table{
+	margin: 20px;
+	width: 98%;
+	
+}
+#customerView td {
+	padding-left: 30px;
+	line-height: 40px;
+}
 
 
 

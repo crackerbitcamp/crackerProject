@@ -112,4 +112,27 @@ public class AdminController {
 		return mav;
 	}
 
+	@PostMapping("/loginMember")
+	@ResponseBody
+	public Map<String,Integer> loginMember(){
+		Map<String,Integer> map = adminService.loginMember();	
+		System.out.println(map);
+		return map;
+		
+	}
+	
+	@PostMapping("/dayLoginMember")
+	@ResponseBody
+	public Map<String,Integer> dayLoginMember(){
+		Map<String,Integer> map = adminService.dayLoginMember();	
+		System.out.println(map);
+		return map;
+		
+	}
 }
+
+
+
+
+
+
