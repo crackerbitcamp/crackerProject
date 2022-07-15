@@ -11,12 +11,12 @@ $(function(){
 			$('#idSpan').html(data.boardDTO.id);
 			$('#hitSpan').html(data.boardDTO.hit);
 			$('#content').html(data.boardDTO.content);  
-			if(data.memId == data.boardDTO.id){
+			/*if(data.memLogin == data.boardDTO.id){
 				$('#boardViewSpan').show();
 			}
 			else{
 				$('#boardViewSpan').hide();
-			}
+			}*/
 		},
 		
 		error:function(e){
@@ -59,12 +59,14 @@ $(function(){
 	// 댓글
 	$('#commentBtn').click(function(){
 		$.ajax({
-			url : '/index/board/commentWrite',
+			url : '/index/comment/commentWrite',
 			type : 'post',
 			data : {'commentContent' : $('#commentContent').val(),
-					'seq' : $('input[name=seq]').val()},
+					'seq' : $('input[name=seq]').val(),
+					'pg' : $('#pg').val()},
 			success : function(){
-				
+				alert('댓글 작성 완료');	
+				location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
 			},
 			error:function(e){
 				console.log(e);
@@ -75,23 +77,23 @@ $(function(){
 });
 $(function(){
 	$.ajax({
-		url : '/index/board/commentView',
+		url : '/index/comment/commentView',
 		type : 'post',
 		data : 'seq='+$('input[name=seq]').val(),
 		dataType : 'json',
 		success:function(data){
 //			alert(JSON.stringify(data));
 			$.each(data.list, function(index, items){
-				$('<tr/>')
-				.append($('<td/>',{
-					align:'center',
+				$('<li/>')
+				.append($('<div/>',{
+					align:'',
 					text: items.nickName
-				})).append($('<td/>',{
-					align:'center',
-					text: items.commentContent
-				})).append($('<td/>',{
+				})).append($('<span/>',{
 					align:'center',
 					text: items.logtime.toLocaleString()
+				})).append($('<div/>',{
+					align:'center',
+					text: items.commentContent
 				})).appendTo($('#commentInside'));
 			});
 		},

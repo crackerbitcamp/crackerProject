@@ -98,16 +98,11 @@ $('#commentBtn').click(function(){
 			url : '/index/board/commentWrite',
 			type : 'post',
 			data : {'commentContent' : $('#commentContent').val(),
-					'seq' : $('input[name=seq]').val()},
+					'seq' : $('input[name=seq]').val(),
+					'pg' : $('#pg').val()},
 			success : function(){
-				alert('댓글 작성 완료');
-				if($('#category').val() == 'freedomCategory'){
-					
-					location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
-				}else{
-					
-					location.href='/index/board/recipeBoardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
-				}
+				alert('댓글 작성 완료');	
+				location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
 			},
 			error:function(e){
 				console.log(e);

@@ -161,7 +161,7 @@
 							text : items.logtime
 					})).appendTo($('#recipeBoardListDiv'));
 					$('.recipeCard_'+items.seq).click(function(){
-						if(data.memId == null){
+						if(data.memLogin == null){
 							alert('먼저 로그인하세요')
 						}else{
 							location.href = '/index/recipeBoard/recipeBoardView?seq='

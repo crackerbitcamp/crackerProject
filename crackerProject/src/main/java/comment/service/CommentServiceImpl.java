@@ -21,7 +21,7 @@ public class CommentServiceImpl implements CommentService{
 	private CommentDAO commentDAO;
 	@Override
 	public void commentWrite(Map<String, String> map) {
-		String id = (String)session.getAttribute("memId");
+		String id = (String)session.getAttribute("memLogin");
 
 		map.put("nickName" ,id);
 		commentDAO.commentWrite(map);

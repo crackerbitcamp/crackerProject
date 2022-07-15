@@ -29,10 +29,6 @@ public interface BoardService {
 
 
 
-	public Map<String, Object> getRecipeBoardList(String pg);
-
-	public Map<String, Object> getRecipeBoardView(String seq);
-
 
 
 }
