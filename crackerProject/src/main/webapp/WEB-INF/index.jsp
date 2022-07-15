@@ -12,7 +12,20 @@
 <link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/indexmodal.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 <style type="text/css">
+body{
+	margin: 0;
+}
+#display{
+	margin-top: 60px;
+}
 
 #wrap {
 	width: 100%;
@@ -22,7 +35,7 @@
 /* container */
 
 #container{
-	margin: 2% 5% 5% 5%;
+	margin: 2% 5% 5% 2%;
 }
 
 #container:after { /* after는 컨테이너 뒤에 붙는거 해제하라는 뜻 */
@@ -31,55 +44,121 @@
 	clear: both; /* flex 써도 됨 */
 }
 
-
-.display_title_text, .display_title_text2 {
-	float : left;
-	display : block;
+ .display_title_text{
 	padding-right : 15px;
 	padding-left : 15px;
 	color : #f76900;
-	line-height: : 1.35em;
-	text-align: left;
+	text-align: left; 
 }
 
-.display_title_list, .display_title_list2 {
+.display_title_list{
+	position : relative;
 	float : right;
-	color : #f76900;
-	line-height: 3em;
+	color : #CBCBCB;
 	text-decoration:none;
-}
-
-
-#imagecard {
-	text-align : center;
+	top : -30px;
+	left : -20px;
 	
 }
 
-#imagecard2 {
-	float : left;
-	display : block;
-	width : 33.3333%
+#imagecard {
+	padding-top : 17.8px;
+	text-align : center;
+	height: 800px;
+	border-bottom: 1px solid #f76900;
+	/* border : 1px solid red; */
+
 }
 
-.imagecard {
-	width: 95%;
-	margin : 8px;
+#imagecard1 {
+	position: relative;
+	float : left;
+	display : block;
+	width : 518px;
+	height : 230px;
+	
+	
 }
+
+.imagecard2 {
+	width: 95%;
+}
+
+#imagecard1 a {
+	text-decoration: none;
+	height: 93%;
+	width: 95%;
+	background-color: rgba(0,0,0,0.2);
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 2.6%;
+}
+
+#imagecard1 a:hover{
+
+	text-decoration: none;
+	height: 93%;
+	width: 95%;
+	background-color: rgba(0,0,0,0.67);
+	box-sizing: border-box;
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 2.6%;
+}
+
+.info_inner {
+	position: absolute;
+	top : 40%;
+	width : 85%;
+	
+}
+
+.info_inner_title {
+	font-size : 3rem;
+	color : #fff;
+	text-shadow : 5px 2px 5px #000000;
+	text-align : center;
+	font-weight: bolder;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#imagecard1 a:hover .info_inner_title {
+	font-size : 4rem;
+	color : #fff;
+	text-shadow : 5px 2px 5px #000000;
+	text-align : center;
+	font-weight: bolder;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#imagecard1 a:hover .info_inner {
+	position: absolute;
+	top : 30%;
+	width : 85%;
+}
+
+
 
 #content {
 	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; 
-	width: 95%;
-	border: 1px red solid; /*솔리드 라인*/
+	width: 97.25%;
+	/* border: 1px red solid; /*솔리드 라인*/ */
 }
 
-#display ,#display2 {
-	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
+#display {
+	padding: 0; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
-	width: 97.5%;
+	width: 100%;
 	border: 1px blue solid; /*솔리드 라인*/
+	background-color: #f3f3f3;
 }
 
 /* #rightbar {
@@ -171,8 +250,9 @@
 				
 				<div class= "memberWriteModal">
 					<div class = "memberModal">
-						<span style="float: right; cursor: pointer; font-size: 30px; margin: 10 20;" id = "modalclose">X</span>
+						<span style="float: right; cursor: pointer;" id = "modalclose"><img src="/index/image/x.png" style="width: 20px; height: 20px; margin-right: 5px; margin-top: 5px;"></span>
 						<div class = "modalcenter">
+						<input type = "hidden" id = "modalcheck_all" value="false">
 						<input type = "hidden" id = "modalchecked1" value="false">
 						<input type = "hidden" id = "modalchecked2" value="false">
 						<input type = "hidden" id = "modalchecked3" value="false">
@@ -193,95 +273,138 @@
 							<div class = "modaljoin_team">
 								<label class = "modalcheckbox"><input type = "checkbox" name="modalchk" class="modalcheck">선택정보 수집 및 이용동의</label>
 							</div>
-							<button class = "join_wrap_btn">동의하고 가입하기</button>
+							<button class = "join_wrap_btn" style="cursor: pointer;">동의하고 가입하기</button>
 						</div>
 					</div>
 				</div>
 	<div id="wrap">
+		<div id="header_menuDiv">
+		
+			<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
+			<div id="header_ul">
+				<ul id="header_menu_ul">
+					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>전체 게시판</span></a></li>
+					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>자유 게시판 </span></a></li>
+					<li class="header_menu_item"><a href="/index/recipeBoard/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
+				</ul>
+				
+				<ul id="header_login_ul">
+					<li class="header_login_item">
+						<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
+					</li>
+				</ul>
+			
+			</div>
+		</div>
+		<div id="display">
+				<c:if test="${empty display}">
 		<header id="header">
 			
-			<div id="header_menuDiv">
-			
-				<img alt="" src="/index/image/home/LOGO2.jpeg" width="100px" height="50px" id="headerLogo">
-				<div id="header_ul">
-					<ul id="header_menu_ul">
-						<li class="header_menu_item"><a href="/index/board/boardList"><span>전체 게시판</span></a></li>
-						<li class="header_menu_item"><a href="#"><span>자유 게시판 </span></a></li>
-						<li class="header_menu_item"><a href="/index/board/recipeBoardList"><span>레시피 게시판</span></a></li>
-					</ul>
-					
-					<ul id="header_login_ul">
-						<li class="header_login_item">
-							<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
-						</li>
-					</ul>
-				
-				</div>
-			</div>
 				<!-- 헤더 상위 메뉴바 아래 -->
-			
-			<div id = "searchForm">
-				<img alt="돋보기" src="/index/image/home/search.svg">
-				<input type="text" id="boardSearch">
-				<input type="button" id="boardSearchBtn" value="검색">
+			<div id="searchFormOutDiv">
+				<div id = "searchForm">
+					<img alt="돋보기" src="/index/image/home/search.svg">
+					<input type="text" id="boardSearch">
+					<input type="button" id="boardSearchBtn" value="검색">
+				</div>
 			</div>
 		</header>
 		<!-- header -->
 	
 
 		<div id="container">
-			
+		
 		<!-- 	<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'"> -->
 				
-			<section class="section1">
-				<div class="display_title">
-					<h2 class="display_title_text">레시피 리스트</h2>
-					<a class="display_title_list" href="#">리스트 더보기</a>
-				</div>
-			</section>
-			
-				<div id="display1">
-					<div id="imagecard">
-					
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/korea.jpeg" onclick="#">
-						</div>
-						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/steak.jpeg" onclick="#">
-						</div>
-						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/japan.jpeg" onclick="#">
-						</div>
-						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/china.jpeg" onclick="#">
-						</div>
-						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/vietnam.jpeg" onclick="#">
-						</div>
-						
-						<div id="imagecard2">
-						<img class="imagecard" src="/index/image/home/ddukbokki.jpeg" onclick="#">
-						</div>
-					
-					</div>	
-				</div>
-			
-			
-			<section class="section2">
-				<div class="display_title2">
-					<h2 class="display_title_text2">자유 게시판</h2>
-					<a class="display_title_list2" href="#">게시물 더보기</a>
-				</div>
-			</section>
-			
-			<div id="display">
 		
-			<c:if test="${empty display}">
+					<div class="display_title">
+						<h2 class="display_title_text">레시피 리스트</h2>
+						<a class="display_title_list" href="#">리스트 더보기</a>
+					</div>
+				
+					<div id="imagecard">
+						
+						<div id="imagecard1">
+							<img class="imagecard2" src="/index/image/home/korea.jpeg" onclick="">
+							<a href="./recipeBoard/recipeBoardList?category=한식">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">한식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						
+						<div id="imagecard1">
+							<img class="imagecard2" src="/index/image/home/steak.jpeg" onclick="">
+							<a href="./recipeBoard/recipeBoardList?category=양식">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">양식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						
+						<div id="imagecard1">
+							<img class="imagecard2" src="/index/image/home/japan.jpeg" onclick="">
+							<a href="./recipeBoard/recipeBoardList?category=일식">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">일식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						
+						<div id="imagecard1">
+							<img class="imagecard2" src="/index/image/home/china.jpeg" onclick="">
+							<a href="./recipeBoard/recipeBoardList?category=중식">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">중식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						
+						<div id="imagecard1">
+							<img class="imagecard2" src="/index/image/home/vietnam.jpeg" onclick="">
+							<a href="./recipeBoard/recipeBoardList?category=아시아">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">아시아</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+						
+						<div id="imagecard1">
+							<img class="imagecard2" src="/index/image/home/ddukbokki.jpeg" onclick="">
+							<a href="./recipeBoard/recipeBoardList?category=분식">
+								<figure class="imagecard_category">
+									<figcaption class="info">
+										<div class="info_inner">
+											<span class="info_inner_title">분식</span>
+										</div>
+									</figcaption>
+								</figure>
+							</a>
+						</div>
+
+					</div>	
+		
 			
 				<div id="content">
 					<div id="textSection">
@@ -290,24 +413,26 @@
 						</div>
 					</div> <!-- textSection -->
 									
-					<div style="border: blue 1px solid;" class="imagecard">
+					<div style="border: yellow 1px solid;" class="imagecard">
 						<div id="indexSection5">
 							<jsp:include page="${indexSection5 }" />
 						</div>
 					</div>
 
 				</div><!-- content -->
-				
-			</c:if>
+				</div> <!-- container -->
 			
-		</div>
+			</c:if>
 			
 			
 			<c:if test="${not empty display}">
 				<jsp:include page="${display}" />
 			</c:if>
+			
+				
+		</div> <!-- display -->
 
-			</div>
+	</div> <!-- wrap -->
 			
 			
 			
@@ -325,8 +450,6 @@
 			
 	 	</div>container -->
 	
-	
-	</div><!-- wrap -->
 	
 
 	<div id="footer">
@@ -363,35 +486,56 @@
 		<div id="userHistory_black">
 		
 		</div>
-		<c:if test="${memId==null}">
+		<c:if test="${memLogin==null}">
 			<div class="userHistory">
 				<i id="userHistory_triangle"></i>
 				<div>
-					<button class="userHistoryBtnClass" id="loginBtn">로그인</button>
+					<button class="userHistoryBtnClass" id="loginBtn" style="cursor: pointer;">로그인</button>
 				
 				</div>
 				<div>
-					<button class="userHistoryBtnClass">아이디 비밀번호 찾기</button>
+					<button class="userHistoryBtnClass" style="cursor: pointer;" id="idinfo" onclick="idinfo();">아이디 비밀번호 찾기</button>
 				
 				</div>
 				<div>
-					<button class="userHistoryBtnClass" id="memberWriteBtn">회원가입</button>
+					<button class="userHistoryBtnClass" id="memberWriteBtn" style="cursor: pointer;">회원가입</button>
 				</div>
 			
 			</div>
 		</c:if>
-		<c:if test="${memId!=null}">
+		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
-				로그인 되었습니다.
-			
+					<c:if test="${memEmail != null }">
+						<button class="userHistoryBtnClass" id="logoutBtn" onclick="location.href='/index/member/memberLogout'" style="cursor: pointer;">로그아웃</button>
+						<button class="userHistoryBtnClass" id="UpdatePasswordCheckForm" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'" style="cursor: pointer;">회원 정보 수정</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
+					<c:if test="${naverEmail != null }">
+										<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
+					<c:if test="${kakaoEmail != null }">
+						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
+				
+				<div>
+				</div>
 			</div>
 		</c:if>
 	</div>
 	
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/index/js/index.js">
+<script type="text/javascript" src="/index/js/index.js"></script>
+<script type="text/javascript">
+$('#recipeBoardWriteFormBtn').click(function(){
+	
+	location.href="/index/recipeBoard/recipeBoardWriteForm";
+
+});
 </script>
+<script type="text/javascript" src="/index/js/member.js"></script>
 </body>
 </html>

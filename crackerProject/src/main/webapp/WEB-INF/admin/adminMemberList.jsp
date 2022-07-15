@@ -81,11 +81,11 @@ table {
 				<select name="searchOption">
 					<option value="membername">이름</option>
 					<option value="memberid">아이디</option>
-			
 				</select>
 		
-				<input type="search" name="keyword" id="keyword" value="${keyword }"> 
-				<input type="button" id = "adminMemberSearchBtn" value="검색">
+					<input type="search" name="memberSearchkeyword" id="memberSearchkeyword" value="${memberSearchkeyword }">
+					<input type="button" id = "adminMemberSearchBtn" value="검색">
+				
 		
 			</div>
 	

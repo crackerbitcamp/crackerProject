@@ -62,7 +62,7 @@ float: right;
 <body>
 <div id="loginform">   
    <div id="login">
-      <p class="intro" align="center">${kakaoNickName }님 로그인</p>
+      <p class="intro" align="center">${memNickname }님 로그인</p>
       <p class="intro" align="center">${kakaoEmail }</p>
       <button type="button" class="btn btn-primary btn-lg btn-block" style="width: 100%;
     	border: 1px #000000 solid; background: #000000;" onclick="kakaoLogoutForm();">로그아웃</button>

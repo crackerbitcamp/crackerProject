@@ -8,11 +8,11 @@
 <link rel="stylesheet" href="/index/css/member.css">
 <head>
 <body>
-		<form id = "memberUpdateFormPasswordCheckForm">
+		<form id = "memberUpdateFormPasswordCheckForm" style="display: block; margin-top: 100px;">
 			<div id = "memberUpdateFormDiv">
-				<b class = "updateIdName">아이디</b><input type="text" value="${memberDTO.memberid }" disabled class="write-input-name-wrap"><br>
-				<b class = "updatePwdName">비밀번호</b><input type = "password" name = "memberpwd" class="write-input-name-wrap"><br>
-				<button type="button" id = "pwdcheckBtn" class="btn_ct" style="margin-top: 20px; margin-right: 20px;">다음</button><button type = "button" class="btn_ct">취소</button>
+				<div><b class = "updateIdName">아이디</b><input type="text" value="${memberDTO.memberemail }" disabled class="write-input-name-wrap"></div>
+				<div><b class = "updatePwdName">비밀번호</b><input type = "password" name = "memberpwd" class="write-input-name-wrap"></div>
+				<div style=" margin-left: 	30px;"><button type="button" id = "pwdcheckBtn" class="btn_ct" style="margin-top: 20px; margin-right: 20px;">다음</button><button type = "button" class="btn_ct">취소</button></div>
 			</div>
 		</form>
 </body>

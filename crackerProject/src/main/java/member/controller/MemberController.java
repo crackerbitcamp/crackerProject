@@ -40,11 +40,10 @@ public class MemberController{
    public MemberDTO memberLoginCheck(@RequestParam Map<String,String>map, HttpSession session) {
       MemberDTO memberDTO = memberService.memberLoginCheck(map);
       if(memberDTO != null) {
-	      String email = memberDTO.getMemberemail1()+"@"+memberDTO.getMemberemail2();
-	      session.setAttribute("memId", memberDTO.getMemberid());
 	      session.setAttribute("memName", memberDTO.getMembername());
-	      session.setAttribute("memEmail", email);
 	      session.setAttribute("memNickname", memberDTO.getMembernickname());
+	      session.setAttribute("memEmail", memberDTO.getMemberemail());
+	      session.setAttribute("memLogin", memberDTO.getMembernickname());
       }
       return memberDTO;
    }
@@ -64,8 +63,8 @@ public class MemberController{
    //회원정보 수정
    @GetMapping("/memberUpdatePasswordCheckForm")
    public ModelAndView memberUpdatePasswordCheckForm(HttpSession session) {
-	   String memberid = (String)session.getAttribute("memId");
-	   MemberDTO memberDTO = memberService.getMember(memberid);
+	   String memberemail = (String)session.getAttribute("memEmail");
+	   MemberDTO memberDTO = memberService.getMember(memberemail);
 	   ModelAndView mav = new ModelAndView();
 	   mav.addObject("memberDTO",memberDTO);
 	   mav.addObject("menu","/WEB-INF/main/menu.jsp");
@@ -78,16 +77,16 @@ public class MemberController{
    @PostMapping("/memberUpdatePasswordCheck")
    @ResponseBody
    public MemberDTO memberUpdatePasswordCheck(@RequestParam Map<String,String>map, HttpSession session) {
-	   String memberid = (String)session.getAttribute("memId");
-	   map.put("memberid", memberid);
+	   String mememail = (String)session.getAttribute("memEmail");
+	   map.put("memberemail", mememail);
 	   MemberDTO memberDTO = memberService.memberLoginCheck(map);
 	   return memberDTO;
    }
    
    @GetMapping("/memberUpdateForm")
    public ModelAndView memberUpdateForm(HttpSession session) {
-	   String memberid = (String)session.getAttribute("memId");
-	   MemberDTO memberDTO = memberService.getMember(memberid);
+	   String memberemail = (String)session.getAttribute("memEmail");
+	   MemberDTO memberDTO = memberService.getMember(memberemail);
 	   ModelAndView mav = new ModelAndView();
 	   mav.addObject("memberDTO",memberDTO);
 	   mav.addObject("menu","/WEB-INF/main/menu.jsp");
@@ -108,21 +107,20 @@ public class MemberController{
 	@PostMapping("/memberWrite")
 	@ResponseBody
 	public String memberWrite(@RequestParam Map<String,String>map) {
-		MemberDTO memberDTO = memberService.memberWrite(map);
-		System.out.println("memberDTO" + memberDTO);
-		return memberDTO.getMembernickname();
+		memberService.memberWrite(map);
+		return  map.get("membernickname");
 	}
-	@PostMapping("/memberIdCheck")
-	@ResponseBody
-	public String memberIdCheck(@RequestParam String memberid) {
-		String check = memberService.memberIdCheck(memberid);
-		return check;
-	}
+	
 	@GetMapping("/emailcheck")
 	@ResponseBody
 	public String emailcheck(@RequestParam String email) {
 		System.out.println("email 확인 : " + email);
-		return memberService.emailcheck(email);
+		String check = memberService.emailDB(email);
+		if(check == "fail") {
+			return check;
+		}else {
+			return memberService.emailcheck(email);
+		}
 	}
 	@GetMapping("/memberFindIdForm")
 	public ModelAndView memberFindIdForm() {
@@ -146,7 +144,7 @@ public class MemberController{
 		 if(memberDTO == null) {
 			 check = "fail";
 		 }else {
-			 check = memberDTO.getMemberid();
+			 check = memberDTO.getMemberemail();
 		 }
 		 return check;
 	}
@@ -167,7 +165,14 @@ public class MemberController{
 	@GetMapping("/updateEmailCheck")
 	@ResponseBody
 	public String updateEmailCheck(@RequestParam String email) {
-		return memberService.updateEmailCheck(email);
+		
+		String check = memberService.emailDB(email);
+		if(check == "fail") {
+			return check;
+		}else{
+			check = memberService.updateEmailCheck(email);
+		return check;
+		}
 	}
 	@GetMapping("/telUpdateForm")
 	public ModelAndView telUpdateForm() {
@@ -199,7 +204,7 @@ public class MemberController{
 		session.setAttribute("naverTel", map.get("naverTel"));
 		session.setAttribute("naverEmail", map.get("naverEmail"));
 		session.setAttribute("naverNickName", map.get("naverNickName"));
-		
+		session.setAttribute("memLogin", map.get("naverNickName"));
 	}
 }
 

@@ -6,9 +6,7 @@ import member.bean.MemberDTO;
 
 public interface MemberService {
 
-	public MemberDTO memberWrite(Map<String, String> map);
-
-	public String memberIdCheck(String memberid);
+	public void memberWrite(Map<String, String> map);
 
 	public MemberDTO memberLoginCheck(Map<String, String> map);
 
@@ -26,6 +24,6 @@ public interface MemberService {
 
 	public String memberFindPwd(Map<String, String> map);
 
-
+	public String emailDB(String email);
 
 }

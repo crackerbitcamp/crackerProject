@@ -19,6 +19,12 @@
 	height: 300px;
 	
 }
+
+#recipeBoardListDiv{
+	width: 1600px;
+	height: 1000px;
+	border: soild 1px red;
+}
 #recipeBoardListDiv .recipeCard:hover{
 	cursor:pointer;
 }
@@ -28,7 +34,8 @@
 	<form id="recipeBoardListForm">
 	<div>
 	
-		<input type="hidden" id="pg" value="${pg }"> 
+		<input type="hidden" id="pg" value="${pg}">
+		<input type="text" id='category' value = "${category}">
 	<div id="recipeBoardListDiv"></div>
 	</div>
 
@@ -43,8 +50,10 @@
 		var images = $('#content img:first-child').attr('src');
 		$.ajax({
 			type : 'post',
-			url : '/index/board/getRecipeBoardList',
-			data : 'pg=' + $('#pg').val(),
+			url : '/index/recipeBoard/getRecipeBoardList',
+			data : {'pg' : $('#pg').val(),
+					'category' : $('#category').val()
+			},
 			dataType : 'json',
 			success : function(data) {
 
@@ -65,7 +74,14 @@
 							src : img,
 							width : '200px',
 							height : '200px'
-						})).append($('<div/>', {
+						})).append($('<div/>',{
+							align:'center',
+							text:items.category
+						})).append($('<div/>',{
+							align:'center',
+							text:items.nickName
+						}))
+						.append($('<div/>', {
 							align: 'center',
 							text : items.subject
 						})).append($('<div/>', {

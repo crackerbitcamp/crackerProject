@@ -2,7 +2,7 @@
 function idinfo(){
 		url = "/index/member/memberFindIdForm";
 		name = '';
-		specs = "width=550,height=600,top=200,left=100";
+		specs = "width=550,height=200,top=200,left=100";
 		window.open(url,name,specs);
 }
 function telUpdateForm(){
@@ -11,6 +11,37 @@ function telUpdateForm(){
 	specs = "width=550,height=128,top=200,left=100";
 	window.open(url,name,specs);
 }
+
+//네이버 로그아웃 
+var testPopUp;
+function openPopUp() {
+    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
+    testPopUp.close();
+    location.href = '/index/member/memberLogout'
+}
+
+//카카오 로그아웃
+function kakaoLogoutForm(){
+    $.ajax({
+        url: '/index/login/kakaoLogoutForm',
+        type: 'get',
+        async: false,
+        dataType: 'text',
+        success: function (res) {
+    		url = res;
+    		name = '';
+    		specs = "width=550,height=600,top=200,left=100";
+    		window.open(url,name,specs);
+        }
+    });
+}
+
+
+$(function(){
+	$('#naverBtn').click(function(){
+		alert('네이버 계정은 알아서 회원정보 수정하세요');
+	});
+});
 
 function emailUpdateForm(){
 	url = "/index/member/emailUpdateForm";
@@ -163,16 +194,23 @@ $(function(){
 			$('#memberWriteEmailDiv').empty();
 		}
 	});
+	
+	//회원가입 Email중복 체크 및 인증번호 발송
 	var code;
 	$('#mail-Check-Btn').click(function(){
-		var email = $('#memberWriteEmail1').val() + '@'+$('#memberWriteEmail2').val();
+		var email = $('#memberWriteEmail').val();
 		console.log(email);
 		$.ajax({
 			type : 'get',
 			url : '/index/member/emailcheck?email='+email,
+			dataType : 'text',
 			success:function(data){
-				$('#mail-Check-Num').attr('disabled',false);
+				if(data == 'fail'){
+					swal('해당 이메일은 이미 사용중입니다.','','warning')
+				}else{
+					$('#mail-Check-Num').attr('disabled',false);
 				code =data;
+				}
 			},error:function(e){
 				console.log(e);
 			}
@@ -181,19 +219,22 @@ $(function(){
 	
 	var updateEmailnumber;
 	$('#updateEmailBtn').click(function(){
-		var email = $('#updatememberemail1').val() + '@' + $('#updatememberemail2').val();
+		var email = $('#updatememberemail').val();
 		console.log(email);
 		$.ajax({
 			type : 'get',
 			url : '/index/member/updateEmailCheck?email='+email,
+			dataType : 'text',
 			success:function(data){
-				alert(data);
-				$('#updateEmailcheck').attr('disabled',false);
-				updateEmailnumber = data;
-				$('#emailUpdateSet').attr('value',email);
-				$('#email1').attr('value',$('#updatememberemail1').val());
-				$('#email2').attr('value',$('#updatememberemail2').val());
-				console.log(updateEmailnumber);
+				if(data == 'fail'){
+					swal('해당아이디는 이미 등록중입니다.',"",'warning');
+					$('#updateEmailcheck').attr('disabled',true);
+				}else{
+					$('#updateEmailcheck').attr('disabled',false);
+					updateEmailnumber = data;
+					$('#emailUpdateSet').attr('value',email);
+					console.log(updateEmailnumber);
+				}
 			},error:function(e){
 				console.log(e);
 			}
@@ -218,14 +259,14 @@ $(function(){
 	});
 	
 	// blur -> focus가 벗어나는 경우 발생
+	// 회원가입 인증번호 체크
 	$('#mail-Check-Num').blur(function () {
 		const inputCode = $(this).val();
 		if(inputCode == code){
 			$('#memberWriteEmailDiv').html('인증번호가 일치합니다.');
 			$('#memberWriteEmailDiv').css('color','green');
 			$('#mail-Check-Num').attr('disabled',true);
-			$('#memberWriteEmail1').attr('readonly',true);
-			$('#memberWriteEmail2').attr('readonly',true);
+			$('#memberWriteEmail').attr('readonly',true);
 			$('#checkemail').attr('value','ok');
 		}else{
 			$('#memberWriteEmailDiv').html('인증번호가 불일치 합니다. 다시 확인해주세요!.');
@@ -237,9 +278,8 @@ $(function(){
 		alert($('#emailUpdateSet').val())
 		if($('#emailUpdatecheck').val() == 'ok'){
 			alert(updateEmail);
-			$("#updateEmail1", opener.document).val($('#emailUpdateSet').val()); //자식창에서 부모창으로 데이터 넘기기
-			$("#memberemail1", opener.document).val($('#email1').val()); //자식창에서 부모창으로 데이터 넘기기
-			$("#memberemail2", opener.document).val($('#email2').val()); //자식창에서 부모창으로 데이터 넘기기
+			$("#memberemail", opener.document).val($('#emailUpdateSet').val()); //자식창에서 부모창으로 데이터 넘기기
+			$("#memberemail1", opener.document).val($('#emailUpdateSet').val()); //자식창에서 부모창으로 데이터 넘기기
 			window.close();
 		}else{
 			swal('이메일 인증을 먼저해주세요','','warning');
@@ -294,13 +334,12 @@ $(function(){
 	
 	
 	$('#memberWriteBtn').click(function(){
-		if(!$('#memberLoginId').val() && !$('#memberWritePwd').val()
-			|| !$('#memberWriterePwd').val() || !$('#memberWriteName').val()
-			|| !$('#memberWriteEmail1').val() || !$('#memberWriteEmail2').val()
+		if($('#memberWritePwd').val() && !$('#memberWriterePwd').val() 
+			|| !$('#memberWriteName').val()	  || !$('#memberWriteEmail').val() 
 			|| !$('#memberWritephone1').val() || !$('#memberWritephone2').val()
 			|| !$('#phoneselect').val() == '-----------선택-----------'
-			|| $('#checkId').val() == 'fail' || $('#checkPwd').val() == 'fail'
-			|| $('#checkPhone').val() == 'fail' || $('#checkemail').val() == 'fail'){
+			|| $('#checkemail').val() == 'fail' || $('#checkPwd').val() == 'fail'
+			|| $('#checkPhone').val() == 'fail'){
 			swal('생성 실패',"내용을 입력해주세요",'warning');
 			//location.reload();
 		}else{

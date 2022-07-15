@@ -14,17 +14,14 @@ public class MemberDAOImpl implements MemberDAO {
 	private SqlSession sqlSession;
 	private final String namespace = "memberSQL.";
 	@Override
-	public void memberWrite(MemberDTO memberDTO) {
-		sqlSession.insert("memberSQL.memberWrite",memberDTO);
-	}
-	@Override
-	public String memberIdCheck(String memberid) {
-		String check = sqlSession.selectOne("memberSQL.memberIdCheck",memberid);
-		return check;
+	public void memberWrite(Map<String, String> map) {
+		sqlSession.insert("memberSQL.memberWrite",map);
 	}
 	@Override
 	public MemberDTO memberLoginCheck(Map<String, String> map) {
+		System.out.println(map);
 		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.memberLoginCheck",map);
+		System.out.println(memberDTO);
 		return memberDTO;
 	}
 	@Override
@@ -33,8 +30,8 @@ public class MemberDAOImpl implements MemberDAO {
 		return memberDTO;
 	}
 	@Override
-	public MemberDTO getMember(String memberid) {
-		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.getMember",memberid);
+	public MemberDTO getMember(String memberemail) {
+		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.getMember",memberemail);
 		return memberDTO;
 	}
 	@Override
@@ -50,6 +47,14 @@ public class MemberDAOImpl implements MemberDAO {
 	public void memberPwdUpdate(Map<String, String> map1) {
 		sqlSession.update("memberSQL.memberPwdUpdate",map1);
 		
+	}
+	@Override
+	public MemberDTO emailDB(String email) {
+		System.out.println("DAO email = " + email);
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO = sqlSession.selectOne("memberSQL.emailDB",email);
+		System.out.println(memberDTO);
+		return sqlSession.selectOne("memberSQL.emailDB",email);
 	}
 
 }

@@ -15,7 +15,7 @@
 <body>
 	<div class="container">
 	<h2>회원가입 현황</h2>
-   	 <button id="sendAjax" onclick="window.location.reload()">button</button>
+   	 <button id="sendAjax" onclick="window.location.reload()">새로고침</button>
 	<br>
    	 <canvas id="myChart" width="460px" height="300px"></canvas>
     </div>

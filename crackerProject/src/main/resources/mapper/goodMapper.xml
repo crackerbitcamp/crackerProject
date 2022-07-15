@@ -6,7 +6,7 @@
 	
 	<!-- 게시글 추천 시 Like 테이블에 insert -->
 	<insert id="insertGood" parameterType ="java.util.Map">
-		insert into GOOD(GOODNO , seq , MEMBERID) values((SELECT NVL(MAX(GOODNO), 0) + 1 FROM GOOD) ,#{seq} ,#{memId})
+		insert into GOOD(GOODNO , seq , MEMBEREMAIL) values((SELECT NVL(MAX(GOODNO), 0) + 1 FROM GOOD) ,#{seq} ,#{memEmail})
 	</insert>
 	
 	<!-- 게시글 추천수 -->
@@ -21,22 +21,22 @@
 	
 	<!-- 게시글 추천취소 시 delete -->
 	<delete id="deleteGood" parameterType ="java.util.Map">
-		delete from GOOD where seq = #{seq} and MEMBERID = #{memId}
+		delete from GOOD where seq = #{seq} and MEMBEREMAIL = #{memEmail}
 	</delete>
 	
 	<!-- 게시글 추천 시 Check를 1로 만들어서 중복방지-->
 	<update id="updateGoodCheck" parameterType ="java.util.Map">
-		update GOOD set GOODCHECK = 1 where seq = #{seq} and MEMBERID = #{memId}
+		update GOOD set GOODCHECK = 1 where seq = #{seq} and MEMBEREMAIL = #{memEmail}
 	</update>
 	
 	<!-- 게시글 추천취소 시 다시 0  -->
 	<update id="updateGoodCheckCancel" parameterType ="java.util.Map">
-		update GOOD set GOODCHECK = 0 where seq = #{seq} and MEMBERID = #{memId}
+		update GOOD set GOODCHECK = 0 where seq = #{seq} and MEMBEREMAIL = #{memEmail}
 	</update>
 	
 	<!-- 게시글 추천 중복방지 select문 -->
 	<select id="goodCheck" parameterType ="java.util.Map" resultType="Int">
-		select count(*) from GOOD where seq = #{seq} and MEMBERID = #{memId} 
+		select count(*) from GOOD where seq = #{seq} and MEMBERMAIL = #{memEmail} 
 	</select>
 	
 	<!-- 게시글 추천수 -->

@@ -10,7 +10,7 @@ import lombok.Data;
 public class GoodDTO {
 	private int goodno;
 	private int seq;
-	private String memberid;
+	private String memberemail;
 	private int goodcheck;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
