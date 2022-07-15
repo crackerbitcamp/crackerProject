@@ -16,7 +16,7 @@ public interface MemberService {
 
 	public MemberDTO memberfindIdcheck(Map<String, String> map);
 
-	public MemberDTO getMember(String memberemail);
+	public MemberDTO getMember(String memberid);
 
 	public String updateEmailCheck(String email);
 

@@ -21,6 +21,7 @@ public class MemberDAOImpl implements MemberDAO {
 	public MemberDTO memberLoginCheck(Map<String, String> map) {
 		System.out.println(map);
 		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.memberLoginCheck",map);
+		System.out.println(memberDTO);
 		return memberDTO;
 	}
 	@Override
@@ -50,6 +51,9 @@ public class MemberDAOImpl implements MemberDAO {
 	@Override
 	public MemberDTO emailDB(String email) {
 		System.out.println("DAO email = " + email);
+		MemberDTO memberDTO = new MemberDTO();
+		memberDTO = sqlSession.selectOne("memberSQL.emailDB",email);
+		System.out.println(memberDTO);
 		return sqlSession.selectOne("memberSQL.emailDB",email);
 	}
 

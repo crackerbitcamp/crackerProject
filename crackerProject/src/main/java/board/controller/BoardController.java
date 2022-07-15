@@ -137,9 +137,10 @@ public class BoardController {
 		return mav;
 	}
 
+	
 	@ResponseBody
-	@PostMapping(value = "getBoardList")
-	public Map<String, Object> getBoardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+	@PostMapping(value="getBoardList")
+	public Map<String,Object> getBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
 		return boardService.getBoardList(pg);
 	}
 
