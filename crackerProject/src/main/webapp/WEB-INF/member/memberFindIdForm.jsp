@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-   <input type = "text" id = "findIdCheckDiv">
+   <input type = "hidden" id = "findIdCheckDiv">
    <form id = "findidForm">
       <fieldset id="find-Idfieldset-wrap">
          <legend>아이디 찾기 </legend>
@@ -41,9 +41,9 @@
             <label class="label.txt" style="margin-right: 33px;">이름</label>
             <input type = "text" id = "findname" class = "input_txt" name = "membername"><br>
             <label class = "label.txt" id = "FindEmail" style="margin-right: 18px;">아이디</label>
-            <input type = "email" id = "findEmail" class="input_txt" name="memberemail" style="width: 220px;" placeholder="ex)cracker123@naver.com">
+            <input type = "email" id = "findEmail" class="input_txt" name="memberemail" style="width: 220px; margin-bottom: 25px;" placeholder="ex)cracker123@naver.com">
             <button class="btn_ct" id="findEmailBtn" type="button">인증번호받기</button><br>
-            <span class="point successPhoneChk"></span>
+            <span class="point successPhoneChk" style="margin-bottom: 10px;"></span>
          </div>
       </fieldset>
    </form>

@@ -25,4 +25,5 @@ public interface MemberService {
 	public String memberFindPwd(Map<String, String> map);
 
 	public String emailDB(String email);
+
 }

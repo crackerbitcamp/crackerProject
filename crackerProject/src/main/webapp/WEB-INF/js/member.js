@@ -2,7 +2,7 @@
 function idinfo(){
 		url = "/index/member/memberFindIdForm";
 		name = '';
-		specs = "width=550,height=600,top=200,left=100";
+		specs = "width=550,height=200,top=200,left=100";
 		window.open(url,name,specs);
 }
 function telUpdateForm(){
@@ -11,6 +11,37 @@ function telUpdateForm(){
 	specs = "width=550,height=128,top=200,left=100";
 	window.open(url,name,specs);
 }
+
+//네이버 로그아웃 
+var testPopUp;
+function openPopUp() {
+    testPopUp= window.open("https://nid.naver.com/nidlogin.logout", "_blank", "toolbar=yes,scrollbars=yes,resizable=yes,width=1,height=1");
+    testPopUp.close();
+    location.href = '/index/member/memberLogout'
+}
+
+//카카오 로그아웃
+function kakaoLogoutForm(){
+    $.ajax({
+        url: '/index/login/kakaoLogoutForm',
+        type: 'get',
+        async: false,
+        dataType: 'text',
+        success: function (res) {
+    		url = res;
+    		name = '';
+    		specs = "width=550,height=600,top=200,left=100";
+    		window.open(url,name,specs);
+        }
+    });
+}
+
+
+$(function(){
+	$('#naverBtn').click(function(){
+		alert('네이버 계정은 알아서 회원정보 수정하세요');
+	});
+});
 
 function emailUpdateForm(){
 	url = "/index/member/emailUpdateForm";

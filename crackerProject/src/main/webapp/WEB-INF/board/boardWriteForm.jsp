@@ -16,7 +16,7 @@
 <body>
 	
 	<div id="boardWriteFormOutDiv" >
-		<form name="boardWriteForm" id="boardWriteForm">
+		<form name="boardWriteForm" id="boardWriteForm" class="boardWriteForm">
 			
 			<input type="hidden" name="seq" value="${boardDTO.seq}"> <input
 				type="hidden" name="pg" value="${pg}">

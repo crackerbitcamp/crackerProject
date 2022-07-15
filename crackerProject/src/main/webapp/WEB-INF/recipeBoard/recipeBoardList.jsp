@@ -100,7 +100,8 @@
 	<form id="recipeBoardListForm">
 	<div>
 	
-		<input type="hidden" id="pg" value="${pg}"> 
+		<input type="hidden" id="pg" value="${pg}">
+		<input type="text" id='category' value = "${category}">
 	<div id="recipeBoardListDiv"></div>
 	</div>
 
@@ -116,7 +117,9 @@
 		$.ajax({
 			type : 'post',
 			url : '/index/recipeBoard/getRecipeBoardList',
-			data : 'pg=' + $('#pg').val(),
+			data : {'pg' : $('#pg').val(),
+					'category' : $('#category').val()
+			},
 			dataType : 'json',
 			success : function(data) {
 
