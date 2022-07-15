@@ -250,7 +250,7 @@ body{
 				
 				<div class= "memberWriteModal">
 					<div class = "memberModal">
-						<span style="float: right; cursor: pointer; font-size: 30px; margin: 10 20;" id = "modalclose">X</span>
+						<span style="float: right; cursor: pointer;" id = "modalclose"><img src="/index/image/x.png" style="width: 20px; height: 20px; margin-right: 5px; margin-top: 5px;"></span>
 						<div class = "modalcenter">
 						<input type = "hidden" id = "modalcheck_all" value="false">
 						<input type = "hidden" id = "modalchecked1" value="false">
@@ -273,7 +273,7 @@ body{
 							<div class = "modaljoin_team">
 								<label class = "modalcheckbox"><input type = "checkbox" name="modalchk" class="modalcheck">선택정보 수집 및 이용동의</label>
 							</div>
-							<button class = "join_wrap_btn">동의하고 가입하기</button>
+							<button class = "join_wrap_btn" style="cursor: pointer;">동의하고 가입하기</button>
 						</div>
 					</div>
 				</div>
@@ -490,15 +490,15 @@ body{
 			<div class="userHistory">
 				<i id="userHistory_triangle"></i>
 				<div>
-					<button class="userHistoryBtnClass" id="loginBtn">로그인</button>
+					<button class="userHistoryBtnClass" id="loginBtn" style="cursor: pointer;">로그인</button>
 				
 				</div>
 				<div>
-					<button class="userHistoryBtnClass">아이디 비밀번호 찾기</button>
+					<button class="userHistoryBtnClass" style="cursor: pointer;" id="idinfo" onclick="idinfo();">아이디 비밀번호 찾기</button>
 				
 				</div>
 				<div>
-					<button class="userHistoryBtnClass" id="memberWriteBtn">회원가입</button>
+					<button class="userHistoryBtnClass" id="memberWriteBtn" style="cursor: pointer;">회원가입</button>
 				</div>
 			
 			</div>
@@ -506,18 +506,21 @@ body{
 		<c:if test="${memLogin!=null}">
 		
 			<div class="userHistory">
-				로그인 되었습니다.
-			
-				<span>
-					${memLogin}님 로그인 되었습니다.
-				</span>
+					<c:if test="${memEmail != null }">
+						<button class="userHistoryBtnClass" id="logoutBtn" onclick="location.href='/index/member/memberLogout'" style="cursor: pointer;">로그아웃</button>
+						<button class="userHistoryBtnClass" id="UpdatePasswordCheckForm" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'" style="cursor: pointer;">회원 정보 수정</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
+					<c:if test="${naverEmail != null }">
+										<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
+					<c:if test="${kakaoEmail != null }">
+						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
+						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+					</c:if>
 				
 				<div>
-					<button type="button" id="logoutBtn">로그아웃</button>
-					<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
-
-					<button type="button" id="logoutBtn" onclick="location.href='/index/member/memberLogout'">로그아웃</button>
-
 				</div>
 			</div>
 		</c:if>
@@ -533,5 +536,6 @@ $('#recipeBoardWriteFormBtn').click(function(){
 
 });
 </script>
+<script type="text/javascript" src="/index/js/member.js"></script>
 </body>
 </html>
