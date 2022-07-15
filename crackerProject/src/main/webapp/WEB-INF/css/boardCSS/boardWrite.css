@@ -4,7 +4,7 @@
 	width: 1000px;
 	height: 1000px;
 }
-#boardWriteForm{
+.boardWriteForm{
 	position: absolute;
 	left:50%;
 	top:50%;

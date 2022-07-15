@@ -126,17 +126,8 @@
 	<select id="commentOutput" parameterType="java.util.Map" resultType="comment">
 		select * from commentText where boardseq=#{seq}
 	</select>
-	<select id="getRecipeBoardList" parameterType ="java.util.Map" resultType="board">
-				
-		
-		select * from (select rownum rn, tt.*
-		from (select * from board order by ref desc, step asc)tt)
-					where rn &gt;= ${startNum} and rn &lt;=${endNum} and category='recipeCategory'
-		
-	</select>
 	
-	<select id="getRecipeBoardView" parameterType="Int" resultType="board">
-		select * from board where seq = #{seq} and category='recipeCategory'
-	</select>
+	
+	
 	
 </mapper>

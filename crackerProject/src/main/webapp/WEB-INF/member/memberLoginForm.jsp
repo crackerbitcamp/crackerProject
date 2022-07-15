@@ -17,11 +17,11 @@
 			<div class="main-wrap">
 			<header>
 				<div class="logo-wrap">
-					<img src="/index/image/home/LOGO2.jpeg" alt="로고 넣는부분" style="width: 550px; height: 100px;">
+					<img src="/index/image/home/LOGO2.jpeg" alt="로고 넣는부분" style="width: 550px; height: 100px; cursor: pointer;" onclick="location.href='/index'">
 				</div>
 			</header>
 			<section class="login-input-section-wrap">
-				<form id = "memberLoginForm">
+				<form id = "memberLoginForm" style="width: 500px; margin: auto;">
 					<div class="login-input-wrap">	
 						<input placeholder="ex)cracker123@naver.com" type="text" id = "memberLoginEmail" name = "memberemail"></input>
 					</div>

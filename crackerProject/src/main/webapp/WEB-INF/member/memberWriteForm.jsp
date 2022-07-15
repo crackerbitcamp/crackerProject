@@ -14,7 +14,7 @@
 		<img src="../image/home/LOGO2.jpeg" alt="로고" onclick="location.href='/index'" style="cursor: pointer;">
 	</header>
 	<section>
-<form id = "memberWriteForm" style="background: url('/index/image/bonobono.png');">
+<form id = "memberWriteForm">
 	<h2 class = "join_title">회원정보 입력</h2>
 	<input type = "hidden" id = "checkId" value = "fail">
 	<input type = "hidden" id = "checkPwd" value = "fail">
