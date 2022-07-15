@@ -7,6 +7,13 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 
 <style type="text/css">
 #recipeBoardListDiv .recipeCard{
@@ -15,22 +22,81 @@
 	border : #dddddd solid 1px;
 	padding: 5px 5px 5px 5px;
 	box-shadow: 1px 1px 3px #333333;
-	width: 210px;
-	height: 300px;
+	width: 310px;
+	height: 320px;
 	
 }
 
 #recipeBoardListDiv{
-	width: 1600px;
+	padding: 20px;
+	position : relative;
+	float : left;
+	width: 1655px;
 	height: 1000px;
-	border: soild 1px red;
+	background : #ffffff;
+	display:flex;
+	
+	
+	
 }
 #recipeBoardListDiv .recipeCard:hover{
 	cursor:pointer;
 }
+
+#recipecatgoryfont {
+	margin-top: 10px;
+	font-size : 1.5em;
+}
+
+#recipenickNamefont {
+	margin-top : 5px;
+}
+
+#recipesubjectfont {
+	margin-top : 10px;
+	font-weight : bolder;
+	overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#recipelogtimefont {
+	margin-top : 10px;
+	font-size : 10px;
+}
+
+/* header */
+
+.recipeBoardTop {
+	border-bottom : 1px solid #f76900;
+}
+
+.inner {
+	font-family: 'Noto Sans KR', sans-serif;
+	margin: 0px 0px 40px 430px;
+	padding: 48px 30px 20px 30px;
+	width: 860px;
+}
+.title {
+	margin-top: 50px;
+	text-align : center;
+}
+
+.title2 {
+	color: #787878;
+	text-align : center;
+}
+
 </style>
 </head>
 <body>
+<header class="recipeBoardTop">
+	<div class="inner" style="padding-bottom: 10px;">
+		<h1 class="title">레시피가 궁금해?</h1>
+		<h2 class="title2">"맛있다" 연발 하는 레시피 대공개! :)</h2>
+	</div>
+</header>
+
 	<form id="recipeBoardListForm">
 	<div>
 	
@@ -69,23 +135,24 @@
 					}).append($('<img>', {
 							align: 'center',
 							src : img,
-							width : '200px',
+							width : '300px',
 							height : '200px'
 						})).append($('<div/>',{
+							id : 'recipecatgoryfont',
 							align:'center',
 							text:items.category
+							
 						})).append($('<div/>',{
+							id : 'recipenickNamefont',
 							align:'center',
 							text:items.nickName
 						}))
 						.append($('<div/>', {
+							id : 'recipesubjectfont',
 							align: 'center',
 							text : items.subject
 						})).append($('<div/>', {
-							align: 'center',
-							text : items.email
-							
-						})).append($('<div/>', {
+							id : 'recipelogtimefont',
 							align: 'center',
 							text : items.logtime
 					})).appendTo($('#recipeBoardListDiv'));
