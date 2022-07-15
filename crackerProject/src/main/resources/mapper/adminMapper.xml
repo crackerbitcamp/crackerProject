@@ -58,5 +58,7 @@
   	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
   		select count(*) from crackermember where ${searchOption} like '%'||#{memberSearchkeyword}||'%'	
   	</select>
+  	
+  	
 	
 </mapper>

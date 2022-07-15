@@ -145,4 +145,28 @@ public class AdminServiceImpl implements AdminService {
 
 
 
+	@Override
+	public Map<String,Integer> loginMember() {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		for(int i=1; i<10; i++) {
+			map.put("day"+(i-1),adminDAO.loginMember(i) - adminDAO.loginMember(i-1));
+		}
+		return map;
+	}
+
+
+	@Override
+	public Map<String, Integer> dayLoginMember() {
+		Map<String, Integer> map = new HashMap<String, Integer>();
+		for(int i=1; i<10; i++) {
+			map.put("day"+(i-1),adminDAO.dayLoginMember(i));
+		}
+		return map;
+	}
+
+
+
+
+
+
 }
