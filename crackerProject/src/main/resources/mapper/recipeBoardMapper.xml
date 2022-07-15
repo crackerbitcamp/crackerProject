@@ -19,14 +19,17 @@
 	</insert>
 	<!-- 목록 -->
 	<select id="getRecipeBoardList" parameterType="java.util.Map" resultType="recipeBoard">
-		<![CDATA[
-		select * from (select rownum rn, tt.*
-		from (select * from recipeboard order by seq)tt)
-					where rn >=${startNum} and rn <=${endNum}
-		]]>
+		
+			select * from (select rownum rn, tt.*
+			from (select * from recipeboard order by seq)tt)
+						where rn &gt;=${startNum} and rn &lt;=${endNum}
+						<if test="category != 'all'">
+							and category=#{category}
+						</if>
+	
 	</select>
 	
 	<select id="getRecipeBoardView" parameterType="Int" resultType="board">
-		select * from board where seq = #{seq} and category='recipeCategory'
+		select * from board where seq = #{seq}
 	</select>
 </mapper>

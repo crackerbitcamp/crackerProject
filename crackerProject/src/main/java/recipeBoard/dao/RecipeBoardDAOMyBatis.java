@@ -24,7 +24,7 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 	}
 
 	@Override
-	public List<BoardDTO> getRecipeBoardList(Map<String, Integer> map) {
+	public List<BoardDTO> getRecipeBoardList(Map<String, String> map) {
 		
 		return sqlSession.selectList("recipeBoardSQL.getRecipeBoardList",map);
 	}

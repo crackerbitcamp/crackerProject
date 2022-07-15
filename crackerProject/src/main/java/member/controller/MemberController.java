@@ -17,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import crackeremail.bean.CrackeremailDTO;
 import crackeremail.service.CrackerEmailService;
+import admin.service.AdminService;
 import member.bean.MemberDTO;
 import member.service.MemberService;
 
@@ -28,6 +29,7 @@ public class MemberController{
 	private MemberService memberService;
 	@Autowired
 	private CrackerEmailService crackerEmailService;
+	
 	//로그인
 	@GetMapping("/memberLoginForm")
 	public ModelAndView memberLoginForm() {

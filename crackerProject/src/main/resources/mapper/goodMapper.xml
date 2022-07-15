@@ -36,7 +36,7 @@
 	
 	<!-- 게시글 추천 중복방지 select문 -->
 	<select id="goodCheck" parameterType ="java.util.Map" resultType="Int">
-		select count(*) from GOOD where seq = #{seq} and MEMBERMAIL = #{memEmail} 
+		select count(*) from GOOD where seq = #{seq} and MEMBEREMAIL = #{memEmail} 
 	</select>
 	
 	<!-- 게시글 추천수 -->

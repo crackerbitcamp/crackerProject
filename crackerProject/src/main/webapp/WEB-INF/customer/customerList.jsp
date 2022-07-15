@@ -17,24 +17,17 @@
 			</div>
 		</form>
 	</div>
-	<div id="customerTable">
-		<hr>
 		<table id="customerListTable">
 			<tr>
-				<th width="100" class="thHead">문의번호</th>
-				<th width="100" class="thHead">사용자</th>
-				<th width="auto" class="thHead">문의제목</th>
-				<th width="120" class="thHead">문의날짜</th>
+				<th class="thHead">문의번호</th>
+				<th class="thHead">사용자</th>
+				<th class="thHead">문의제목</th>
+				<th class="thHead">문의날짜</th>
 			</tr>	
 			<!-- 동적처리 -->
 		</table>
-	
-		<div style = "margin-top: 24px; width : auto; text-align: center;">
 		
-			<div id="adminCustomerPagingDiv"></div>
-			
-		</div>
-	</div>
+		<div id="adminCustomerPagingDiv"></div>
 </div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">

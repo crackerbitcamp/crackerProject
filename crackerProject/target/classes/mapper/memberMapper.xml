@@ -38,8 +38,18 @@
 			    ,membernickname = #{membernickname} where membername = #{membername}
 	</update>
 	
+	<!-- 하루당 사이트 가입자수 -->
+  	<select id="loginMember" resultType="int" parameterType="int">
+  		select count(*) from crackermember where (TO_DATE(SYSDATE) - TO_DATE(logtime)) &lt; #{i} 
+  	</select>
+  	
+  	<select id="dayLoginMember" resultType="int" parameterType="int">
+  		select count(*) from crackermember 
+  	</select>
+
+	
 	<select id="emailDB" parameterType="String" resultType="member">
 		select * from crackermember where memberemail = #{email}
 	</select>
-		
+
 </mapper>

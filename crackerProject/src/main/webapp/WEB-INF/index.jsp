@@ -64,7 +64,7 @@ body{
 #imagecard {
 	padding-top : 17.8px;
 	text-align : center;
-	height: 800px;
+	height: 500px;
 	border-bottom: 1px solid #f76900;
 	/* border : 1px solid red; */
 
@@ -149,7 +149,7 @@ body{
 	position: relative; /* 자기 자신 중심 */
 	float: left; 
 	width: 97.25%;
-	/* border: 1px red solid; /*솔리드 라인*/ */
+	/* border: 1px red solid; /*솔리드 라인*/
 }
 
 #display {
@@ -157,8 +157,13 @@ body{
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
 	width: 100%;
-	border: 1px blue solid; /*솔리드 라인*/
+	/* border: 1px blue solid; /*솔리드 라인*/
 	background-color: #f3f3f3;
+}
+
+.imagecard {
+	width : 1575px;
+	height : 500px;
 }
 
 /* #rightbar {
@@ -327,7 +332,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/korea.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=한식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -340,7 +345,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/steak.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=양식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -353,7 +358,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/japan.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=일식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -366,7 +371,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/china.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=중식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -379,7 +384,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/vietnam.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=아시아">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -392,7 +397,7 @@ body{
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/ddukbokki.jpeg" onclick="">
-							<a href="#">
+							<a href="./recipeBoard/recipeBoardList?category=분식">
 								<figure class="imagecard_category">
 									<figcaption class="info">
 										<div class="info_inner">
@@ -415,7 +420,8 @@ body{
 									
 					<div style="border: yellow 1px solid;" class="imagecard">
 						<div id="indexSection5">
-							<jsp:include page="${indexSection5 }" />
+							<!-- <h1>이미지 게시판 들어갈 곳</h1> -->
+							 <jsp:include page="${indexSection5 }" /> 
 						</div>
 					</div>
 

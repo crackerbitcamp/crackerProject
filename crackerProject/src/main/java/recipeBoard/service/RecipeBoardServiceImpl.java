@@ -30,16 +30,16 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	}
 
 	@Override
-	public Map<String, Object> getRecipeBoardList(String pg) {
-		int endNum = Integer.parseInt(pg)*20;
+	public Map<String, Object> getRecipeBoardList(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg"))*20;
 		int startNum = endNum - 19;
 		//DB 1페이지당 5개
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("endNum", endNum);
-		map.put("startNum", startNum);
+		
+		map.put("endNum", endNum+"");
+		map.put("startNum", startNum+"");
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardList(map);
 		//세션
-		String memId= (String)session.getAttribute("memLogin");
+		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
 //		recipeBoardPaging = this.getBoardPaging(pg);
 		//새로고침 방지
@@ -47,7 +47,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 			session.setAttribute("memHit", 0);
 		}
 		Map<String,Object> sendMap = new HashMap<String,Object>();
-		sendMap.put("memId",memId);
+		sendMap.put("memLogin",memLogin);
 		sendMap.put("list", list);
 //		sendMap.put("recipeBoardPaging", recipeBoardPaging);
 		return sendMap;

@@ -19,35 +19,64 @@
 	text-decoration:non;
 	cursor: pointer;
 }
+
+#boardListDiv{
+/* 	border: 1px solid red; */
+	margin:auto;
+	width: 70%;
+	height: 700px;
+}
+
+#boardListDiv .goodCount{
+/* 	border: 1px red solid; */
+	float: left;
+	width: 10%;
+	margin: 10px;
+}
+
+#boardListDiv .subjcet{
+/* 	border: 1px red solid; */
+	float: left;
+	margin: 10px;
+	width: 40%;
+}
+
+#boardListDiv .logtime{
+/* 	border: 1px red solid; */
+	float: left;
+	margin: 10px;
+	width: 20%;
+}
+
+#boardListDiv .nickName{
+/* 	border: 1px red solid; */
+	float: left;
+	margin: 10px;
+	width: 19%;
+}
+
+#boardListDiv .listMenu{
+/* 	border: 1px red solid; */
+	text-align:center;
+	height:6%;
+	width:95%;
+	margin: auto;
+}
 </style>
 
 
 <input type="hidden" id="pg" value="${pg}"/>
-<table id="boardListTable" border="1" bordercolor="black" cellspacing="0" cellpadding="5" frame ="hsides" rules = "rows">
-	<tr>
-		<th width="100">글번호</th>
-		<th width="300">제목</th>
-		<th width="100">작성자</th>
-		<th width="100">작성일</th>
-		<th width="100">조회수</th>
-	</tr>
-	<!-- 동적처리 -->
-</table>
-
-<div style = "margin: 10px; width : 600px; text-align: center;">
-
-
-	<input style = "float:left; " type ="button" value="글쓰기"  onclick="location.href='/index/board/boardWriteForm'">
-
-	
-	<div id="boardPagingDiv"></div>
-	
+<div id="boardListDiv">
+	<div class="listMenu">
+		<div class="goodCount">추천</div>
+		<div class="subjcet">제목</div>
+		<div class="logtime">작성날짜</div>
+		<div class="nickName">닉네임</div>
+	</div>
 </div>
-<br><br>
-<form id = "boardSearchForm" name = "boardSearchForm" >
-	<input type="hidden" name="pg" id="searchPg" value="1"/>
-
-</form>
+		<div><input style = "float:left; " type ="button" value="글쓰기"  onclick="location.href='/index/board/boardWriteForm'">
+			<div id="boardPagingDiv"></div>
+		</div>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
 </script>

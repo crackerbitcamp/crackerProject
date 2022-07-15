@@ -30,6 +30,10 @@ public interface AdminDAO {
 
 	public int getTotalSearchA(Map<String, String> map);
 
+	public int loginMember(int i);
+
+	public int dayLoginMember(int i);
+
 
 
 

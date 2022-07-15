@@ -21,7 +21,7 @@ public class BoardDTO {
 	private int pseq; 
 	private int reply; 
 	private int hit;
-	
+	private int goodcount;
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern="yyyy.MM.dd")
 	private Date logtime;
 
