@@ -8,7 +8,7 @@ $(function(){
 			//alert(JSON.stringify(data));
 			$('#subjectSpan').html(data.boardDTO.subject);
 			$('#seqSpan').html(data.boardDTO.seq);
-			$('#idSpan').html(data.boardDTO.id);
+			$('#nickNameSpan').html(data.boardDTO.nickname);
 			$('#hitSpan').html(data.boardDTO.hit);
 			$('#content').html(data.boardDTO.content);  
 			/*if(data.memLogin == data.boardDTO.id){
@@ -84,15 +84,19 @@ $(function(){
 		success:function(data){
 //			alert(JSON.stringify(data));
 			$.each(data.list, function(index, items){
-				$('<li/>')
+				$('<li/>').addClass('comment_li')
 				.append($('<div/>',{
+					class : 'comment_meta'
+				}).addClass('comment_div')
+				.append($('<span/>',{
 					align:'',
-					text: items.nickName
-				})).append($('<span/>',{
+					text: items.nickName,
+					class: 'comment_nickName'
+				}))
+				.append($('<span/>',{
 					align:'center',
 					text: items.logtime.toLocaleString()
-				})).append($('<div/>',{
-					align:'center',
+				}))).append($('<div/>',{
 					text: items.commentContent
 				})).appendTo($('#commentInside'));
 			});

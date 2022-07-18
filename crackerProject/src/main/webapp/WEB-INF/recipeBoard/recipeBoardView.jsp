@@ -89,57 +89,6 @@ $(function(){
 	});//ajax
 });
 
-$('#commentBtn').click(function(){
-	if(!$('#commentContent').val()){
-		$('#commentContentDiv').html('댓글을 입력하세요');
-		
-	}else{
-		$.ajax({
-			url : '/index/board/commentWrite',
-			type : 'post',
-			data : {'commentContent' : $('#commentContent').val(),
-					'seq' : $('input[name=seq]').val(),
-					'pg' : $('#pg').val()},
-			success : function(){
-				alert('댓글 작성 완료');	
-				location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
-			},
-			error:function(e){
-				console.log(e);
-			}
-			
-		});//ajax
-	}
-	
-});//'#commentBtn' 클릭 
-$(function(){
-	$.ajax({
-		url : '/index/board/commentView',
-		type : 'post',
-		data : 'seq='+$('input[name=seq]').val(),
-		dataType : 'json',
-		success:function(data){
-			//alert(JSON.stringify(data));
-			$.each(data.list, function(index, items){
-				$('<div/>')
-				.append($('<div/>',{
-					align:'center',
-					text: items.nickName
-				})).append($('<div/>',{
-					align:'center',
-					text: items.commentContent
-				})).append($('<div/>',{
-					align:'center',
-					text: items.logtime.toLocaleString()
-				})).appendTo($('#commentInside'));
-			});
-		},
-		error:function(e){
-			console.log(e);
-		}
-	});
-	
-});
 
 </script>
 </body>
