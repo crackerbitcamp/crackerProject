@@ -44,7 +44,8 @@
 
 	<context:component-scan base-package="good.controller" />
 	<context:component-scan base-package="member.controller" />
-
+	
+	<context:component-scan base-package="shop.controller"></context:component-scan>
 
 	
 </beans:beans>
