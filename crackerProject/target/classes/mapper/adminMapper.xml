@@ -59,6 +59,34 @@
   		select count(*) from crackermember where ${searchOption} like '%'||#{memberSearchkeyword}||'%'	
   	</select>
   	
+  	<!-- 어드민 레시피 목록 -->
+	<select id="getadminRecipeList" parameterType="java.util.Map" resultType="recipeBoard">
+		
+			select * from (select rownum rn, tt.*
+			from (select * from recipeboard order by seq desc)tt)
+						where rn &gt;=${startNum} and rn &lt;=${endNum}
+	</select>
+	
+  	<!-- admin Recipeboard paging total -->
+  	<select id="getAdminRecipeTotalA" resultType="int">
+  		 select count(*) from recipeboard
+  	</select>
+  	
+  	<!-- 어드민 레시피 목록 -->
+	<select id="adminrecipeSearch" parameterType="java.util.Map" resultType="recipeBoard">
+		<![CDATA[
+  		select * from
+  		(select rownum rn, tt.* from 
+  		(select * from recipeboard where ${searchOption} like '%'||#{recipeSearchkeyword}||'%' 
+  		                     order by seq desc) tt
+  		) where rn>=#{startNum} and rn<=#{endNum}
+  		]]>
+	</select>
+	
+  	<!-- adminRecipeboard Search paging total -->
+  	<select id="getAdminRecipeSearchTotalA" parameterType="java.util.Map" resultType="int">
+  		select count(*) from recipeboard where ${searchOption} like '%'||#{recipeSearchkeyword}||'%'
+  	</select>
   	
 	
 </mapper>

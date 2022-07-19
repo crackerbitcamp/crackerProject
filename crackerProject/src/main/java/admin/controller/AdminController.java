@@ -129,7 +129,43 @@ public class AdminController {
 		return map;
 		
 	}
+
+
+		//recipe board list 뽑아오기
+		@PostMapping(value="getadminRecipeList")
+		@ResponseBody
+		public Map<String,Object> getadminRecipeList(@RequestParam(required = false, defaultValue = "1") String pg) {
+			ModelAndView mav = new ModelAndView();
+			return adminService.getadminRecipeList(pg);
+		}
+		
+		// 페이지 이동
+		@GetMapping(value="/adminRecipeList")
+		public ModelAndView adminRecipeList(@RequestParam(required = false, defaultValue = "1") String pg) {
+			System.out.println("확인  " + pg);
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg",pg);
+			
+			mav.addObject("adminSection1","/WEB-INF/adminInclude/adminSection1.jsp");
+			mav.addObject("adminSection2","/WEB-INF/customer/customerList.jsp?pg="+pg);
+			mav.addObject("adminSection3", "/WEB-INF/adminInclude/adminSection3.jsp");
+			mav.addObject("adminSection4", "/WEB-INF/adminInclude/adminSection4.jsp");
+			mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+			mav.setViewName("/admin/adminMain");
+			return mav;
+		}
+		
+		@PostMapping(value="adminrecipeSearch")
+		@ResponseBody
+		public Map<String, Object> adminrecipeSearch(@RequestParam Map<String, String> map){//pg, searchOption, keyword
+			return adminService.adminrecipeSearch(map);
+		}
 }
+
+
+
+
+
 
 
 

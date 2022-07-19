@@ -16,6 +16,7 @@
 
 
 <style type="text/css">
+
 #recipeBoardListDiv .recipeCard {
 /* 	border : #dddddd solid 1px;
 	padding: 5px 5px 5px 5px;
@@ -27,23 +28,15 @@
 }
 
 #recipeBoardListDiv{
-<<<<<<< HEAD
+
 	padding: 20px;
-=======
-	/* padding: 20px; */
 	position : relative;
 	float : left;
->>>>>>> branch 'main' of https://github.com/keems0un/crackerProject.git
 	width: 1655px;
-<<<<<<< HEAD
-	height: 100%;
 	background : #ffffff;	
-=======
-	height: 1000px;
-	background : #ffffff;
-	/* display:flex; */
+	height: 100%;
+
 	
->>>>>>> branch 'main' of https://github.com/keems0un/crackerProject.git
 }
 #recipeBoardListDiv .recipeCard:hover{
 	cursor:pointer;
