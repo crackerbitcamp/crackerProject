@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import comment.service.CommentService;
 
 @Controller
-@RequestMapping(value="board")
+@RequestMapping(value="comment")
 public class CommentController {
 	
 	@Autowired

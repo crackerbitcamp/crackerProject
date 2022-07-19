@@ -4,7 +4,9 @@
 META-INF/
 **/db.properties
 **/target/**
-
+*/target/**
+*.classpath
+*.setting
 
 ### Java ###
 # Compiled class file
