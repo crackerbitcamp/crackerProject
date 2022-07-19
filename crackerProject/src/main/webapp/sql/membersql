@@ -12,4 +12,4 @@ membernickname varchar2(30) not null,
 logtime date
 );
 
-create sequence seq_crakermember nocycle nocache;
+create sequence seq_crackermember nocycle nocache;
