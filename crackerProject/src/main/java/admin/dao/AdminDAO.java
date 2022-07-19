@@ -10,6 +10,7 @@ import java.util.List;
 
 
 import member.bean.MemberDTO;
+import recipeBoard.bean.RecipeBoardDTO;
 
 
 
@@ -33,6 +34,15 @@ public interface AdminDAO {
 	public int loginMember(int i);
 
 	public int dayLoginMember(int i);
+
+	public List<RecipeBoardDTO> getadminRecipeList(Map<String, Integer> map);
+
+	public int getAdminRecipeTotalA(Map<String, Integer> map);
+
+	public List<RecipeBoardDTO> adminrecipeSearch(Map<String, String> map);
+
+	public int getAdminRecipeSearchTotalA(Map<String, String> map);
+
 
 
 

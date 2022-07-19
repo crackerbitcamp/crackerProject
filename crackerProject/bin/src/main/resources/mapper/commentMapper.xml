@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ <mapper namespace="commentSQL">
+ 	
+	<insert id="commentWrite" parameterType="java.util.Map">
+		
+		insert into commentText Values(
+			seq_comment.nextval
+			, #{nickName}
+			, #{commentContent}
+			, #{seq}
+			, seq_comment.nextval
+			, 0
+			, 0
+			, 0
+			, 0
+			, 0
+			,sysdate
+	)
+	</insert>
+	
+	<select id="commentOutput" parameterType="java.util.Map" resultType="comment">
+		select * from commentText where boardseq=#{seq} order by ref desc, seq asc
+	</select>
+	
+	<insert id="commentReplyWrite" parameterType="java.util.Map">
+		begin
+			insert into commentText Values(
+				seq_comment.nextval
+				, #{nickName}
+				, #{commentContent}
+				, #{boardSeq}
+				, #{seq}
+				, 1
+				, 1
+				, 0
+				, 0
+				, 0
+				,sysdate
+			);
+			update commentText set reply=reply+1 where seq = #{seq};
+			
+		end;
+	</insert>
+ </mapper>

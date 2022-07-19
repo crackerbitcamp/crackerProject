@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="goodSQL">
+	
+	<!-- 게시글 추천 시 Like 테이블에 insert -->
+	<insert id="insertGood" parameterType ="java.util.Map">
+		insert into GOOD(GOODNO , seq , MEMBEREMAIL) values((SELECT NVL(MAX(GOODNO), 0) + 1 FROM GOOD) ,#{seq} ,#{memEmail})
+	</insert>
+	
+	<!-- 게시글 추천수 -->
+	<update id="updateGood" parameterType="String">
+		update board set goodcount = goodcount+1 where seq = #{seq}
+	</update>
+	
+	<!-- 게시글 추천수취소 -->
+	<update id="updateGoodCancel" parameterType="String">
+		update board set goodcount = goodcount-1 where seq = #{seq}
+	</update>
+	
+	<!-- 게시글 추천취소 시 delete -->
+	<delete id="deleteGood" parameterType ="java.util.Map">
+		delete from GOOD where seq = #{seq} and MEMBEREMAIL = #{memEmail}
+	</delete>
+	
+	<!-- 게시글 추천 시 Check를 1로 만들어서 중복방지-->
+	<update id="updateGoodCheck" parameterType ="java.util.Map">
+		update GOOD set GOODCHECK = 1 where seq = #{seq} and MEMBEREMAIL = #{memEmail}
+	</update>
+	
+	<!-- 게시글 추천취소 시 다시 0  -->
+	<update id="updateGoodCheckCancel" parameterType ="java.util.Map">
+		update GOOD set GOODCHECK = 0 where seq = #{seq} and MEMBEREMAIL = #{memEmail}
+	</update>
+	
+	<!-- 게시글 추천 중복방지 select문 -->
+	<select id="goodCheck" parameterType ="java.util.Map" resultType="Int">
+		select count(*) from GOOD where seq = #{seq} and MEMBEREMAIL = #{memEmail} 
+	</select>
+	
+	<!-- 게시글 추천수 -->
+	<select id="goodCount" parameterType="String" resultType="String">
+		select goodcount from board where seq = #{seq}
+	</select>
+
+</mapper>

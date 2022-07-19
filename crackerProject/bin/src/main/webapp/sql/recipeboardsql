@@ -1,0 +1,15 @@
+레시피 게시판 SQL
+
+create table recipeboard(
+seq number primary key,
+category varchar2(40) not null,
+nickname varchar2(40) not null,
+name varchar2(40),
+email varchar2(40),
+subject varchar2(255) not null,
+content varchar2(4000) not null,
+hit number default 0 ,
+goodcount number default 0,
+logtime date default SYSDATE);
+
+create sequence seq_recipeboard nocycle nocache;
