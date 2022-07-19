@@ -1,0 +1,1 @@
+create table crackeremail(seq number not null,nickname varchar2(40),email varchar2(40) not null, category varchar2(30));

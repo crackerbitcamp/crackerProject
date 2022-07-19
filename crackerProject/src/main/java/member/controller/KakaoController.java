@@ -14,6 +14,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.json.simple.JSONObject;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,8 +27,13 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+import crackeremail.bean.CrackeremailDTO;
+import crackeremail.service.CrackerEmailService;
+
 @Controller
 public class KakaoController {
+	@Autowired
+	private CrackerEmailService crackerEmailService;
 	String access_Token;
 	@GetMapping("/login/getKakaoAuthUrl")
 	@ResponseBody
@@ -53,6 +59,16 @@ public class KakaoController {
         session.setAttribute("kakaoNickname", kakaoInfo.get("nickname"));
         session.setAttribute("kakaoEmail", kakaoInfo.get("email"));
         session.setAttribute("memLogin", kakaoInfo.get("nickname"));
+        
+        String email = (String) kakaoInfo.get("email");
+        String nickname = (String) kakaoInfo.get("nickname");
+        CrackeremailDTO crackeremailDTO = crackerEmailService.emailSelect(email,"kakao");
+	      System.out.println("있나 없나 확인 ::" + crackeremailDTO);
+	     if(crackeremailDTO == null) {
+	    	 crackerEmailService.memberemailInsert(email,nickname,"kakao");
+	     }
+        
+        
 		return "/member/kakaocallback";
 	}
 

@@ -12,30 +12,33 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import comment.service.CommentService;
 
 @Controller
-@RequestMapping(value="board")
+@RequestMapping(value="comment")
 public class CommentController {
 	
 	@Autowired
 	CommentService commentService;
 	
 	@ResponseBody
-	@PostMapping(value="/commentWrite")
+	@PostMapping(value="commentWrite")
 	public void commentWrite(@RequestParam Map<String,String> map){
 		commentService.commentWrite(map);
 	}
 	
 	@ResponseBody
-	@PostMapping(value="/commentView")
+	@PostMapping(value="commentView")
 	public Map<String,Object> commentView(@RequestParam Map<String,String> map){
+		
+		System.out.println(map.get("category"));
+		System.out.println("값이 없나");
 		return commentService.commentView(map);
 	}
 	
-	@PostMapping(value="/commentReplyWrite")
+	@PostMapping(value="commentReplyWrite")
 	public void commentReplyWrite(@RequestParam Map<String,String> map) {
 		System.out.println("seq="+map.get("seq"));
 		System.out.println("comment="+map.get("commentContent"));
 		System.out.println("boardseq="+map.get("boardSeq"));
-		
+		System.out.println("category="+map.get("category"));
 		commentService.commentReplyWrite(map);
 	}
 }

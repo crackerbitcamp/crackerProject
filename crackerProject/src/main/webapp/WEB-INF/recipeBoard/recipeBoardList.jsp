@@ -27,10 +27,23 @@
 }
 
 #recipeBoardListDiv{
+<<<<<<< HEAD
 	padding: 20px;
+=======
+	/* padding: 20px; */
+	position : relative;
+	float : left;
+>>>>>>> branch 'main' of https://github.com/keems0un/crackerProject.git
 	width: 1655px;
+<<<<<<< HEAD
 	height: 100%;
 	background : #ffffff;	
+=======
+	height: 1000px;
+	background : #ffffff;
+	/* display:flex; */
+	
+>>>>>>> branch 'main' of https://github.com/keems0un/crackerProject.git
 }
 #recipeBoardListDiv .recipeCard:hover{
 	cursor:pointer;
@@ -116,8 +129,6 @@
 	margin-bottom : 20px;
 }
 
-
-
 </style>
 </head>
 <body>
@@ -202,10 +213,10 @@
 							text : items.logtime
 					}))).appendTo($('#recipeBoardListDiv'));
 					$('.recipeCard_'+items.seq).click(function(){
-						if(data.memId == null){
+						if(data.memLogin == null){
 							alert('먼저 로그인하세요')
 						}else{
-							location.href = '/index/board/recipeBoardView?seq='
+							location.href = '/index/recipeBoard/recipeBoardView?seq='
 											+items.seq+'&pg='+$('#pg').val();
 						}
 						

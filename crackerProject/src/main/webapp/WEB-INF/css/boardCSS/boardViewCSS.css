@@ -1,0 +1,54 @@
+@charset "UTF-8";
+
+ul{
+	 list-style:none;
+	
+}
+.comment_meta{
+	padding-bottom: 5px;
+}
+.comment_nickName{
+	padding-right: 5px;
+}
+
+
+.comment_li{
+	padding: 10px;
+	border-top: 1px solid #dddfe4;
+}
+.board_top_bar_li{
+	float: left;
+	
+}
+.imgg{
+	float: left;
+	
+}
+.board_top_bar_ul:after{
+	content: "";
+	display: block;
+    clear: both;
+}
+#boardView_content{
+	border: #f76900 3px solid;
+	background-color: white;
+	border-radius: 20px;
+	width: 1300px;
+	
+}
+.boardView_content_subject{
+	border-bottom: 1px solid #dddfe4;;
+	padding: 20px;
+}
+#subjectSpan{
+	font-size: 25px;
+	
+}
+.comment_form_div{
+	border: #f76900 3px solid;
+	background-color: white;
+	border-radius: 20px;
+	width: 1300px;
+	
+}
+
