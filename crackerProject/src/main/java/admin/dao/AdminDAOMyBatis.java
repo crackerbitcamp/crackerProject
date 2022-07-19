@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import admin.bean.AdminDTO;
 import member.bean.MemberDTO;
+import recipeBoard.bean.RecipeBoardDTO;
 
 
 @Repository
@@ -71,6 +72,26 @@ public class AdminDAOMyBatis implements AdminDAO {
 		return sqlSession.selectOne("memberSQL.dayLoginMember",i);
 	}
 	
+	@Override
+	public List<RecipeBoardDTO> getadminRecipeList(Map<String, Integer> map) {
+		return sqlSession.selectList("adminSQL.getadminRecipeList",map);
+	}
+
+	@Override
+	public int getAdminRecipeTotalA(Map<String, Integer> map) {
+		return sqlSession.selectOne("adminSQL.getAdminRecipeTotalA");
+	}
+	
+	@Override
+	public List<RecipeBoardDTO> adminrecipeSearch(Map<String, String> map) {
+		List<RecipeBoardDTO> list = sqlSession.selectList("adminSQL.adminrecipeSearch", map);
+		return list;
+		
+	}
+	@Override
+	public int getAdminRecipeSearchTotalA(Map<String, String> map) {
+		return sqlSession.selectOne("adminSQL.getAdminRecipeSearchTotalA", map);
+	}
 
 	
 }

@@ -21,6 +21,7 @@ import board.bean.BoardDTO;
 import board.bean.BoardPaging;
 import member.bean.MemberDTO;
 import member.dao.MemberDAO;
+import recipeBoard.bean.RecipeBoardDTO;
 
 @Service
 public class AdminServiceImpl implements AdminService {
@@ -146,6 +147,62 @@ public class AdminServiceImpl implements AdminService {
 
 
 	@Override
+	public Map<String, Object> getadminRecipeList(String pg) {
+		//DB - 1페이지당 5개씩
+		int endNum = Integer.parseInt(pg) * 5;
+		int startNum = endNum - 4;
+	
+		
+		Map<String,Integer> map = new HashMap<String,Integer>();
+		map.put("startNum",startNum);
+		map.put("endNum", endNum);
+		
+		
+		List<RecipeBoardDTO> list = adminDAO.getadminRecipeList(map);
+		//페이징처리
+		int totalA = adminDAO.getAdminRecipeTotalA(map); //총글수
+		adminPaging.setCurrentPage(Integer.parseInt(pg));
+		adminPaging.setPageBlock(3);
+		adminPaging.setPageSize(5);
+		adminPaging.setTotalA(totalA);
+		adminPaging.makePagingHTML();
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("list", list);
+		sendMap.put("adminPaging", adminPaging);
+
+		
+		return sendMap;
+		}
+
+	@Override
+	public Map<String, Object> adminrecipeSearch(Map<String, String> map) {
+		//DB - 1페이지당 5개씩
+		int endNum = Integer.parseInt(map.get("pg")) * 5;
+		int startNum = endNum - 4;
+	
+		map.put("endNum", endNum+"");
+		map.put("startNum", startNum+"");
+		
+		List<RecipeBoardDTO> list = adminDAO.adminrecipeSearch(map);
+		//페이징처리
+		int totalA = adminDAO.getAdminRecipeSearchTotalA(map); //총글수
+		adminPaging.setCurrentPage(Integer.parseInt(map.get("pg")));
+		adminPaging.setPageBlock(3);
+		adminPaging.setPageSize(5);
+		adminPaging.setTotalA(totalA);
+		adminPaging.makePagingHTML();
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("list", list);
+		sendMap.put("adminPaging", adminPaging);
+
+		
+		return sendMap;
+		}
+
+
+	@Override
 	public Map<String,Integer> loginMember() {
 		Map<String, Integer> map = new HashMap<String, Integer>();
 		for(int i=1; i<10; i++) {
@@ -163,6 +220,7 @@ public class AdminServiceImpl implements AdminService {
 		}
 		return map;
 	}
+
 
 
 

@@ -20,6 +20,11 @@ public interface AdminService {
 
 	public Map<String, Integer> dayLoginMember();
 
+	public Map<String, Object> getadminRecipeList(String pg);
+
+	public Map<String, Object> adminrecipeSearch(Map<String, String> map);
+
+	
 
 
 	

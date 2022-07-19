@@ -36,5 +36,6 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 		
 		return sqlSession.selectOne("recipeBoardSQL.getRecipeBoardView",Integer.parseInt(seq));
 	}
-
+	
+	
 }
