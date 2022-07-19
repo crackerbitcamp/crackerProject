@@ -1,0 +1,420 @@
+@charset "UTF-8";
+/*f5f6f7*/
+:root{
+	--body-background-color: #ffffff;
+	--font-color: #4e4e4e;
+	--border-gray-color : #dadada;
+	--naver-green-color: #f86453;
+	--naver-green-border-color: #f86453;
+}
+
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	background:var(--body-background-color);
+}
+
+.join_title{
+	padding-top:50px;
+	text-align: center;
+}
+
+.email-btn{
+	border-radius:5px;
+	margin-left: -4px;
+	background-color: #f76900;
+	width : 100px;
+	height : 30px;
+	border: solid 1px #f76900;	
+	margin-top: 15px;
+	margin-bottom: 5px;
+}
+
+.email-btn:hover{
+	cursor: pointer;
+}
+
+#memberupdateDiv{
+	justify-content: center;
+}
+
+.btn-primary:hover{
+	cursor: pointer;
+}
+
+.main-container{
+	width:100%;
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	margin-top: 21px;
+}
+.main-container .main-wrap{
+	width:768px;
+
+}
+.main-container .main-wrap .sel-lang-wrap .lang-select
+{
+	width: 96px;
+	height: 30px;
+	color: var(--font-color);
+	border: solid 1px var(--border-gray-color);
+}
+.main-container .main-wrap .logo-wrap{
+	padding-top:55px;
+}
+.main-container .main-wrap .logo-wrap img
+{
+	width: 231px;
+	height: 44px;
+}
+
+.main-container .main-wrap header .sel-lang-wrap{
+	display:flex;
+	justify-content:flex-end;
+}
+
+.main-container .main-wrap header .logo-wrap{
+	display:flex;	
+	flex-direction: column;
+	align-items: center;
+}
+.login-input-section-wrap{
+	padding-top: 60px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.login-input-wrap{
+	width: 465px;
+	height :48px;
+	border: solid 1px var(	--border-gray-color );
+	background: white;
+	display: block;
+}
+.password-wrap{
+	margin-top: 13px;
+}
+.login-input-wrap input{
+	display:inline-block;
+	border: none;
+	width:455px;
+	margin-top: 10px;
+	font-size: 14px;
+	margin-left: 10px;
+	height:30px;
+}
+.login-button-wrap {
+	padding-top: 13px;
+}
+.login-button-wrap button{
+	width: 550px;
+	height :48px;
+	font-size: 18px;
+	background: #f76900;
+	color: white;
+	border: solid 1px #f76900;
+}
+.login-button-wrap button:hover{
+	cursor: pointer;
+}
+.login-stay-sign-in{
+	width: 465px;
+	height: 52px;
+	display: flex;
+	font-size: 15px;
+	color: #4e4e4e;
+	align-items: center;
+	justify-content: flex-start;
+	border-bottom: solid 1px var(--border-gray-color);
+}
+.login-stay-sign-in i{
+	font-size: 25px;
+	color: #9ba1a3;
+}
+.login-stay-sign-in span{
+	padding-left: 5px;
+	line-height: 25px;
+}
+
+.Easy-sgin-in-wrap{
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	padding-top: 40px;
+
+}
+.Easy-sgin-in-wrap h2{
+	font-size: 20px;
+}
+.Easy-sgin-in-wrap .sign-button-list
+{
+	padding-top:25px;
+	list-style: none;
+	width: 465px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+.Easy-sgin-in-wrap .sign-button-list li{
+	padding-bottom: 10px;
+}
+.Easy-sgin-in-wrap .sign-button-list li button{
+	width: 465px;
+	height: 56px;
+	border: solid 1px var(--border-gray-color);
+	text-align: left;
+	background: white;
+}
+.Easy-sgin-in-wrap .sign-button-list li button i{
+	padding-left: 15px;
+	font-size: 20px;
+}
+.fa-qrcode
+{
+	color:var(--naver-green-color);
+}
+.fa-line{
+	color:var(--naver-green-color);
+}
+.fa-facebook-square
+{
+	color:#4064ac;
+}
+.Easy-sgin-in-wrap .sign-button-list li button span{
+	padding-left: 20px;
+	font-size: 18px;
+}
+.Easy-sgin-in-wrap .forget-msg{
+	color:var(--font-color);
+	font-size: 14px;
+	padding-top: 10px;
+}
+
+.write-input-wrap input[type="text"]{
+	border: solid 1px #f76900;
+	width:500px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:50px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+}
+.write-input-wrap input[type="email"]{
+	border: solid 1px #f76900;
+	width:150px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:30px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+}
+.write-input-name-wrap{
+	font-weight: bold;
+	font-size: 15px;
+	margin-top: 30px;
+	font-family: sans-serif;
+	border-color: #f76900;
+}
+.write-input-wrap input[type="tel"]{
+	border: solid 1px #f76900;
+	width:150px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:50px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+}
+
+.write-input-wrap input[type="password"]{
+	border: solid 1px #f76900;
+	width:500px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:50px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+}
+
+.memberLogin{
+	font-size: 12px;
+	margin-right: 330px;
+	color: red;
+	font-family: "굴림",Gulim,"돋움",Dotum;
+	margin-top: 5px;
+}
+.memberWrite{
+	font-size: 12px;
+	color: red;
+	font-family: "굴림",Gulim,"돋움",Dotum;
+	margin-top: 5px;
+}
+select{
+	border: solid 1px #f76900;
+	width:150px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:50px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+}
+
+footer{
+   
+	padding-top: 30px;
+	padding-bottom: 15px;
+
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+	width:768px;
+
+
+
+}
+.copyright-wrap{
+
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 15px;
+
+
+}
+footer .copyright-wrap span img{
+	width: 59px;
+	
+	height: 11px;
+}
+footer .copyright-wrap span{
+	font-size: 13px;
+	line-height: 15px;
+}
+#idifo,#pwdinfo,#writeinfo{
+	text-decoration: none;
+	color : black;
+}
+#idifo:hover,#pwdinfo:hover,#writeinfo:hover{
+	text-decoration: underline;
+}
+#memberloginsubmitBtn:hover{
+	cursor: pointer;
+}
+
+#find-Idfieldset-wrap{
+	font-family: "굴림",Gulim,"돋움",Dotum;
+	font-weight: bold;
+	width: 95%;
+	margin-left:20px;
+}
+
+#find-Pwdfindset-wrap{
+font-family: "굴림",Gulim,"돋움",Dotum;
+	font-weight: bold;
+	width: 95%;
+	margin-left:20px;
+}
+.label.txt{
+	line-height: 25px;
+	color : #333;
+}
+
+.input_txt{
+	border: none;
+	width:150px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:30px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+}
+.input_txt input [type="email"]{
+	border: none;
+	width:300px;
+	margin-top: 10px;
+	font-size: 14px;
+	height:30px;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+	margin-left: 20px;
+}
+.btn_ct{
+	min-width: 97px;
+	height:30px;
+	border-radius: 2rem;
+	border: solid 1px #f76900;
+	background-position: 0 -210px;
+	color:white;
+	background:#f76900;
+}
+
+.btn_ct:hover{
+	cursor: pointer;
+}
+
+.btn_next{
+	width : 100px;
+	height: 33px;
+	margin: 10px;
+	margin-left: 70px;
+	border: solid 1px #f76900;
+	box-shadow: 1px 1px 3px 1px #dadce0;
+	color:white;
+	background:#f76900;
+	border-radius: 2rem;
+}
+
+.btn_next:hover{
+	cursor: pointer;
+}
+
+#memberUpdateFormDiv{
+	height:200px; 
+	width:300px;
+	margin: auto;
+}
+
+#section{
+	min-height: 900px;
+}
+
+.updateForm-input{
+	width: 570px;
+	height: 52px;
+	display: flex;
+	font-size: 15px;
+	color: #4e4e4e;
+	align-items: center;
+	justify-content: center;
+	border-bottom: solid 1px var(--border-gray-color);
+	padding: 18px;
+}
+
+#updateEmailDiv{
+	margin-left: 72px;
+	margin-top: 10px;
+}
+
+#updateemail{
+	width : 200px;
+}
+
+#updatetel{
+	width: 400px; 
+	
+}
+
+.updateinput{
+	background: none;
+	border: none;
+	font-size: 24px;
+	margin: auto;
+}
+
+.updateIdName{
+	padding-right: 22px;
+}
+
+.updatePwdName{
+	margin-right: 5px;
+}
+
