@@ -420,8 +420,8 @@ body{
 									
 					<div style="border: yellow 1px solid;" class="imagecard">
 						<div id="indexSection5">
-							<!-- <h1>이미지 게시판 들어갈 곳</h1> -->
-							 <jsp:include page="${indexSection5 }" /> 
+							 <h1>이미지 게시판 들어갈 곳</h1>
+							<%--  <jsp:include page="${indexSection5 }" />  --%>
 						</div>
 					</div>
 

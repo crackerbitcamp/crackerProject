@@ -21,7 +21,7 @@
 	<select id="getRecipeBoardList" parameterType="java.util.Map" resultType="recipeBoard">
 		
 			select * from (select rownum rn, tt.*
-			from (select * from recipeboard order by seq)tt)
+			from (select * from recipeboard order by seq desc)tt)
 						where rn &gt;=${startNum} and rn &lt;=${endNum}
 						<if test="category != 'all'">
 							and category=#{category}
