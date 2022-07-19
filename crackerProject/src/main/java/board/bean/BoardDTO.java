@@ -10,6 +10,7 @@ import lombok.Data;
 @Data
 public class BoardDTO {
 	private int seq;
+	private String category;
 	private String nickname;
 	private String name;
 	private String email;

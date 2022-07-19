@@ -11,8 +11,8 @@
 			, #{nickName}
 			, #{commentContent}
 			, #{seq}
+			, #{category}
 			, seq_comment.nextval
-			, 0
 			, 0
 			, 0
 			, 0
@@ -22,7 +22,7 @@
 	</insert>
 	
 	<select id="commentOutput" parameterType="java.util.Map" resultType="comment">
-		select * from commentText where boardseq=#{seq} order by ref desc, seq asc
+		select * from commentText where boardseq=#{seq} and boardcategory=#{category} order by ref asc, lev asc, seq asc
 	</select>
 	
 	<insert id="commentReplyWrite" parameterType="java.util.Map">
@@ -32,10 +32,10 @@
 				, #{nickName}
 				, #{commentContent}
 				, #{boardSeq}
+				, #{category}
 				, #{seq}
 				, 1
-				, 1
-				, 0
+				, #{seq}
 				, 0
 				, 0
 				,sysdate

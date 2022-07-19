@@ -27,6 +27,9 @@ public class CommentController {
 	@ResponseBody
 	@PostMapping(value="commentView")
 	public Map<String,Object> commentView(@RequestParam Map<String,String> map){
+		
+		System.out.println(map.get("category"));
+		System.out.println("값이 없나");
 		return commentService.commentView(map);
 	}
 	
@@ -35,7 +38,7 @@ public class CommentController {
 		System.out.println("seq="+map.get("seq"));
 		System.out.println("comment="+map.get("commentContent"));
 		System.out.println("boardseq="+map.get("boardSeq"));
-		
+		System.out.println("category="+map.get("category"));
 		commentService.commentReplyWrite(map);
 	}
 }

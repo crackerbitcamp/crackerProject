@@ -20,6 +20,10 @@ ul{
 	float: left;
 	
 }
+.imgg{
+	float: left;
+	
+}
 .board_top_bar_ul:after{
 	content: "";
 	display: block;
