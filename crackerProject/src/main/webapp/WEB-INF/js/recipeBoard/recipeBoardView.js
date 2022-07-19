@@ -1,64 +1,4 @@
-$(function(){
-	$.ajax({
-		type : 'post',
-		url : '/index/board/getBoardView',
-		data : 'seq=' + $('input[name=seq]').val(),
-		dataType:'json',
-		success : function(data){
-			//alert(JSON.stringify(data));
-			$('#subjectSpan').html(data.boardDTO.subject);
-			$('#seqSpan').html(data.boardDTO.seq);
-			$('#nickNameSpan').html(data.boardDTO.nickname);
-			$('#hitSpan').html(data.boardDTO.hit);
-			$('#content').html(data.boardDTO.content); 
-			$('#category').val(data.boardDTO.category);
-			/*if(data.memLogin == data.boardDTO.id){
-				$('#boardViewSpan').show();
-			}
-			else{
-				$('#boardViewSpan').hide();
-			}*/
-		},
-		
-		error:function(e){
-			console.log(e);
-		}
-	});//ajax
-	
-	$('#boardUpdateBtn').click(function(){
-		location.href='/index/board/boardUpdateForm?seq='
-		+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
-	});//click
-	
-	$('#boardDeleteBtn').click(function(){
-		if(confirm('선택하신 항목 삭제하시겠습니까')){
-			$.ajax({
-				type:'post',
-				url : '/index/board/boardDelete',
-				data : 'seq='+$('input[name=seq]').val(),
-					
-				success : function(){
-						alert('삭제 되었습니다.');
-						location.href='/index/board/boardList';
-				},
-				
-				error:function(e){
-					console.log(e);
-				}
-			});
-		}
-	});
-	
-	
-	$('#boardReplyBtn').click(function(){
-		location.href='/index/board/boardReplyForm?pg='
-				+$('input[name=pg]').val()+'&seq='
-				+$('input[name=seq]').val();
-		
-	});
-	
-	// 댓글
-	$('#commentBtn').click(function(){
+$('#commentBtn').click(function(){
 		$.ajax({
 			url : '/index/comment/commentWrite',
 			type : 'post',
@@ -68,7 +8,7 @@ $(function(){
 					'category' : $('#category').val()},
 			success : function(){
 				alert('댓글 작성 완료');	
-				location.href='/index/board/boardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
+				location.href='/index/recipeBoard/recipeBoardView?seq='+$('#seq').val()+'&pg='+$('#pg').val();
 			},
 			error:function(e){
 				console.log(e);
@@ -76,17 +16,20 @@ $(function(){
 				
 		});
 	});
-});
+
 $(function(){
 	$.ajax({
 		url : '/index/comment/commentView',
 		type : 'post',
-		data : {'seq' : $('input[name=seq]').val(),
+		data : {'seq':$('input[name=seq]').val(),
 				'category' : $('#category').val()},
 		dataType : 'json',
 		success:function(data){
+			
 			//alert(JSON.stringify(data));
 			$.each(data.list, function(index, items){
+				
+				
 				$('<li/>').addClass('comment_li')
 				.append($('<div/>').addClass('d'+items.seq)
 				
@@ -110,6 +53,11 @@ $(function(){
 					class: 'commentSeq'
 				}));
 				
+				/*for(i=0; i<items.lev; i++){
+					$('.d'+items.seq).before('&emsp;');
+				}*/
+				
+				//대댓글에 답글버튼 없애는거 
 				if(items.pseq == 0){
 					$('.d'+items.seq)
 					.append($('<div/>',{
@@ -140,12 +88,18 @@ $(function(){
 							)
 						)
 				}//if
-			});
+				
+				
+			});//each
 		},
 		error:function(e){
 			console.log(e);
 		}
+		
+		
 	});
+	
+	
 	$(document).on( "click", ".commentReplyBtn", function() {
 		$('#commentReply').remove();
 		/*$('.commentReplyWriteBtn').remove();*/
@@ -175,29 +129,16 @@ $(function(){
 				},
 				success:function(){
 					alert('답글 작성완료');
-					location.href='/index/board/boardView?seq='
+					location.href='/index/recipeBoard/recipeBoardView?seq='
 						+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
 				},
 				error:function(e){
 					alert('답글 작성완료');
-					location.href='/index/board/boardView?seq='
+					location.href='/index/recipeBoard/recipeBoardView?seq='
 						+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
 					console.log(e);
 				}
 			});//ajax
 		});//대댓글 와이트 버튼
 	});//commentReplyBtn 클릭이벤트
-	
 });
-
-
-
-
-
-
-
-
-
-
-
-
