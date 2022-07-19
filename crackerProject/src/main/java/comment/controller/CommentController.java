@@ -19,18 +19,18 @@ public class CommentController {
 	CommentService commentService;
 	
 	@ResponseBody
-	@PostMapping(value="/commentWrite")
+	@PostMapping(value="commentWrite")
 	public void commentWrite(@RequestParam Map<String,String> map){
 		commentService.commentWrite(map);
 	}
 	
 	@ResponseBody
-	@PostMapping(value="/commentView")
+	@PostMapping(value="commentView")
 	public Map<String,Object> commentView(@RequestParam Map<String,String> map){
 		return commentService.commentView(map);
 	}
 	
-	@PostMapping(value="/commentReplyWrite")
+	@PostMapping(value="commentReplyWrite")
 	public void commentReplyWrite(@RequestParam Map<String,String> map) {
 		System.out.println("seq="+map.get("seq"));
 		System.out.println("comment="+map.get("commentContent"));
