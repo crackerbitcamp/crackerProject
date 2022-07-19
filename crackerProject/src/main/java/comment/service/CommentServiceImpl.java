@@ -22,7 +22,11 @@ public class CommentServiceImpl implements CommentService{
 	@Override
 	public void commentWrite(Map<String, String> map) {
 		String id = (String)session.getAttribute("memLogin");
-
+		if(map.get("category").equals("자유") || map.get("category").equals("질문")) {
+			map.put("category","자유");
+		}else {
+			map.put("category","레시피");
+		}
 		map.put("nickName" ,id);
 		commentDAO.commentWrite(map);
 		
@@ -31,6 +35,7 @@ public class CommentServiceImpl implements CommentService{
 
 	@Override
 	public Map<String, Object> commentView(Map<String, String> map) {
+		
 		List<CommentDTO> list = commentDAO.commentView(map);
 		
 		Map<String,Object> sendMap = new HashMap<String,Object>();
@@ -42,7 +47,7 @@ public class CommentServiceImpl implements CommentService{
 
 	@Override
 	public void commentReplyWrite(Map<String, String> map) {
-		String id = (String)session.getAttribute("memId");
+		String id = (String)session.getAttribute("memLogin");
 		map.put("nickName" ,id);
 		commentDAO.commentReplyWrite(map);
 		
