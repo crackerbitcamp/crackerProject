@@ -40,7 +40,7 @@
 					</div>
 					<div class = "login-button-wrap">
 						<button id="naverIdLogin_loginButton" type="button" style="width: 470px; background: #2DB400; border: none;">네이버 로그인</button>
-						<button onclick="javascript:kakaoLogin();" style="width: 470px; background: #FEE500; border: none; margin-top: 10px;">카카오 로그인</button>
+						<button type="button" onclick="javascript:kakaoLogin();" style="width: 470px; background: #FEE500; border: none; margin-top: 10px;">카카오 로그인</button>
 					</div>
 				</form>
 			</section>
