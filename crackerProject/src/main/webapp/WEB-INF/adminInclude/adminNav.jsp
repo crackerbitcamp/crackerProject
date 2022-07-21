@@ -34,7 +34,7 @@
 			<ul>
 				<li><img src="../image/person.svg"><a href="/index/admin/adminMemberList" id="adminList">사용자 관리</a> </li>
 				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
-				<li><img src="../image/person.svg"><a href="#" id="adminList">상품관리</a></li>
+				<li><img src="../image/person.svg"><a href="/index/product/productMangeList" id="adminList">상품관리</a></li>
 				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
 				<li><img src="../image/person.svg"><a href="#" id="adminList">사용자 관리</a></li>
 				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
