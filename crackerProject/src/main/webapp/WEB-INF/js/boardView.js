@@ -5,13 +5,15 @@ $(function(){
 		data : 'seq=' + $('input[name=seq]').val(),
 		dataType:'json',
 		success : function(data){
-			//alert(JSON.stringify(data));
+//			alert(JSON.stringify(data));
 			$('#subjectSpan').html(data.boardDTO.subject);
 			$('#seqSpan').html(data.boardDTO.seq);
 			$('#nickNameSpan').html(data.boardDTO.nickname);
 			$('#hitSpan').html(data.boardDTO.hit);
-			$('#content').html(data.boardDTO.content); 
-			$('#category').val(data.boardDTO.category);
+			$('#categorySpan').html(data.boardDTO.category);
+			$('#goodCountSpan').html(data.boardDTO.goodcount);
+			$('#logtimeSpan').html(data.boardDTO.logtime);
+			$('#content1').html(data.boardDTO.content);  // content 이름 겹쳐 1 추가
 			/*if(data.memLogin == data.boardDTO.id){
 				$('#boardViewSpan').show();
 			}
