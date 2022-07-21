@@ -16,14 +16,15 @@
 
 
 <style type="text/css">
+    
 
 #recipeBoardListDiv .recipeCard {
-/* 	border : #dddddd solid 1px;
-	padding: 5px 5px 5px 5px;
+/* 	border : #dddddd solid 1px; 
+	padding: 5px 5px 5px 5px; 
 	box-shadow: 1px 1px 3px #333333; */
 	width: 770px;
 	height: 350px;
-	border-bottom : 1px solid #f3f3f3;
+	border-bottom : 1px solid #6e6e6e;
 	margin : 0 auto;
 }
 
@@ -38,13 +39,23 @@
 
 	
 }
-#recipeBoardListDiv .recipeCard:hover{
+#recipeBoardListDiv #recipeextend:hover{
 	cursor:pointer;
 }
+
+#recipeBoardListDiv #recipelistimg:hover {
+	cursor:pointer;
+}
+
+#recipeBoardListDiv #recipesubjectfont:hover {
+	cursor:pointer;
+}
+
 
 #recipelistimg {
 	margin-top : 25px;
 	margin-bottom: 25px;
+	border : #dcdcdc solid 1px;
 }
 
 #recipelistAll {
@@ -78,26 +89,34 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     font-size : 2em;
+    color : #f76900;
 }
 
 #recipecontentsfont {	
 	margin-top : 20px;
+	height : 50px;
 	text-align : left;
 	overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
+
 #recipelogtimefont {
 	text-align : left;
 	font-size : 10px;
-	margin-top: 60px;
+	margin-top: 30px;
 }
 
 #recipelist {
 	list-style: none;
 }
 
+#recipeBoardPagingDiv {
+	text-align : center;
+	background : #ffffff;
+	cursor:pointer;
+}
 
 /* header */
 
@@ -137,15 +156,22 @@
 	
 		<input type="hidden" id="pg" value="${pg}">
 		<input type="hidden" id='category' value = "${category}">
-	<div id="recipeBoardListDiv"></div>
+	<div id="recipeBoardListDiv"> </div>
+		<div id="recipeBoardPagingDiv"></div>
 	</div>
 
 
 	</form>
-<script type="text/javascript"
-	src="http://code.jquery.com/jquery-3.6.0.min.js">
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+function recipeBoardPaging(pg2) {
 	
+	location.href="/index/recipeBoard/recipeBoardList?pg="+pg2;
+	
+}
 </script>
+
 <script type="text/javascript">
 	$(function() {
 		var images = $('#content img:first-child').attr('src');
@@ -200,6 +226,10 @@
 							id : 'recipecontentsfont',
 							align: 'center',
 							text : p
+						})).append($('<div/>',{
+							id : 'recipeextend',
+							align : 'right',
+							text : '> 더보기'
 						})).append($('<div/>', {
 							id : 'recipelogtimefont',
 							align: 'center',
@@ -214,7 +244,10 @@
 						}
 						
 					});//카드 클래스 클릭
-				});
+				}); //each
+				
+				//페이징처리
+				$('#recipeBoardPagingDiv').html(data.recipeBoardPaging.pagingHTML);
 
 			},
 			error : function(e) {

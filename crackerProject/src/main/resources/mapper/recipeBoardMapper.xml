@@ -29,6 +29,23 @@
 	
 	</select>
 	
+	<select id="getRecipeBoardListIndex" parameterType="java.util.Map" resultType="recipeBoard">
+		
+			select * from (select rownum rn, tt.*
+			from (select * from recipeboard order by seq desc)tt)
+						where rn &gt;=${1} and rn &lt;=${8}
+						<if test="category != 'all'">
+							and category=#{category}
+						</if>
+	
+	</select>
+	
+	<!-- 총글수 -->
+	<select id="getTotalA" resultType="Int">
+		select count(*) from recipeboard
+	</select>
+	
+	
 	<select id="getRecipeBoardView" parameterType="Int" resultType="recipeBoard">
 		select * from recipeboard where seq = #{seq}
 	</select>

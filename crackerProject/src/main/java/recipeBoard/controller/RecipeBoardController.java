@@ -76,6 +76,31 @@ public class RecipeBoardController {
 	}
 	
 	@ResponseBody
+	@PostMapping(value="getRecipeBoardListIndex")
+	public Map<String,Object> getRecipeBoardListIndex(@RequestParam(required = false,defaultValue="1" )String pg
+												,@RequestParam(required = false,defaultValue="all") String category){
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pg",pg);
+		map.put("category", category);
+
+		return recipeBoardService.getRecipeBoardListIndex(map);
+	}
+	
+	@GetMapping(value="recipeBoardListIndex")
+	public ModelAndView recipeBoardListIndex(@RequestParam(required = false,defaultValue="1") String pg
+										,@RequestParam(required = false,defaultValue="all") String category) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(category);
+//		mav.addObject("category",category);
+//		mav.addObject("pg",pg);
+		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardListIndex.jsp");
+		mav.setViewName("/index");
+		
+		return mav;
+	}
+	
+	
+	@ResponseBody
 	@PostMapping(value="getRecipeBoardList")
 	public Map<String,Object> getRecipeBoardList(@RequestParam(required = false,defaultValue="1" )String pg
 												,@RequestParam(required = false,defaultValue="all") String category){

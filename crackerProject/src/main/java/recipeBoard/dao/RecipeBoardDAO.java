@@ -14,4 +14,8 @@ public interface RecipeBoardDAO {
 
 	public RecipeBoardDTO getRecipeBoardView(String seq);
 
+	public List<BoardDTO> getRecipeBoardListIndex(Map<String, String> map);
+
+	public int getTotalA();
+
 }
