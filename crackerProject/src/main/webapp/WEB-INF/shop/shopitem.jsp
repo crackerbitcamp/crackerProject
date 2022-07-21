@@ -226,7 +226,7 @@ $(function(){
 	});
 });
 </script>
-
+ 
 <script type="text/javascript">
 	var input ;
 	$('.minus').click(function(){
