@@ -8,7 +8,7 @@ $(function(){
 			var chart = new Chart(ctx, {
 			    type: 'line',// 챠트 종류를 선택
 			    data: {// 챠트를 그릴 데이타
-			      labels: ['7일', '6일', '5일', '4일', '2일저', '1일전', '오늘'],
+			      labels: ['7일', '6일', '5일', '4일', '2일전', '1일전', '오늘'],
 			      datasets: [{
 			    	label: '회원가입 현황',
 			        backgroundColor: 'transparent',
@@ -56,7 +56,7 @@ $('#memberGraphBtn').click(function(){
 			var chart = new Chart(ctx, {
 			    type: 'line',// 챠트 종류를 선택
 			    data: {// 챠트를 그릴 데이타
-			      labels: ['7일', '6일', '5일', '4일', '2일저', '1일전', '오늘'],
+			      labels: ['7일', '6일', '5일', '4일', '2일전', '1일전', '오늘'],
 			      datasets: [{
 			    	label: '회원가입 현황',
 			        backgroundColor: 'transparent',
@@ -104,7 +104,7 @@ $('#memberDayGraphBtn').click(function(){
 			var chart = new Chart(ctx, {
 			    type: 'line',// 챠트 종류를 선택
 			    data: {// 챠트를 그릴 데이타
-			      labels: ['7일', '6일', '5일', '4일', '2일저', '1일전', '오늘'],
+			      labels: ['7일', '6일', '5일', '4일', '2일전', '1일전', '오늘'],
 			      datasets: [{
 			    	label: '회원가입 현황',
 			        backgroundColor: 'transparent',
