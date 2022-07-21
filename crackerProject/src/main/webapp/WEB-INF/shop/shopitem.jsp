@@ -8,7 +8,6 @@
 	width: 100%;
 	min-width: 1280px;
 	margin: 0 auto;
-	position: fixed;
 }
 
 .shopcontent dl>dt{
@@ -73,6 +72,41 @@ background: none;
 
 .shopcontent dl>dt dd.drv{
 	color:#767676;
+}
+.menubar ul li{
+	list-style: none;
+	float: left;
+	width: 200px;
+	cursor: pointer;
+}
+
+.menubar ul li .title{
+	padding: 0;
+    margin: 0;
+}
+
+.menubar ul li .title a{
+   display: block;
+   padding-top: 12px;
+   font-size: 14px;
+   text-indent: 12px;
+   text-decoration: none;
+   font-weight: bold;
+   color: white;
+   height: 23px;
+   background: url('../image/background.jpg');
+}
+
+.selected {
+   background: url('../image/background-selected.jpg') !important;
+}
+
+.menubar ul{
+	padding: 0;
+   margin: 50px auto;
+   list-style: none;
+   width: 800px;
+	
 }
 
 </style>
@@ -142,9 +176,57 @@ background: none;
 			</div>
 		</div>
 	</div>
+	
+	<div class="menubar">
+		<ul>
+			<li class="collapsible">
+				<h2 class="title">
+					<a>제품정보</a>
+				</h2>
+				<p class="item">내용들내용들내용들내용들내용들내용들내용들내용들</p>
+			</li>
+			<li class="collapsible">
+				<h2 class="title">
+					<a>
+						제품정보고시
+					</a>
+				</h2>
+				<p class="item">내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들</p>
+			</li>
+			<li  class="collapsible">
+				<h2 class="title">
+					<a>고객후기</a>
+				</h2>
+				<p class="item">내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들</p>
+			</li>
+			<li  class="collapsible">
+				<h2 class="title">
+					<a>주의사항</a>
+				</h2>
+				<p class="item">내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들</p>
+			</li>
+		</ul>
+	</div>
 </body>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<script type="text/javascript">
+
+$(function(){
+		$('.collapsible').not(':eq(0)').find('.item').hide();
+		$('.collapsible:eq(0) a').addClass('selected');
+		
+	$('.collapsible').click(function(){
+		$('.collapsible a').removeClass('selected');
+		$(this).find('a').addClass('selected');
+		$('.collapsible').not(this).find('.item').hide();
+		$(this).find('p').show();
+		return false;
+	});
+});
+</script>
+
 <script type="text/javascript">
 	var input ;
 	$('.minus').click(function(){
