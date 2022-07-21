@@ -227,4 +227,11 @@ public class MemberServiceImpl implements MemberService{
 		}
 		return check;
 	}
+	@Override
+	public void memberDelete(String memberemail) {
+		System.out.println("확인하기" + memberemail);
+		memberDAO.memberDelete(memberemail);
+	}
+	
+	
 }
