@@ -26,4 +26,6 @@ public interface MemberService {
 
 	public String emailDB(String email);
 
+	public void memberDelete(String memberemail);
+
 }

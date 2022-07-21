@@ -476,3 +476,78 @@ $(function(){
 	});
 	
 }); 
+
+$('#memberDelete_btn').click(function(){
+	if ($('#chk_info').is(':checked')) {
+		swal({
+			title : '회원탈퇴하기',
+			text : 'CRAKCER를 탈퇴하시겠습니까?',
+			icon : 'warning',
+			closeOnClickOutside: false,
+			buttons : {
+				cancle  : {
+					text : '취소',
+					value : false,
+					className : 'memberDelete_cancle'
+				},
+				confirm : {
+					text : '탈퇴하기',
+					value : true,
+					className : 'memberDelete_Btn'
+				}
+			}
+		})
+		.then((result) => {
+			if(result){
+				swal('회원을 탈퇴합니다', '그동안 이용해주셔서 감사합니다.', 'success', {
+					closeOnClickOutside: false,
+					closeOnEsc: false,
+					buttons : {
+						confirm : {
+							text: '확인',
+							value : true,
+							className : 'deleteOk_Btn'
+						}
+					}
+				}).then((result) => {
+					if(result){
+						$.ajax({
+							type: 'post',
+							url: '/index/member/memberDelete',
+							data: $('#memberDeleteForm').serialize(),
+							dataType: 'text',
+							success: function(){
+								location.href = '/index/member/memberLogout'
+								
+							},
+							error:function(e){
+								console.log(e);
+							}
+						});
+						
+						
+					}
+				});
+			 }else {
+				swal('취소', '회원탈퇴를 취소합니다','warning',{
+					closeOnClickOutside: false,
+					closeOnEsc: false,
+					buttons : {
+						confirm : {
+							text : '확인',
+							value : true,
+							className : 'cancleOk_Btn'
+						}
+					}
+				});
+			}
+		});
+	}
+	else {
+		swal('안내사항을 체크해 주세요.',"",'warning')
+	}
+});
+
+
+
+

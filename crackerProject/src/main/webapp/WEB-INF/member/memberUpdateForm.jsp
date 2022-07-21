@@ -26,6 +26,7 @@
          <input type = "hidden" id = "memberemail" name = "memberemail" value="${memberDTO.memberemail }">
          <input type = "hidden" name = "membertel" id="UpdateTelcheck" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}">
          <h2>회원정보 수정</h2>
+         <a href="/index/member/memberDeleteForm"><h4>탈퇴하러가기</h4></a><!-- 위치는 우측 끝 / 바로가기 버튼처럼 작동 -->
          <hr style="border: 2px solid">
          <div class="updateForm-input" style=" margin:auto; padding-top: 50px;">
             <span style="font-size: 24px;" id = "updateemail">아이디</span>

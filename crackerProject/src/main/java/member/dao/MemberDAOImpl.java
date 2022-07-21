@@ -56,5 +56,10 @@ public class MemberDAOImpl implements MemberDAO {
 		System.out.println(memberDTO);
 		return sqlSession.selectOne("memberSQL.emailDB",email);
 	}
+	@Override
+	public void memberDelete(String memberemail) {
+		sqlSession.delete("memberSQL.memberDelete", memberemail);
+	}
+	
 
 }

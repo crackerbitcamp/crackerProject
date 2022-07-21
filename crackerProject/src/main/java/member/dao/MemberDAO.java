@@ -22,6 +22,8 @@ public interface MemberDAO {
 
 	public MemberDTO emailDB(String email);
 
+	public void memberDelete(String memberemail);
+
 
 
 
