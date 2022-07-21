@@ -23,8 +23,11 @@
 #boardListDiv{
 /* 	border: 1px solid red; */
 	margin:auto;
-	width: 70%;
+	width: 60%;
 	height: 700px;
+	background-color: #ffffff;
+	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
+/* 	border: solid 1px #98a0a7; */
 }
 
 #boardListDiv .goodCount{
@@ -32,13 +35,18 @@
 	float: left;
 	width: 10%;
 	margin: 10px;
+	color: #98a0a7;
 }
 
 #boardListDiv .subjcet{
 /* 	border: 1px red solid; */
 	float: left;
+	text-align: left;
 	margin: 10px;
 	width: 40%;
+	white-space : nowrap;
+ 	overflow: hidden;
+	text-overflow: ellipsis;
 }
 
 #boardListDiv .logtime{
@@ -46,6 +54,8 @@
 	float: left;
 	margin: 10px;
 	width: 20%;
+	color: #98a0a7;
+	
 }
 
 #boardListDiv .nickName{
@@ -53,6 +63,7 @@
 	float: left;
 	margin: 10px;
 	width: 19%;
+	color: #98a0a7;
 }
 
 #boardListDiv .listMenu{
@@ -61,6 +72,7 @@
 	height:6%;
 	width:95%;
 	margin: auto;
+	border-bottom:1px solid #ebeef1;
 }
 </style>
 
@@ -68,10 +80,10 @@
 <input type="hidden" id="pg" value="${pg}"/>
 <div id="boardListDiv">
 	<div class="listMenu">
-		<div class="goodCount">추천</div>
+		<div class="goodCount" style="color:#000000">추천</div>
 		<div class="subjcet">제목</div>
-		<div class="logtime">작성날짜</div>
-		<div class="nickName">닉네임</div>
+		<div class="logtime" style="color:#000000">작성날짜</div>
+		<div class="nickName" style="color:#000000">닉네임</div>
 	</div>
 </div>
 		<div><input style = "float:left; " type ="button" value="글쓰기"  onclick="location.href='/index/board/boardWriteForm'">

@@ -15,9 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com"> 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 
 <style type="text/css">
 body{
@@ -30,6 +28,7 @@ body{
 #wrap {
 	width: 100%;
 	margin: 0 auto; /* 위아래여백,좌우여백  */
+	
 }
 
 /* container */
@@ -145,11 +144,11 @@ body{
 
 
 #content {
-	padding: 20px; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
+	/* padding: 20px; */ /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
 	float: left; 
-	width: 97.25%;
 	/* border: 1px red solid; /*솔리드 라인*/
+
 }
 
 #display {
@@ -162,8 +161,13 @@ body{
 }
 
 .imagecard {
-	width : 1575px;
-	height : 500px;
+	width : 100%;
+	height : 100%;
+}
+
+#indexSection1 {
+	border-bottom: 1px solid #f76900;
+	
 }
 
 /* #rightbar {
@@ -177,23 +181,24 @@ body{
 
 
 /* footer */
-#footer {
+.footer {
 	position: relative;
-	bottom: 8px;
-	background-color: #fff;
+	display : inline-block;
+	
 }
 
-#footer .footerArea {
+.footer .footerArea {
 	border-top: 1px solid #cccccc;
 	padding: 0; /* 좌측과 우축의 여백을 제거 */
 	color: #666;
 	font-size: 0.9em;
-	width: 90%;
+	width: 100%;
 	height: 50px;
 	margin: 0 auto;
+	
 }
 
-#footer .footerArea:after {
+.footer .footerArea:after {
 	content: '';
 	display: block;
 	clear: both;
@@ -417,11 +422,14 @@ body{
 							<jsp:include page="${indexSection1 }" />
 						</div>
 					</div> <!-- textSection -->
-									
-					<div style="border: yellow 1px solid;" class="imagecard">
+					
+					<div class="imagecard">
 						<div id="indexSection5">
-							 <h1>이미지 게시판 들어갈 곳</h1>
-							<%--  <jsp:include page="${indexSection5 }" />  --%>
+							 <div class="display_title">
+								<h2 class="display_title_text">레시피 전체 게시판</h2>
+								<a class="display_title_list" href="#">레시피 더보기</a>
+							</div>
+							  <jsp:include page="${indexSection5 }" /> 
 						</div>
 					</div>
 
@@ -455,8 +463,8 @@ body{
 			</div> "rightbar"  
 			
 	 	</div>container -->
-	
-	
+
+	 
 
 	<div id="footer">
 		<div class="footerArea">
@@ -542,6 +550,7 @@ $('#recipeBoardWriteFormBtn').click(function(){
 
 });
 </script>
+
 <script type="text/javascript" src="/index/js/member.js"></script>
 </body>
 </html>

@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,41 +9,41 @@
 <title>Insert title here</title>
 <link href="/index/css/boardCSS/boardViewCSS.css" rel="stylesheet"
 	type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
 	<form name="boardViewForm">
 		<input type="hidden" name="seq" id="seq" value="${seq}" />
 		<input type="hidden" name="pg" value="${pg}" />
-		<input type="hidden" id="memEmail" value="${memEmail }" />
+		<input type="text" id="memEmail" value="${memEmail }" />
 		<input type="text" id="category" value="자유"/>
-		<div id="boardView_content">
+		<div id="boardView_subject">
 			<div class="boardView_content_subject">
 				<span id="subjectSpan"></span>
-			</div>
-			<div class="boardView_content_subject">
 				<ul class="board_top_bar_ul">
-					<li class="board_top_bar_li">글번호 :<span id="seqSpan"></span>
-					</li>
-					<li class="board_top_bar_li">작성자 : <span id="nickNameSpan"></span>
-					</li>
-					<li class="board_top_bar_li">조회수 : <span id="hitSpan"></span>
-					</li>
+					<li class="board_top_bar_li"><span id="categorySpan"></span></li>
+					<li class="board_top_bar_li">글번호 <span id="seqSpan"></span></li>
+					<li class="board_top_bar_li"><span id="logtimeSpan"></span></li>
+					<li class="board_top_bar_li">작성자 <span id="nickNameSpan"></span></li>
+					<li class="board_top_bar_li">조회수 <span id="hitSpan"></span></li>
+					<li class="board_top_bar_li">추천 <span id="goodCountSpan"></span></li>
 				</ul>
 	
 			</div>
-			<div>
-				<div style="width: 100%; height: 100%; overflow: auto;">
-					<pre id="content"
-						style="white-space: pre-line; word-break: break-all; overflow-wrap: anywhere;">
-					</pre>
+			<div class="boardView_content">
+				<pre id="content1"
+					style="height:auto; white-space: pre-line; word-break: break-all; overflow-wrap: anywhere;">
+				</pre>
+			</div>
+			
+			<div class="boardView_content_menu">
+				<div style="margin-right: 1px;">
+					<span id="goodcount"> </span>
+					<button type="button" id="goodBtn">추천하기</button>
 				</div>
-			</div>
-	
-			<div style="margin-right: 1px;">
-				<button type="button" id="goodBtn">추천</button>
-				<span id="goodcount"></span>
-			</div>
-			<div>
+			
 			
 				<input type="button" value="목록" style="margin: 5px;"
 				onclick="location.href='/index/board/boardList?pg=${pg}'">
@@ -51,6 +52,10 @@
 				<input type="button" value="답글" id="boardReplyBtn">
 			
 			</div>
+		</div>
+		
+		<div id="boardView_img">
+			<img id="view_img"src="/index/image/view_.jpg">
 		</div>
 
 		<div class="comment_form_div">
@@ -61,7 +66,7 @@
 			<ul  id="commentInside">
 			</ul>
 		</div>
-
+	
 		
 	</form>
 	<script type="text/javascript"

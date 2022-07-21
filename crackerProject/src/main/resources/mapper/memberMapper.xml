@@ -51,5 +51,12 @@
 	<select id="emailDB" parameterType="String" resultType="member">
 		select * from crackermember where memberemail = #{email}
 	</select>
+	
+	
+	<delete id="memberDelete" parameterType="String">
+			<!-- 삭제 -->
+			delete crackermember where memberemail = #{memberemail}
+
+	</delete>
 
 </mapper>

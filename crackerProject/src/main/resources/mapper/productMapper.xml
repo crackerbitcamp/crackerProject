@@ -4,5 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="productSQL">
-	
+	<insert id="productMangeWrite" parameterType="java.util.Map">
+		insert into product values(
+			seq_product.nextval
+			,#{productName}
+			,#{productCategory}
+			,#{mainPhoto}
+			,#{productSubject}
+			,#{productContent}
+			,#{productPrice}
+			,#{productQty}
+			,#{productOrigin}
+			,#{productWeight}
+			,#{productLife}
+			,sysdate
+		)
+	</insert>
 </mapper>

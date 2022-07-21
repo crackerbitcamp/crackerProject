@@ -38,20 +38,20 @@ public class RecipeBoardPaging {
 		} // if
 
 		if (startPage != 1) {
-			pagingHTML.append("[ <span id='paging' onclick='boardPaging(" + (startPage - 1) + ")'>이전</span> ]");
+			pagingHTML.append("[ <span id='paging' onclick='recipeBoardPaging(" + (startPage - 1) + ")'>이전</span> ]");
 		} // if
 		for (int i = startPage; i <= endPage; i++) {
 			if (i == currenPage) {
-				pagingHTML.append("[ <span id='currentPaging' onclick = 'boardPaging(" + i + ")'>" + i + "</span> ]");
+				pagingHTML.append(" <span id='currentPaging' onclick = 'recipeBoardPaging(" + i + ")'>" + i + "</span> ");
 			} else {
-				pagingHTML.append("[ <span id='paging' onclick = 'boardPaging(" + i + ")'>" + i + "</span> ]");
+				pagingHTML.append(" <span id='paging' onclick = 'recipeBoardPaging(" + i + ")'>" + i + "</span> ");
 
 			}
 
 		} // for
 
 		if (endPage < totalP) {
-			pagingHTML.append("[ <span id='paging' onclick='boardPaging(" + (endPage + 1) + ")'>다음</span> ]");
+			pagingHTML.append("[ <span id='paging' onclick='recipeBoardPaging(" + (endPage + 1) + ")'>다음</span> ]");
 		} // if
 
 	}
