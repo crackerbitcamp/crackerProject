@@ -47,5 +47,8 @@
 	
 	<context:component-scan base-package="shop.controller"></context:component-scan>
 
+	<context:component-scan base-package="product.controller"/>
+	
+	
 	
 </beans:beans>
