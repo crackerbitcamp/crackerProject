@@ -1,0 +1,17 @@
+--상품 SQL
+
+create table product(
+seq number primary key,
+productname varchar2(40) not null,
+productCategory varchar2(40) not null,
+mainPhoto varchar2(500),
+productSubject varchar2(200),
+productContent varchar2(4000) not null,
+productPrice number not null,
+productQty number not null,
+productOrigin varchar2(1000) not null,
+productWeight varchar2(100) not null,
+productLife varchar2(300) not null,
+logtime date default SYSDATE);
+
+create sequence seq_product nocycle nocache;

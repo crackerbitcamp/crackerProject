@@ -15,9 +15,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com"> 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 
 <style type="text/css">
 body{
@@ -465,9 +463,10 @@ body{
 			</div> "rightbar"  
 			
 	 	</div>container -->
-	
-	
-	<div class="footer">
+
+	 
+
+	<div id="footer">
 		<div class="footerArea">
 			<dl class="btmnav">
 				<dt class="blind">bottom navigation</dt>
