@@ -188,7 +188,7 @@ $(function(){
 				}
 			});//ajax
 		});//대댓글 와이트 버튼
-	});//commentReplyBtn 클릭이벤트
+	});//commentReplyBtn 클릭이벤
 	
 });
 
