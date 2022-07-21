@@ -12,4 +12,6 @@ public interface RecipeBoardService {
 
 	public void recipeBoardWrite(Map<String, String> map);
 
+	public Map<String, Object> getRecipeBoardListIndex(Map<String, String> map);
+
 }

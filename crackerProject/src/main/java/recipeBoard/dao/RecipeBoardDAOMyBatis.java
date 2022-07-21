@@ -36,6 +36,18 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 		
 		return sqlSession.selectOne("recipeBoardSQL.getRecipeBoardView",Integer.parseInt(seq));
 	}
+
+	@Override
+	public List<BoardDTO> getRecipeBoardListIndex(Map<String, String> map) {
+		
+		return sqlSession.selectList("recipeBoardSQL.getRecipeBoardListIndex",map);
+	}
+
+	@Override
+	public int getTotalA() {
+		
+		return sqlSession.selectOne("recipeBoardSQL.getTotalA");
+	}
 	
 	
 }

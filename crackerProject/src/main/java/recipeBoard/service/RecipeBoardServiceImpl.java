@@ -32,8 +32,8 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 
 	@Override
 	public Map<String, Object> getRecipeBoardList(Map<String, String> map) {
-		int endNum = Integer.parseInt(map.get("pg"))*20;
-		int startNum = endNum - 19;
+		int endNum = Integer.parseInt(map.get("pg"))*5;
+		int startNum = endNum - 4;
 		//DB 1페이지당 5개
 		
 		map.put("endNum", endNum+"");
@@ -42,7 +42,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		//세션
 		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
-//		recipeBoardPaging = this.getBoardPaging(pg);
+		recipeBoardPaging = this.recipeBoardPaging(map);
 		//새로고침 방지
 		if(session.getAttribute("memLogin") != null) {
 			session.setAttribute("memHit", 0);
@@ -52,7 +52,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		sendMap.put("memLogin",memLogin);
 
 		sendMap.put("list", list);
-//		sendMap.put("recipeBoardPaging", recipeBoardPaging);
+		sendMap.put("recipeBoardPaging", recipeBoardPaging);
 		return sendMap;
 	}
 
@@ -64,6 +64,41 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		
 		recipeBoardDAO.recipeBoardWrite(map);
 		
+	}
+
+	@Override
+	public Map<String, Object> getRecipeBoardListIndex(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg"))*5;
+		int startNum = endNum - 4;
+		//DB 1페이지당 5개
+		
+		map.put("endNum", endNum+"");
+		map.put("startNum", startNum+"");
+		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardListIndex(map);
+		//세션
+		String memLogin= (String)session.getAttribute("memLogin");
+		//새로고침 방지
+		if(session.getAttribute("memLogin") != null) {
+			session.setAttribute("memHit", 0);
+		}
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+
+		sendMap.put("memLogin",memLogin);
+
+		sendMap.put("list", list);
+
+		return sendMap;
+	}
+
+	private RecipeBoardPaging recipeBoardPaging(Map<String, String> map) {
+		int totalA = recipeBoardDAO.getTotalA();
+		
+		recipeBoardPaging.setCurrenPage(Integer.parseInt(map.get("pg")));
+		recipeBoardPaging.setPageBlock(3);
+		recipeBoardPaging.setPageSize(5);
+		recipeBoardPaging.setTotalA(totalA);
+		recipeBoardPaging.makePagingHTML();
+		return recipeBoardPaging;
 	}
 
 }
