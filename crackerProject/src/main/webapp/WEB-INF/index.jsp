@@ -20,6 +20,7 @@
 <style type="text/css">
 body{
 	margin: 0;
+	background : #f3f3f3;
 }
 #display{
 	margin-top: 60px;
@@ -156,6 +157,7 @@ body{
 	position: relative; /* 자기 자신 중심 */
 	float: left; /* 정렬 : 오른쪽 */
 	width: 100%;
+	height: 100%;
 	/* border: 1px blue solid; /*솔리드 라인*/
 	background-color: #f3f3f3;
 }
@@ -181,10 +183,10 @@ body{
 
 
 /* footer */
-.footer {
+#footer {
 	position: relative;
-	display : inline-block;
-	
+	bottom: 8px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 .footer .footerArea {
@@ -421,20 +423,20 @@ body{
 						<div id="indexSection1" class="section">
 							<jsp:include page="${indexSection1 }" />
 						</div>
+						
+		
 					</div> <!-- textSection -->
+				
 					
 					<div class="imagecard">
 						<div id="indexSection5">
-							 <div class="display_title">
-								<h2 class="display_title_text">레시피 전체 게시판</h2>
-								<a class="display_title_list" href="#">레시피 더보기</a>
+								<jsp:include page="${indexSection5 }" /> 
 							</div>
-							  <jsp:include page="${indexSection5 }" /> 
 						</div>
 					</div>
 
 				</div><!-- content -->
-				</div> <!-- container -->
+			</div> <!-- container -->
 			
 			</c:if>
 			
@@ -491,9 +493,11 @@ body{
 				Copyright &copy; COMPANY Design<br> Powered by Webazit, e-mail
 				: <a href="mailto:cracker@community.com">cracker@community.com</a>
 			</p>
-		</div><!-- footerArea -->
+		</div>
+		<!-- footerArea -->
 
-	</div><!-- footer -->
+	</div>
+	<!-- footer -->
 	
 	<!-- 우측상단 로그인 버튼 -->
 	<div >
