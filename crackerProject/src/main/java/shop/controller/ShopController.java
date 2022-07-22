@@ -20,4 +20,11 @@ public class ShopController {
 		mav.setViewName("/shop/shopitem");
 		return mav;
 	}
+	
+	@GetMapping("/shop/shopproductbuy")
+	public ModelAndView shopproductbuy() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/shop/shopproductbuy");
+		return mav;
+	}
 }
