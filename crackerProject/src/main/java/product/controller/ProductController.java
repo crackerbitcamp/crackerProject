@@ -121,6 +121,8 @@ public class ProductController {
 		productService.productBoardWrite(map);
 	}
 	
-	
-	
+	@PostMapping("/productSearch")
+	public void productSearch(@RequestParam Map<String,String>map) {
+		System.out.println(map);
+	}
 }
