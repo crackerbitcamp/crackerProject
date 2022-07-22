@@ -15,4 +15,6 @@ public interface ProductDAO {
 
 	public void productBoardWirite(Map<String,Object> map);
 
+	public Map<String, Object> getProductBoardList();
+
 }

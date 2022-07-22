@@ -14,4 +14,6 @@ public interface ProductService {
 
 	public void productBoardWrite(Map<String,Object> map);
 
+	public Map<String, Object> getProductBoardList();
+
 }
