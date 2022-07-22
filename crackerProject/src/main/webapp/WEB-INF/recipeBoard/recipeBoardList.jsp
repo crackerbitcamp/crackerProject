@@ -32,10 +32,9 @@
 
 	padding: 20px;
 	position : relative;
-	float : left;
 	width: 1655px;
-	background : #ffffff;	
-	height: 100%;
+	background : #f3f3f3;	
+	height: 1800px;
 
 	
 }
@@ -114,8 +113,21 @@
 
 #recipeBoardPagingDiv {
 	text-align : center;
-	background : #ffffff;
+	background : #f3f3f3;
 	cursor:pointer;
+	margin-bottom : 100px;
+	font-size : 1.5em;
+}
+
+#currentPaging{
+	color:#f76900;
+	text-decoration:underline;
+	cursor: pointer;
+}
+#paging{
+	color:black;
+	text-decoration:non;
+	cursor: pointer;
 }
 
 /* header */

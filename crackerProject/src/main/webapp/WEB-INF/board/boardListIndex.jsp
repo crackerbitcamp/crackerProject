@@ -22,11 +22,11 @@
 
 #boardListDiv{
 /* 	border: 1px solid red; */
-	margin: 30px 30px;
+	margin: 50px auto;
 	width: 80%;
-	height: 400px;
-	background-color: #ffffff; 
-	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
+	height: 280px;
+	background-color: #f3f3f3;
+/* 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%); */
 /* 	border: solid 1px #98a0a7; */
 }
 
@@ -35,7 +35,7 @@
 	float: left;
 	width: 10%;
 	margin: 10px;
-	color: #98a0a7;
+	
 }
 
 #boardListDiv .subjcet{
@@ -69,10 +69,10 @@
 #boardListDiv .listMenu{
 /* 	border: 1px red solid; */
 	text-align:center;
-	height:6%;
+	height:14%;
 	width:95%;
 	margin: auto;
-	border-bottom:1px solid #ebeef1;
+	border-bottom:1px solid #aaaaaa;
 }
 </style>
 
@@ -80,19 +80,13 @@
 <input type="hidden" id="pg" value="${pg}"/>
 <div id="boardListDiv">
 	<div class="listMenu">
-		<div class="goodCount" style="color:#000000">추천</div>
+		<div class="goodCount" style="color:#000000; font-size: bolder;">추천</div>
 		<div class="subjcet">제목</div>
 		<div class="logtime" style="color:#000000">작성날짜</div>
 		<div class="nickName" style="color:#000000">닉네임</div>
 	</div>
 </div>
 	
-	<div style="width: 1355px; text-align: center; margin: 10px; margin-left: 140px;">
-	<input type="button" value="글쓰기" style="float: left; margin: -2px;" 
-		   onclick="location.href='/index/board/boardWriteForm'">
-
-	<div id="boardPagingDiv"></div> 
-</div>
 		
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">

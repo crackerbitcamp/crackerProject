@@ -40,9 +40,9 @@ public class BoardPaging {
 		}//if
 		for(int i=startPage; i<=endPage; i++) {
 			if(i == currenPage) {
-				pagingHTML.append("[ <span id='currentPaging' onclick = 'boardPaging("+i+")'>"+i+"</span> ]");
+				pagingHTML.append(" <span id='currentPaging' onclick = 'boardPaging("+i+")'>"+i+"</span> ");
 			}else {
-				pagingHTML.append("[ <span id='paging' onclick = 'boardPaging("+i+")'>"+i+"</span> ]");
+				pagingHTML.append(" <span id='paging' onclick = 'boardPaging("+i+")'>"+i+"</span> ");
 				
 			}
 			
