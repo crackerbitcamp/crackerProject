@@ -16,21 +16,46 @@ public class ProductServiceImpl implements ProductService {
 	private ProductDAO productDAO;
 
 	@Override
-	public void productMangeWrite(Map<String,String>map) {
-		productDAO.productMangeWrite(map);
+	public void productWrite(Map<String,String>map) {
+		productDAO.productWrite(map);
 		
 	}
 
 	@Override
-	public Map<String,Object> productMangeList(String pg) {
+	public Map<String,Object> getProductMangeList(String pg) {
+		int endNum = Integer.parseInt(pg)*5;
+		int startNum = endNum-4;
+		
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();
-	//	List<ProductDTO> list = productDAO.productMangeList(map);
+		map.put("startNum", startNum);
+		map.put("endNum", endNum);
+		List<ProductDTO> list = productDAO.getProductMangeList(map);
 
 		Map<String,Object> sendMap = new HashMap<String,Object>();
 		
-	//	sendMap.put("list", list);
+		sendMap.put("list", list);
 		
 		return sendMap;
+	}
+
+	@Override
+	public ProductDTO getProduct(Map<String, String> map) {
+		
+		return productDAO.getProduct(map);
+	}
+
+	@Override
+	public void productBoardWrite(Map<String,Object> map) {
+		map.put("productQty",Integer.parseInt((String) map.get("productQty")));
+		map.put("productPrice",Integer.parseInt((String) map.get("productPrice")));
+		map.put("productCode", map.get("productCode")+"");
+		map.put("productSubject", map.get("productSubject")+"");
+		map.put("productContent", map.get("productContent")+"");
+		
+		
+		
+		productDAO.productBoardWirite(map);
+		
 	}
 }
