@@ -9,12 +9,12 @@
 
 </head>
 <body>
-	<input type="hidden" id="pg" value="${requestScope.pg }">
-	
-	<h1>자유게시판</h1>
-
-	
-		<jsp:include page="../board/boardList.jsp"></jsp:include>
+		<div class="display_title">
+			<h2 class="display_title_text">자유 게시판 & 질문 게시판</h2>
+			<a class="display_title_list" href="#">게시글 더보기</a>
+		</div>
+		
+		<jsp:include page="../board/boardListIndex.jsp"></jsp:include>
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
 </script>
