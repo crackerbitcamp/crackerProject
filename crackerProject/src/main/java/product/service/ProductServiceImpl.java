@@ -53,9 +53,16 @@ public class ProductServiceImpl implements ProductService {
 		map.put("productSubject", map.get("productSubject")+"");
 		map.put("productContent", map.get("productContent")+"");
 		
-		
+		System.out.println(map);
 		
 		productDAO.productBoardWirite(map);
 		
+	}
+
+	@Override
+	public Map<String, Object> getProductBoardList() {
+		
+		
+		return productDAO.getProductBoardList();
 	}
 }

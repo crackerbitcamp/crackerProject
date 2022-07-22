@@ -1,3 +1,4 @@
+
 package recipeBoard.dao;
 
 import java.util.List;
@@ -27,7 +28,7 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 
 	@Override
 	public List<BoardDTO> getRecipeBoardList(Map<String, String> map) {
-		
+		System.out.println(map);
 		return sqlSession.selectList("recipeBoardSQL.getRecipeBoardList",map);
 	}
 
@@ -44,9 +45,9 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 	}
 
 	@Override
-	public int getTotalA() {
+	public int getTotalA(Map<String, String> map) {
 		
-		return sqlSession.selectOne("recipeBoardSQL.getTotalA");
+		return sqlSession.selectOne("recipeBoardSQL.getTotalA",map);
 	}
 	
 	
