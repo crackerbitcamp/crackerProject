@@ -117,10 +117,14 @@ public class ProductController {
 	@ResponseBody
 	@PostMapping(value="productBoardWrite")
 	public void productBoardWrite(@RequestParam Map<String,Object> map) {
-		
+		System.out.println(map);
 		productService.productBoardWrite(map);
 	}
 	
-	
-	
+	@ResponseBody
+	@PostMapping(value="getProductBoardList")
+	public Map<String,Object> getProductBoardList() {
+		
+		return productService.getProductBoardList();
+	}
 }

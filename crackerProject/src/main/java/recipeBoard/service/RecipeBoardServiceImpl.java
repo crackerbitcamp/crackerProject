@@ -38,8 +38,10 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		
 		map.put("endNum", endNum+"");
 		map.put("startNum", startNum+"");
+		System.out.println(map);
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardList(map);
 		//세션
+		System.out.println(list);
 		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
 		recipeBoardPaging = this.recipeBoardPaging(map);
@@ -76,6 +78,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		map.put("startNum", startNum+"");
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardListIndex(map);
 		//세션
+		
 		String memLogin= (String)session.getAttribute("memLogin");
 		//새로고침 방지
 		if(session.getAttribute("memLogin") != null) {
@@ -91,7 +94,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	}
 
 	private RecipeBoardPaging recipeBoardPaging(Map<String, String> map) {
-		int totalA = recipeBoardDAO.getTotalA();
+		int totalA = recipeBoardDAO.getTotalA(map);
 		
 		recipeBoardPaging.setCurrenPage(Integer.parseInt(map.get("pg")));
 		recipeBoardPaging.setPageBlock(3);

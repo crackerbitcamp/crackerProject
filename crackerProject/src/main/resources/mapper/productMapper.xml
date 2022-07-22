@@ -39,4 +39,8 @@
 			,sysdate
 		)
 	</insert>
+	
+	<select id="getProductBoardList" resultType="productJoin">
+		select * from product p ,productboard b where p.productCode = b.productCode
+	</select>
 </mapper>

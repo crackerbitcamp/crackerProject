@@ -316,6 +316,11 @@ a{
 .sort-type sort{
 	
 }
+.productShopList1{
+	margin: 40px;
+}
+
+
 </style>
 </head>
 <body>
@@ -404,11 +409,15 @@ a{
 				</div>
 			</article>
 		</section>
+		<div style="boarder: red solid 1px; width: 1000px; height: 500px;">
+			<div class="productForm"></div>
+		</div>
+		
 	</div>
 	
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-
+<script type="text/javascript" src="../js/shop/shopMain.js"></script>
 
 <script type="text/javascript">
 var imgs = 3;
