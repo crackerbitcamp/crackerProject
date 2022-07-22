@@ -54,7 +54,7 @@
 <script type="text/javascript" src="../js/info/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">
 		// 글쓰기 editor 및 사진 업로드 기능
-		
+		 
 </script>
 </body>
 </html>
