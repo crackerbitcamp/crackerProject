@@ -38,17 +38,17 @@ public class ProductController {
 	@Autowired
 	private ProductService productService;
 	
-	@GetMapping(value="productMangeWriteForm")
+	@GetMapping(value="productWriteForm")
 	public ModelAndView productMangeWriteForm() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
-		mav.addObject("display", "/WEB-INF/product/productMangeWriteForm.jsp");
+		mav.addObject("display", "/WEB-INF/product/productWriteForm.jsp");
 		mav.setViewName("/admin/adminMain");
 		return mav;
 	}
 	@ResponseBody
-	@PostMapping(value="productMangeWrite")
-	public void productMangeWrite(@RequestParam Map<String,String> map
+	@PostMapping(value="productWrite")
+	public void productWrite(@RequestParam Map<String,String> map
 								,@RequestParam("mainPhoto") MultipartFile mainPhoto,
 								HttpSession session) {
 		//실제폴더
@@ -63,7 +63,7 @@ public class ProductController {
 		File dirs = new File(
 				test + "crackerProject\\crackerProject\\src\\main\\webapp\\WEB-INF\\storage\\");
 		File file = new File(dirs + "/"+fileName);
-		System.out.println(fileName);
+		
 		
 		try {
 			mainPhoto.transferTo(file);
@@ -72,12 +72,12 @@ public class ProductController {
 			e.printStackTrace();
 		}
 		
-		System.out.println(map.get("productContent"));
+		
 		map.put("mainPhoto", fileName);
-		productService.productMangeWrite(map);
+		productService.productWrite(map);
 	}
 	@GetMapping(value="productMangeList")
-	public ModelAndView productMange(@RequestParam(required = false, defaultValue = "1") String pg) {
+	public ModelAndView productMangeList(@RequestParam(required = false, defaultValue = "1") String pg) {
 		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pg",pg);
@@ -90,13 +90,37 @@ public class ProductController {
 	}
 	
 	@ResponseBody
-	@PostMapping(value="productMangeList")
-	public Map<String,Object> productMangeList(@RequestParam(required = false,defaultValue="1" )String pg){
+	@PostMapping(value="getProductMangeList")
+	public Map<String,Object> getProductMangeList(@RequestParam(required = false,defaultValue="1" )String pg){
 		
-		
-		
-		
-		return productService.productMangeList(pg);
+		return productService.getProductMangeList(pg);
 	}
+	
+	@GetMapping(value= "productBoardWriteForm")
+	public ModelAndView productBoardWriteForm() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/product/productBoardWriteForm.jsp");
+		
+		mav.setViewName("/admin/adminMain");
+		return mav;
+		
+	}
+	
+	@ResponseBody
+	@PostMapping(value="getProduct")
+	public ProductDTO getProduct(@RequestParam Map<String,String> map) {
+		
+		return productService.getProduct(map);
+	}
+	@ResponseBody
+	@PostMapping(value="productBoardWrite")
+	public void productBoardWrite(@RequestParam Map<String,Object> map) {
+		
+		productService.productBoardWrite(map);
+	}
+	
+	
 	
 }
