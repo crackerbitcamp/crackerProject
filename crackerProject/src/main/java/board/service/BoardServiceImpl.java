@@ -108,6 +108,7 @@ public class BoardServiceImpl implements BoardService {
 	@Override
 	public Map<String, Object> boardSearch(Map<String, String> map) {//pg,searchOption,keyword
 		//1페이지당 5개
+		String memLogin= (String)session.getAttribute("memLogin");
 		int endNum=Integer.parseInt(map.get("pg"))*5;
 		int startNum=endNum-4;
 		
@@ -126,7 +127,7 @@ public class BoardServiceImpl implements BoardService {
 		Map<String,Object> sendMap = new HashMap<String,Object>();
 		sendMap.put("list",list);
 		sendMap.put("boardPaging",boardPaging);
-		
+		sendMap.put("memLogin",memLogin);
 		
 		return sendMap;
 	}

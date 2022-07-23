@@ -30,165 +30,170 @@ import recipeBoard.bean.RecipeBoardDTO;
 import recipeBoard.service.RecipeBoardService;
 
 @Controller
-@RequestMapping(value="recipeBoard")
+@RequestMapping(value = "recipeBoard")
 public class RecipeBoardController {
 	@Autowired
 	RecipeBoardService recipeBoardService;
-	
-	@GetMapping(value="/recipeBoardWriteForm")
+
+	@GetMapping(value = "/recipeBoardWriteForm")
 	public ModelAndView recipeBoardWriteForm() {
 		ModelAndView mav = new ModelAndView();
-		
+
 		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardWriteForm.jsp");
 		mav.setViewName("/index");
-		
+
 		return mav;
 	}
-	
+
 	@ResponseBody
-	@PostMapping(value="recipeBoardWrite")
+	@PostMapping(value = "recipeBoardWrite")
 	public void recipeBoardWrite(@RequestParam Map<String, String> map) {
 		System.out.println(map.get("content"));
 		recipeBoardService.recipeBoardWrite(map);
 	}
-	
-	
-	
-	
-	
-	@GetMapping(value="recipeBoardView")
+
+	@GetMapping(value = "recipeBoardView")
 	public ModelAndView recipeBoardView(@RequestParam String seq, @RequestParam String pg) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("pg",pg);
-		mav.addObject("seq",seq);
+		mav.addObject("pg", pg);
+		mav.addObject("seq", seq);
 		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardView.jsp");
 		mav.setViewName("/index");
-		
-		
+
 		return mav;
 	}
-	
-	@PostMapping(value="getRecipeBoardView")
+
+	@PostMapping(value = "getRecipeBoardView")
 	@ResponseBody
 	public RecipeBoardDTO getRecipeBoardView(@RequestParam String seq) {
-		
+
 		return recipeBoardService.getRecipeBoardView(seq);
 	}
-	
+
 	@ResponseBody
-	@PostMapping(value="getRecipeBoardListIndex")
-	public Map<String,Object> getRecipeBoardListIndex(@RequestParam(required = false,defaultValue="1" )String pg
-												,@RequestParam(required = false,defaultValue="all") String category){
+	@PostMapping(value = "getRecipeBoardListIndex")
+	public Map<String, Object> getRecipeBoardListIndex(@RequestParam(required = false, defaultValue = "1") String pg,
+			@RequestParam(required = false, defaultValue = "all") String category) {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("pg",pg);
+		map.put("pg", pg);
 		map.put("category", category);
 
 		return recipeBoardService.getRecipeBoardListIndex(map);
 	}
-	
-	@GetMapping(value="recipeBoardListIndex")
-	public ModelAndView recipeBoardListIndex(@RequestParam(required = false,defaultValue="1") String pg
-										,@RequestParam(required = false,defaultValue="all") String category) {
+
+	@GetMapping(value = "recipeBoardListIndex")
+	public ModelAndView recipeBoardListIndex(@RequestParam(required = false, defaultValue = "1") String pg,
+			@RequestParam(required = false, defaultValue = "all") String category) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(category);
 //		mav.addObject("category",category);
 //		mav.addObject("pg",pg);
 		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardListIndex.jsp");
 		mav.setViewName("/index");
-		
+
 		return mav;
 	}
-	
-	
+
 	@ResponseBody
-	@PostMapping(value="getRecipeBoardList")
-	public Map<String,Object> getRecipeBoardList(@RequestParam(required = false,defaultValue="1" )String pg
-												,@RequestParam(required = false,defaultValue="all") String category){
+	@PostMapping(value = "getRecipeBoardList")
+	public Map<String, Object> getRecipeBoardList(@RequestParam(required = false, defaultValue = "1") String pg,
+			@RequestParam(required = false, defaultValue = "all") String category) {
 		Map<String, String> map = new HashMap<String, String>();
-		map.put("pg",pg);
+		map.put("pg", pg);
 		map.put("category", category);
-		
+
 		return recipeBoardService.getRecipeBoardList(map);
 	}
-	
-	@GetMapping(value="recipeBoardList")
-	public ModelAndView recipeBoardList(@RequestParam(required = false,defaultValue="1") String pg
-										,@RequestParam(required = false,defaultValue="all") String category) {
+
+	@GetMapping(value = "recipeBoardList")
+	public ModelAndView recipeBoardList(@RequestParam(required = false, defaultValue = "1") String pg,
+			@RequestParam(required = false, defaultValue = "all") String category,
+			@RequestParam Map<String, String> map) {
 		ModelAndView mav = new ModelAndView();
 		System.out.println(category);
-		mav.addObject("category",category);
-		mav.addObject("pg",pg);
+		mav.addObject("keyword",map.get("keyword"));
+		mav.addObject("category", category);
+		mav.addObject("pg", pg);
 		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardList.jsp");
 		mav.setViewName("/index");
-		
+
 		return mav;
 	}
-	
+
 	// 이미지 업로드
-		@ResponseBody
-		@RequestMapping(value = "imageUpload")
-		public void communityImageUpload(HttpServletRequest req, HttpServletResponse resp,
-				MultipartHttpServletRequest multiFile) throws Exception {
-			JsonObject jsonObject = new JsonObject();
-			PrintWriter printWriter = null;
-			OutputStream out = null;
-			MultipartFile file = multiFile.getFile("upload");
+	@ResponseBody
+	@RequestMapping(value = "imageUpload")
+	public void communityImageUpload(HttpServletRequest req, HttpServletResponse resp,
+			MultipartHttpServletRequest multiFile) throws Exception {
+		JsonObject jsonObject = new JsonObject();
+		PrintWriter printWriter = null;
+		OutputStream out = null;
+		MultipartFile file = multiFile.getFile("upload");
 
-			if (file != null) {
-				if (file.getSize() > 0 && StringUtils.isNotBlank(file.getName())) {
-					if (file.getContentType().toLowerCase().startsWith("image/")) {
-						try {
+		if (file != null) {
+			if (file.getSize() > 0 && StringUtils.isNotBlank(file.getName())) {
+				if (file.getContentType().toLowerCase().startsWith("image/")) {
+					try {
 
-							String fileName = file.getOriginalFilename();
-							byte[] bytes = file.getBytes();
+						String fileName = file.getOriginalFilename();
+						byte[] bytes = file.getBytes();
 
-							String uploadPath = req.getSession().getServletContext().getRealPath("/WEB-INF/storage"); // 저장경로
-							System.out.println("uploadPath:" + uploadPath);
+						String uploadPath = req.getSession().getServletContext().getRealPath("/WEB-INF/storage"); // 저장경로
+						System.out.println("uploadPath:" + uploadPath);
 
-							File uploadFile = new File(uploadPath);
-							if (!uploadFile.exists()) {
-								uploadFile.mkdir();
-							}
+						File uploadFile = new File(uploadPath);
+						if (!uploadFile.exists()) {
+							uploadFile.mkdir();
+						}
 
-							String fileName2 = UUID.randomUUID().toString();
-							uploadPath = uploadPath + "/" + fileName2 + fileName;
+						String fileName2 = UUID.randomUUID().toString();
+						uploadPath = uploadPath + "/" + fileName2 + fileName;
 
-							out = new FileOutputStream(new File(uploadPath));
-							out.write(bytes);
+						out = new FileOutputStream(new File(uploadPath));
+						out.write(bytes);
 
-							printWriter = resp.getWriter();
-							String fileUrl = req.getContextPath() + "/storage/" + fileName2 + fileName; // url경로
-							System.out.println("fileUrl :" + fileUrl);
-							JsonObject json = new JsonObject();
-							json.addProperty("uploaded", 1);
-							json.addProperty("fileName", fileName);
-							json.addProperty("url", fileUrl);
-							printWriter.print(json);
-							System.out.println(json);
+						printWriter = resp.getWriter();
+						String fileUrl = req.getContextPath() + "/storage/" + fileName2 + fileName; // url경로
+						System.out.println("fileUrl :" + fileUrl);
+						JsonObject json = new JsonObject();
+						json.addProperty("uploaded", 1);
+						json.addProperty("fileName", fileName);
+						json.addProperty("url", fileUrl);
+						printWriter.print(json);
+						System.out.println(json);
 
-							String url = this.getClass().getResource("").getPath();
-							String test = url.substring(1, url.indexOf(".metadata"));
-							System.out.println(test);
-							File dirs = new File(
-									test + "crackerProject\\crackerProject\\src\\main\\webapp\\WEB-INF\\storage\\");
-							System.out.println(dirs);
-							File file1 = new File(dirs + "/" + fileName2 + fileName);
-							file.transferTo(file1);
+						String url = this.getClass().getResource("").getPath();
+						String test = url.substring(1, url.indexOf(".metadata"));
+						System.out.println(test);
+						File dirs = new File(
+								test + "crackerProject\\crackerProject\\src\\main\\webapp\\WEB-INF\\storage\\");
+						System.out.println(dirs);
+						File file1 = new File(dirs + "/" + fileName2 + fileName);
+						file.transferTo(file1);
 
-						} catch (IOException e) {
-							e.printStackTrace();
-						} finally {
-							if (out != null) {
-								out.close();
-							}
-							if (printWriter != null) {
-								printWriter.close();
-							}
+					} catch (IOException e) {
+						e.printStackTrace();
+					} finally {
+						if (out != null) {
+							out.close();
+						}
+						if (printWriter != null) {
+							printWriter.close();
 						}
 					}
-
 				}
 
 			}
+
 		}
+	}
+	@ResponseBody
+	@PostMapping(value = "recipeBoardSearch")
+	public Map<String, Object> recipeBoardSearch(@RequestParam Map<String, String> map
+											,@RequestParam(required = false,defaultValue="1" )String pg
+											) {
+		map.put("pg", pg);
+		System.out.println(map+"여기오나");
+		return recipeBoardService.recipeBoardSearch(map);
+	}
 }
