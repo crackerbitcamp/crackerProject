@@ -31,7 +31,7 @@ $(function(){
 		location.href='/index/board/boardUpdateForm?seq='
 		+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
 	});//click
-	 
+	  
 	$('#boardDeleteBtn').click(function(){
 		if(confirm('선택하신 항목 삭제하시겠습니까')){
 			$.ajax({
