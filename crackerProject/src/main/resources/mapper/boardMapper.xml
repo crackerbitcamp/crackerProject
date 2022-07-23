@@ -95,7 +95,7 @@
 		<![CDATA[
 		select * from
 		(select rownum rn, tt.*
-		from (select * from board where ${searchOption} like '%'||#{keyword}||'%'
+		from (select * from board where content like '%'||#{keyword}||'%' or subject like '%'||#{keyword}||'%'
 										order by ref desc, step asc)tt)
 		where rn >= ${startNum} and rn <=${endNum}
 				
@@ -104,7 +104,7 @@
 	
 	<!-- 검색한 총글수  -->
 	<select id="getTotalSearchA"  parameterType="java.util.Map" resultType="Int">
-		select count (*) from board where ${searchOption} like '%'||#{keyword}||'%'
+		select count (*) from board where content like '%'||#{keyword}||'%' or subject like '%'||#{keyword}||'%'
 	</select>
 	
 	<insert id="commentWrite" parameterType="java.util.Map">

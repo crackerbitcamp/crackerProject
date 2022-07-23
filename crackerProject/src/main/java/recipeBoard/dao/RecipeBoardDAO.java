@@ -18,4 +18,8 @@ public interface RecipeBoardDAO {
 
 	public int getTotalA(Map<String, String> map);
 
+	public List<BoardDTO> getRecipeBoardSearch(Map<String, String> map);
+
+	public int getTotalSearchA(Map<String, String> map);
+
 }

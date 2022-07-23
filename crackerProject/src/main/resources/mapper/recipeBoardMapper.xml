@@ -51,4 +51,19 @@
 		select * from recipeboard where seq = #{seq}
 	</select>
 	
+	<select id="getTotalSearchA"  parameterType="java.util.Map" resultType="Int">
+		select count (*) from recipeboard where content like '%'||#{keyword}||'%' or subject like '%'||#{keyword}||'%'
+	</select>
+	
+	<select id="getRecipeBoardSearch" parameterType="java.util.Map" resultType="recipeBoard">
+		<![CDATA[
+		select * from
+		(select rownum rn, tt.*
+		from (select * from recipeboard where content like '%'||#{keyword}||'%' or subject like '%'||#{keyword}||'%'
+										order by seq desc)tt)
+		where rn >= ${startNum} and rn <=${endNum}
+				
+		]]>
+	</select>
+	
 </mapper>
