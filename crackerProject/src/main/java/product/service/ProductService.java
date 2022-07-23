@@ -3,6 +3,7 @@ package product.service;
 import java.util.Map;
 
 import product.bean.ProductDTO;
+import product.bean.ProductJoinDTO;
 
 public interface ProductService {
 
@@ -14,6 +15,8 @@ public interface ProductService {
 
 	public void productBoardWrite(Map<String,Object> map);
 
-	public Map<String, Object> getProductBoardList();
+	public Map<String, Object> getProductBoardList(Map<String,String> map);
+
+	public ProductJoinDTO getProductBoardView(Map<String, String> map);
 
 }

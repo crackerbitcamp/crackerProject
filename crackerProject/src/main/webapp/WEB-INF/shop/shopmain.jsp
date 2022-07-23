@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
+<link href="/index/css/shopCSS/shopMain.css" rel="stylesheet"
+	type="text/css" />
 <style>
 
 *{
@@ -326,7 +331,7 @@ a{
 <body>
 	<header id="headerWrap" class="header-wrap">
 		<div style="height: 100%; width: 100%; margin: 0 auto;">
-			<img alt="" src="/index/image/test1.png" style=" background-repeat : no-repeat; background-size:cover;">
+			<img alt="" src="/index/image/test1.png" style=" background-repeat : no-repeat; background-size:cover;width: 100%;">
 		</div>
 		<div class="header-top">
 			<div class="inner-box">
@@ -398,6 +403,7 @@ a{
 		</div>
 	</nav>
 	</header>
+	<c:if test="${empty display}">
 	<div id = "container" style="outline: none;">
 		<section id="content" class="main">
 			<article class="article visual-article">
@@ -409,11 +415,21 @@ a{
 				</div>
 			</article>
 		</section>
-		<div style="boarder: red solid 1px; width: 1000px; height: 500px;">
-			<div class="productForm"></div>
+		<div style="boarder: red solid 1px; width: 1500px; height: 500px;">
+			<div class="productForm">
+				<div>
+					
+				</div>
+			
+			</div>
 		</div>
 		
 	</div>
+	</c:if>
+	
+	<c:if test="${not empty display}">
+				<jsp:include page="${display}" />
+	</c:if>
 	
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
