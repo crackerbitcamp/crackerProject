@@ -41,15 +41,20 @@ public class ProductDAOMybatis implements ProductDAO {
 		
 	}
 	@Override
-	public Map<String, Object> getProductBoardList() {
+	public Map<String, Object> getProductBoardList(Map<String,String> map) {
 		
 		List<ProductJoinDTO>list = new ArrayList<ProductJoinDTO>();
-		list = sqlSession.selectList("productSQL.getProductBoardList");
+		list = sqlSession.selectList("productSQL.getProductBoardList",map);
 		
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("list",list);
 		System.out.println(sendMap);
 		return sendMap;
+	}
+	@Override
+	public ProductJoinDTO getProductBoardView(Map<String, String> map) {
+	
+		return sqlSession.selectOne("productSQL.getProductBoardView", map);
 	}
 	
 }

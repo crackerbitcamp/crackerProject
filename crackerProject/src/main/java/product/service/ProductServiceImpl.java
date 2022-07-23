@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import product.bean.ProductDTO;
+import product.bean.ProductJoinDTO;
 import product.dao.ProductDAO;
 
 @Service
@@ -60,9 +61,15 @@ public class ProductServiceImpl implements ProductService {
 	}
 
 	@Override
-	public Map<String, Object> getProductBoardList() {
+	public Map<String, Object> getProductBoardList(Map<String,String> map) {
 		
 		
-		return productDAO.getProductBoardList();
+		return productDAO.getProductBoardList(map);
+	}
+
+	@Override
+	public ProductJoinDTO getProductBoardView(Map<String, String> map) {
+		
+		return productDAO.getProductBoardView(map);
 	}
 }

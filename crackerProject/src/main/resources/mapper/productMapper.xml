@@ -40,7 +40,11 @@
 		)
 	</insert>
 	
-	<select id="getProductBoardList" resultType="productJoin">
-		select * from product p ,productboard b where p.productCode = b.productCode
+	<!-- 카테고리별로 출력 -->
+	<select id="getProductBoardList" resultType="productJoin" parameterType="java.util.Map">
+		select * from product p ,productboard b where p.productCode = b.productCode and productcategory=#{productCategory}
+	</select>
+	<select id="getProductBoardView" resultType="productJoin" parameterType="java.util.Map">
+		select * from product p ,productboard b where p.productCode = b.productCode and seq=#{seq}
 	</select>
 </mapper>
