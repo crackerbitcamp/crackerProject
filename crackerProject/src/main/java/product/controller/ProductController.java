@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -118,10 +119,17 @@ public class ProductController {
 	@ResponseBody
 	@PostMapping(value="productBoardWrite")
 	public void productBoardWrite(@RequestParam Map<String,Object> map) {
-		System.out.println(map);
+		//System.out.println(map);
 		productService.productBoardWrite(map);
 	}
 	
+	@PostMapping("/productSearch")
+	@ResponseBody
+	public List<ProductJoinDTO> productSearch(@RequestParam String keyword) {
+		System.out.println(keyword);
+		return productService.productSearch(keyword);
+		
+	}
 	@ResponseBody
 	@PostMapping(value="getProductBoardList")
 	public Map<String,Object> getProductBoardList(@RequestParam Map<String,String> map) {
@@ -132,7 +140,7 @@ public class ProductController {
 	@GetMapping(value="productBoardView")
 	public ModelAndView productBoardView(@RequestParam Map<String,String> map) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(map);
+		//System.out.println(map);
 		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
 		mav.addObject("display", "/WEB-INF/product/productBoardView.jsp");
 		mav.addObject("seq",map.get("seq"));
@@ -146,4 +154,16 @@ public class ProductController {
 		return productService.getProductBoardView(map);
 	}
 	
+
+	@GetMapping(value="productBoardList")
+	public ModelAndView productBoardList(@RequestParam Map<String,String> map) {
+		ModelAndView mav = new ModelAndView();
+		//System.out.println(map);
+		mav.addObject("category",map.get("category"));
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/product/productBoardList.jsp");
+		mav.setViewName("/shop/shopmain");
+		return mav;
+	}
+
 }
