@@ -20,6 +20,7 @@ public interface ProductDAO {
 
 	public ProductJoinDTO getProductBoardView(Map<String, String> map);
 
+	public List<ProductJoinDTO> productSearch(String keyword);
 
 
 }

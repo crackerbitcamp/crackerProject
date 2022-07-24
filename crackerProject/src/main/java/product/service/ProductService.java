@@ -1,5 +1,6 @@
 package product.service;
 
+import java.util.List;
 import java.util.Map;
 
 import product.bean.ProductDTO;
@@ -19,6 +20,7 @@ public interface ProductService {
 
 	public ProductJoinDTO getProductBoardView(Map<String, String> map);
 
+	public List<ProductJoinDTO> productSearch(String keyword);
 
 	
 

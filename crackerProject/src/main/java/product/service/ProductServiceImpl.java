@@ -75,5 +75,9 @@ public class ProductServiceImpl implements ProductService {
 		return productDAO.getProductBoardView(map);
 	}
 
+	@Override
+	public  List<ProductJoinDTO> productSearch(String keyword) {
+		return productDAO.productSearch(keyword);
+	}
 	
 }

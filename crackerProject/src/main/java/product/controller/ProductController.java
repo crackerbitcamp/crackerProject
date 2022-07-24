@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -122,10 +123,17 @@ public class ProductController {
 		productService.productBoardWrite(map);
 	}
 	
+	@PostMapping("/productSearch")
+	@ResponseBody
+	public List<ProductJoinDTO> productSearch(@RequestParam String keyword) {
+		System.out.println(keyword);
+		return productService.productSearch(keyword);
+		
+	}
 	@ResponseBody
 	@PostMapping(value="getProductBoardList")
 	public Map<String,Object> getProductBoardList(@RequestParam Map<String,String> map) {
-		//System.out.println(map);
+		System.out.println(map);
 		return productService.getProductBoardList(map);
 	}
 	

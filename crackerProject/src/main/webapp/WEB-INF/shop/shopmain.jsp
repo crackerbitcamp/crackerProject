@@ -1,13 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link rel ="stylesheet" href="/index/css/indexCSS/indexmodal.css">
 <link href="/index/css/shopCSS/shopMain.css" rel="stylesheet"
 	type="text/css" />
 <style>
@@ -291,19 +291,6 @@ header{
 .main .article.visual-article{
 	height : 400px;
 }
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{
-	display: block;
-}
-
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, legend, img, button{
-	margin :0;
-	padding: 0;
-	font-family : "Noto Sans KR", sans-serif;
-	font-size : 12px;
-	font-weight : nomal;
-	letter-spacing : -0.4px;
-	color : #333;
-}
 
 ol, ul, li{
 	list-style : none;
@@ -329,6 +316,39 @@ a{
 </style>
 </head>
 <body>
+<div id = "allstate">
+	<!-- 모달창 -->
+				
+				<div class= "memberWriteModal">
+					<div class = "memberModal">
+						<span style="float: right; cursor: pointer;" id = "modalclose"><img src="/index/image/x.png" style="width: 20px; height: 20px; margin-right: 5px; margin-top: 5px;"></span>
+						<div class = "modalcenter">
+						<input type = "hidden" id = "modalcheck_all" value="false">
+						<input type = "hidden" id = "modalchecked1" value="false">
+						<input type = "hidden" id = "modalchecked2" value="false">
+						<input type = "hidden" id = "modalchecked3" value="false">
+					
+							<h2>이용약관 동의</h2>	
+							<div class = "modal_join_check_all">
+								<label class = "modalcheckbox"><input type = "checkbox" id="check_all" class="modalcheck">모두 확인, 동의합니다.</label><br>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck1" name="modalchk" class="modalcheck" value = "1">만 14세 이상입니다.<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck2" name="modalchk" class="modalcheck" value = "1">이용약관 동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" id="modalcheck3" name="modalchk" class="modalcheck" value = "1">개인정보 수집 및 이용동의<font size="2" color="orange">(필수)</font></label>
+							</div>
+							<div class = "modaljoin_team">
+								<label class = "modalcheckbox"><input type = "checkbox" name="modalchk" class="modalcheck">선택정보 수집 및 이용동의</label>
+							</div>
+							<button class = "join_wrap_btn" style="cursor: pointer;">동의하고 가입하기</button>
+						</div>
+					</div>
+				</div>
+				<!-- 모달창 끝 -->
 	<header id="headerWrap" class="header-wrap">
 		<div style="height: 100%; width: 100%; margin: 0 auto;">
 			<img alt="" src="/index/image/test1.png" style=" background-repeat : no-repeat; background-size:cover;width: 100%;">
@@ -347,12 +367,22 @@ a{
 				</div>
 				<div class="util-wrap">
 					<ul>
+							<c:if test="${memLogin==null}">
 						<li>
-							<a>로그인</a>
+								<a href = "/index/member/memberLoginForm">로그인</a>
 						</li>
 						<li>
-							<a>회원가입</a>
+							<a id = "memberWriteBtn" style="cursor: pointer;">회원가입</a>
 						</li>
+							</c:if>
+							<c:if test="${memLogin!=null}">
+							<li>
+								<a>내 정보</a>
+							</li>
+							<li>
+								<a>장바구니</a>
+							</li>
+							</c:if>
 						<li>
 							<a>고객센터</a>
 						</li>
@@ -402,6 +432,7 @@ a{
 		</div>
 	</nav>
 	</header>
+	
 	<c:if test="${empty display}">
 	<div id = "container" style="outline: none;">
 		<section id="content" class="main">
@@ -424,6 +455,7 @@ a{
 		</div>
 		
 	</div>
+</div>
 	</c:if>
 	
 	<c:if test="${not empty display}">
@@ -452,6 +484,21 @@ function start() {
 }
 start();
 
+</script>
+
+<script type="text/javascript">
+$('#btnSearch').click(function(){
+	$.ajax({
+		type : 'post',
+		data : {'keyword' : $('#hd_sch').val()},
+		url : '/index/product/productSearch',
+		success:function(data){
+			alert('성공');
+		},error:function(e){
+			console.log(e);
+		}
+	});
+});
 </script>
 
 <script type="text/javascript">
@@ -485,5 +532,62 @@ start();
 		$('.gnb-sub-wrap').css('transform','translateY(-100%)');
 		$('.gnb-sub-wrap').css('opacity','0');
 	});
+</script>
+
+<script type="text/javascript">
+
+
+$('#memberWriteBtn').click(function(){
+	$('.memberWriteModal').fadeIn(300);
+	$('.memberWriteModal').css('display','block');
+	return false;
+});
+
+
+
+$('#check_all').click(function(){
+	if($("#check_all").is(":checked")){ 
+		$("input[name=modalchk]").prop("checked", true);
+		$('#modalcheck_all').attr('value','true');
+	}
+	else{
+		$("input[name=modalchk]").prop("checked", false);
+		$('#modalcheck_all').attr('value','false');
+	}
+});
+
+$('.join_wrap_btn').click(function(){
+		if($('#modalcheck1').is(':checked') && $('#modalcheck2').is(':checked') && $('#modalcheck3').is(':checked')){
+			location.href = '/index/member/memberWriteForm'
+		}
+});
+
+$('#modalclose').click(function(){
+	$('.memberWriteModal').fadeOut(300);
+});
+
+$('#modalcheck1').change(function(){
+	if($('#modalcheck1').is(":checked")){
+		$('#modalchecked1').prop('value','true');
+	}else{
+		$('#modalchecked1').prop('value','false');
+	}
+});
+
+$('#modalcheck2').change(function(){
+	if($('#modalcheck2').is(":checked")){
+		$('#modalchecked2').prop('value','true');
+	}else{
+		$('#modalchecked2').prop('value','false');
+	}
+});
+
+$('#modalcheck3').change(function(){
+	if($('#modalcheck3').is(":checked")){
+		$('#modalchecked3').prop('value','true');
+	}else{
+		$('#modalchecked3').prop('value','false');
+	}
+});
 </script>
 </html>

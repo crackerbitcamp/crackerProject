@@ -209,8 +209,6 @@ width: 40px;
 </head>
 <body>
 
-<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo" style="
-    display: flow-root;" >
 
 
 	<div id="cartViewList">
