@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customerSQL">
+
+	<!-- 문의하기 쓰기 -->
+	<insert id="customerWrite" parameterType = "java.util.Map">
+		insert into customer(seq,name,email,subject,content,logtime)
+					values(seq_customer.nextval
+					,#{name}
+					,#{email}
+					,#{subject}
+					,#{content}
+					,sysdate)
+	</insert>
+	
+	<!-- 목록 -->
+	<select id="getCustomerList" parameterType ="java.util.Map" resultType="customer">			
+		<![CDATA[
+		select * from (select rownum rn, tt.*
+		from (select * from customer order by seq desc)tt)
+					where rn >=${startNum} and rn <=${endNum}
+		]]><!-- SQL 문장 있는 그대로 -->
+	</select>
+	
+	<!-- 총글수 -->
+	<select id="getTotalA" resultType="Int">
+		select count(*) from customer
+	</select>
+	
+	<!-- 글보기 -->
+	<select id="getCustomerView" parameterType="Int" resultType="customer">
+		select * from customer where seq = #{seq}
+	</select>
+	
+	<!-- 검색 -->
+  	<select id="getcustomerSearch" parameterType="java.util.Map" resultType="customer">
+  		<![CDATA[
+  		select * from
+  		(select rownum rn, tt.* from 
+  		(select * from customer where ${searchOption} like '%'||#{keyword}||'%' 
+  		                     order by seq desc) tt
+  		) where rn>=#{startNum} and rn<=#{endNum}
+  		]]>
+  	</select>
+  	
+	<!-- 검색한 총글수 -->
+  	<select id="getTotalSearchA" parameterType="java.util.Map" resultType="int">
+  		select count(*) from customer where ${searchOption} like '%'||#{keyword}||'%'
+  	</select>
+	
+</mapper>
