@@ -26,13 +26,11 @@
          <input type = "hidden" id = "memberemail" name = "memberemail" value="${memberDTO.memberemail }">
          <input type = "hidden" name = "membertel" id="UpdateTelcheck" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}">
          <h2>회원정보 수정</h2>
-         <a href="/index/member/memberDeleteForm"><h4>탈퇴하러가기</h4></a><!-- 위치는 우측 끝 / 바로가기 버튼처럼 작동 -->
          <hr style="border: 2px solid">
          <div class="updateForm-input" style=" margin:auto; padding-top: 50px;">
             <span style="font-size: 24px;" id = "updateemail">아이디</span>
             <input type = "text" id = "memberemail1"class="updateinput" value="${memberDTO.memberemail}" disabled style="background: none;">
          </div>
-         
          <div class="updateForm-input" style=" margin: auto">
              <span style="font-size: 24px;" id = "updateemail">이름</span>
             <input type = "text" id = "membername"class="updateinput" value="${memberDTO.membername}" style="background: none;">
@@ -64,6 +62,7 @@
             <input type = "password" id = "reupdatePwd" name = "memberpwd" class="updateinput" style="background: none; border: 1px solid;">
          </div>
         <div class="updateForm-input" style=" margin: auto">
+         <button class="btn_next" id = "memberDelete_move" name="memberUpdate_btn" type="button" onClick="location.href='/index/member/memberDeleteForm'">회원 탈퇴</button>
          <button class="btn_next" id = "memberUpdate_btn" name="memberUpdate_btn" type="button">수정</button>
          <button class="btn_next" id = "membercancle_btn" name="membercancle_btn" type="button">취소</button>
          </div>

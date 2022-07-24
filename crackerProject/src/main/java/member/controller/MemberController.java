@@ -223,5 +223,14 @@ public class MemberController{
 	    	 crackerEmailService.memberemailInsert(map.get("naverEmail"),map.get("naverNickName"),"naver");
 	     }
 	}
+	@GetMapping("/memberDeleteForm")
+	public ModelAndView memberDeleteForm() {
+		   ModelAndView mav = new ModelAndView();
+		   mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		   mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		   mav.addObject("display","/WEB-INF/member/memberDeleteForm.jsp");
+		   mav.setViewName("/index");
+		   return mav;
+	   }
 }
 
