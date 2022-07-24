@@ -547,7 +547,6 @@ body{
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
 					</c:if>
-				
 				<div>
 				</div>
 			</div>
