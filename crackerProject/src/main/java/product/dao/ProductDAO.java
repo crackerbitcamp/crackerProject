@@ -16,7 +16,9 @@ public interface ProductDAO {
 
 	public void productBoardWirite(Map<String,Object> map);
 
-	public Map<String, Object> getProductBoardList();
+	public Map<String, Object> getProductBoardList(Map<String,String> map);
+
+	public ProductJoinDTO getProductBoardView(Map<String, String> map);
 
 	public List<ProductJoinDTO> productSearch(String keyword);
 

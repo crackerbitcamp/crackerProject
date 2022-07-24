@@ -41,10 +41,10 @@ public class ProductDAOMybatis implements ProductDAO {
 		
 	}
 	@Override
-	public Map<String, Object> getProductBoardList() {
+	public Map<String, Object> getProductBoardList(Map<String,String> map) {
 		
 		List<ProductJoinDTO>list = new ArrayList<ProductJoinDTO>();
-		list = sqlSession.selectList("productSQL.getProductBoardList");
+		list = sqlSession.selectList("productSQL.getProductBoardList",map);
 		
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("list",list);
@@ -54,7 +54,10 @@ public class ProductDAOMybatis implements ProductDAO {
 	@Override
 	public List<ProductJoinDTO> productSearch(String keyword) {
 		return sqlSession.selectList("productSQL.productSearch",keyword);
-		
+	}
+	public ProductJoinDTO getProductBoardView(Map<String, String> map) {
+	
+		return sqlSession.selectOne("productSQL.getProductBoardView", map);
 	}
 	
 }
