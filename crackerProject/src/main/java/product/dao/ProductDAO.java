@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import product.bean.ProductDTO;
+import product.bean.ProductJoinDTO;
 
 public interface ProductDAO {
 
@@ -14,5 +15,9 @@ public interface ProductDAO {
 	public ProductDTO getProduct(Map<String, String> map);
 
 	public void productBoardWirite(Map<String,Object> map);
+
+	public Map<String, Object> getProductBoardList();
+
+	public List<ProductJoinDTO> productSearch(String keyword);
 
 }

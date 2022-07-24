@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import product.bean.ProductDTO;
+import product.bean.ProductJoinDTO;
 import product.dao.ProductDAO;
 
 @Service
@@ -53,9 +54,21 @@ public class ProductServiceImpl implements ProductService {
 		map.put("productSubject", map.get("productSubject")+"");
 		map.put("productContent", map.get("productContent")+"");
 		
-		
+		System.out.println(map);
 		
 		productDAO.productBoardWirite(map);
 		
+	}
+
+	@Override
+	public Map<String, Object> getProductBoardList() {
+		
+		
+		return productDAO.getProductBoardList();
+	}
+
+	@Override
+	public  List<ProductJoinDTO> productSearch(String keyword) {
+		return productDAO.productSearch(keyword);
 	}
 }

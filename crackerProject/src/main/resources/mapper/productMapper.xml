@@ -39,4 +39,14 @@
 			,sysdate
 		)
 	</insert>
+	
+	<select id="getProductBoardList" resultType="productJoin">
+		select * from product p ,productboard b where p.productCode = b.productCode
+	</select>
+	
+	<select id="productSearch" parameterType="String" resultType="productJoin">
+		select * from product p ,productboard b where p.productCode = b.productCode and productSubject  like '%'||#{keyword}||'%'
+		and productContent like '%'||#{keyword}||'%'
+	</select>
+	
 </mapper>

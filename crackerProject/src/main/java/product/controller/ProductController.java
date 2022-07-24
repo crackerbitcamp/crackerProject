@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.UUID;
 
@@ -29,6 +30,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.google.gson.JsonObject;
 
 import product.bean.ProductDTO;
+import product.bean.ProductJoinDTO;
 import product.service.ProductService;
 
 @Controller
@@ -117,12 +119,21 @@ public class ProductController {
 	@ResponseBody
 	@PostMapping(value="productBoardWrite")
 	public void productBoardWrite(@RequestParam Map<String,Object> map) {
-		
+		System.out.println(map);
 		productService.productBoardWrite(map);
 	}
 	
 	@PostMapping("/productSearch")
-	public void productSearch(@RequestParam Map<String,String>map) {
-		System.out.println(map);
+	@ResponseBody
+	public List<ProductJoinDTO> productSearch(@RequestParam String keyword) {
+		System.out.println(keyword);
+		return productService.productSearch(keyword);
+		
+	}
+	@ResponseBody
+	@PostMapping(value="getProductBoardList")
+	public Map<String,Object> getProductBoardList() {
+		
+		return productService.getProductBoardList();
 	}
 }
