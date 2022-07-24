@@ -12,6 +12,7 @@
  										seq_crakermember.nextval,
  										#{nickname},
  										#{email},
+ 										#{name},
  										#{category}
  										)
  	</insert>

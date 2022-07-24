@@ -14,6 +14,9 @@
 								#{membertel2},
 								#{membertel3},
 								#{membernickname},
+								'',
+								'',
+								'',
 								sysdate)
 	</insert>
 	<select id="memberLoginCheck" parameterType="java.util.Map" resultType="member">
