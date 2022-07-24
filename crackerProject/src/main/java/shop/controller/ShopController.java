@@ -56,4 +56,24 @@ public class ShopController {
 	public void memberaddressUpdate(@RequestParam Map<String,String>map) {
 		shopService.memberaddressUpdate(map);
 	}
+	@GetMapping("/shop/shopMypage")
+	public ModelAndView shopMypage() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
+	
+	@GetMapping("/shop/shoporder")
+	public ModelAndView shoporder() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("MyPageInclude","/WEB-INF/shop/shoporder.jsp");
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
+	@GetMapping("/shop/cartView")
+	public ModelAndView cartView() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/shop/cartView");
+		return mav;
+	}
 }

@@ -14,7 +14,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import admin.service.AdminService;
 
-
+ 
 @RequestMapping(value="admin")
 @Controller
 public class AdminController {

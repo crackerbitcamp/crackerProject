@@ -78,6 +78,7 @@
 
 
 <input type="hidden" id="pg" value="${pg}"/>
+
 <div id="boardListDiv">
    <div class="listMenu">
       <div class="goodCount" style="color:#000000">추천</div>

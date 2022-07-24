@@ -20,7 +20,7 @@
 	
 	<select id="getProductMangeList" parameterType="java.util.Map" resultType="product">
 		select * from (select rownum rn, tt.*
-					from (select * from product order by seq)tt)
+					from (select * from product order by productseq)tt)
 					<!-- where rn &gt;=${startNum} and rn &lt;=${endNum} -->
 					  where rn between #{startNum} and #{endNum}
 	</select>
@@ -39,4 +39,18 @@
 			,sysdate
 		)
 	</insert>
+	
+	<!-- 카테고리별로 출력 -->
+	<select id="getProductBoardList" resultType="productJoin" parameterType="java.util.Map">
+		select * from product p ,productboard b where p.productCode = b.productCode and productcategory=#{productCategory}
+	</select>
+	<select id="getProductBoardView" resultType="productJoin" parameterType="java.util.Map">
+		select * from product p ,productboard b where p.productCode = b.productCode and seq=#{seq}
+	</select>
+	
+	<select id="productSearch" parameterType="String" resultType="productJoin">
+		select * from product p ,productboard b where p.productCode = b.productCode and productSubject  like '%'||#{keyword}||'%'
+		and productContent like '%'||#{keyword}||'%'
+	</select>
+	
 </mapper>

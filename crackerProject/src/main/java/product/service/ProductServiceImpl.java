@@ -4,16 +4,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import product.bean.ProductDTO;
+import product.bean.ProductJoinDTO;
 import product.dao.ProductDAO;
 
 @Service
 public class ProductServiceImpl implements ProductService {
 	@Autowired
 	private ProductDAO productDAO;
+	@Autowired
+	private HttpSession session;
 
 	@Override
 	public void productWrite(Map<String,String>map) {
@@ -52,10 +57,27 @@ public class ProductServiceImpl implements ProductService {
 		map.put("productCode", map.get("productCode")+"");
 		map.put("productSubject", map.get("productSubject")+"");
 		map.put("productContent", map.get("productContent")+"");
-		
-		
-		
+				
 		productDAO.productBoardWirite(map);
 		
 	}
+
+	@Override
+	public Map<String, Object> getProductBoardList(Map<String,String> map) {
+		
+		
+		return productDAO.getProductBoardList(map);
+	}
+
+	@Override
+	public ProductJoinDTO getProductBoardView(Map<String, String> map) {
+		
+		return productDAO.getProductBoardView(map);
+	}
+
+	@Override
+	public  List<ProductJoinDTO> productSearch(String keyword) {
+		return productDAO.productSearch(keyword);
+	}
+	
 }

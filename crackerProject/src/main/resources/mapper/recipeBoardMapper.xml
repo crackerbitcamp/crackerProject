@@ -21,11 +21,11 @@
 	<select id="getRecipeBoardList" parameterType="java.util.Map" resultType="recipeBoard">
 		
 			select * from (select rownum rn, tt.*
-			from (select * from recipeboard order by seq desc)tt)
+			from (select * from recipeboard  <if test="category != 'all'">
+							where category=#{category}
+						</if> order by seq desc)tt)
 						where rn &gt;=${startNum} and rn &lt;=${endNum}
-						<if test="category != 'all'">
-							and category=#{category}
-						</if>
+						
 	
 	</select>
 	
@@ -34,20 +34,36 @@
 			select * from (select rownum rn, tt.*
 			from (select * from recipeboard order by seq desc)tt)
 						where rn &gt;=${1} and rn &lt;=${8}
-						<if test="category != 'all'">
-							and category=#{category}
-						</if>
+						
 	
 	</select>
 	
 	<!-- 총글수 -->
-	<select id="getTotalA" resultType="Int">
-		select count(*) from recipeboard
+	<select id="getTotalA" resultType="Int" parameterType="java.util.Map">
+		select count(*) from recipeboard 
+			<if test="category != 'all'">
+				where category=#{category}
+			</if>
 	</select>
 	
 	
 	<select id="getRecipeBoardView" parameterType="Int" resultType="recipeBoard">
 		select * from recipeboard where seq = #{seq}
+	</select>
+	
+	<select id="getTotalSearchA"  parameterType="java.util.Map" resultType="Int">
+		select count (*) from recipeboard where content like '%'||#{keyword}||'%' or subject like '%'||#{keyword}||'%'
+	</select>
+	
+	<select id="getRecipeBoardSearch" parameterType="java.util.Map" resultType="recipeBoard">
+		<![CDATA[
+		select * from
+		(select rownum rn, tt.*
+		from (select * from recipeboard where content like '%'||#{keyword}||'%' or subject like '%'||#{keyword}||'%'
+										order by seq desc)tt)
+		where rn >= ${startNum} and rn <=${endNum}
+				
+		]]>
 	</select>
 	
 </mapper>
