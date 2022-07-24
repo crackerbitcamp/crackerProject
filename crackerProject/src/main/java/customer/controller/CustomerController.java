@@ -26,9 +26,10 @@ public class CustomerController {
 	@GetMapping(value="customerWriteForm")
 	public ModelAndView customerWriteForm() {
 		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("/customer/customerWriteForm");
-		
+		mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		mav.addObject("display","/WEB-INF/customer/customerWriteForm.jsp");
+		mav.setViewName("/index");
 		return mav;
 	}
 	// customerWrite 문의하화면 이동

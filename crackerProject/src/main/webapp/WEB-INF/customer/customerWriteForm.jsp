@@ -6,36 +6,62 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css" src="/index/css/member.css"></style>
+<style type="text/css">
+#customerTable{
+	margin: auto;
+}
+
+.customerData{
+	width: 200px;
+	font-size: 24px;
+	padding: 20px;
+}
+
+#customerTable input{
+border:0 solid black;
+}
+.customerNone {
+	background: none;
+	border: none;
+	font-size: 24px;
+	padding: 20px;
+	margin: auto;
+}
+#subjectDiv {
+	color: red;
+}
+</style>
 </head>
 <body>
-<h4>문의하기</h4>
+<h2>문의하기</h2>
 <form name="customerWriteForm" id="customerWriteForm">
-	<table border="1" cellspacing="0" cellpadding="5">
+	<table id="customerTable" border="1" cellspacing="0" cellpadding="5">
 		<tr>
-			<td width="150" align="center">이름 </td>
-			<td> <input type="text" name="name" id="name" readonly></td>
+			<td class="customerData" >이름 </td>
+			<td ><input type="text" class="customerNone" name="name" id="name" value="${name }" readonly></td>
 		</tr>
 		<tr>
-			<td width="150" align="center">이메일입력</td>
-			<td> <input type="text" name="email" id="email" readonly> </td>
+			<td class="customerData" >이메일입력</td>
+			<td> <input type="text" class="customerNone" name="email" id="email" readonly> </td>
 		</tr>
 		<tr>
-			<td width="150" align="center">제목</td>
-			<td><input type = "text" name="subject" id = "subject" placeholder="제목  입력">
+			<td class="customerData" >제목</td>
+			<td><input type = "text" class="customerNone" name="subject" id = "subject" placeholder="제목을 입력하세요">
 			<div id="subjectDiv"></div>
 			</td>
 		</tr>
 		<tr>
-			<td width="150" align="center">내용</td>
+			<td class="customerData" >내용</td>
 			<td>
-			<textarea name="content" id="content" rows="15" cols="50" placeholder="내용을 입력하세요 "></textarea>
+			<textarea name="content"  class="customerNone" id="content" rows="15" cols="50" placeholder="내용을 입력하세요 "></textarea>
             <div class="alertMsg" id="contentDiv"></div>
 			</td>
 		</tr>
 		 <tr>
             <td colspan="2" align="center"> 
                	<input type="button" value="문의하기" id="customerWriteBtn">
-               	<input type="reset" value="다시작성">
+               	<input type="reset" value="다시작성" onclick="location.reload();">
 				<input type="button" value="뒤로가기" onclick="location.href='/index'">
             </td>
          </tr>
