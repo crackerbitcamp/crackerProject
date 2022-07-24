@@ -1,0 +1,9 @@
+어드민 멤버 SQL
+
+create table adminmember(
+adminname varchar2(30) not null,
+adminid varchar2(30) primary key,    
+adminpwd varchar2(30) not null,
+adminmail1 varchar2(20) not null,
+adminmail2 varchar2(20) not null,
+logtime date);

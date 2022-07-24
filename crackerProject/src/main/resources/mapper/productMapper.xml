@@ -20,7 +20,7 @@
 	
 	<select id="getProductMangeList" parameterType="java.util.Map" resultType="product">
 		select * from (select rownum rn, tt.*
-					from (select * from product order by seq)tt)
+					from (select * from product order by productseq)tt)
 					<!-- where rn &gt;=${startNum} and rn &lt;=${endNum} -->
 					  where rn between #{startNum} and #{endNum}
 	</select>

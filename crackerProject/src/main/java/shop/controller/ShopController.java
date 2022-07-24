@@ -1,11 +1,13 @@
 package shop.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class ShopController {
+	
 
 	@GetMapping("/shop/shopmain")
 	public ModelAndView shopmain() {
@@ -33,7 +35,12 @@ public class ShopController {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("MyPageInclude","/WEB-INF/shop/shoporder.jsp");
 		mav.setViewName("/shop/shopMypage");
-		
+		return mav;
+	}
+	@GetMapping("/shop/cartView")
+	public ModelAndView cartView() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/shop/cartView");
 		return mav;
 	}
 }

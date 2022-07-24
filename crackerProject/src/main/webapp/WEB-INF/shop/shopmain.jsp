@@ -8,7 +8,6 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel ="stylesheet" href="/index/css/indexCSS/indexmodal.css">
-
 <link href="/index/css/shopCSS/shopMain.css" rel="stylesheet"
 	type="text/css" />
 <style>

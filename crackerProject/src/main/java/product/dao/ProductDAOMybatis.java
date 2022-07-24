@@ -55,9 +55,10 @@ public class ProductDAOMybatis implements ProductDAO {
 	public List<ProductJoinDTO> productSearch(String keyword) {
 		return sqlSession.selectList("productSQL.productSearch",keyword);
 	}
+	
 	public ProductJoinDTO getProductBoardView(Map<String, String> map) {
 	
 		return sqlSession.selectOne("productSQL.getProductBoardView", map);
 	}
-	
+
 }

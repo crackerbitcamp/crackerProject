@@ -22,4 +22,5 @@ public interface ProductDAO {
 
 	public List<ProductJoinDTO> productSearch(String keyword);
 
+
 }

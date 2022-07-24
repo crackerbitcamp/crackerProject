@@ -153,4 +153,5 @@ public class ProductController {
 		
 		return productService.getProductBoardView(map);
 	}
+	
 }
