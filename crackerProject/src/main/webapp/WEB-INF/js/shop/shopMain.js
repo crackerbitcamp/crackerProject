@@ -46,7 +46,7 @@ $(function(){
 							+items.seq
 						
 					});//.productListA'+items.productSeq
-				});0
+				});
 			},
 			error:function(e){
 			}
