@@ -1,0 +1,30 @@
+--상품 SQL
+
+create table product(
+productseq number not null,
+productCode varchar2(40) primary key,
+productname varchar2(40) not null,
+productCategory varchar2(40) not null,
+mainPhoto varchar2(500),
+productOrigin varchar2(400) not null,
+productWeight varchar2(100) not null,
+productLife varchar2(300) not null,
+logtime date default SYSDATE);
+
+create sequence seq_product nocycle nocache;
+
+--상품게시글 SQL
+create table productBoard(
+seq number primary key,
+productCode varchar2(40) not null,
+productsubject varchar2(150) not null,
+productcontent varchar2(2000) not null,
+productprice number not null,
+productqty number not null,
+logtime date default SYSDATE);
+
+create sequence seq_productBoard nocycle nocache;
+
+--조인
+select * from product p ,productboard b
+where p.productCode = b.productCode;

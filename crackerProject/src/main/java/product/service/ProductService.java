@@ -19,4 +19,7 @@ public interface ProductService {
 
 	public ProductJoinDTO getProductBoardView(Map<String, String> map);
 
+
+	
+
 }

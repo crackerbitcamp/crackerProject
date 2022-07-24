@@ -47,4 +47,5 @@
 	<select id="getProductBoardView" resultType="productJoin" parameterType="java.util.Map">
 		select * from product p ,productboard b where p.productCode = b.productCode and seq=#{seq}
 	</select>
+	
 </mapper>

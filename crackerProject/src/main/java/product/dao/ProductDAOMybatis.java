@@ -56,5 +56,5 @@ public class ProductDAOMybatis implements ProductDAO {
 	
 		return sqlSession.selectOne("productSQL.getProductBoardView", map);
 	}
-	
+
 }
