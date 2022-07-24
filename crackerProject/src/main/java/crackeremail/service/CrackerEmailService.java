@@ -6,6 +6,6 @@ public interface CrackerEmailService {
 
 	public CrackeremailDTO emailSelect(String memberemail, String string);
 
-	public void memberemailInsert(String memberemail,String membernickname, String string);
+	public void memberemailInsert(String memberemail,String membernickname,String membername, String string);
 
 }

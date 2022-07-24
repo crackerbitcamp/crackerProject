@@ -26,11 +26,12 @@ public class CrackerEmailDAOImpl implements CrackerEmailDAO {
 	}
 
 	@Override
-	public void memberemailInsert(String memberemail,String membernickname, String string) {
+	public void memberemailInsert(String memberemail, String membernickname, String membername, String string) {
 		Map<String,String>map = new HashMap<String,String>();
 		map.put("email", memberemail);
 		map.put("category", string);
 		map.put("nickname", membernickname);
+		map.put("name", membername);
 		sqlSession.insert("emailSQL.memberemailInsert",map);
 	}
 }
