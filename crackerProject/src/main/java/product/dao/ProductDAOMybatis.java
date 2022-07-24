@@ -45,7 +45,7 @@ public class ProductDAOMybatis implements ProductDAO {
 		
 		List<ProductJoinDTO>list = new ArrayList<ProductJoinDTO>();
 		list = sqlSession.selectList("productSQL.getProductBoardList",map);
-		
+		System.out.println(list);
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("list",list);
 

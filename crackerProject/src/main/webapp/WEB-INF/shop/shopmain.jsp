@@ -291,19 +291,6 @@ header{
 .main .article.visual-article{
 	height : 400px;
 }
-article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section{
-	display: block;
-}
-
-div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, fieldset, input, textarea, p, blockquote, th, td, legend, img, button{
-	margin :0;
-	padding: 0;
-	font-family : "Noto Sans KR", sans-serif;
-	font-size : 12px;
-	font-weight : nomal;
-	letter-spacing : -0.4px;
-	color : #333;
-}
 
 ol, ul, li{
 	list-style : none;

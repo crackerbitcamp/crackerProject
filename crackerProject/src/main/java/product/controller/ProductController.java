@@ -133,7 +133,7 @@ public class ProductController {
 	@ResponseBody
 	@PostMapping(value="getProductBoardList")
 	public Map<String,Object> getProductBoardList(@RequestParam Map<String,String> map) {
-		//System.out.println(map);
+		System.out.println(map);
 		return productService.getProductBoardList(map);
 	}
 	

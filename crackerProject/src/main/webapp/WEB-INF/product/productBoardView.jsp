@@ -17,6 +17,7 @@
 	font-size : 16px;
 	line-height : 18px;
 	color: #333;
+	margin : 16px;
 }
 .shopcontent dl{
  clear: both;
@@ -28,6 +29,7 @@
 	min-height : 18px;
 	line-height : 18px;
 	font-size : 13px;
+	margin: 16px;
 }
 .shopcontent dl>dd b{
 	margin 0 3px 0 0;
@@ -41,7 +43,7 @@
 	font-size : 18px;
 	font-family : "Tahoma";
 	text-align : center;
-	border: 2px solid;
+	border: 1px solid;
 	padding : 0;
 	
 }
@@ -56,8 +58,8 @@ background: none;
 	left : 0;
 	right: 0;
 	width: 40px;
-	height: 40px;
-	border-right : 1px solid #dbdbdb;
+	height: 38px;
+	border : 1px solid;
 	cursor: pointer;
 }
 
@@ -65,8 +67,8 @@ background: none;
 	left : 0;
 	right: 0;
 	width: 40px;
-	height: 40px;
-	border-left : 1px solid #dbdbdb;
+	height: 38px;
+	border : 1px solid;
 	cursor: pointer;
 }
 
@@ -108,13 +110,7 @@ background: none;
    width: 800px;
 	
 }
-.menubar ul:after{
 
-   content: '';
-	display: block;
-	clear: both; /* flex 써도 됨 */
-
-}
 </style>
 <head>
 <meta charset="UTF-8">
@@ -178,7 +174,7 @@ background: none;
 				<li><img src = "/index/image/home/china.jpeg" style="width: 65px; height: 65px;"></li>
 			</ul>
 			<div class = "contentBtn" style=" display: inline-block; margin-top: 20px;">
-				<button type = "button" style="width: 247px; height: 56px; margin-right: 10px; border: 1px solid #666; font-size: 16px; line-height: 54px; color: #333; font-weight: bold; cursor: pointer;">장바구니</button>
+				<button type = "button" style="width: 247px; height: 56px; margin-right: 10px; border: 1px solid #666; font-size: 16px; line-height: 54px; color: #333; font-weight: bold; cursor: pointer; display: initial; float: left;">장바구니</button>
 				<button type = "button" style="width: 247px; height: 56px; background: #fe7600; border: 1px solid #fe7600;  font-size: 16px; line-height: 54px; color: #fff; font-weight: bold; cursor: pointer;">바로구매</button>
 			</div>
 		</div>
