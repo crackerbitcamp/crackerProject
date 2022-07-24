@@ -370,7 +370,7 @@ a{
 			<div class="inner-box">
 			
 				<h1 class="logo">
-					<img src ="/index/image/home/LOGO2.jpeg" style="width: 184px; height: 50px;">
+					<a href="/index/shop/shopmain"><img src ="/index/image/home/LOGO2.jpeg" style="width: 184px; height: 50px;"></a>
 				</h1>
 				<div class="search-wrap">
 					<div class="search-form">
@@ -435,12 +435,11 @@ a{
 		<div class="gnb-sub-wrap">
 			<div class="inner-box">
 				<ul class= "mnu-type">
-					<li><a>test1</a></li>
-					<li><a>test2</a></li>
-					<li><a>test3</a></li>
-					<li><a>test4</a></li>
-					<li><a>test5</a></li>
-					<li><a>test6</a></li>
+					<li><a href="/index/product/productBoardList?category=밀키트">밀키트</a></li>
+					<li><a href="/index/product/productBoardList?category=냉동식품">냉동식품</a></li>
+					<li><a href="/index/product/productBoardList?category=생선">생선</a></li>
+					<li><a href="/index/product/productBoardList?category=고기">고기</a></li>
+
 				</ul>
 			</div>
 		</div>

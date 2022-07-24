@@ -48,7 +48,7 @@ public class ProductDAOMybatis implements ProductDAO {
 		
 		Map<String, Object> sendMap = new HashMap<String, Object>();
 		sendMap.put("list",list);
-		System.out.println(sendMap);
+
 		return sendMap;
 	}
 	@Override
