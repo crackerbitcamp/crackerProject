@@ -51,6 +51,7 @@ public class ProductDAOMybatis implements ProductDAO {
 
 		return sendMap;
 	}
+	
 	@Override
 	public List<ProductJoinDTO> productSearch(String keyword) {
 		return sqlSession.selectList("productSQL.productSearch",keyword);
