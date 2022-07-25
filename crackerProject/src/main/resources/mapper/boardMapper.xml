@@ -29,6 +29,22 @@
 					where rn >=${startNum} and rn <=${endNum}
 		]]><!-- SQL 문장 있는 그대로 -->
 	</select>
+	
+	<!-- 목록인덱스 -->
+	<select id="getBoardListIndex" parameterType ="java.util.Map" resultType="board">
+		<!--select * from (select rownum rn, tt.*
+					from (select * from board order by ref desc, step asc)tt)
+					where rn &gt;=${startNum} and rn &lt;=${endNum}
+					  where rn between #{startNum} and #{endNum}--> 
+					
+		<![CDATA[
+		select * from (select rownum rn, tt.*
+		from (select * from board order by ref desc, step asc)tt)
+					where rn >=${startNum} and rn <=${endNum}
+		]]><!-- SQL 문장 있는 그대로 -->
+	</select>
+
+	
 	<!-- 글보기 -->
 	<select id="getBoardView" parameterType="Int" resultType="board">
 		select * from board where seq = #{seq}

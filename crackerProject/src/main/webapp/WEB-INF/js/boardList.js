@@ -7,29 +7,34 @@ $(document).ready(function(){
 		success : function(data){
 			$.each(data.list, function(index, items){
 //					alert(JSON.stringify(data));
-				$('<div/>').addClass('listMenu')
-					.append($('<div/>',{
-					align: 'center',
-					text: items.goodcount,
-					class: 'goodCount'
-				})).append($('<div/>',{
-					class: 'subjcet'
-					}).append($('<a/>',{
-						href:'#',
-						text: items.subject,
-						class: 'subjectA subjectA_'+items.seq
-					}))
-				).append($('<div/>',{
-					class: 'logtime',
-					align: 'center',
-					text: items.logtime.toLocaleString()
-				})).append($('<div/>',{
-					class: 'nickName',
-					align: 'center',
-					text: items.nickname
-				})).appendTo($('#boardListDiv'));
 				
-
+				$('<div/>').addClass('listMenu')
+				.append($('<div/>',{
+				align: 'center',
+				text: items.category,
+				class: 'category'
+			})).append($('<div/>',{
+				class: 'subjcet'
+				}).append($('<a/>',{
+					href:'#',
+					text: items.subject,
+					class: 'subjectA subjectA_'+items.seq
+			}))).append($('<div/>',{
+				class: 'nickName',
+				align: 'center',
+				text: items.nickname
+			})).append($('<div/>',{
+				class: 'logtime',
+				align: 'center',
+				text: items.logtime.toLocaleString()
+			})).append($('<div/>',{
+				align: 'center',
+				text: items.goodcount,
+				class: 'goodCount'
+			})).appendTo($('#boardListDiv'));
+				
+				
+				
 				$('.subjectA_'+items.seq).click(function(){
 					if(data.memLogin == null){
 						alert('먼저 로그인하세요')

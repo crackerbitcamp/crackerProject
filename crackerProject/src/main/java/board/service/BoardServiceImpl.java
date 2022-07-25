@@ -37,18 +37,43 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.boardWrite(map);
 	}
 	@Override
-	public Map<String,Object> getBoardList(String pg) {
-		int endNum = Integer.parseInt(pg)*5;
+	public Map<String,Object> getBoardList(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg"))*5;
 		int startNum = endNum - 4;
 		//DB 1페이지당 5개
-		Map<String, Integer> map = new HashMap<String, Integer>();
-		map.put("endNum", endNum);
-		map.put("startNum", startNum);
+		
+		map.put("endNum", endNum+"");
+		map.put("startNum", startNum+"");
+		
 		List<BoardDTO> list = boardDAO.getBoardList(map);
 		//세션
 		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
-		boardPaging = this.getBoardPaging(pg);
+		boardPaging = this.getBoardPaging(map);
+		//새로고침 방지
+		if(session.getAttribute("memLogin") != null) {
+			session.setAttribute("memHit", 0);
+		}
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("memLogin",memLogin);
+		sendMap.put("list", list);
+		sendMap.put("boardPaging", boardPaging);
+		return sendMap;
+	}
+	
+	@Override
+	public Map<String, Object> getBoardListIndex(Map<String, String> map) {
+		int endNum = Integer.parseInt(map.get("pg"))*5;
+		int startNum = endNum - 4;
+		//DB 1페이지당 5개
+		map.put("endNum", endNum+"");
+		map.put("startNum", startNum+"");
+		List<BoardDTO> list = boardDAO.getBoardListIndex(map);
+		//세션
+		String memLogin= (String)session.getAttribute("memLogin");
+		//페이징 처리
+		boardPaging = this.getBoardPaging(map);
 		//새로고침 방지
 		if(session.getAttribute("memLogin") != null) {
 			session.setAttribute("memHit", 0);
@@ -63,10 +88,10 @@ public class BoardServiceImpl implements BoardService {
 	
 	
 	@Override
-	public BoardPaging getBoardPaging(String pg) {
+	public BoardPaging getBoardPaging(Map<String, String> map) {
 		int totalA = boardDAO.getTotalA();
 		
-		boardPaging.setCurrenPage(Integer.parseInt(pg));
+		boardPaging.setCurrenPage(Integer.parseInt(map.get("pg")));
 		boardPaging.setPageBlock(3);
 		boardPaging.setPageSize(5);
 		boardPaging.setTotalA(totalA);
@@ -144,5 +169,7 @@ public class BoardServiceImpl implements BoardService {
 		boardDAO.boardDelete(seq);
 		
 	}
+
+	
 
 }

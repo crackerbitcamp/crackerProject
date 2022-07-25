@@ -9,7 +9,7 @@ public interface BoardDAO {
 
 	public void boardWrite(Map<String, String> map);
 
-	public List<BoardDTO> getBoardList(Map<String, Integer> map);
+	public List<BoardDTO> getBoardList(Map<String, String> map);
 
 	public int getTotalA();
 
@@ -29,6 +29,9 @@ public interface BoardDAO {
 	public void boardDelete(int seq);
 
 	public List<BoardDTO> getAllBoardList(Map<String, Integer> map);
+
+	public List<BoardDTO> getBoardListIndex(Map<String, String> map);
+
 
 
 

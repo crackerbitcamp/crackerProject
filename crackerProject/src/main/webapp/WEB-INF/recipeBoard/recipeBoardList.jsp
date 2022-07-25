@@ -32,8 +32,8 @@
 
 	padding: 20px;
 	position : relative;
-	width: 1655px;
-	background : #f3f3f3;	
+	width: 1400px;
+	background : #fff;	
 	height: 1800px;
 
 	
@@ -72,13 +72,12 @@
 	text-align : left;
 	font-size : 1.5em;
 	color : #6e6e6e;
-	margin-bottom: 40px;
+	margin-bottom: 20px;
 }
 
 #recipenickNamefont {
-	text-align : left;
-	margin-left : 250px;
-	margin-bottom : 10px;
+	text-align : right;
+	margin-bottom : 25px;
 }
 
 #recipesubjectfont {
@@ -113,7 +112,7 @@
 
 #recipeBoardPagingDiv {
 	text-align : center;
-	background : #f3f3f3;
+	background : #fff;
 	cursor:pointer;
 	margin-bottom : 100px;
 	font-size : 1.5em;
@@ -140,14 +139,16 @@
 .inner {
 	font-family: 'Noto Sans KR', sans-serif;
 	padding: 48px 0px 48px 0px ;
-	width: 1695px;
+	width: 100%;
+	background-color: #f3f3f3;
 }
-.title {
-	margin-top: 30px;
+.title2 {
+	margin-top: 50px;
 	text-align : center;
+	
 }
 
-.title2 {
+.title3 {
 	color: #787878;
 	text-align : center;
 	margin-bottom : 20px;
@@ -158,8 +159,8 @@
 <body>
 <header class="recipeBoardTop">
 	<div class="inner">
-		<h1 class="title">레시피가 궁금해?</h1>
-		<h2 class="title2">"맛있다" 연발 하는 레시피 대공개! :)</h2>
+		<h1 class="title2">레시피가 궁금해?</h1>
+		<h2 class="title3">"맛있다" 연발 하는 레시피 대공개! :)</h2>
 	</div>
 </header>
 
