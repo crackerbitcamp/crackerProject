@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="memberSQL">
+	<insert id="memberWrite" parameterType="java.util.Map">
+		insert into crackermember values(
+								seq_crakermember.nextval,
+								#{memberemail},
+								#{membername},
+								#{memberpwd},
+								#{membertel1},
+								#{membertel2},
+								#{membertel3},
+								#{membernickname},
+								'',
+								'',
+								'',
+								sysdate)
+	</insert>
+	<select id="memberLoginCheck" parameterType="java.util.Map" resultType="member">
+		select * from crackermember where memberemail = #{memberemail} and memberpwd = #{memberpwd}
+	</select>
+	<select id="memberfindIdcheck" parameterType="java.util.Map" resultType="member">
+		select * from crackermember where membername = #{membername} and membertel1 = ${membertel1} and membertel2 = ${membertel2} and membertel3 = ${membertel3}
+	</select>
+	
+	<select id="getMember" parameterType="String" resultType="member">
+		select * from crackermember where memberemail = #{memberemail}
+	</select>
+	<select id="memberFindPwd" parameterType="java.util.Map" resultType="member">
+		select * from crackermember where memberemail = #{memberemail} and membername = #{membername}
+	</select>
+	<update id="memberPwdUpdate" parameterType="java.util.Map">
+		update crackermember set memberpwd = #{authString} where memberemail = #{memberemail}
+	</update>
+	<update id="memberUpdate" parameterType="member">
+		update crackermember set memberpwd = #{memberpwd} , 
+			    memberemail = #{memberemail} , membertel1 = #{membertel1}, membertel2 = #{membertel2}, membertel3 = #{membertel3}
+			    ,membernickname = #{membernickname} where membername = #{membername}
+	</update>
+	
+	<!-- 하루당 사이트 가입자수 -->
+  	<select id="loginMember" resultType="int" parameterType="int">
+  		select count(*) from crackermember where (TO_DATE(SYSDATE) - TO_DATE(logtime)) &lt; #{i} 
+  	</select>
+  	
+  	<select id="dayLoginMember" resultType="int" parameterType="int">
+  		select count(*) from crackermember 
+  	</select>
+
+	
+	<select id="emailDB" parameterType="String" resultType="member">
+		select * from crackermember where memberemail = #{email}
+	</select>
+	
+	
+	<delete id="memberDelete" parameterType="String">
+			<!-- 삭제 -->
+			delete crackermember where memberemail = #{memberemail}
+
+	</delete>
+
+</mapper>

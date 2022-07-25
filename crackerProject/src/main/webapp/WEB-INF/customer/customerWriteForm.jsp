@@ -36,15 +36,30 @@ border:0 solid black;
 <body>
 <h2>문의하기</h2>
 <form name="customerWriteForm" id="customerWriteForm">
+
 	<table id="customerTable" border="1" cellspacing="0" cellpadding="5">
-		<tr>
-			<td class="customerData" >이름 </td>
-			<td ><input type="text" class="customerNone" name="name" id="name" value="${name }" readonly></td>
-		</tr>
-		<tr>
-			<td class="customerData" >이메일입력</td>
-			<td> <input type="text" class="customerNone" name="email" id="email" readonly> </td>
-		</tr>
+		<c:if test="${memLogin!=null}">
+			<c:if test="${memEmail != null }">
+			<tr>
+				<td class="customerData" >이름 </td>
+				<td ><input type="text" class="customerNone" name="name" id="name" value="${name }" readonly></td>
+			</tr>
+			<tr>
+				<td class="customerData" >이메일입력</td>
+				<td> <input type="text" class="customerNone" name="email" id="email" value="${email }" readonly> </td>
+			</tr>
+			</c:if>
+			<c:if test="${kakaoEmail != null }">
+			<tr>
+				<td class="customerData" >이름 </td>
+				<td ><input type="text" class="customerNone" name="name" id="name" value="${kakaoNickname }" readonly></td>
+			</tr>
+			<tr>
+				<td class="customerData" >이메일입력</td>
+				<td> <input type="text" class="customerNone" name="email" id="email" value="${kakaoEmail }" readonly> </td>
+			</tr>
+			</c:if>
+		</c:if>	
 		<tr>
 			<td class="customerData" >제목</td>
 			<td><input type = "text" class="customerNone" name="subject" id = "subject" placeholder="제목을 입력하세요">

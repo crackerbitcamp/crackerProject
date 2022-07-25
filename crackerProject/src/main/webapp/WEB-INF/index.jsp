@@ -542,10 +542,12 @@ body{
 					<c:if test="${naverEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+						<button class="userHistoryBtnClass" id="customerWriteForm" onclick="location.href='/index/customer/customerWriteForm'" style="cursor: pointer;">문의 하기</button>
 					</c:if>
 					<c:if test="${kakaoEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+						<button class="userHistoryBtnClass" id="customerWriteForm" onclick="location.href='/index/customer/customerWriteForm'" style="cursor: pointer;">문의 하기</button>
 					</c:if>
 				<div>
 				</div>
