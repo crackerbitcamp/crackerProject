@@ -33,10 +33,14 @@
 			<c:if test="${sionAdminId != null }">
 			<ul>
 				<li><img src="../image/person.svg"><a href="/index/admin/adminMemberList" id="adminList">사용자 관리</a> </li>
-				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
+				<li class="boardMenuTop"><img src="../image/gear.svg"><a href="#" id="adminList">게시판 관리</a>
+					<ul class="boardMenuTopUl">
+						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminBoardList" id="adminList">자유게시판</a></li>
+						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminRecipeBoardList" id="adminList">레시피게시판</a></li>
+					
+					</ul>
+				</li>
 				<li><img src="../image/person.svg"><a href="/index/product/productMangeList" id="adminList">상품관리</a></li>
-				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
-				<li><img src="../image/person.svg"><a href="#" id="adminList">사용자 관리</a></li>
 				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
 			
 			</ul>
@@ -55,6 +59,22 @@
 		location.href="/index/admin/adminLoginForm";
 
 	});
+	
+$(function(){
+	var count = 1;
+	$('.boardMenu').hide();
+	
+	$('.boardMenuTop').click(function(){
+		if(count%2 == 0){
+			$('.boardMenu').hide();
+			count++;
+		}else{
+			$('.boardMenu').show();
+			count++;
+		}
+		
+	});
+});
 </script>
 </body>
 </html>

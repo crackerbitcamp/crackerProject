@@ -24,6 +24,7 @@ public interface AdminService {
 
 	public Map<String, Object> adminrecipeSearch(Map<String, String> map);
 
+
 	
 
 
