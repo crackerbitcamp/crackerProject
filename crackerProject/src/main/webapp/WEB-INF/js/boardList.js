@@ -1,12 +1,19 @@
 $(document).ready(function(){
+	
+	var boardUrl;
+	if($('#keyword').val()==null){
+		boardUrl = '/index/board/getBoardList';
+	}else{
+		boardUrl = '/index/board/boardSearch';
+	}
 	$.ajax({
 		type : 'post',
-		url : '/index/board/getBoardList',
-		data : 'pg=' + $('#pg').val(),
+		url : boardUrl,
+		data : {'pg' : $('#pg').val(),
+				'keyword' : $('#keyword').val()},
 		dataType : 'json',
 		success : function(data){
 			$.each(data.list, function(index, items){
-//					alert(JSON.stringify(data));
 				
 				$('<div/>').addClass('listMenu')
 				.append($('<div/>',{
@@ -77,7 +84,7 @@ $(document).ready(function(){
 //검색 
 
 
-	
+/*	
 $('#boardSearchBtn').click(function(){
 	if($('#keyword').val()==''){
 		 location.href = "boardList"
@@ -163,7 +170,7 @@ $('#boardSearchBtn').click(function(){
 	
 	
 });//click
-
+*/
 
 
 

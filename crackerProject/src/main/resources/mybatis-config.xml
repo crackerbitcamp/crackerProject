@@ -14,5 +14,6 @@
 		<typeAlias type="recipeBoard.bean.RecipeBoardDTO" alias="recipeBoard"/>
 		<typeAlias type="crackeremail.bean.CrackeremailDTO" alias="email"/>
 		<typeAlias type="product.bean.ProductDTO" alias="product"/>
+		<typeAlias type="product.bean.ProductJoinDTO" alias="productJoin"/>
 	</typeAliases>
 </configuration>

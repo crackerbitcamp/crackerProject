@@ -127,8 +127,10 @@ public class BoardController {
 
 	// 리스트
 	@GetMapping(value = "boardList")
-	public ModelAndView boardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+	public ModelAndView boardList(@RequestParam(required = false, defaultValue = "1") String pg,
+									@RequestParam Map<String, String> map) {
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("keyword",map.get("keyword"));
 		mav.addObject("pg", pg);
 		mav.addObject("menu", "/WEB-INF/main/menu.jsp");
 		mav.addObject("nav", "/WEB-INF/main/nav.jsp");
@@ -254,7 +256,11 @@ public class BoardController {
 
 	@ResponseBody
 	@PostMapping(value = "boardSearch")
-	public Map<String, Object> boardSearch(@RequestParam Map<String, String> map) {
+	public Map<String, Object> boardSearch(@RequestParam Map<String, String> map
+											,@RequestParam(required = false,defaultValue="1" )String pg
+											) {
+		map.put("pg", pg);
+		System.out.println(map);
 		return boardService.boardSearch(map);
 	}
 

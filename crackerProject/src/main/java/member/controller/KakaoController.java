@@ -65,7 +65,7 @@ public class KakaoController {
         CrackeremailDTO crackeremailDTO = crackerEmailService.emailSelect(email,"kakao");
 	      System.out.println("있나 없나 확인 ::" + crackeremailDTO);
 	     if(crackeremailDTO == null) {
-	    	 crackerEmailService.memberemailInsert(email,nickname,"kakao");
+	    	 crackerEmailService.memberemailInsert(email,nickname,"kakao회원은 직접 입력해주세요.","kakao");
 	     }
         
         

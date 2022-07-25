@@ -16,9 +16,10 @@ public class CrackerEmailServiceImpl implements CrackerEmailService {
 		CrackeremailDTO crackeremailDTO = crackerEmailDAO.emailSelect(memberemail,string);
 		return crackeremailDTO;
 	}
+
 	@Override
-	public void memberemailInsert(String memberemail,String membernickname, String string) {
-		crackerEmailDAO.memberemailInsert(memberemail,membernickname,string);
+	public void memberemailInsert(String memberemail, String membernickname, String membername, String string) {
+		crackerEmailDAO.memberemailInsert(memberemail,membernickname,membername,string);
 		
 	}
 

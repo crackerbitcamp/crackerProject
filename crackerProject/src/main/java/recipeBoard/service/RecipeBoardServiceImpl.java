@@ -38,8 +38,10 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		
 		map.put("endNum", endNum+"");
 		map.put("startNum", startNum+"");
+		System.out.println(map);
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardList(map);
 		//세션
+		System.out.println(list);
 		String memLogin= (String)session.getAttribute("memLogin");
 		//페이징 처리
 		recipeBoardPaging = this.recipeBoardPaging(map);
@@ -76,6 +78,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		map.put("startNum", startNum+"");
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardListIndex(map);
 		//세션
+		
 		String memLogin= (String)session.getAttribute("memLogin");
 		//새로고침 방지
 		if(session.getAttribute("memLogin") != null) {
@@ -91,7 +94,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	}
 
 	private RecipeBoardPaging recipeBoardPaging(Map<String, String> map) {
-		int totalA = recipeBoardDAO.getTotalA();
+		int totalA = recipeBoardDAO.getTotalA(map);
 		
 		recipeBoardPaging.setCurrenPage(Integer.parseInt(map.get("pg")));
 		recipeBoardPaging.setPageBlock(3);
@@ -99,6 +102,33 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		recipeBoardPaging.setTotalA(totalA);
 		recipeBoardPaging.makePagingHTML();
 		return recipeBoardPaging;
+	}
+
+	@Override
+	public Map<String, Object> recipeBoardSearch(Map<String, String> map) {
+		//1페이지당 5개
+				String memLogin= (String)session.getAttribute("memLogin");
+				int endNum=Integer.parseInt(map.get("pg"))*5;
+				int startNum=endNum-4;
+				
+				map.put("startNum",startNum+"");
+				map.put("endNum",endNum+"");
+				
+				List<BoardDTO> list = recipeBoardDAO.getRecipeBoardSearch(map);
+				//페이징 처리
+				int totalA = recipeBoardDAO.getTotalSearchA(map);
+				recipeBoardPaging.setCurrenPage(Integer.parseInt(map.get("pg")));
+				recipeBoardPaging.setPageBlock(3);
+				recipeBoardPaging.setPageSize(5);
+				recipeBoardPaging.setTotalA(totalA);
+				recipeBoardPaging.makePagingHTML();
+				
+				Map<String,Object> sendMap = new HashMap<String,Object>();
+				sendMap.put("list",list);
+				sendMap.put("recipeBoardPaging",recipeBoardPaging);
+				sendMap.put("memLogin",memLogin);
+				
+				return sendMap;
 	}
 
 }

@@ -187,12 +187,19 @@ function recipeBoardPaging(pg2) {
 
 <script type="text/javascript">
 	$(function() {
+		var recipeBoardUrl;
+		if($('#keyword').val()==null){
+			recipeBoardUrl = '/index/recipeBoard/getRecipeBoardList';
+		}else{
+			recipeBoardUrl = '/index/recipeBoard/recipeBoardSearch';
+		}
 		var images = $('#content img:first-child').attr('src');
 		$.ajax({
 			type : 'post',
-			url : '/index/recipeBoard/getRecipeBoardList',
+			url : recipeBoardUrl,
 			data : {'pg' : $('#pg').val(),
-					'category' : $('#category').val()
+					'category' : $('#category').val(),
+					'keyword':$('#keyword').val()
 			},
 			dataType : 'json',
 			success : function(data) {

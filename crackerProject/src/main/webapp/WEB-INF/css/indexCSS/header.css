@@ -8,6 +8,7 @@
 #header_menu_ul{
 	display: flex;
 	list-style: none;
+	padding: 0;
 	
 }
 
@@ -19,6 +20,7 @@
 #header_login_ul{
 	display: flex;
 	list-style: none;
+	padding : 0;
 }
 
 #header_ul{

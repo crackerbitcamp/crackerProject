@@ -1,0 +1,37 @@
+@charset "UTF-8";
+.productForm li{
+	float: left;
+	padding: 10px;
+	border: 1px solid #999999;
+	margin: 13px;
+	width: 300px;
+}
+.productForm ul:after{
+	content: '';
+	display: block;
+	clear: both; /* flex 써도 됨 */
+}
+.productForm li div{
+	font-size: 18px;
+	text-align: center;
+	padding: 5px;
+	border-bottom: 1px solid #dddddd;
+}
+.productForm li div img{
+	width: 290px;
+	height: 290px;
+}
+.productForm{
+	position: absolute;
+	left:50%;
+	width: 1400px;
+	height: auto;
+	margin-left: -700px;
+}
+.productForm .productFormTitle{
+	border-bottom: 1px solid #dddddd;
+	border-top: 1px solid #dddddd;
+	text-align: center;
+	font-size: 50px;
+
+}

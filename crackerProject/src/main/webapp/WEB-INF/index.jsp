@@ -311,11 +311,20 @@ body{
 		<div id="header_menuDiv">
 		
 			<img alt="" src="/index/image/home/cracker.jpeg" id="headerLogo" style=" margin-left : 20px; ">
+
+
 			<div id="header_ul">
+				
 				<ul id="header_menu_ul">
+					<li class="header_menu_item"><input type="hidden" value="${keyword }" id="keyword" ></li>
 					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>SHOP</span></a></li>
 					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>FREE</span></a></li>
 					<li class="header_menu_item"><a href="/index/recipeBoard/recipeBoardList" class="menu_item_a"><span>RECIPE</span></a></li>
+
+					
+					
+					
+
 				</ul>
 				
 				<ul id="header_login_ul">
@@ -333,15 +342,20 @@ body{
 			<header id="header">
 			
 				<!-- 헤더 상위 메뉴바 아래 -->
+
 				<div id="searchFormOutDiv">
 					<p class="title">다양한 레시피, 맛 보장 레시피!</p>
 					<h1 class="title">CRACKER</h1>
 					<div id = "searchForm">
 						<img alt="돋보기" src="/index/image/home/search.svg" >
+						<select id="boardSearchOption">
+							<option value="board">자유게시판</option>
+							<option value="recepiBoard">레시피</option>
+						</select>
 						<input type="text" id="boardSearch" placeholder="음식명">
 						<input type="submit" id="boardSearchBtn" value="검색" onclick="#">
 					</div>
-				</div>
+
 			</header>
 	
 
@@ -528,16 +542,16 @@ body{
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="location.href='/index/member/memberLogout'" style="cursor: pointer;">로그아웃</button>
 						<button class="userHistoryBtnClass" id="UpdatePasswordCheckForm" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'" style="cursor: pointer;">회원 정보 수정</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+						<button class="userHistoryBtnClass" id="customerWriteForm" onclick="location.href='/index/customer/customerWriteForm'" style="cursor: pointer;">문의 하기</button>
 					</c:if>
 					<c:if test="${naverEmail != null }">
-										<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
+						<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
 					</c:if>
 					<c:if test="${kakaoEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
 					</c:if>
-				
 				<div>
 				</div>
 			</div>
@@ -547,12 +561,15 @@ body{
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="/index/js/index.js"></script>
+<script type="text/javascript" src="/index/js/index/searchBoard.js"></script>
 <script type="text/javascript">
 $('#recipeBoardWriteFormBtn').click(function(){
 	
 	location.href="/index/recipeBoard/recipeBoardWriteForm";
 
 });
+
+
 </script>
 
 <script type="text/javascript" src="/index/js/member.js"></script>

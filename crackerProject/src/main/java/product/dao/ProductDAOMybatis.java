@@ -1,5 +1,7 @@
 package product.dao;
 
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +11,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import product.bean.ProductDTO;
+import product.bean.ProductJoinDTO;
 
 @Transactional
 @Repository
@@ -33,9 +36,29 @@ public class ProductDAOMybatis implements ProductDAO {
 	@Override
 	public void productBoardWirite(Map<String,Object> map) {
 		
-		System.out.println(map);
+
 		sqlSession.insert("productSQL.productBoardWrite" , map);
 		
 	}
+	@Override
+	public Map<String, Object> getProductBoardList(Map<String,String> map) {
+		
+		List<ProductJoinDTO>list = new ArrayList<ProductJoinDTO>();
+		list = sqlSession.selectList("productSQL.getProductBoardList",map);
+		System.out.println(list);
+		Map<String, Object> sendMap = new HashMap<String, Object>();
+		sendMap.put("list",list);
+
+		return sendMap;
+	}
+	@Override
+	public List<ProductJoinDTO> productSearch(String keyword) {
+		return sqlSession.selectList("productSQL.productSearch",keyword);
+	}
 	
+	public ProductJoinDTO getProductBoardView(Map<String, String> map) {
+	
+		return sqlSession.selectOne("productSQL.getProductBoardView", map);
+	}
+
 }

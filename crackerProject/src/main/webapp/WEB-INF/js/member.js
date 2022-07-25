@@ -477,6 +477,7 @@ $(function(){
 	
 }); 
 
+
 $('#memberDelete_btn').click(function(){
 	if ($('#chk_info').is(':checked')) {
 		swal({

@@ -2,7 +2,6 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<script src="https://kit.fontawesome.com/d84eab0825.js" crossorigin="anonymous"></script>
 <style>
 .content{
 	width: 100%;
@@ -171,8 +170,8 @@ background: none;
 				<li><img src = "/index/image/home/china.jpeg" style="width: 65px; height: 65px;"></li>
 			</ul>
 			<div class = "contentBtn" style=" display: inline-block; margin-top: 20px;">
-				<button type = "button" style="width: 247px; height: 56px; margin-right: 10px; border: 1px solid #666; font-size: 16px; line-height: 54px; color: #333; font-weight: bold; cursor: pointer;">장바구니</button>
-				<button type = "button" style="width: 247px; height: 56px; background: #fe7600; border: 1px solid #fe7600;  font-size: 16px; line-height: 54px; color: #fff; font-weight: bold; cursor: pointer;">바로구매</button>
+				<button type = "button" style="width: 240px; height: 56px; margin-right: 10px; border: 1px solid #666; font-size: 16px; line-height: 54px; color: #333; font-weight: bold; cursor: pointer;">장바구니</button>
+				<button type = "button" style="width: 240px; height: 56px; background: #fe7600; border: 1px solid #fe7600;  font-size: 16px; line-height: 54px; color: #fff; font-weight: bold; cursor: pointer;">바로구매</button>
 			</div>
 		</div>
 	</div>

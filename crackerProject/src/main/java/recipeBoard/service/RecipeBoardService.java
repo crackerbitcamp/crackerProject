@@ -14,4 +14,6 @@ public interface RecipeBoardService {
 
 	public Map<String, Object> getRecipeBoardListIndex(Map<String, String> map);
 
+	public Map<String, Object> recipeBoardSearch(Map<String, String> map);
+
 }

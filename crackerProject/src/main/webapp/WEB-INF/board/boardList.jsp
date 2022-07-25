@@ -36,12 +36,14 @@
    width: 10%;
    margin: 10px;
    color: #98a0a7;
+
 }
 
 #boardListDiv .category{
 	float: left;
 	width: 10%;
 	margin: 10px;
+
 }
 
 #boardListDiv .subjcet{
@@ -50,8 +52,9 @@
    text-align: center;
    margin: 10px;
    width: 33%;
+   margin: 10px;
    white-space : nowrap;
-    overflow: hidden;
+   overflow: hidden;
    text-overflow: ellipsis;
 }
 
@@ -59,7 +62,7 @@
 /*    border: 1px red solid; */
    float: left;
    margin: 10px;
-   width: 15%;
+   width: 10%;
    color: #98a0a7;
    
 }
@@ -112,6 +115,11 @@
 	color: #787878;
 	text-align : center;
 	margin-bottom : 20px;
+   height:6%;
+   width:95%;
+   margin: auto;
+   border-bottom:1px solid #ebeef1;
+
 }
 </style>
 
@@ -135,6 +143,7 @@
     <div id="boardListWriteBtn"><input type ="button" value="글쓰기"  onclick="location.href='/index/board/boardWriteForm'">
          <div id="boardPagingDiv"></div>
 	</div>
+
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
 </script>
