@@ -49,6 +49,16 @@ border:0 solid black;
 				<td> <input type="text" class="customerNone" name="email" id="email" value="${email }" readonly> </td>
 			</tr>
 			</c:if>
+			<c:if test="${naverEmail != null }">
+			<tr>
+				<td class="customerData" >이름 </td>
+				<td ><input type="text" class="customerNone" name="name" id="name" value="${naverName }" readonly></td>
+			</tr>
+			<tr>
+				<td class="customerData" >이메일입력</td>
+				<td> <input type="text" class="customerNone" name="email" id="email" value="${naverEmail }" readonly> </td>
+			</tr>
+			</c:if>
 			<c:if test="${kakaoEmail != null }">
 			<tr>
 				<td class="customerData" >이름 </td>

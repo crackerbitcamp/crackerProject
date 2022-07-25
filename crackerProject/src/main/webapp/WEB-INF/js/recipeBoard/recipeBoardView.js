@@ -1,3 +1,46 @@
+$(function() {
+	$.ajax({
+		type : "post",
+		url : "/index/good/goodCount",
+		dataType : "text",
+		data : 'seq=' + $('#seq').val(),
+		error : function() {
+			alert("통신 에러");
+
+		},
+		success : function(data) {
+			$('#goodcount').html(data);
+		}
+	});
+});
+
+$('#goodBtn').click(function() {
+	$.ajax({
+		type : "post",
+		url : "/index/good/updateGood",
+		dataType : "json",
+		data : {
+			'seq' : $('#seq').val(),
+			'memEmail' : $('#memEmail').val()
+		},
+		error : function() {
+			alert("통신 에러");
+		},
+		success : function(data) {
+			if (data == 0) {
+				alert("추천완료.");
+				document.location.reload();
+
+			} else if (data == 1) {
+				alert("추천취소");
+				document.location.reload();
+			}
+		}
+	});
+});
+
+
+
 $('#commentBtn').click(function(){
 		$.ajax({
 			url : '/index/comment/commentWrite',

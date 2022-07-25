@@ -6,7 +6,8 @@ META-INF/
 **/target/**
 */target/**
 *.classpath
-*.setting
+*/.setting/**
+*/bin/**
 
 ### Java ###
 # Compiled class file

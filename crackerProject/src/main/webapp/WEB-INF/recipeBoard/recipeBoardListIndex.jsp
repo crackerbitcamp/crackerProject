@@ -9,8 +9,8 @@
 
 #recipeBoardListIndexDiv .recipeCard2{
    float: left;
-   margin-left: 25px;
-   margin-right: 25px;
+   margin-left: 10px;
+   margin-right: 10px;
    border : #dddddd solid 1px;
    padding: 5px 5px 5px 5px;
    box-shadow: 1px 1px 3px #333333;
@@ -25,10 +25,9 @@
 
 
 #recipeBoardListIndexDiv{
-   padding: 0 40px;
    position : relative;
    float : left;
-   margin : 0 auto;
+   margin : 0 16px;
    
 }
 
@@ -50,13 +49,13 @@
 }
 
 #recipeindexnickNamefont {
-   margin-top : 5px;
+   margin-top : 8px;
    font-size : 15px;
 }
 
 #recipeindexsubjectfont {
 	width: 280px;
-  	margin-top : 20px;
+  	margin-top : 15px;
   	margin-left : 15px;
   	font-weight : bolder;
   	overflow: hidden;
@@ -66,7 +65,7 @@
 }
 
 #recipeindexlogtimefont {
-   margin-top : 35px;
+   margin-top : 20px;
    font-size : 10px;
 }
 
