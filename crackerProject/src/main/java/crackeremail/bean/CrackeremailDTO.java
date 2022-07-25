@@ -12,4 +12,5 @@ public class CrackeremailDTO {
 	private String email;
 	private String category;
 	private String nickname;
+	private String name;
 }

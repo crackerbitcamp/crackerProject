@@ -53,7 +53,7 @@ public class MemberController{
 	     CrackeremailDTO crackeremailDTO = crackerEmailService.emailSelect(memberDTO.getMemberemail(),"member");
 	      System.out.println("있나 없나 확인 ::" + crackeremailDTO);
 	     if(crackeremailDTO == null) {
-	    	 crackerEmailService.memberemailInsert(memberDTO.getMemberemail(),memberDTO.getMembernickname(),"member");
+	    	 crackerEmailService.memberemailInsert(memberDTO.getMemberemail(),memberDTO.getMembernickname(),memberDTO.getMembername(),"member");
 	     }
 	     
       }
@@ -220,8 +220,17 @@ public class MemberController{
 	     CrackeremailDTO crackeremailDTO = crackerEmailService.emailSelect(map.get("naverEmail"),"naver");
 	      System.out.println("있나 없나 확인 ::" + crackeremailDTO);
 	     if(crackeremailDTO == null) {
-	    	 crackerEmailService.memberemailInsert(map.get("naverEmail"),map.get("naverNickName"),"naver");
+	    	 crackerEmailService.memberemailInsert(map.get("naverEmail"),map.get("naverNickName"),map.get("naverName"),"naver");
 	     }
 	}
+	@GetMapping("/memberDeleteForm")
+	public ModelAndView memberDeleteForm() {
+		   ModelAndView mav = new ModelAndView();
+		   mav.addObject("menu","/WEB-INF/main/menu.jsp");
+		   mav.addObject("nav","/WEB-INF/main/nav.jsp");
+		   mav.addObject("display","/WEB-INF/member/memberDeleteForm.jsp");
+		   mav.setViewName("/index");
+		   return mav;
+	   }
 }
 
