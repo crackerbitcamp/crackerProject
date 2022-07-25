@@ -39,8 +39,9 @@ public class AdminController {
 	@GetMapping(value="/adminWriteForm")
 	public ModelAndView adminWriteForm() {
 		ModelAndView mav = new ModelAndView();
-		
-		mav.setViewName("/admin/adminWriteForm");
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/admin/adminWriteForm.jsp");
+		mav.setViewName("/admin/adminMain");
 		
 		return mav;
 		
@@ -50,7 +51,9 @@ public class AdminController {
 	public ModelAndView adminLoginForm() {
 		ModelAndView mav = new ModelAndView();
 		
-		mav.setViewName("/admin/adminLoginForm");
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF//admin/adminLoginForm.jsp");
+		mav.setViewName("/admin/adminMain");
 		
 		return mav;
 		

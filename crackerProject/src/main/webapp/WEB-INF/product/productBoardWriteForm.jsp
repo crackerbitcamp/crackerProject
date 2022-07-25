@@ -84,7 +84,7 @@
 				data : $('#pg').val(),
 				type : 'post',
 				success : function(data) {
-					alert(JSON.stringify(data));
+					//alert(JSON.stringify(data));
 					$.each(data.list, function(index, items) {
 						$('<option/>', {
 							'valute' : items.productName,
