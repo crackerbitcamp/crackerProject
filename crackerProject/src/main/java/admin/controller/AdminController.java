@@ -163,6 +163,30 @@ public class AdminController {
 		public Map<String, Object> adminrecipeSearch(@RequestParam Map<String, String> map){//pg, searchOption, keyword
 			return adminService.adminrecipeSearch(map);
 		}
+		
+		@GetMapping(value="/adminBoardList")
+		public ModelAndView adminBoardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+	
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg",pg);
+			
+			mav.addObject("display","/WEB-INF/admin/adminBoardList.jsp");
+			mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+			mav.setViewName("/admin/adminMain");
+			return mav;
+		} 
+		
+		@GetMapping(value="/adminRecipeBoardList")
+		public ModelAndView adminRecipeBoardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+	
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg",pg);
+			
+			mav.addObject("display","/WEB-INF/admin/adminRecipeBoardList.jsp");
+			mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+			mav.setViewName("/admin/adminMain");
+			return mav;
+		} 
 }
 
 

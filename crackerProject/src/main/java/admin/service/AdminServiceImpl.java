@@ -2,8 +2,7 @@ package admin.service;
 
 
 import java.util.Map;
-
-
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -36,7 +35,8 @@ public class AdminServiceImpl implements AdminService {
 	private AdminPaging adminPaging;
 	@Autowired
 	private MemberDTO memberDTO;
-	
+	@Autowired
+	private BoardPaging boardPaging;
 	@Override
 	public String adminLogin(Map<String, String> map) {
 		
@@ -220,6 +220,9 @@ public class AdminServiceImpl implements AdminService {
 		}
 		return map;
 	}
+
+
+	
 
 
 

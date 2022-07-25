@@ -1,5 +1,12 @@
 @charset "UTF-8";
 /* index */
+body > .wrap{
+	min-width: 1500px;
+	height: auto;
+}
+.boardMenuTopUl{
+	margin-top: 5px;
+}
 body {
 	margin: 0 auto;
 	height: 1500px;
@@ -7,12 +14,14 @@ body {
 	letter-spacing: normal;
 }
 
-li {
+.management li {
 	margin-left : 15px;
 	list-style: none;
-	margin-bottom : 30px;
+	padding: 10px;
 }
-
+.boardMenuTopUl{
+	padding:0;
+}
 a {
 	color : #333333;
 	text-decoration-line: none;
