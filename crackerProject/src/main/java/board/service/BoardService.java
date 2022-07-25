@@ -10,9 +10,9 @@ public interface BoardService {
 
 	public void boardWrite(Map<String, String> map);
 
-	public Map<String,Object> getBoardList(String pg);
+	public Map<String,Object> getBoardList(Map<String, String> map);
 
-	public BoardPaging getBoardPaging(String pg);
+	public BoardPaging getBoardPaging(Map<String, String> map);
 
 	public Map<String, Object> getBoardView(String seq);
 
@@ -26,6 +26,9 @@ public interface BoardService {
 	public void boardUpdate(Map<String, String> map);
 
 	public void boardDelete(int seq);
+
+	public Map<String, Object> getBoardListIndex(Map<String, String> map);
+
 
 
 

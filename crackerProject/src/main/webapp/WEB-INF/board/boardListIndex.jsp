@@ -20,17 +20,16 @@
 	cursor: pointer;
 }
 
-#boardListDiv{
+#boardListDiv2{
 /* 	border: 1px solid red; */
-	margin: 50px auto;
-	width: 80%;
+	width : 45%;
 	height: 280px;
-	background-color: #f3f3f3;
+	background-color: #fff;
 /* 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%); */
 /* 	border: solid 1px #98a0a7; */
 }
 
-#boardListDiv .goodCount{
+#boardListDiv2 .goodCount{
 /* 	border: 1px red solid; */
 	float: left;
 	width: 10%;
@@ -38,52 +37,52 @@
 	
 }
 
-#boardListDiv .subjcet{
+#boardListDiv2 .category{
+	float: left;
+	width: 10%;
+	margin: 10px;
+}
+
+#boardListDiv2 .subjcet{
 /* 	border: 1px red solid; */
 	float: left;
-	text-align: left;
+	/* text-align: left; */
 	margin: 10px;
-	width: 40%;
+	width: 41%;
 	white-space : nowrap;
  	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-#boardListDiv .logtime{
+#boardListDiv2 .logtime{
 /* 	border: 1px red solid; */
 	float: left;
 	margin: 10px;
-	width: 20%;
-	color: #98a0a7;
+	width: 18%;
 	
 }
 
-#boardListDiv .nickName{
-/* 	border: 1px red solid; */
-	float: left;
-	margin: 10px;
-	width: 19%;
-	color: #98a0a7;
-}
-
-#boardListDiv .listMenu{
+#boardListDiv2 .listMenu{
 /* 	border: 1px red solid; */
 	text-align:center;
 	height:14%;
 	width:95%;
 	margin: auto;
 	border-bottom:1px solid #aaaaaa;
+
 }
 </style>
 
 
 <input type="hidden" id="pg" value="${pg}"/>
-<div id="boardListDiv">
+<input type="hidden" id='category' value = "${category}">
+
+<div id="boardListDiv2">
 	<div class="listMenu">
-		<div class="goodCount" style="color:#000000; font-size: bolder;">추천</div>
-		<div class="subjcet">제목</div>
-		<div class="logtime" style="color:#000000">작성날짜</div>
-		<div class="nickName" style="color:#000000">닉네임</div>
+		<div class="category"><span style="font-size: large;font-weight: 900;">분류</span></div>
+		<div class="subjcet"><span style="font-size: large;font-weight: 900;">제목</span></div>
+		<div class="logtime"><span style="font-size: large;font-weight: 900;">작성날짜</span></div>
+		<div class="goodCount"><span style="font-size: large;font-weight: 900;">추천</span></div>
 	</div>
 </div>
 	
@@ -91,7 +90,62 @@
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
 </script>
-<script type="text/javascript" src="../js/boardList.js">
+<script type="text/javascript">
+$(document).ready(function(){
+	$.ajax({
+		type : 'post',
+		url : '/index/board/getBoardListIndex',
+		data : {'pg' : $('#pg').val(),
+			'category' : $('#category').val()
+		},
+		dataType : 'json',
+		success : function(data){
+			$.each(data.list, function(index, items){
+//					alert(JSON.stringify(data));
+				$('<div/>').addClass('listMenu')
+					.append($('<div/>',{
+					align: 'center',
+					text: items.category,
+					class: 'category'
+				})).append($('<div/>',{
+					class: 'subjcet'
+					}).append($('<a/>',{
+						href:'#',
+						text: items.subject,
+						class: 'subjectA subjectA_'+items.seq
+					}))
+				).append($('<div/>',{
+					class: 'logtime',
+					align: 'center',
+					text: items.logtime.toLocaleString()
+				})).append($('<div/>',{
+					align: 'center',
+					text: items.goodcount,
+					class: 'goodCount'
+				})).appendTo($('#boardListDiv2'));
+				
+				
+				$('.subjectA_'+items.seq).click(function(){
+					if(data.memLogin == null){
+						alert('먼저 로그인하세요')
+					}else{
+						location.href = '/index/board/boardView?seq='
+										+items.seq+'&pg='+$('#pg').val();
+					}
+				});
+				
+				
+				
+			});//each
+
+		},
+		error: function(e){
+			 console.log(JSON.stringify(error));
+		}
+		
+	});//ajax
+	
+});
 </script>
 <script type="text/javascript">
 

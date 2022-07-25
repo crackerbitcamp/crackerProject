@@ -7,8 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link href="/index/css/boardCSS/boardViewCSS.css" rel="stylesheet"
-	type="text/css" />
+<link href="/index/css/boardCSS/boardViewCSS.css" rel="stylesheet" type="text/css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
@@ -19,6 +18,7 @@
 		<input type="hidden" name="pg" value="${pg}" />
 		<input type="text" id="memEmail" value="${memEmail }" />
 		<input type="text" id="category" value="자유"/>
+		
 		<div id="boardView_subject">
 			<div class="boardView_content_subject">
 				<span id="subjectSpan"></span>
@@ -32,6 +32,7 @@
 				</ul>
 	
 			</div>
+			
 			<div class="boardView_content">
 				<pre id="content1"
 					style="height:auto; white-space: pre-line; word-break: break-all; overflow-wrap: anywhere;">
