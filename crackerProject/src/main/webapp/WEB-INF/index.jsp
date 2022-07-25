@@ -206,7 +206,7 @@ body{
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.footer .footerArea {
+.footer .footerArea { 
 	border-top: 1px solid #cccccc;
 	padding: 0; /* 좌측과 우축의 여백을 제거 */
 	color: #666;
