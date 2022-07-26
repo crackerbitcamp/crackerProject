@@ -1,5 +1,6 @@
 package shop.service;
 
+import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,11 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public void memberaddressUpdate(Map<String, String> map) {
 		shopDAO.memberaddressUpdate(map);
+	}
+
+	@Override
+	public Map<String,Object> shopPay(Map<String, String> map) {
+		return shopDAO.shopPay(map);
 	}
 
 }
