@@ -20,6 +20,9 @@ public class MemberDTO {
 					membertel1,
 					membertel2,
 					membertel3,
+					memberaddress1,
+					memberaddress2,
+					memberzipcode,
 					membernickname;
 	
 	@JsonFormat(shape=JsonFormat.Shape.STRING, pattern = "yyyy.MM.dd")
