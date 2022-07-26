@@ -12,7 +12,7 @@
 	productJoinDTO.seq : ${item.productJoinDTO.seq }<br>
 	productJoinDTO.productName : ${item.productJoinDTO.productName }<br>
 	productJoinDTO.productSubject : ${item.productJoinDTO.productSubject }<br>
-	productJoinDTO.productContent : ${item.productJoinDTO.productContent }<br>
+	productJoinDTO.productContent : ${item.productJoinDTO.productContent }<br> 
 </body>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
