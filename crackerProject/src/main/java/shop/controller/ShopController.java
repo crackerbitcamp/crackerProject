@@ -80,7 +80,7 @@ public class ShopController {
 		Map<String,Object>map1 = shopService.shopPay(map);
 		map1.put("shopqty", map.get("shopqty"));
 		map1.put("totalprice",map.get("totalprice"));
-		map1.put("day", map.get("day"));
+		map1.put("day", map.get("day")); 
 		session.setAttribute("shoppay", map1);
 		return map1;
 	}
