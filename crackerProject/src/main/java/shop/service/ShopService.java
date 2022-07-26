@@ -10,4 +10,8 @@ public interface ShopService {
 
 	public void memberaddressUpdate(Map<String, String> map);
 
+	public Map<String,Object> shopPay(Map<String, String> map);
+
+	public Map<String, Object> shopcartForm(Map<String, String> map);
+
 }

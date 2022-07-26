@@ -34,9 +34,9 @@
 		<div style="float: left; width: 220px; background: #e1e4e6;">
 			<ul style="list-style: none; margin: 0; padding: 0; border: 1px solid #80878d;">
 				<li style="font-weight: bold; margin-bottom: 10px;">My 쇼핑</li>
+				<li>장바구니</li>
 				<li><a href="/index/shop/shoporder">주문목록/배송조회</a></li>
 				<li>취소/반품/교환/환불내역</li>
-				<li></li>
 			</ul>
 			<ul style="list-style: none; margin: 0; padding: 0; border: 1px solid #80878d;">
 				<li style="font-weight: bold; margin-bottom: 10px;">My 활동</li>
@@ -48,7 +48,7 @@
 				<li style="font-weight: bold; margin-bottom: 10px;">My 정보</li>
 				<li>개인정보확인/수정</li>
 				<li>결제수단</li>
-				<li>배송지 관리</li>
+				<li><a href="/index/shop/shopproductbuy">배송지 관리</a></li>
 			</ul>
 		</div>
 				<div style="float: left; width: 70%; margin: 10px 0 0 10px;">
