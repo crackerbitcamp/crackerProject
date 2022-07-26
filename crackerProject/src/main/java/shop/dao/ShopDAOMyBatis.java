@@ -43,4 +43,12 @@ public class ShopDAOMyBatis implements ShopDAO {
 		return map1;
 	}
 
+	@Override
+	public Map<String, Object> shopcartForm(Map<String, String> map) {
+		ProductJoinDTO productJoinDTO = sqlSession.selectOne("productSQL.getProductBoardView",map);
+		Map<String,Object>map1 = new HashMap<String,Object>();
+		map1.put("productJoinDTO",productJoinDTO);
+		return map1;
+	}
+
 }

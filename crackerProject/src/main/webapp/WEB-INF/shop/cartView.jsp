@@ -100,11 +100,11 @@
 }
 .item-product{
 	float: left;
-    width: 74%;
+    width: 60%;
     text-align: center;
 }
 .item-product-select{
-	width: 69%;
+	width: 56%;
     display: inline-block;
     float: left;
 }
@@ -212,16 +212,11 @@ width: 40px;
 
 
 	<div id="cartViewList">
-	<input type="text" id="pg" value="${pg }"/>
 	
 	<section id="cart_itemList" class="cart_itemList">        
         <section class="carttitle">
             <h1 class="shop_basket">장바구니</h1>
             <p class="shop_pree">무료배송 (19,800원 이상 구매가능)</p>
-      
-			<div class="tabs">
-				<span id="cartItemCount" class="cartItemCount">일반구매 (2)</span>
-			</div>
 		 </section>
 	   	 <div id="cartContent">
 	       		<div class="cartTable" >
@@ -230,10 +225,11 @@ width: 40px;
 					    	<input title="모든 상품을 결제상품으로 설정" type="checkbox" checked="checked" 
 					          class="chk-all" name="chk-all" id="chk-all">전체선택</div>
 					    <div class="item-product" >상품정보</div>
+					    <div class = "item-price">상품갯수</div>
 					    <div class="item-price">상품금액</div>
 					</div>
 					         
-					         
+					    <!-- for문 돌리기 -->    
 					 <div class="body">
 						<div class="item-checkbox-select">
 						<input title="모든 상품을 결제상품으로 설정" type="checkbox" checked="checked" 
@@ -242,12 +238,8 @@ width: 40px;
 						<div class="item-product-select">
 							<h3 >상품 아이템이름</h3>
 						 	<p>상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명</p>
-						 	<div style="height: 50px; display: inline-flex;">
-								<button type="button" class="minus"><img src="/index/image/minus.png" style="width: 50%; height: 50%;"></button>
-								<input type="text" class="input" value="1" maxlength=2>
-								<button type="button" class="plus"><img src="/index/image/plus.png" style="width: 50%; height: 50%;"></button>
-							</div>
 						</div>
+							<div class="item-price-select">0개</div>
 							<div class="item-price-select" >77.777원</div>
 					</div>
 	        	</div>
