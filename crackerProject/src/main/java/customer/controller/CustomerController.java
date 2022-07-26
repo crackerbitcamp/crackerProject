@@ -53,17 +53,25 @@ public class CustomerController {
 		String email = (String)session.getAttribute("memEmail");
 		
 		//id,email을의 변수를 변경후 map에 담는다.
-		String kakaoNickname = (String)session.getAttribute("kakaoNickname");
+		//카카오 연동 정보
+ 		String kakaoNickname = (String)session.getAttribute("kakaoNickname");
 		String kakaoEmail = (String)session.getAttribute("kakaoEmail");
+		//네이버 연동 정보
+
+		String naverName = (String)session.getAttribute("naverName");
+		String naverEmail = (String)session.getAttribute("naverEmail");
 		
 		map.put("name", name);
 		map.put("email", email);
 		map.put("kakaoNickname", kakaoNickname);
 		map.put("kakaoEmail", kakaoEmail);
+		map.put("naverName", naverName);
+		map.put("naverEmail", naverEmail);
 		
 		//System.out.println(map.get("id"));// id값 확인
 		System.out.println(name+ email);
 		System.out.println(kakaoNickname+ kakaoEmail);
+		System.out.println(naverName+ naverEmail);
 		return map;
 		
 	}

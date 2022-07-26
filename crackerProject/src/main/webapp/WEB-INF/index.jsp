@@ -9,6 +9,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <!-- header -->
+<link href="/index/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/indexmodal.css" rel="stylesheet" type="text/css" />
@@ -294,15 +295,30 @@ body{
 			
 			<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
 
+				<c:if test="${not empty display}">
+					<div class="">
+						<img alt="돋보기" src="/index/image/home/search.svg">
+						<input type="text" value="${keyword}" id="keyword">
+						<button type="button">검색</button>
+					</div>
+				</c:if>
 			<div id="header_ul">
 				
 				<ul id="header_menu_ul">
+
 					
 					<li class="header_menu_item"><input type="text" value="${keyword }" id="keyword"><button type="button">검색</button></li>
 					
 					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>전체 게시판</span></a></li>
 					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>자유 게시판 </span></a></li>
 					<li class="header_menu_item"><a href="/index/recipeBoard/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
+
+					<li class="header_menu_item"><input type="hidden" value="${keyword }" id="keyword" ></li>
+					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>SHOP</span></a></li>
+					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>FREE</span></a></li>
+					<li class="header_menu_item"><a href="/index/recipeBoard/recipeBoardList" class="menu_item_a"><span>RECIPE</span></a></li>
+
+
 				</ul>
 				
 				<ul id="header_login_ul">

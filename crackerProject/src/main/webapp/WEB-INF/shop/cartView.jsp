@@ -202,7 +202,19 @@ width: 40px;
     line-height: 145px;
 	
 }
-
+.steps {
+	float: right;
+    padding-right: 5px;
+    margin-top: 20px;
+    line-height: 50px;
+    font-size: 15px;
+    color: #bbb;
+    font-weight: 700;
+}
+.steps em{
+    font-weight: 700;
+    color: #346aff;	
+}
 </style>
 
 
@@ -212,16 +224,17 @@ width: 40px;
 
 
 	<div id="cartViewList">
-	<input type="text" id="pg" value="${pg }"/>
-	
+
 	<section id="cart_itemList" class="cart_itemList">        
         <section class="carttitle">
             <h1 class="shop_basket">장바구니</h1>
             <p class="shop_pree">무료배송 (19,800원 이상 구매가능)</p>
-      
-			<div class="tabs">
-				<span id="cartItemCount" class="cartItemCount">일반구매 (2)</span>
-			</div>
+     		 <span class="steps">
+			 <em>장바구니&gt;</em>주문결제 &gt;주문완료
+			</span>
+		<div class="tabs">
+			<span id="cartItemCount" class="cartItemCount">일반구매 (2)</span>
+		</div>
 		 </section>
 	   	 <div id="cartContent">
 	       		<div class="cartTable" >
@@ -269,7 +282,7 @@ width: 40px;
 		
 	    			<div id="cart-button">
 	    				<button class="cart-button-shop" id="cart-button-shop" onClick="location.href='/index/shop/shopmain'">쇼핑 하러가기</button>
-	    				<button class="cart-button-shop"  id="cart-button-buy" >결제하기</button>
+	    				<button class="cart-button-shop"  id="cart-button-buy" >구매하기</button>
 	    			</div>            
 	        	</div>
      	  </div>
