@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<script src="https://kit.fontawesome.com/d84eab0825.js" crossorigin="anonymous"></script>
+<head>
 <style>
 .content{
 	width: 100%;
@@ -112,13 +112,14 @@ background: none;
 }
 
 </style>
-<head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<form id = "productBoardViewForm">
 	<div class="content">
-		<input type="hidden" id="seq" value="${seq}">
+		<input type = "hidden" name = "memberemail" id = "memberemail" value="${memEmail}">
+		<input type="hidden" name = "seq" id="seq" value="${seq}">
 		<div class = "image" style="max-width:510px; max-height: 510px;display: inline-block; float: left;">
 		<img id="productMainPhoto" style="max-width: 510px; min-height: 510px;">
 		</div>
@@ -157,15 +158,16 @@ background: none;
 					<dd>
 						<div style="height: 50px; display: inline-flex;">
 							<button type="button" class="minus"><img src="/index/image/minus.png" style="width: 50%; height: 50%;"></button>
-							<input type="text" class="input" value="1" maxlength=2>
+							<input type="text" name = "shopqty" id ="shopqty" class="input" value="1" maxlength=2>
 							<button type="button" class="plus"><img src="/index/image/plus.png" style="width: 50%; height: 50%;"></button>
 						</div>
 					</dd>
 				</dl>
 				<dl>
 					<dt style = "float: right; font-size: 16px;">총 제품 금액 : </dt>
-					<dd><b id="productPrice_total"style="font-size: 16px; font-family : Tahoma;"></b></dd>
+					<dd><b  id="productPrice_total"style="font-size: 16px; font-family : Tahoma;"></b></dd>
 				</dl>
+					<input type = "text" name = "totalprice" id="totalprice" />
 		</div>
 		
 		</div>
@@ -175,11 +177,12 @@ background: none;
 			</ul>
 			<div class = "contentBtn" style=" display: inline-block; margin-top: 20px;">
 				<button type = "button" style="width: 247px; height: 56px; margin-right: 10px; border: 1px solid #666; font-size: 16px; line-height: 54px; color: #333; font-weight: bold; cursor: pointer; display: initial; float: left;">장바구니</button>
-				<button type = "button" style="width: 247px; height: 56px; background: #fe7600; border: 1px solid #fe7600;  font-size: 16px; line-height: 54px; color: #fff; font-weight: bold; cursor: pointer;">바로구매</button>
+				<button type = "button"  id = "productBtn" style="width: 247px; height: 56px; background: #fe7600; border: 1px solid #fe7600;  font-size: 16px; line-height: 54px; color: #fff; font-weight: bold; cursor: pointer;">바로구매</button>
 			</div>
 		</div>
 	</div>
-	
+</form>
+
 	<div class="menubar">
 		<ul class="menubarUl">
 			<li class="collapsible">
@@ -217,6 +220,8 @@ background: none;
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/product/productBoardView.js"></script>
+<script type="text/javascript" src="/index/js/shop/shopView.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript">
 
 $(function(){
@@ -234,21 +239,7 @@ $(function(){
 </script>
  
 <script type="text/javascript">
-	var input ;
-	$('.minus').click(function(){
-	    input = $('.input').val();
-		if(input > 0){
-		$('.input').prop('value',(input-1));
-		}
-	});
-	$('.input').on('change',function(){
-		input = $('.input').val();
-	});
-	
-	$('.plus').click(function(){
-	    input = $('.input').val();
-		$('.input').prop('value',(parseInt(input)+1));
-	});
+
 </script>
 
 </html>

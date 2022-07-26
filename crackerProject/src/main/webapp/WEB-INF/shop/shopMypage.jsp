@@ -48,7 +48,7 @@
 				<li style="font-weight: bold; margin-bottom: 10px;">My 정보</li>
 				<li>개인정보확인/수정</li>
 				<li>결제수단</li>
-				<li>배송지 관리</li>
+				<li><a href="/index/shop/shopproductbuy">배송지 관리</a></li>
 			</ul>
 		</div>
 				<div style="float: left; width: 70%; margin: 10px 0 0 10px;">

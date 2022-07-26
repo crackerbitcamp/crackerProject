@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://kit.fontawesome.com/d84eab0825.js" crossorigin="anonymous"></script>
 <style type="text/css" src="/index/css/reset.css"></style>
 <style type="text/css">
 #cart_itemList {
@@ -276,8 +276,6 @@ border-bottom: 2px solid;
 </style>
 </head>
 <body>
-
-
 <div id="cartViewList">
 
 	<section id="cart_itemList" class="cart_itemList">        
@@ -291,52 +289,49 @@ border-bottom: 2px solid;
 			<h2>구매자정보</h2>
 			<dl>
 				<dt>이름 </dt>
-				<dd>조범주<span id="name" value="${name }"></dd>
+				<dd>${item.memberDTO.membername }</dd>
 			</dl>	
 			<dl>
 				<dt>이메일 </dt>
-				<dd>luckghost123@naver.com<span id="email" value="${email }"></span></dd>
+				<dd>${item.memberDTO.memberemail }</span></dd>
 			</dl>
 			<dl>
 				<dt>휴대폰 번호 </dt>
-				<dd><input type="text" id="phone" value="010-0111-0111${phone }" readonly/></dd>
+				<dd>${item.memberDTO.membertel1 }-${item.memberDTO.membertel2 }-${item.memberDTO.membertel3 }</dd>
 			</dl>
 		</section>
 		<section id="RecipientInfo" class="Checkoutinfo">
 			<h2>받는사람정보</h2>
 			<dl>
 				<dt>이름 </dt>
-				<dd>조범주<span id="name" value="${name }"></dd>
+				<dd>${item.memberDTO.membername }</dd>
 			</dl>	
 			<dl>
 				<dt>배송주소 </dt>
-				<dd>서울시 강남구 강남대로~~<span id="addr" value="${addr }"></span></dd>
+				<dd>${item.memberDTO.memberaddress1}${item.memberDTO.memberaddress2}</dd>
 			</dl>
 			<dl>
 				<dt>연락처 </dt>
-				<dd>010-0111-0111<span id="phone" value="${phone }"></dd>
+				<dd>${item.memberDTO.membertel1 }-${item.memberDTO.membertel2 }-${item.memberDTO.membertel3 }</dd>
 			</dl>
 		</section>
 		<section id="delivery" class="UserInfo">
 			<h2 style="border-bottom: 0px;">배송</h2>
 				<div class="dropship">
-					
-					<dt id="dropshipday" class="dropshipday" value="${dropship }" >도착 예정</dt>
-					<dt class="productsubject" id="productsubject " value="${productsubject  }">상품 제목상품 제목상품 제목상품 제목상품 제목상품 제목
-					상품 제목상품 제목상품 제목상품 제목</dt>
-					<dt class="productqty" id="productqty" value="${productqty }">무료배송</dt>
-				
+					<dt id="dropshipday" class="dropshipday" value="${dropship}" >도착 예정</dt>
+					<dt class="productsubject" id="productsubject">${item.productJoinDTO.productName }</dt>
+					<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
 				</div>
 		</section>
 		<section id="priceInfo" class="Checkoutinfo">
 			<h2>결제정보</h2>
 			<dl>
 				<dt>총상품가격 </dt>
-				<dd>sum:151515<span id="name" value="${price }">원</dd>
+				<dd>${item.totalprice }원</dd>
 			</dl>	
 			<dl>
 				<dt>즉시할인 </dt>
-				<dd>sale<span id="addr" value="${price }"></span>원</dd>
+				<dd>0원</dd>
 			</dl>
 			<dl>
 				<dt>배송비 </dt>
@@ -344,7 +339,7 @@ border-bottom: 2px solid;
 			</dl>
 			<dl>
 				<dt>총 결제금액 </dt>
-				<dd class="total">sum-sale=total<span id="phone" value="${phone }">원</dd>
+				<dd class="total">${item.totalprice }원</dd>
 			</dl>
 			<dl>
 				<dt>총결제방법 </dt>
@@ -358,9 +353,20 @@ border-bottom: 2px solid;
 		
 		<section class="Checkoutinfo">
 			<div id="cart-button">
+				<button class="cart-button-shop" id="cart-button-shop" onClick="location.href='/index/shop/shopmain'">쇼핑 하러가기</button>
 				<button class="cart-button-shop"  id="cart-button-buy" >결제하기</button>
 			</div>            
 		</section>
 	</section>
+	
 </body>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 </html>
+<%-- 확인 : ${item.memberDTO.memberemail}<br>
+	productJoinDTO.seq : ${item.productJoinDTO.seq }<br>
+	productJoinDTO.productName : ${item.productJoinDTO.productName }<br>
+	productJoinDTO.productSubject : ${item.productJoinDTO.productSubject }<br>
+	productJoinDTO.productContent : ${item.productJoinDTO.productContent }<br> 
+	${item.totalprice }
+	$(item.shopqty) --%>
