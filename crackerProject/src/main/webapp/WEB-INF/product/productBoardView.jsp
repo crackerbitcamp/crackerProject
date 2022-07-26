@@ -165,8 +165,9 @@ background: none;
 				</dl>
 				<dl>
 					<dt style = "float: right; font-size: 16px;">총 제품 금액 : </dt>
-					<dd><b id="productPrice_total"style="font-size: 16px; font-family : Tahoma;"></b></dd>
+					<dd><b  id="productPrice_total"style="font-size: 16px; font-family : Tahoma;"></b></dd>
 				</dl>
+					<input type = "text" name = "totalprice" id="totalprice" />
 		</div>
 		
 		</div>

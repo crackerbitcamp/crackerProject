@@ -14,19 +14,21 @@ $(function(){
 			$('#productLife_dd').html(data.productLife);
 			$('#productPrice_total').html(productPrice * parseInt(qty)+"원");
 			$('#productContent_div').html(data.productContent);
-			
+			$('#totalprice').val(productPrice * parseInt(qty))
 			var input ;
 			$('.minus').click(function(){
 			    input = $('.input').val();
 				if(input > 0){
 				$('.input').val((input-1));
 				$('#productPrice_total').html(productPrice * (parseInt(input)-1)+"원");
+				$('#totalprice').val(productPrice * (parseInt(input)-1))
 				}
 			});
 			$('.plus').click(function(){
 			    input = $('.input').val();
 				$('.input').val((parseInt(input)+1));
 				$('#productPrice_total').html(productPrice * (parseInt(input)+1)+"원");
+				$('#totalprice').val(productPrice * (parseInt(input)+1))
 			});
 		},
 		error:function(e){

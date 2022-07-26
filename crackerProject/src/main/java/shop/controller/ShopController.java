@@ -75,8 +75,10 @@ public class ShopController {
 	@PostMapping("/shop/shopPayForm")
 	@ResponseBody
 	public Map<String,Object> shopPay(@RequestParam Map<String,String>map, HttpSession session) {
+		System.out.println("들어오는거 확인 : " + map);
 		Map<String,Object>map1 = shopService.shopPay(map);
 		map1.put("shopqty", map.get("shopqty"));
+		map1.put("totalprice",map.get("totalprice"));
 		session.setAttribute("shoppay", map1);
 		return map1;
 	}
