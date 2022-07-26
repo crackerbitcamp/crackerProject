@@ -24,9 +24,15 @@ public class boardDAOMyBatis implements BoardDAO {
 	}
 
 	@Override
-	public List<BoardDTO> getBoardList(Map<String, Integer> map) {
+	public List<BoardDTO> getBoardList(Map<String, String> map) {
 		
 		return sqlSession.selectList("boardSQL.getBoardList",map);
+	}
+	
+	@Override
+	public List<BoardDTO> getBoardListIndex(Map<String, String> map) {
+		
+		return sqlSession.selectList("boardSQL.getBoardListIndex",map);
 	}
 
 	@Override
@@ -81,6 +87,9 @@ public class boardDAOMyBatis implements BoardDAO {
 		return sqlSession.selectList("boardSQL.getBoardList",map);
 
 	}
+
+	
+
 
 
 

@@ -5,6 +5,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
@@ -142,9 +143,43 @@ public class BoardController {
 	
 	@ResponseBody
 	@PostMapping(value="getBoardList")
-	public Map<String,Object> getBoardList(@RequestParam(required = false,defaultValue="1" )String pg){
-		return boardService.getBoardList(pg);
+	public Map<String,Object> getBoardList(@RequestParam(required = false,defaultValue="1" )String pg,
+											@RequestParam(required = false,defaultValue="all") String category){
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pg",pg);
+		map.put("category", category);
+		
+		return boardService.getBoardList(map);
+		
 	}
+	
+	@GetMapping(value="boardListIndex")
+	public ModelAndView BoardListIndex(@RequestParam(required = false,defaultValue="1") String pg
+										,@RequestParam(required = false,defaultValue="all") String category) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println(category);
+		mav.addObject("category",category);
+		mav.addObject("pg",pg);
+		mav.addObject("display", "/WEB-INF/board/boardListIndex.jsp");
+		mav.setViewName("/index");
+		
+		return mav;
+	}
+	
+	
+	@ResponseBody
+	@PostMapping(value="getBoardListIndex")
+	public Map<String,Object> getBoardListIndex(@RequestParam(required = false,defaultValue="1" )String pg,
+												@RequestParam(required = false,defaultValue="all") String category){
+		
+		Map<String, String> map = new HashMap<String, String>();
+		map.put("pg",pg);
+		map.put("category", category);
+		
+		return boardService.getBoardListIndex(map);
+	}
+	
 
 	@GetMapping(value = "boardView")
 	public ModelAndView boardView(@RequestParam String seq, @RequestParam String pg) {

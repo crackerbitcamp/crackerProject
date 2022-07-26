@@ -1,19 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-
-<meta charset="UTF-8">
-<title>Insert title here</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
-
 
 <style type="text/css">
     
@@ -32,8 +27,8 @@
 
 	padding: 20px;
 	position : relative;
-	width: 1400px;
-	background : #fff;	
+	width: 1655px;
+	background : #f3f3f3;	
 	height: 1800px;
 
 	
@@ -72,12 +67,13 @@
 	text-align : left;
 	font-size : 1.5em;
 	color : #6e6e6e;
-	margin-bottom: 20px;
+	margin-bottom: 40px;
 }
 
 #recipenickNamefont {
-	text-align : right;
-	margin-bottom : 25px;
+	text-align : left;
+	margin-left : 250px;
+	margin-bottom : 10px;
 }
 
 #recipesubjectfont {
@@ -112,7 +108,7 @@
 
 #recipeBoardPagingDiv {
 	text-align : center;
-	background : #fff;
+	background : #f3f3f3;
 	cursor:pointer;
 	margin-bottom : 100px;
 	font-size : 1.5em;
@@ -139,30 +135,24 @@
 .inner {
 	font-family: 'Noto Sans KR', sans-serif;
 	padding: 48px 0px 48px 0px ;
-	width: 100%;
-	background-color: #f3f3f3;
+	width: 1695px;
 }
-.title2 {
-	margin-top: 50px;
+.title {
+	margin-top: 30px;
 	text-align : center;
-	
 }
 
-.title3 {
+.title2 {
 	color: #787878;
 	text-align : center;
 	margin-bottom : 20px;
 }
 
 </style>
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
 <body>
-<header class="recipeBoardTop">
-	<div class="inner">
-		<h1 class="title2">레시피가 궁금해?</h1>
-		<h2 class="title3">"맛있다" 연발 하는 레시피 대공개! :)</h2>
-	</div>
-</header>
 
 	<form id="recipeBoardListForm">
 	<div>
@@ -180,7 +170,7 @@
 <script type="text/javascript">
 function recipeBoardPaging(pg2) {
 	
-	location.href="/index/recipeBoard/recipeBoardList?pg="+pg2;
+	location.href="/index/admin/adminRecipeBoardList?pg="+pg2;
 	
 }
 </script>
@@ -256,12 +246,10 @@ function recipeBoardPaging(pg2) {
 							text : items.logtime
 					}))).appendTo($('#recipeBoardListDiv'));
 					$('.recipeCard_'+items.seq).click(function(){
-						if(data.memLogin == null){
-							alert('먼저 로그인하세요')
-						}else{
-							location.href = '/index/recipeBoard/recipeBoardView?seq='
+						
+						location.href = '/index/recipeBoard/recipeBoardView?seq='
 											+items.seq+'&pg='+$('#pg').val();
-						}
+						
 						
 					});//카드 클래스 클릭
 				}); //each

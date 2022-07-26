@@ -8,23 +8,26 @@
 #header_menu_ul{
 	display: flex;
 	list-style: none;
-	margin-top: 10px;
+	padding: 0;
 	
 }
 
 #header_menu_ul li{
-	margin-left: 30px;
-	width: 150px;
+	width: 100%;
+	margin : 0 35px;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 #header_login_ul{
 	display: flex;
 	list-style: none;
+	padding : 0;
+
 }
 
 #header_ul{
 	display:flex;
 	position: absolute;
-	left:50%;
+	left:66%;
 	
 }
 #memberImgBtn{
@@ -38,23 +41,55 @@
 #header{
 	position: relative;
 	width: 100%;
-	height: 450px;
-	background-image: url("/index/image/header_background1.jpg");
+	height: 350px;
+	background-image: url("/index/image/home/backgroundddd.jpeg");
 	background-size: cover;
 	background-position: center center;
+	padding-top:150px;
+	
 }
+
+#header:before {
+	content: '';
+display: block;
+position: absolute;
+top: 0;
+right: 0;
+bottom: 0;
+left: 0;
+z-index: 0;
+height: 100%;
+width: 100%;
+background-color: rgba(0,0,0,0.3);
+}
+
+.title {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    width: 100%;
+    font-size: 2.2rem;
+    color: #ffffff;
+    line-height: 45px;
+    text-align : center;
+    text-shadow : 6px 2px 2px #000;
+    font-family: 'Noto Sans KR', sans-serif;
+}
+
 
 
 #header .header_menu_item span{
 	font-size: 20px;
 }
 
+
+
 #header_menuDiv{
 	display: flex;
 	position: fixed;
 	background-color: white;
 	width: 100%;
-	height: 60px;
+	height: 50px;
 	border-bottom: 2px solid #f76900;
 	box-sizing: border-box;
 	z-index: 111;
@@ -62,8 +97,10 @@
 }
 
 #boardSearch{
-  width: 500px;
-  height: 60px;
+
+  width: 79%;
+  height: 30px;
+
   font-size: 15px;
   border: 0;
   border-radius: 30px;
@@ -73,21 +110,38 @@
 }
 
 #searchForm{
+	margin: 45px auto 0 auto;
+	width: 31%;
+	overflow: hidden;
 	padding-right:20px;
 	padding-left:20px;
 	border-radius: 30px;
 	border: #f76900 3px solid;
-	position: absolute;
-	left: 50%;
-	top: 55%;
-	margin-left: -400px;
-	margin-top: -50px;
-	background-color: white
+	position: relative;
+	background-color: white;
+	
+
 }
 #searchFormOutDiv{
 	
-	width: 800px;
+	width: 100%;
 	height: 100px;
+	
+}
+
+#boardSearchBtn {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -1px;
+	width: 20%;
+	font-size: 0.813rem;
+	color: #ffffff;
+	border-radius: 50px;
+	background-color: #ff7100;
+	height: 100%;
+	-webkit-appearance: none;
+	border : 0px;
 }
 
 #userHistory_triangle{
