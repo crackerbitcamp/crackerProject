@@ -8,6 +8,16 @@
 <title>Insert title here</title>
 <style type="text/css" src="/index/css/reset.css"></style>
 <style type="text/css">
+h2 {
+    padding-left: 2px;
+    margin-bottom: 8px;
+    font-size: 20px;
+    font-weight: 700;
+    border-bottom: 3px solid #bbb;
+    padding-bottom: 13px;
+    color: #333;
+}
+    
 #cart_itemList {
 	width: 980px;
 	margin: 0 auto;
@@ -259,19 +269,31 @@ border-bottom: 2px solid;
 }
 #dropshipday{
 	padding: 10px 15px 10px 20px;
-	line-height: 26px;
+	line-height: 40px;
 	background-color: #eee;
+	
 }
-.productsubject {
-	width: 60%;
+.dropiteminfo{
+
     display: inline-block;
     padding: 10px 20px 10px 20px;
-    color: #555;
+
+}
+.productsubject {
+    width: 600px;
+	color: #555;
+    line-height: 40px;
     float: left;
 }
 .productqty {
+	float: left;
 	padding: 14px 20px 10px 20px;
     font-size: 12px;
+    
+}
+.dropshipday span{
+	font-size:18px;
+	font-weight: 700;
 }
 </style>
 </head>
@@ -318,9 +340,11 @@ border-bottom: 2px solid;
 		<section id="delivery" class="UserInfo">
 			<h2 style="border-bottom: 0px;">배송</h2>
 				<div class="dropship">
-					<dt id="dropshipday" class="dropshipday" value="${dropship}" >도착 예정</dt>
-					<dt class="productsubject" id="productsubject">${item.productJoinDTO.productName }</dt>
-					<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
+					<dt id="dropshipday" class="dropshipday"><span>${item.day }</span> 도착 예정</dt>
+					<div class="dropiteminfo">
+						<dt class="productsubject" id="productsubject">${item.productJoinDTO.productName }</dt>
+						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
+					</div>
 				</div>
 		</section>
 		<section id="priceInfo" class="Checkoutinfo">

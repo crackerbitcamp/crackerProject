@@ -30,4 +30,9 @@ public class ShopServiceImpl implements ShopService {
 		return shopDAO.shopPay(map);
 	}
 
+	@Override
+	public Map<String, Object> shopcartForm(Map<String, String> map) {
+		return shopDAO.shopcartForm(map);
+	}
+
 }

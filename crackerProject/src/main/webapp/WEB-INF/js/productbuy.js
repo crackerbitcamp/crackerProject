@@ -6,7 +6,7 @@ $(function() {
 		data : {'memEmail' : $('#memEmail').val()},
 		dataType : 'json',
 		success:function(data){
-			//alert(JSON.stringify(data));
+			alert(JSON.stringify(data));
 			$('#name').val(data.name);
 			$('#email').val(data.email);
 			

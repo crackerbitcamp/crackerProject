@@ -69,7 +69,8 @@ public class ShopController {
 	@GetMapping("/shop/cartView")
 	public ModelAndView cartView() {
 		ModelAndView mav = new ModelAndView();
-		mav.setViewName("/shop/cartView");
+		mav.addObject("MyPageInclude","/WEB-INF/shop/cartView.jsp");
+		mav.setViewName("/shop/shopMypage");
 		return mav;
 	}
 
@@ -87,6 +88,7 @@ public class ShopController {
 		Map<String,Object>map1 = shopService.shopPay(map);
 		map1.put("shopqty", map.get("shopqty"));
 		map1.put("totalprice",map.get("totalprice"));
+		map1.put("day", map.get("day")); 
 		session.setAttribute("shoppay", map1);
 		return map1;
 	}
@@ -111,4 +113,13 @@ public class ShopController {
 
 		return mav;
 	}
+	
+	//장바구니
+	@PostMapping("/shop/shopcartForm")
+	@ResponseBody
+	public void shopcartForm(@RequestParam Map<String,String>map){
+		Map<String,Object>map1 = shopService.shopcartForm(map);
+		System.out.println(map1);
+	}
+	
 }

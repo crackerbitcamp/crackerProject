@@ -12,4 +12,6 @@ public interface ShopService {
 
 	public Map<String,Object> shopPay(Map<String, String> map);
 
+	public Map<String, Object> shopcartForm(Map<String, String> map);
+
 }
