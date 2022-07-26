@@ -27,6 +27,8 @@
 <div id="recipeBoardView_subject">
 	<div class="recipeBoardView_content_subject">
 		<span id="subjectSpan"></span>
+	</div>
+	<div class="recipeBoardView_customer">
 		<ul class="recipeBoard_top_bar_ul">
 			<li class="recipeBoard_top_bar_li"><span id="categorySpan"></span></li>
 			<li class="recipeBoard_top_bar_li">글번호 <span id="seqSpan"></span></li>
@@ -46,7 +48,7 @@
 	<div class="recipeBoardView_content_menu">
 			<button type="button" id="goodBtn">추천하기</button>
 	
-			<input type="button" value="목록" style="margin: 5px;" onclick="location.href='/index/board/recipeboardList?pg=${pg}'">
+			<input type="button" value="목록" style="margin: 5px;" onclick="location.href='/index/recipeBoard/recipeBoardList?pg=${pg}'">
 			<input type="button" value="글수정" id="recipeboardUpdateBtn">
 			<input type="button" value="삭제" id="recipeboardDeleteBtn">
 		
@@ -82,6 +84,7 @@ $(function(){
 		dataType:'json',
 		success : function(data){
 			//alert(JSON.stringify(data));
+			$('#categorySpan').html(data.category);
 			$('#subjectSpan').html(data.subject);
 			$('#seqSpan').html(data.seq);
 			$('#idSpan').html(data.nickName);

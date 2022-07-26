@@ -47,32 +47,34 @@ body{
 
 
 .display_title {
-	width : 90%;
-	display : inline-block;
-	margin-bottom: -25px;
-	margin-left : 55px;
-
-}
- .display_title_text{
-	padding-right : 15px;
-	padding-left : 15px;
-	color : #f76900;
-	text-align: left; 
+	width: 90%;
+    display: inline-block;
+    margin-top: 25px;
+    margin-bottom: -10px;
+    margin-left: 55px;
 }
 
-.display_title_list{
+.display_title_text {
+    padding-right: 15px;
+    padding-left: 15px;
+    color: #f76900;
+    text-align: left;
+    font-size: 1.5em;
+    line-height: 1.35em;
+}
+
+.display_title_list {
 	position : relative;
 	float : right;
 	color : #CBCBCB;
 	text-decoration:none;
-	top : -40px;
+	top : -20px;
 	
 }
 
 #imagecard {
-	
 	text-align : center;
-	height: 450px;
+	height: 420px;
 	border-bottom: 1px solid #f76900;
 	margin : 10px 65px;
 	/* border : 1px solid red; */
@@ -123,7 +125,7 @@ body{
 .info_inner {
 	position: absolute;
 	top : 40%;
-	width : 85%;
+	width : 100%;
 	
 }
 
@@ -147,8 +149,8 @@ body{
 
 #imagecard1 a:hover .info_inner {
 	position: absolute;
-	top : 30%;
-	width : 85%;
+	top : 35%;
+	width : 100%;
 }
 
 
@@ -156,7 +158,7 @@ body{
 #content {
 	/* padding: 20px; */ /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
-	height: 335px;
+	height: 325px;
 	width : 1300px;
 	margin-left : 60px;
 	/* float: left;  */
@@ -177,7 +179,7 @@ body{
 
 .imagecard {
 	position: relative;
-	width : 98%;
+	width : 91%;
 	height: 750px;
 	margin : 0 auto;
 	
@@ -352,7 +354,7 @@ body{
 					<p class="title">다양한 레시피, 맛 보장 레시피!</p>
 					<h1 class="title">CRACKER</h1>
 					<div id = "searchForm">
-						<img alt="돋보기" src="/index/image/home/search.svg" >
+						<img alt="돋보기" src="/index/image/home/search.svg" class="searchIcon">
 						<select id="boardSearchOption">
 							<option value="board">자유게시판</option>
 							<option value="recepiBoard">레시피</option>

@@ -10,9 +10,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com"> 
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
 <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
-<link rel="preconnect" href="https://fonts.googleapis.com"> 
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+
 
 
 <style type="text/css">
@@ -30,11 +28,11 @@
 
 #recipeBoardListDiv{
 
-	padding: 20px;
+	padding: 0px 20px 20px 20px;
 	position : relative;
-	width: 1400px;
+	width: 100%;
 	background : #fff;	
-	height: 1800px;
+	height: 100%;
 
 	
 }
@@ -62,7 +60,7 @@
 	display : inline-block;
 	width : 330px;
 	margin-left : 30px;
-	margin-top: 30px;
+	margin-top: 40px;
 	margin-bottom: 25px;
 	font-family: 'Noto Sans KR', sans-serif;
 	
@@ -88,11 +86,12 @@
     white-space: nowrap;
     font-size : 2em;
     color : #f76900;
+    margin-top: 34px;
 }
 
 #recipecontentsfont {	
-	margin-top : 20px;
-	height : 50px;
+	margin-top: 50px;
+    height: 40px;
 	text-align : left;
 	overflow: hidden;
     text-overflow: ellipsis;
@@ -144,14 +143,26 @@
 }
 .title2 {
 	margin-top: 50px;
-	text-align : center;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
 	
 }
 
 .title3 {
 	color: #787878;
 	text-align : center;
-	margin-bottom : 20px;
+   	margin: auto;
+   	margin-top: 20px;
+   	font-size: 1.3rem;
+  	border-bottom:1px solid #ebeef1;
+  	font-family: 'Noto Sans KR', sans-serif;
+}
+
+#boardSearchOption {
+	margin-left: 355px;
+    margin-top: 30px;
 }
 
 </style>
@@ -169,6 +180,15 @@
 	
 		<input type="hidden" id="pg" value="${pg}">
 		<input type="hidden" id='category' value = "${category}">
+		<select id="boardSearchOption"">
+			<option value="">선택</option>
+			<option value="">한식</option>
+			<option value="">양식</option>
+			<option value="">일식</option>
+			<option value="">중식</option>
+			<option value="">아시아</option>
+			<option value="">분식</option>
+		</select>
 	<div id="recipeBoardListDiv"> </div>
 		<div id="recipeBoardPagingDiv"></div>
 	</div>

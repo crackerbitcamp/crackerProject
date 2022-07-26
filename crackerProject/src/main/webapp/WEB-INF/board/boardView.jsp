@@ -22,6 +22,9 @@
 		<div id="boardView_subject">
 			<div class="boardView_content_subject">
 				<span id="subjectSpan"></span>
+			</div>
+			
+			<div>
 				<ul class="board_top_bar_ul">
 					<li class="board_top_bar_li"><span id="categorySpan"></span></li>
 					<li class="board_top_bar_li">글번호 <span id="seqSpan"></span></li>
@@ -30,8 +33,8 @@
 					<li class="board_top_bar_li">조회수 <span id="hitSpan"></span></li>
 					<li class="board_top_bar_li">추천 <span id="goodCountSpan"></span></li>
 				</ul>
-	
 			</div>
+			
 			
 			<div class="boardView_content">
 				<pre id="content1"
