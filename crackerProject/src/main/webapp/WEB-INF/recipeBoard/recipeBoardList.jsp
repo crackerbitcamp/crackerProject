@@ -20,8 +20,7 @@
 /* 	border : #dddddd solid 1px; 
 	padding: 5px 5px 5px 5px; 
 	box-shadow: 1px 1px 3px #333333; */
-	width: 770px;
-	height: 350px;
+	width: 54%;
 	border-bottom : 1px solid #6e6e6e;
 	margin : 0 auto;
 }
@@ -58,7 +57,7 @@
 #recipelistAll {
 	position : absolute;
 	display : inline-block;
-	width : 330px;
+	width : 23%;
 	margin-left : 30px;
 	margin-top: 40px;
 	margin-bottom: 25px;
@@ -161,10 +160,13 @@
 }
 
 #category {
-	margin-left: 355px;
-    margin-top: 30px;
+	margin-left: 25%;
+    margin-top: 3%;
 }
 
+#recipeBoardWriteFormBtn {
+	margin-left : 45%;
+}
 </style>
 </head>
 <body>
@@ -180,18 +182,19 @@
 	
 		<input type="hidden" id="pg" value="${pg}">
 		<input type="hidden" id="category" value = "${category}">
- 		<!-- <select id="category">
+ 		<select id="category">
 			<option selected >선택</option>
-			<option value="./recipeBoard/recipeBoardList?category=한식">한식</option>
+			<option value="한식">한식</option>
 			<option value="양식">양식</option>
 			<option value="일식">일식</option>
 			<option value="중식">중식</option>
 			<option value="아시아">아시아</option>
 			<option value="분식">분식</option>
-		</select> -->
+		</select>
+		<button type="button" id="recipeBoardWriteFormBtn">글쓰기</button>
 	<div id="recipeBoardListDiv"> </div>
 		<div id="recipeBoardPagingDiv"></div>
-		<button type="button" id="recipeBoardWriteFormBtn">글쓰기</button>
+		
 	</div>
 
 
@@ -209,12 +212,14 @@ function recipeBoardPaging(pg2) {
 <script type="text/javascript">
 	$(function() {
 		var recipeBoardUrl;
-		if($('#keyword').val()==null){
+		if($('#keyword').val()==''){
+			
 			recipeBoardUrl = '/index/recipeBoard/getRecipeBoardList';
 		}else{
 			recipeBoardUrl = '/index/recipeBoard/recipeBoardSearch';
 		}
 		var images = $('#content img:first-child').attr('src');
+	
 		$.ajax({
 			type : 'post',
 			url : recipeBoardUrl,
@@ -245,8 +250,9 @@ function recipeBoardPaging(pg2) {
 					})).append($('<img>', {
 							id : 'recipelistimg',
 							src : img,
-							width : '400px',
+							width : '51%',
 							height : '300px'
+							
 						})).append($('<div/>',{
 							id : 'recipelistAll'
 						}).append($('<div/>',{

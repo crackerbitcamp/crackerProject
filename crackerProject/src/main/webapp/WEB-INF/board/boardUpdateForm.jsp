@@ -5,8 +5,13 @@
 <head>
 <meta charset="UTF-8">
 <title>글 수정하기</title>
-<!-- <link href="/index/css/boardCSS/boardUpdateWrite.css" rel="stylesheet" type="text/css" /> -->
+<link href="/index/css/boardCSS/boardWrite.css" rel="stylesheet"
+	type="text/css" />
 <style>
+
+.ck-editor__editable {
+	height: 1000px;
+}
 
 #boardUpdateForm div{
 	color: red;
@@ -17,38 +22,39 @@
 </style>
 </head>
 <body>
-
-<form name="boardUpdateForm" id="boardUpdateForm">
-<input type = "hidden" name="seq" id="seq" value="${seq}">
-<input type = "hidden" name="pg" id="pg" value="${pg}">
-
-	<table border="1" cellspacing="0" cellpadding="5">
-		<tr>
-			<td width="70" align="center">제목</td>
-			<td><input type = "text" name="subject" id = "subject" placeholder="제목 입력" >
-			<div id="subjectDiv"></div></td>
-		</tr>
-		<tr>
-			<td align="center">
-			내용
-			</td>
-			<td>
-			  <textarea id="content" name="content" ></textarea>
-			  <div id="contentDiv"></div>
-			</td>
-
-		</tr>
-		<tr>
-			<td colspan="2" align ="center">
-			<input type ="button" value="수정하기" id="boardUpdateBtn">
-			<input type ="reset" value="다시작성" id="resetBtn">
-			<input type= "button" value = "목록" onclick ="location.href='/index/board/boardList?pg=${pg}'">
-			</td>
+	
+	<div id="boardWriteFormOutDiv" >
+		<form class="boardWriteForm" name=“boardWriteForm" id="boardWriteForm">
 			
-		</tr>
-	</table>
-</form>
+			<input type="hidden" name="seq" id="seq" value="${seq}">
+			<input type="hidden" name="pg" id="pg" value="${pg}">
 
+			<div class="inputTextForm">
+				<select id="category">
+					<option value="한식">자유</option>
+					<option value="양식">질문</option>
+				</select> <input type="text" name="subject" id="subject" placeholder="제목 입력">
+			</div>
+			<div id="subjectDiv"></div>
+
+
+			<div class="inputTextForm">
+				<textarea id="content" name="content" style='border: 0;'></textarea>
+			
+				<button class="writeBottomBtnClass" type="button"  id="boardUpdateBtn">수정하기</button>
+				
+				<button	class="writeBottomBtnClass" type="button"  id="resetBtn">다시작성</button>
+				
+				<button	class="writeBottomBtnClass" type="button" 
+					onclick="location.href='/index/board/boardList?pg=${pg}'">목록</button>
+			</div>
+
+			<div id="contentDiv"></div>
+
+
+
+		</form>
+	</div>
 
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -60,7 +66,6 @@ CKEDITOR.replace('content',
 </script>
 
 <script type="text/javascript">
-
 
 
 $(function(){

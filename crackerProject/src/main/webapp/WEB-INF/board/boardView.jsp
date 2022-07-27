@@ -28,8 +28,8 @@
 				<ul class="board_top_bar_ul">
 					<li class="board_top_bar_li"><span id="categorySpan"></span></li>
 					<li class="board_top_bar_li">글번호 <span id="seqSpan"></span></li>
-					<li class="board_top_bar_li"><span id="logtimeSpan"></span></li>
 					<li class="board_top_bar_li">작성자 <span id="nickNameSpan"></span></li>
+					<li class="board_top_bar_li"><span id="logtimeSpan"></span></li>
 					<li class="board_top_bar_li">조회수 <span id="hitSpan"></span></li>
 					<li class="board_top_bar_li">추천 <span id="goodCountSpan"></span></li>
 				</ul>

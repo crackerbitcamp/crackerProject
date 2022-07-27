@@ -104,7 +104,7 @@ public class BoardServiceImpl implements BoardService {
 			boardDAO.setHit(seq);
 			session.removeAttribute("memHit");
 		}
-		
+		 
 		Map<String, Object> map = new HashMap<String, Object>();
 		
 		String memLogin=(String)session.getAttribute("memLogin");
