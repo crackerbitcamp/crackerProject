@@ -61,6 +61,18 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 		
 		return sqlSession.selectOne("recipeBoardSQL.getTotalSearchA", map);
 	}
+
+	@Override
+	public void recipeBoardDelete(int seq) {
+		sqlSession.delete("recipeBoardSQL.recipeBoardDelete", seq);
+		
+	}
+
+	@Override
+	public void recipeBoardUpdate(Map<String, String> map) {
+		sqlSession.update("recipeBoardSQL.recipeBoardUpdate", map);
+		
+	}
 	
 	
 }

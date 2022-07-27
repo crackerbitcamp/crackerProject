@@ -38,7 +38,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		
 		map.put("endNum", endNum+"");
 		map.put("startNum", startNum+"");
-		System.out.println(map);
+	
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardList(map);
 		//세션
 		System.out.println(list);
@@ -62,7 +62,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	public void recipeBoardWrite(Map<String, String> map) {
 		String nickName = (String) session.getAttribute("memLogin");
 		map.put("nickName",nickName);
-		System.out.println(map.get("nickName"));
+	
 		
 		recipeBoardDAO.recipeBoardWrite(map);
 		
@@ -129,6 +129,18 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 				sendMap.put("memLogin",memLogin);
 				
 				return sendMap;
+	}
+
+	@Override
+	public void recipeBoardDelete(int seq) {
+		recipeBoardDAO.recipeBoardDelete(seq);
+		
+		
+	}
+
+	@Override
+	public void recipeBoardUpdate(Map<String, String> map) {
+		recipeBoardDAO.recipeBoardUpdate(map);
 	}
 
 }
