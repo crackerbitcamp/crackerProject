@@ -61,14 +61,14 @@ public class AdminController {
 	@ResponseBody
 	@PostMapping(value="/adminLogin")
 	public String adminLogin(@RequestParam Map<String, String> map) {
-		System.out.println("아이디 = "+map.get("adminId"));
+		
 		return adminService.adminLogin(map);
 	}
 	
 	@PostMapping(value="/adminWrite")
 	@ResponseBody
 	public void adminWrite(@RequestParam Map<String,String> map) {
-		System.out.println(map.get("adminid"));
+
 		adminService.adminWrite(map);
 
 	}
@@ -94,7 +94,7 @@ public class AdminController {
 	
 	@GetMapping(value="/adminMemberDelete")
 	public ModelAndView adminMemberDelete(@RequestParam String[] check) {
-		System.out.println(check);
+
 		adminService.adminMemberDelete(check);
 		
 		return new ModelAndView("redirect:/admin/adminMemberList");
@@ -119,7 +119,7 @@ public class AdminController {
 	@ResponseBody
 	public Map<String,Integer> loginMember(){
 		Map<String,Integer> map = adminService.loginMember();	
-		System.out.println(map);
+
 		return map;
 		
 	}
@@ -128,7 +128,7 @@ public class AdminController {
 	@ResponseBody
 	public Map<String,Integer> dayLoginMember(){
 		Map<String,Integer> map = adminService.dayLoginMember();	
-		System.out.println(map);
+	
 		return map;
 		
 	}
@@ -145,7 +145,7 @@ public class AdminController {
 		// 페이지 이동
 		@GetMapping(value="/adminRecipeList")
 		public ModelAndView adminRecipeList(@RequestParam(required = false, defaultValue = "1") String pg) {
-			System.out.println("확인  " + pg);
+		
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("pg",pg);
 			
@@ -187,6 +187,19 @@ public class AdminController {
 			mav.setViewName("/admin/adminMain");
 			return mav;
 		} 
+		
+		@GetMapping(value = "adminRecipeBoardView")
+		public ModelAndView recipeBoardView(@RequestParam String seq, @RequestParam String pg) {
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg", pg);
+			mav.addObject("seq", seq);
+			mav.addObject("display", "/WEB-INF/admin/adminRecipeBoardView.jsp");
+			mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+			mav.setViewName("/admin/adminMain");
+
+			return mav;
+		}
+
 }
 
 

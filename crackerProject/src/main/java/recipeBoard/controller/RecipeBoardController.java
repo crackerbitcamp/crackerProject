@@ -63,8 +63,8 @@ public class RecipeBoardController {
 		return mav;
 	}
 
-	@PostMapping(value = "getRecipeBoardView")
 	@ResponseBody
+	@PostMapping(value = "getRecipeBoardView")
 	public RecipeBoardDTO getRecipeBoardView(@RequestParam String seq) {
 
 		return recipeBoardService.getRecipeBoardView(seq);
@@ -101,7 +101,7 @@ public class RecipeBoardController {
 		Map<String, String> map = new HashMap<String, String>();
 		map.put("pg", pg);
 		map.put("category", category);
-
+		
 		return recipeBoardService.getRecipeBoardList(map);
 	}
 
@@ -110,16 +110,52 @@ public class RecipeBoardController {
 			@RequestParam(required = false, defaultValue = "all") String category,
 			@RequestParam Map<String, String> map) {
 		ModelAndView mav = new ModelAndView();
-		System.out.println(category);
+		
 		mav.addObject("keyword",map.get("keyword"));
 		mav.addObject("category", category);
 		mav.addObject("pg", pg);
+		
 		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardList.jsp");
 		mav.setViewName("/index");
 
 		return mav;
 	}
+	@ResponseBody
+	@PostMapping(value = "recipeBoardSearch")
+	public Map<String, Object> recipeBoardSearch(@RequestParam Map<String, String> map
+											,@RequestParam(required = false,defaultValue="1" )String pg
+											) {
+		map.put("pg", pg);
+		
+		return recipeBoardService.recipeBoardSearch(map);
+	}
+	
+	@ResponseBody
+	@PostMapping(value = "recipeBoardDelete")
+	public void boardDelete(@RequestParam int seq) {
+		recipeBoardService.recipeBoardDelete(seq);
+	}
+	
+	@GetMapping(value = "recipeBoardUpdateForm")
+	public ModelAndView recipeBoardUpdateForm(@RequestParam String seq, @RequestParam String pg) {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg", pg);
+		mav.addObject("seq", seq);
+		mav.addObject("menu", "/WEB-INF/main/menu.jsp");
+		mav.addObject("nav", "/WEB-INF/main/nav.jsp");
+		mav.addObject("display", "/WEB-INF/recipeBoard/recipeBoardUpdateForm.jsp");
+		mav.setViewName("/index");
+		return mav;
+	}
+	
+	@ResponseBody
+	@PostMapping(value = "recipeBoardUpdate")
+	public void recipeBoardUpdate(@RequestParam Map<String, String> map) {
+		recipeBoardService.recipeBoardUpdate(map);
 
+	}
+
+	
 	// 이미지 업로드
 	@ResponseBody
 	@RequestMapping(value = "imageUpload")
@@ -187,13 +223,5 @@ public class RecipeBoardController {
 
 		}
 	}
-	@ResponseBody
-	@PostMapping(value = "recipeBoardSearch")
-	public Map<String, Object> recipeBoardSearch(@RequestParam Map<String, String> map
-											,@RequestParam(required = false,defaultValue="1" )String pg
-											) {
-		map.put("pg", pg);
-		System.out.println(map+"여기오나");
-		return recipeBoardService.recipeBoardSearch(map);
-	}
+	
 }
