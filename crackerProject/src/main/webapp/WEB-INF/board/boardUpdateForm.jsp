@@ -5,7 +5,9 @@
 <head>
 <meta charset="UTF-8">
 <title>글 수정하기</title>
+<!-- <link href="/index/css/boardCSS/boardUpdateWrite.css" rel="stylesheet" type="text/css" /> -->
 <style>
+
 #boardUpdateForm div{
 	color: red;
 	font-size: 8pt;
@@ -16,16 +18,13 @@
 </head>
 <body>
 
-
-<h2>글 수정하기</h2>
 <form name="boardUpdateForm" id="boardUpdateForm">
 <input type = "hidden" name="seq" id="seq" value="${seq}">
 <input type = "hidden" name="pg" id="pg" value="${pg}">
+
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
-			<td width="70" align="center">
-			제목
-			</td>
+			<td width="70" align="center">제목</td>
 			<td><input type = "text" name="subject" id = "subject" placeholder="제목 입력" >
 			<div id="subjectDiv"></div></td>
 		</tr>
@@ -50,6 +49,8 @@
 	</table>
 </form>
 
+
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/info/ckeditor/ckeditor.js"></script>
 <script type="text/javascript">	// 글쓰기 editor 및 사진 업로드 기능
@@ -57,6 +58,7 @@ CKEDITOR.replace('content',
 	{filebrowserUploadUrl:'imageUpload'
 });
 </script>
+
 <script type="text/javascript">
 
 
@@ -84,7 +86,7 @@ $('#boardUpdateBtn').click(function(){
 	var content = CKEDITOR.instances.content.getData();
 	
 	$('#subjectDiv').empty();
-	$(content).empty();
+	$('#contentDiv').empty();
 	
 	if($('#subject').val()==''){
 		$('#subjectDiv').html('제목을 입력하세요');
@@ -109,6 +111,7 @@ $('#boardUpdateBtn').click(function(){
 		});
 	}//else
 });
+
 $('#resetBtn').click(function(){
 	$.ajax({
 		type:'post',

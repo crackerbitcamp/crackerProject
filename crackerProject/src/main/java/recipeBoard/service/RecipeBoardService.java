@@ -16,4 +16,6 @@ public interface RecipeBoardService {
 
 	public Map<String, Object> recipeBoardSearch(Map<String, String> map);
 
+
+
 }

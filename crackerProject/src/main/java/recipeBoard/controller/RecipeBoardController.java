@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
 
+import board.bean.BoardDTO;
 import recipeBoard.bean.RecipeBoardDTO;
 import recipeBoard.service.RecipeBoardService;
 
@@ -196,4 +197,6 @@ public class RecipeBoardController {
 		System.out.println(map+"여기오나");
 		return recipeBoardService.recipeBoardSearch(map);
 	}
+
+	
 }

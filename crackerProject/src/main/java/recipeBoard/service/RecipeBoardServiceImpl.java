@@ -131,4 +131,5 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 				return sendMap;
 	}
 
+
 }

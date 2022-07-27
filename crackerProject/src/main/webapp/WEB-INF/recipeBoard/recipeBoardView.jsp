@@ -106,6 +106,12 @@ $(function(){
 	});//ajax
 });
 
+$('#recipeboardUpdateBtn').click(function(){
+	location.href='/index/recipeBoard/recipeBoardUpdateForm?seq='
+	+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
+});//click
+
+
 
 </script>
 </body>

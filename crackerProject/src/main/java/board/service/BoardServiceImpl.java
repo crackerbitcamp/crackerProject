@@ -158,7 +158,7 @@ public class BoardServiceImpl implements BoardService {
 	}
 	@Override
 	public BoardDTO getBoard(String seq) {
-		// TODO Auto-generated method stub
+		
 		return boardDAO.getBoardView(seq);
 	}
 	@Override

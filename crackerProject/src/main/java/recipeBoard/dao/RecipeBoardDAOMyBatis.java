@@ -61,6 +61,7 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 		
 		return sqlSession.selectOne("recipeBoardSQL.getTotalSearchA", map);
 	}
+
 	
 	
 }

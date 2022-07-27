@@ -160,7 +160,7 @@
   	font-family: 'Noto Sans KR', sans-serif;
 }
 
-#boardSearchOption {
+#category {
 	margin-left: 355px;
     margin-top: 30px;
 }
@@ -179,18 +179,19 @@
 	<div>
 	
 		<input type="hidden" id="pg" value="${pg}">
-		<input type="hidden" id='category' value = "${category}">
-		<select id="boardSearchOption"">
-			<option value="">선택</option>
-			<option value="">한식</option>
-			<option value="">양식</option>
-			<option value="">일식</option>
-			<option value="">중식</option>
-			<option value="">아시아</option>
-			<option value="">분식</option>
-		</select>
+		<input type="hidden" id="category" value = "${category}">
+ 		<!-- <select id="category">
+			<option selected >선택</option>
+			<option value="./recipeBoard/recipeBoardList?category=한식">한식</option>
+			<option value="양식">양식</option>
+			<option value="일식">일식</option>
+			<option value="중식">중식</option>
+			<option value="아시아">아시아</option>
+			<option value="분식">분식</option>
+		</select> -->
 	<div id="recipeBoardListDiv"> </div>
 		<div id="recipeBoardPagingDiv"></div>
+		<button type="button" id="recipeBoardWriteFormBtn">글쓰기</button>
 	</div>
 
 
