@@ -10,7 +10,7 @@
 
 </head>
 <body>
-	<div class="wrap">
+	
 		<div class="header">
 			<h1 class="logo"><img src="../image/home/logo.png"
 				 onclick= "location.href='/index/admin/adminMain'" style="cursor: pointer;"></h1>
@@ -33,21 +33,29 @@
 			<c:if test="${sionAdminId != null }">
 			<ul>
 				<li><img src="../image/person.svg"><a href="/index/admin/adminMemberList" id="adminList">사용자 관리</a> </li>
-				<li class="boardMenuTop"><img src="../image/gear.svg"><a href="#" id="adminList">게시판 관리</a>
+				<li class="boardMenuTop"><img src="../image/gear.svg"><a id="adminList">게시판 관리</a>
 					<ul class="boardMenuTopUl">
 						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminBoardList" id="adminList">자유게시판</a></li>
 						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminRecipeBoardList" id="adminList">레시피게시판</a></li>
 					
 					</ul>
 				</li>
-				<li><img src="../image/person.svg"><a href="/index/product/productMangeList" id="adminList">상품관리</a></li>
+				<li class="productMenuTop"><img src="../image/person.svg"><a id="adminList">상품관리</a>
+					<ul class="productMenuTopUl">
+						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productWriteForm">상품 등록</a></li>
+						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productBoardWriteForm">상품게시글 등록</a></li>
+						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productMangeList">상품 목록</a></li>
+						<li class="productMenu"><img src="../image/gear.svg"><a href="#">상품 게시글 목록</a></li>
+						
+					</ul>
+				</li>
 				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
 			
 			</ul>
 			</c:if>
 		</div> <!-- management -->
 		
-	</div> <!-- wrap -->
+	
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
@@ -71,6 +79,24 @@ $(function(){
 		}else{
 			$('.boardMenu').show();
 			count++;
+		}
+		
+	});
+});
+
+$(function(){
+	var countProduct = 1;
+	$('.productMenu').hide();
+	
+	$('.productMenuTop').click(function(){
+		if(countProduct%2 == 0){
+			$('.productMenu').hide();
+			countProduct++;
+			
+		}else{
+			$('.productMenu').show();
+			countProduct++;
+			
 		}
 		
 	});

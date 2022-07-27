@@ -5,29 +5,31 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/index/css/boardCSS/boardWrite.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <body>
 <form id="loginForm">
 
 	<div>
 		<div>
-			<div>아이디 :</div>
-			<div>
-				<input type="text" id="adminId">
+		
+			<div class=inputTextForm>
+				<span>아이디 : </span><input type="text" id="adminId" class="inputTypeText"/>
 			</div>
 		</div>
 
 		<div>
-			<div>비밀번호 :</div>
-			<div>
-				<input type="password" id="adminPwd">
+			
+			<div class=inputTextForm>
+				<span>비밀번호: </span><input type="password" id="adminPwd" class="inputTypeText">
 			</div>
 		</div>
 		
 		<div>
 			
 			<div>
-				<input type="button" id="adminLoginBtn" value="로그인">
+				<input type="button" id="adminLoginBtn" value="로그인" class="writeBottomBtnClass">
 			</div>
 		</div>
 		
