@@ -21,22 +21,22 @@
 <style type="text/css">
 body{
 	margin: 0;
+	background : #f3f3f3;
 }
 #display{
-	margin-top: 50px;
+	margin-top: 60px;
 }
 
 #wrap {
 	width: 100%;
 	margin: 0 auto; /* 위아래여백,좌우여백  */
 	
-	
 }
 
 /* container */
 
 #container{
-	/* margin: 2% 3% 5% 3%; */
+	margin: 2% 5% 5% 2%;
 }
 
 #container:after { /* after는 컨테이너 뒤에 붙는거 해제하라는 뜻 */
@@ -45,14 +45,6 @@ body{
 	clear: both; /* flex 써도 됨 */
 }
 
-
-.display_title {
-	width : 90%;
-	display : inline-block;
-	margin-bottom: -25px;
-	margin-left : 55px;
-
-}
  .display_title_text{
 	padding-right : 15px;
 	padding-left : 15px;
@@ -65,16 +57,16 @@ body{
 	float : right;
 	color : #CBCBCB;
 	text-decoration:none;
-	top : -40px;
+	top : -30px;
+	left : -20px;
 	
 }
 
 #imagecard {
-	
+	padding-top : 17.8px;
 	text-align : center;
-	height: 450px;
+	height: 500px;
 	border-bottom: 1px solid #f76900;
-	margin : 10px 65px;
 	/* border : 1px solid red; */
 
 }
@@ -83,8 +75,8 @@ body{
 	position: relative;
 	float : left;
 	display : block;
-	width : 434px;
-	height : 200px;
+	width : 518px;
+	height : 230px;
 	
 	
 }
@@ -95,7 +87,7 @@ body{
 
 #imagecard1 a {
 	text-decoration: none;
-	height: 89.5%;
+	height: 93%;
 	width: 95%;
 	background-color: rgba(0,0,0,0.2);
 	box-sizing: border-box;
@@ -109,7 +101,7 @@ body{
 #imagecard1 a:hover{
 
 	text-decoration: none;
-	height: 89.5%;
+	height: 93%;
 	width: 95%;
 	background-color: rgba(0,0,0,0.67);
 	box-sizing: border-box;
@@ -156,14 +148,10 @@ body{
 #content {
 	/* padding: 20px; */ /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
 	position: relative; /* 자기 자신 중심 */
-	height: 335px;
-	width : 1300px;
-	margin-left : 60px;
-	/* float: left;  */
-	/* border: 1px red solid; */
+	float: left; 
+	/* border: 1px red solid; /*솔리드 라인*/
 
 }
-
 
 #display {
 	padding: 0; /*섹센을 묶어서 20px만큼 상단으로부터 띄움*/
@@ -172,21 +160,16 @@ body{
 	width: 100%;
 	height: 100%;
 	/* border: 1px blue solid; /*솔리드 라인*/
-	/* background-color: #f3f3f3; */
+	background-color: #f3f3f3;
 }
 
 .imagecard {
-	position: relative;
-	width : 98%;
-	height: 750px;
-	margin : 0 auto;
-	
-	/* border: 1px blue solid; */
+	width : 100%;
+	height : 100%;
 }
 
 #indexSection1 {
 	border-bottom: 1px solid #f76900;
-	display : flex;
 	
 }
 
@@ -201,13 +184,13 @@ body{
 
 
 /* footer */
-.footer {
- 	position : relative;
+#footer {
+	position: relative;
 	bottom: 8px;
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
-.footer .footerArea { 
+.footer .footerArea {
 	border-top: 1px solid #cccccc;
 	padding: 0; /* 좌측과 우축의 여백을 제거 */
 	color: #666;
@@ -307,12 +290,10 @@ body{
 						</div>
 					</div>
 				</div>
-				
 	<div id="wrap">
 		<div id="header_menuDiv">
-		
-			<img alt="" src="/index/image/home/cracker.jpeg" id="headerLogo" style=" margin-left : 20px; ">
-
+			
+			<img alt="" src="/index/image/home/cracker.jpeg" width="100px" height="50px" id="headerLogo">
 
 				<c:if test="${not empty display}">
 					<div class="">
@@ -324,6 +305,14 @@ body{
 			<div id="header_ul">
 				
 				<ul id="header_menu_ul">
+
+					
+					<li class="header_menu_item"><input type="text" value="${keyword }" id="keyword"><button type="button">검색</button></li>
+					
+					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>전체 게시판</span></a></li>
+					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>자유 게시판 </span></a></li>
+					<li class="header_menu_item"><a href="/index/recipeBoard/recipeBoardList" class="menu_item_a"><span>레시피 게시판</span></a></li>
+
 					<li class="header_menu_item"><input type="hidden" value="${keyword }" id="keyword" ></li>
 					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>SHOP</span></a></li>
 					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>FREE</span></a></li>
@@ -334,49 +323,44 @@ body{
 				
 				<ul id="header_login_ul">
 					<li class="header_login_item">
-						<button type="button" id="memberImgBtn"><img src="/index/image/home/person-circle.svg" 
-						style=" width:25px; height:25px; margin-top:15px; " /></button>
+						<button type="button" id="memberImgBtn"><img src="/index/image/person.svg" width="50px" height="50px"/></button>
 					</li>
 				</ul>
 			
 			</div>
-		</div> <!-- header_menuDiv -->
-		
+		</div>
 		<div id="display">
 				<c:if test="${empty display}">
-			<header id="header">
+		<header id="header">
 			
 				<!-- 헤더 상위 메뉴바 아래 -->
-
-				<div id="searchFormOutDiv">
-					<p class="title">다양한 레시피, 맛 보장 레시피!</p>
-					<h1 class="title">CRACKER</h1>
-					<div id = "searchForm">
-						<img alt="돋보기" src="/index/image/home/search.svg" >
-						<select id="boardSearchOption">
-							<option value="board">자유게시판</option>
-							<option value="recepiBoard">레시피</option>
-						</select>
-						<input type="text" id="boardSearch" placeholder="음식명">
-						<input type="submit" id="boardSearchBtn" value="검색" onclick="#">
-					</div>
-
-			</header>
+			<div id="searchFormOutDiv">
+				<div id = "searchForm">
+					<img alt="돋보기" src="/index/image/home/search.svg">
+					<select id="boardSearchOption">
+						<option value="board">자유게시판</option>
+						<option value="recepiBoard">레시피</option>
+					</select>
+					<input type="text" id="boardSearch">
+					<input type="button" id="boardSearchBtn" value="검색">
+				</div>
+			</div>
+		</header>
+		<!-- header -->
 	
 
 		<div id="container">
 		
 		<!-- 	<input type="button" value="문의하기"
 				onclick="location.href='/index/customer/customerWriteForm'"> -->
-			
 				
-				<div class="display_title">
-							<h2 class="display_title_text">레시피 리스트</h2>
-							<a class="display_title_list" href="#">리스트 더보기</a>
-				</div>
+		
+					<div class="display_title">
+						<h2 class="display_title_text">레시피 리스트</h2>
+						<a class="display_title_list" href="#">리스트 더보기</a>
+					</div>
 				
 					<div id="imagecard">
-
 						
 						<div id="imagecard1">
 							<img class="imagecard2" src="/index/image/home/korea.jpeg" onclick="">
@@ -459,13 +443,7 @@ body{
 					</div>	
 		
 			
-					<div class="display_title">
-							<h2 class="display_title_text">자유 게시판 & 질문 게시판</h2>
-							<a class="display_title_list" href="#">게시글 더보기</a>
-					</div>
-				
-			
-				<div id="content">				
+				<div id="content">
 					<div id="textSection">
 						<div id="indexSection1" class="section">
 							<jsp:include page="${indexSection1 }" />
@@ -474,23 +452,18 @@ body{
 		
 					</div> <!-- textSection -->
 				
-				</div> <!-- content -->
-				
-					<div class="display_title">
-							<h2 class="display_title_text">레시피 전체 게시판</h2>
-							<a class="display_title_list" href="#">레시피 더보기</a>
+					
+					<div class="imagecard">
+						<div id="indexSection5">
+								<jsp:include page="${indexSection5 }" /> 
+							</div>
+						</div>
 					</div>
-				
-				<div class="imagecard">
-					<div id="indexSection5">
-						<jsp:include page="${indexSection5 }" /> 
-					</div>
-				</div>
-				
 
-			</div><!-- container -->
-			</c:if>	
-		</div> <!-- display -->
+				</div><!-- content -->
+			</div> <!-- container -->
+			
+			</c:if>
 			
 			
 			<c:if test="${not empty display}">
@@ -498,9 +471,11 @@ body{
 			</c:if>
 			
 				
-		</div> <!-- wrap -->
+		</div> <!-- display -->
 
-		
+	</div> <!-- wrap -->
+			
+			
 			
 <!-- 			<div id="rightbar">
 				<div class="card2">
@@ -517,6 +492,37 @@ body{
 	 	</div>container -->
 
 	 
+
+	<div id="footer">
+		<div class="footerArea">
+			<dl class="btmnav">
+				<dt class="blind">bottom navigation</dt>
+				<dd>
+					<a href="#">About</a>
+				</dd>
+				<dd>
+					<a href="#">개인정보보호</a>
+				</dd>
+				<dd>
+					<a href="#">광고문의</a>
+				</dd>
+				<dd>
+					<a href="#">Contact us</a>
+				</dd>
+				<dd>
+					<a href="#">Location</a>
+				</dd>
+			</dl>
+
+			<p class="copy">
+				Copyright &copy; COMPANY Design<br> Powered by Webazit, e-mail
+				: <a href="mailto:cracker@community.com">cracker@community.com</a>
+			</p>
+		</div>
+		<!-- footerArea -->
+
+	</div>
+	<!-- footer -->
 	
 	<!-- 우측상단 로그인 버튼 -->
 	<div >
@@ -552,10 +558,12 @@ body{
 					<c:if test="${naverEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+						<button class="userHistoryBtnClass" id="customerWriteForm" onclick="location.href='/index/customer/customerWriteForm'" style="cursor: pointer;">문의 하기</button>
 					</c:if>
 					<c:if test="${kakaoEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
 						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
+						<button class="userHistoryBtnClass" id="customerWriteForm" onclick="location.href='/index/customer/customerWriteForm'" style="cursor: pointer;">문의 하기</button>
 					</c:if>
 				<div>
 				</div>
