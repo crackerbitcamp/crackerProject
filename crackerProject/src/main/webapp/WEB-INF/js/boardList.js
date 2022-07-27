@@ -1,7 +1,7 @@
 $(document).ready(function(){
 	
 	var boardUrl;
-	if($('#keyword').val()==null){
+	if($('#keyword').val()==''){
 		boardUrl = '/index/board/getBoardList';
 	}else{
 		boardUrl = '/index/board/boardSearch';

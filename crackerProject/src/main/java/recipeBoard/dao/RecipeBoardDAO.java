@@ -22,4 +22,8 @@ public interface RecipeBoardDAO {
 
 	public int getTotalSearchA(Map<String, String> map);
 
+	public void recipeBoardDelete(int seq);
+
+	public void recipeBoardUpdate(Map<String, String> map);
+
 }
