@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
 <style type = "text/css">
 .subjectA:link {color: black; text-decoration: none;}
@@ -23,8 +26,9 @@
 #boardListDiv2{
 /* 	border: 1px solid red; */
 	width : 45%;
-	height: 280px;
+	height: 300px;
 	background-color: #fff;
+	margin-top: 20px;
 /* 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%); */
 /* 	border: solid 1px #98a0a7; */
 }
@@ -33,31 +37,36 @@
 /* 	border: 1px red solid; */
 	float: left;
 	width: 10%;
-	margin: 10px;
+	margin: 12px;
 	
 }
 
 #boardListDiv2 .category{
 	float: left;
 	width: 10%;
-	margin: 10px;
+	margin: 12px;
 }
 
 #boardListDiv2 .subjcet{
 /* 	border: 1px red solid; */
 	float: left;
 	/* text-align: left; */
-	margin: 10px;
+	margin: 12px;
 	width: 41%;
 	white-space : nowrap;
  	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
+#boardListDiv2 .subjcet a:hover {
+	text-decoration: none;
+	color : black; 
+}
+
 #boardListDiv2 .logtime{
 /* 	border: 1px red solid; */
 	float: left;
-	margin: 10px;
+	margin: 12px;
 	width: 18%;
 	
 }

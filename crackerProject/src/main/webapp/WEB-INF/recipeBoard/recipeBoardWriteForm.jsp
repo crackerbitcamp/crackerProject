@@ -18,8 +18,8 @@
 	<div id="boardWriteFormOutDiv" >
 		<form class="boardWriteForm" name="recipeBoardWriteForm" id="recipeBoardWriteForm">
 			
-			<input type="hidden" name="seq" value="${boardDTO.seq}"> <input
-				type="hidden" name="pg" value="${pg}">
+			<input type="hidden" name="seq" value="${boardDTO.seq}">
+			<input type="hidden" name="pg" value="${pg}">
 
 			<div class="inputTextForm">
 				<select id="category">
@@ -29,7 +29,8 @@
 					<option value="분식">분식</option>
 					<option value="중식">중식</option>
 					<option value="아시아">아시아</option>
-				</select> <input type="text" name="subject" id="subject" placeholder="제목 입력">
+				</select> 
+				<input type="text" name="subject" id="subject" placeholder="제목 입력">
 			</div>
 			<div id="subjectDiv"></div>
 

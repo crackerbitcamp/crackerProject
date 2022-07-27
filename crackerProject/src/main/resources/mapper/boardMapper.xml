@@ -101,6 +101,7 @@
 			delete board where seq = #{seq};
 		end;
 	</delete>
+	
 	<!-- 조회수 -->
 	<update id="setHit" parameterType="Int">
 		update board set hit = hit +1 where seq=#{seq}

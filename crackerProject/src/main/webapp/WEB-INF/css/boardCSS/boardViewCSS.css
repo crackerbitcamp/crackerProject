@@ -2,8 +2,10 @@
 
 
 ul{
-	 list-style:none;
-	 padding: 0;
+	list-style:none;
+	 padding: 10px 10px 10px 10px;
+	 border-bottom: 1px solid #dddfe4;
+	 display : flex;
 	
 }
 .comment_meta{
@@ -21,10 +23,11 @@ ul{
 .board_top_bar_li{
 /* 	border-right: thin solid #7b858e; */
 	float: left;
-	margin: 10px;
-    line-height: 17px;
+    margin : auto;
+    line-height: 15px;
     font-size: 14px;
     color: #7b858e;
+    margin-left : 37px;
 	
 }
 .imgg{
@@ -64,7 +67,7 @@ ul{
 
 .boardView_content_subject{
 	border-bottom: 1px solid #dddfe4;
-	padding: 20px;
+	padding: 20px 0px 20px 0px;
 }
 
 .boardView_content_menu{
@@ -97,6 +100,7 @@ ul{
 
 #subjectSpan{
 	font-size: 25px;
+	margin-left: 40px;
 	
 }
 .comment_form_div{

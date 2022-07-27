@@ -20,4 +20,5 @@ public interface RecipeBoardService {
 
 	public void recipeBoardUpdate(Map<String, String> map);
 
+
 }

@@ -26,4 +26,7 @@ public interface RecipeBoardDAO {
 
 	public void recipeBoardUpdate(Map<String, String> map);
 
+	public void setHit(String seq);
+
+
 }

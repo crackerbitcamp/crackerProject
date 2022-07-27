@@ -1,6 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 
 <style type = "text/css">
 .subjectA:link {color: black; text-decoration: none;}
@@ -24,7 +27,7 @@
 /*    border: 1px solid red; */
    margin: 50px auto;
    width: 60%;
-   height: 300px;
+   height: 284px;
    background-color: #ffffff;
    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
 /*    border: solid 1px #98a0a7; */
@@ -51,11 +54,16 @@
    float: left;
    text-align: center;
    margin: 10px;
-   width: 33%;
+   width: 36%;
    margin: 10px;
    white-space : nowrap;
    overflow: hidden;
    text-overflow: ellipsis;
+}
+
+#boardListDiv .subjcet a:hover {
+	text-decoration: none;
+	color : black; 
 }
 
 #boardListDiv .logtime{
@@ -71,21 +79,23 @@
 /*    border: 1px red solid; */
    float: left;
    margin: 10px;
-   width: 19%;
+   width: 22%;
    color: #98a0a7;
 }
 
 #boardListDiv .listMenu{
 /*    border: 1px red solid; */
+	display: flex;
    text-align:center;
    height:13.5%;
-   width:95%;
-   margin: auto;
+   width:100%;
+   padding: 8px 0px 0px 0px;
    border-bottom:1px solid #ebeef1;
 }
 #boardListWriteBtn {
 	text-align: left;
 	margin-left : 300px;
+	margin-top : -30px;
 }
 #boardPagingDiv {
 	margin-left : 410px;
@@ -103,22 +113,26 @@
 	padding: 48px 0px 48px 0px ;
 	width: 100%;
 	background-color: #f3f3f3;
+	
 }
 
 .FreeBoardTop .title2 {
 	margin-top: 50px;
 	text-align : center;
+	font-size: 2rem;
+    font-weight: bold;
+    font-family: 'Noto Sans KR', sans-serif;
 	
 }
 
 .FreeBoardTop .title3 {
 	color: #787878;
 	text-align : center;
-	margin-bottom : 20px;
-   height:6%;
-   width:95%;
-   margin: auto;
-   border-bottom:1px solid #ebeef1;
+   	margin: auto;
+   	margin-top: 20px;
+   	font-size: 1.3rem;
+  	border-bottom:1px solid #ebeef1;
+  	font-family: 'Noto Sans KR', sans-serif;
 
 }
 </style>
@@ -133,11 +147,11 @@
 <input type="hidden" id="pg" value="${pg}"/>
 <div id="boardListDiv">
    <div class="listMenu">
-      <div class="category" style="color:#000000"><span style="font-size: large;font-weight: 900;">분류</span></div>
-      <div class="subjcet"><span style="font-size: large;font-weight: 900; text-align:center;">제목</span></div>
-      <div class="nickName" style="color:#000000"><span style="font-size: large;font-weight: 900;">닉네임</span></div>
-      <div class="logtime" style="color:#000000"><span style="font-size: large;font-weight: 900;">작성날짜</span></div>
-      <div class="goodCount" style="color:#000000"><span style="font-size: large;font-weight: 900;">추천</span></div>
+      <div class="category" style="color:#000000"><span style="font-size: large;font-weight: 900; margin:auto;">분류</span></div>
+      <div class="subjcet"><span style="font-size: large;font-weight: 900; text-align:center; margin:auto;">제목</span></div>
+      <div class="nickName" style="color:#000000"><span style="font-size: large;font-weight: 900; margin:auto;">닉네임</span></div>
+      <div class="logtime" style="color:#000000"><span style="font-size: large;font-weight: 900; margin:auto;">작성날짜</span></div>
+      <div class="goodCount" style="color:#000000"><span style="font-size: large;font-weight: 900; margin:auto;">추천</span></div>
    </div>
 </div>
     <div id="boardListWriteBtn"><input type ="button" value="글쓰기"  onclick="location.href='/index/board/boardWriteForm'">

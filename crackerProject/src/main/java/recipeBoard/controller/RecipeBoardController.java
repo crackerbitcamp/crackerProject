@@ -26,6 +26,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.google.gson.JsonObject;
 
+import board.bean.BoardDTO;
 import recipeBoard.bean.RecipeBoardDTO;
 import recipeBoard.service.RecipeBoardService;
 
@@ -119,15 +120,6 @@ public class RecipeBoardController {
 		mav.setViewName("/index");
 
 		return mav;
-	}
-	@ResponseBody
-	@PostMapping(value = "recipeBoardSearch")
-	public Map<String, Object> recipeBoardSearch(@RequestParam Map<String, String> map
-											,@RequestParam(required = false,defaultValue="1" )String pg
-											) {
-		map.put("pg", pg);
-		
-		return recipeBoardService.recipeBoardSearch(map);
 	}
 	
 	@ResponseBody
@@ -223,5 +215,16 @@ public class RecipeBoardController {
 
 		}
 	}
+
+	@ResponseBody
+	@PostMapping(value = "recipeBoardSearch")
+	public Map<String, Object> recipeBoardSearch(@RequestParam Map<String, String> map
+											,@RequestParam(required = false,defaultValue="1" )String pg
+											) {
+		map.put("pg", pg);
+		System.out.println(map+"여기오나");
+		return recipeBoardService.recipeBoardSearch(map);
+	}
+
 	
 }

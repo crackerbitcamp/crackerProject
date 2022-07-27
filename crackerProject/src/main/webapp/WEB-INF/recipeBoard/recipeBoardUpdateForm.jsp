@@ -22,8 +22,8 @@
 	<div id="boardWriteFormOutDiv" >
 		<form class="boardWriteForm" name="recipeBoardWriteForm" id="recipeBoardWriteForm">
 			
-			<input type="hidden" name="seq" id="seq" value="${seq}"> <input
-				type="hidden" name="pg" id="pg" value="${pg}">
+			<input type="hidden" name="seq" id="seq" value="${seq}">
+			<input type="hidden" name="pg" id="pg" value="${pg}">
 
 			<div class="inputTextForm">
 				<select id="category">
@@ -60,6 +60,7 @@
 	<script type="text/javascript" src="/index/js/recipeBoard/recipeBoard.js"></script>
 	<script type="text/javascript" src="../js/info/ckeditor/ckeditor.js"></script>
 	<script type="text/javascript">
+	
 	$(function(){
 		$.ajax({
 			type:'post',

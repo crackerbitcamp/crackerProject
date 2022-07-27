@@ -21,17 +21,20 @@
 
 <input type = "hidden" name="seq" id="seq" value="${seq}"/>
 <input type = "hidden" name="pg" id ="pg" value="${pg}"/>
+<input type="text" id="memEmail" value="${memEmail }" />
 <input type="text" id="category" value="레시피"/>
 
 
 <div id="recipeBoardView_subject">
 	<div class="recipeBoardView_content_subject">
 		<span id="subjectSpan"></span>
+	</div>
+	<div class="recipeBoardView_customer">
 		<ul class="recipeBoard_top_bar_ul">
 			<li class="recipeBoard_top_bar_li"><span id="categorySpan"></span></li>
 			<li class="recipeBoard_top_bar_li">글번호 <span id="seqSpan"></span></li>
-			<li class="recipeBoard_top_bar_li"><span id="logtimeSpan"></span></li>
 			<li class="recipeBoard_top_bar_li">작성자 <span id="idSpan"></span></li>
+			<li class="recipeBoard_top_bar_li"><span id="logtimeSpan"></span></li>
 			<li class="recipeBoard_top_bar_li">조회수 <span id="hitSpan"></span></li>
 			<li class="recipeBoard_top_bar_li">추천 <span id="goodCountSpan"></span></li>
 		</ul>
@@ -44,12 +47,14 @@
 	</div>
 	
 	<div class="recipeBoardView_content_menu">
+			<div class ="goodBtn" >
+			<span id="goodcount"> </span>
 			<button type="button" id="goodBtn">추천하기</button>
-	
+			</div>
 			<input type="button" value="목록" style="margin: 5px;" onclick="location.href='/index/recipeBoard/recipeBoardList?pg=${pg}'">
 			<input type="button" value="글수정" id="recipeBoardUpdateBtn">
 			<input type="button" value="삭제" id="recipeBoardDeleteBtn">
-		
+
 	</div>
 	
 </div> <!-- recipeBoardView_subject -->
@@ -72,7 +77,6 @@
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/recipeBoard/recipeBoardView.js"></script>
-
 <script type="text/javascript">
 $(function(){
 	$.ajax({
@@ -82,6 +86,7 @@ $(function(){
 		dataType:'json',
 		success : function(data){
 			//alert(JSON.stringify(data));
+			$('#categorySpan').html(data.category);
 			$('#subjectSpan').html(data.subject);
 			$('#seqSpan').html(data.seq);
 			$('#idSpan').html(data.nickName);
@@ -126,6 +131,12 @@ $('#recipeBoardUpdateBtn').click(function(){
 	location.href='/index/recipeBoard/recipeBoardUpdateForm?seq='
 		+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
 });
+
+$('#recipeboardUpdateBtn').click(function(){
+	location.href='/index/recipeBoard/recipeBoardUpdateForm?seq='
+	+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
+});//click
+
 
 
 </script>

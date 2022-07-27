@@ -27,6 +27,11 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	@Override
 	public RecipeBoardDTO getRecipeBoardView(String seq) {
 		
+		if(session.getAttribute("memHit") != null) {
+			recipeBoardDAO.setHit(seq);
+			session.removeAttribute("memHit");
+		}
+		
 		return recipeBoardDAO.getRecipeBoardView(seq);
 	}
 
@@ -131,10 +136,10 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 				return sendMap;
 	}
 
+
 	@Override
 	public void recipeBoardDelete(int seq) {
-		recipeBoardDAO.recipeBoardDelete(seq);
-		
+		recipeBoardDAO.recipeBoardDelete(seq);	
 		
 	}
 

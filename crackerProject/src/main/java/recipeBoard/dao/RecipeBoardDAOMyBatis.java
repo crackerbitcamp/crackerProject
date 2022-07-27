@@ -73,6 +73,13 @@ public class RecipeBoardDAOMyBatis implements RecipeBoardDAO {
 		sqlSession.update("recipeBoardSQL.recipeBoardUpdate", map);
 		
 	}
+
+	@Override
+	public void setHit(String seq) {
+		sqlSession.update("recipeBoardSQL.setHit",Integer.parseInt(seq));
+		
+	}
+
 	
 	
 }

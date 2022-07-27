@@ -8,7 +8,7 @@
 #header_menu_ul{
 	display: flex;
 	list-style: none;
-	padding: 0;
+	margin-top : 20px;
 	
 }
 
@@ -69,6 +69,7 @@ background-color: rgba(0,0,0,0.3);
     margin: 0 auto;
     width: 100%;
     font-size: 2.2rem;
+    font-weight: bold;
     color: #ffffff;
     line-height: 45px;
     text-align : center;
@@ -99,7 +100,7 @@ background-color: rgba(0,0,0,0.3);
 #boardSearch{
 
   width: 79%;
-  height: 30px;
+  height: 40px;
 
   font-size: 15px;
   border: 0;
@@ -111,17 +112,19 @@ background-color: rgba(0,0,0,0.3);
 
 #searchForm{
 	margin: 45px auto 0 auto;
-	width: 31%;
+	width: 45%;
 	overflow: hidden;
-	padding-right:20px;
 	padding-left:20px;
 	border-radius: 30px;
 	border: #f76900 3px solid;
 	position: relative;
 	background-color: white;
-	
-
 }
+
+.searchIcon {
+	
+}
+
 #searchFormOutDiv{
 	
 	width: 100%;
