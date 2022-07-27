@@ -344,8 +344,7 @@ border-bottom: 2px solid;
 					<dt id="dropshipday" class="dropshipday"><span>${item.day }</span> 도착 예정</dt>
 					<div class="dropiteminfo">
 						<dt class="productName" id="productName">${item.productJoinDTO.productName }</dt>
-						<input type="text" id="merchant_uid" onload>
-						document.write( '<p>' + jbRandom + '</p>' );
+						<input type="hidden" class="random1" id="merchant_uid">
 						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
 					</div>
 				</div>
@@ -393,6 +392,15 @@ border-bottom: 2px solid;
 <!-- iamport.payment.js  1.1.8 -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script type="text/javascript">
+$(function(){ 
+const random1 = Math.floor(Math.random()*100000000000000);
+console.log(random1);
+
+$('.random1').val(random1);
+
+});
+
+
 function requestPay() {
 	var IMP = window.IMP; // 생략 가능
     IMP.init("imp06570380"); // 예: imp00000000
@@ -421,16 +429,21 @@ function requestPay() {
                     merchant_uid: rsp.merchant_uid
                 }
             }).done(function (data) {
-              // 가맹점 서버 결제 API 성공시 로직
+              // 가맹점 서버 결제 API 성공시 로직]
+              alert("구매완료되었습니다.");
+              location.href="/index/shop/shopmain"
             }) 
           } else {
-            alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+            alert("결제에 실패하였습니다.");
+        
           }
         });
   }
-
-
+  
+  
 </script>
+
+
 </html>
 <%-- 확인 : ${item.memberDTO.memberemail}<br>
 	productJoinDTO.seq : ${item.productJoinDTO.seq }<br>
