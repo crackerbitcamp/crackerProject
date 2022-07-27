@@ -92,6 +92,11 @@ public class AdminDAOMyBatis implements AdminDAO {
 	public int getAdminRecipeSearchTotalA(Map<String, String> map) {
 		return sqlSession.selectOne("adminSQL.getAdminRecipeSearchTotalA", map);
 	}
+	@Override
+	public MemberDTO getMember(String seq) {
+		
+		return sqlSession.selectOne("adminSQL.getMember" , seq);
+	}
 
 	
 }

@@ -1,6 +1,6 @@
 package admin.controller;
 
-import java.util.HashMap;
+
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import admin.service.AdminService;
+import member.bean.MemberDTO;
 
  
 @RequestMapping(value="admin")
@@ -107,8 +108,11 @@ public class AdminController {
 	}
 	
 	@GetMapping(value="/adminMemberView")
-	public ModelAndView adminMemberView() {
+	public ModelAndView adminMemberView(@RequestParam Map<String,String> map) {
 		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",map.get("pg"));
+		mav.addObject("seq",map.get("seq"));
+
 		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
 		mav.addObject("display", "/WEB-INF/admin/adminMemberView.jsp");
 		mav.setViewName("/admin/adminMain");
@@ -165,10 +169,13 @@ public class AdminController {
 		}
 		
 		@GetMapping(value="/adminBoardList")
-		public ModelAndView adminBoardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+		public ModelAndView adminBoardList(@RequestParam(required = false, defaultValue = "1") String pg,
+											@RequestParam Map<String, String> map
+											 ){
 	
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("pg",pg);
+			mav.addObject("keyword" ,map.get("keyword"));
 			
 			mav.addObject("display","/WEB-INF/admin/adminBoardList.jsp");
 			mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
@@ -177,11 +184,12 @@ public class AdminController {
 		} 
 		
 		@GetMapping(value="/adminRecipeBoardList")
-		public ModelAndView adminRecipeBoardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+		public ModelAndView adminRecipeBoardList(@RequestParam(required = false, defaultValue = "1") String pg,
+												@RequestParam Map<String, String> map) {
 	
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("pg",pg);
-			
+			mav.addObject("keyword" ,map.get("keyword"));
 			mav.addObject("display","/WEB-INF/admin/adminRecipeBoardList.jsp");
 			mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
 			mav.setViewName("/admin/adminMain");
@@ -189,7 +197,7 @@ public class AdminController {
 		} 
 		
 		@GetMapping(value = "adminRecipeBoardView")
-		public ModelAndView recipeBoardView(@RequestParam String seq, @RequestParam String pg) {
+		public ModelAndView adminRecipeBoardView(@RequestParam String seq, @RequestParam String pg) {
 			ModelAndView mav = new ModelAndView();
 			mav.addObject("pg", pg);
 			mav.addObject("seq", seq);
@@ -199,7 +207,24 @@ public class AdminController {
 
 			return mav;
 		}
-
+		@GetMapping(value = "adminBoardView")
+		public ModelAndView adminBoardView(@RequestParam String seq, @RequestParam String pg) {
+			ModelAndView mav = new ModelAndView();
+			mav.addObject("pg", pg);
+			mav.addObject("seq", seq);
+			mav.addObject("display", "/WEB-INF/admin/adminBoardView.jsp");
+			mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+			mav.setViewName("/admin/adminMain");
+			
+			return mav;
+		}
+		
+		@PostMapping(value="getMember")
+		@ResponseBody
+		public MemberDTO getMember(@RequestParam String seq) {
+			System.out.println(seq);
+			return adminService.getMember(seq);
+		}
 }
 
 

@@ -43,6 +43,8 @@ public interface AdminDAO {
 
 	public int getAdminRecipeSearchTotalA(Map<String, String> map);
 
+	public MemberDTO getMember(String seq);
+
 
 
 
