@@ -14,8 +14,9 @@ $('#productBtn').click(function() {
 					swal('주소를 먼저 입력해주세요', '', 'warning').then(function() {
 						location.href = '/index/shop/shopproductbuy'
 					});
-				}
+				}else{
 				location.href = '/index/shop/shopPay'
+				}
 			},
 			error : function(e) {
 				console.log(e);

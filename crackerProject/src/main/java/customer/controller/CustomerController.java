@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
+import crackeremail.service.CrackerEmailService;
 import customer.bean.CustomerDTO;
 import customer.service.CustomerService;
 @Controller
@@ -22,7 +23,9 @@ public class CustomerController {
 	
 	@Autowired
 	private CustomerService customerService;
-	//문의하기 작성
+	
+	
+	// customerWriteForm 문의하화면 이동
 	@GetMapping(value="customerWriteForm")
 	public ModelAndView customerWriteForm() {
 		ModelAndView mav = new ModelAndView();
@@ -32,10 +35,10 @@ public class CustomerController {
 		mav.setViewName("/index");
 		return mav;
 	}
-	// customerWrite 문의하화면 이동
+	//문의하기 작성
 		@PostMapping(value="customerWrite")
 		@ResponseBody
-		public void customerWrite(@RequestParam Map<String,String> map) {
+		public void customerWrite(@RequestParam Map<String,String> map ) {
 			customerService.customerWrite(map);
 		}
 		
@@ -48,12 +51,29 @@ public class CustomerController {
 		Map<String, String> map = new HashMap<String, String>();
 		String name = (String)session.getAttribute("memName");
 		String email = (String)session.getAttribute("memEmail");
+		
 		//id,email을의 변수를 변경후 map에 담는다.
+		//카카오 연동 정보
+ 		String kakaoNickname = (String)session.getAttribute("kakaoNickname");
+		String kakaoEmail = (String)session.getAttribute("kakaoEmail");
+		//네이버 연동 정보
+
+		String naverName = (String)session.getAttribute("naverName");
+		String naverEmail = (String)session.getAttribute("naverEmail");
 		
 		map.put("name", name);
 		map.put("email", email);
-		// System.out.println(map.get("id")); id값 확인
+		map.put("kakaoNickname", kakaoNickname);
+		map.put("kakaoEmail", kakaoEmail);
+		map.put("naverName", naverName);
+		map.put("naverEmail", naverEmail);
+		
+		//System.out.println(map.get("id"));// id값 확인
+		System.out.println(name+ email);
+		System.out.println(kakaoNickname+ kakaoEmail);
+		System.out.println(naverName+ naverEmail);
 		return map;
+		
 	}
 	
 	

@@ -1,5 +1,9 @@
 package shop.controller;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -73,6 +77,14 @@ public class ShopController {
 		mav.setViewName("/shop/shopMypage");
 		return mav;
 	}
+
+	@GetMapping("/shop/shopCheckout")
+	public ModelAndView shopCheckout() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/shop/shopCheckout");
+		return mav;
+	}
+	
 	@PostMapping("/shop/shopPayForm")
 	@ResponseBody
 	public Map<String,Object> shopPay(@RequestParam Map<String,String>map, HttpSession session) {
@@ -95,10 +107,14 @@ public class ShopController {
 	@GetMapping("/shop/shopPay")
 	public ModelAndView shopPay(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		
 		session.getAttribute("shoppay");
 		mav.addObject("item",session.getAttribute("shoppay"));
+		
 		System.out.println("어떻게 들어오나 확인"+session.getAttribute("shoppay"));
-		mav.setViewName("/shop/shopPay");
+		mav.addObject("MyPageInclude", "/WEB-INF/shop/shopPay.jsp");
+		mav.setViewName("/shop/shopMypage");
+
 		return mav;
 	}
 	
@@ -109,5 +125,6 @@ public class ShopController {
 		Map<String,Object>map1 = shopService.shopcartForm(map);
 		System.out.println(map1);
 	}
+
 	
 }
