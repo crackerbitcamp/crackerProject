@@ -64,7 +64,7 @@ table {
 			<button type="button" class="writeBottomBtnClass" id="adminWriteBtn">회원가입</button>
 			<button type="reset" class="writeBottomBtnClass">다시작성</button>
 		
-
+ 
 
 </form>
 
