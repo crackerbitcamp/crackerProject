@@ -345,7 +345,7 @@ border-bottom: 2px solid;
 					<div class="dropiteminfo">
 						<dt class="productName" id="productName">${item.productJoinDTO.productName }</dt>
 						<input type="text" id="merchant_uid" onload>
-						
+						document.write( '<p>' + jbRandom + '</p>' );
 						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
 					</div>
 				</div>
@@ -429,8 +429,7 @@ function requestPay() {
         });
   }
 
-function 
-int result = (int) ( n * Math.random() ); 
+
 </script>
 </html>
 <%-- 확인 : ${item.memberDTO.memberemail}<br>
