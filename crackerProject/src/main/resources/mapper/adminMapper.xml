@@ -88,5 +88,8 @@
   		select count(*) from recipeboard where ${searchOption} like '%'||#{recipeSearchkeyword}||'%'
   	</select>
   	
+  	<select id="getMember" parameterType="String" resultType="member">
+		select * from crackermember where memberseq = #{seq}
+	</select>
 	
 </mapper>

@@ -1,18 +1,15 @@
 @charset "UTF-8";
 /* index */
-body > .wrap{
-	min-width: 1500px;
+
+body .wrap{
+	min-width: 1200px;
+	width:100%;
 	height: auto;
 }
 .boardMenuTopUl{
 	margin-top: 5px;
 }
-body {
-	margin: 0 auto;
-	height: 1500px;
-	width: 100%;
-	letter-spacing: normal;
-}
+
 
 .management li {
 	margin-left : 15px;
@@ -22,29 +19,32 @@ body {
 .boardMenuTopUl{
 	padding:0;
 }
-a {
+.management a {
 	color : #333333;
 	text-decoration-line: none;
 	font
 }
 
-h3 {
-	padding-top: 1%;
-	padding-left: 20px;
-	line-height: 40px;
-    display: inline-block;
 
-}
 
 .header {
 	text-align : center;
 	padding: 20px 0 20px 0;
 }
+/* header */
+
 
 /* admin_nav */
+.productMenu a{
+	color: #ffffff;
+}
+.boardMenuTop,.productMenuTop:hover{
+	cursor: pointer;
+}
+
 #nav {
-	width: 16%;
-	height: 100%;
+	width: 230px;
+	min-height: 1000px;
 	float: left;
 	background: #353535;
 }
@@ -56,7 +56,7 @@ h3 {
 }
 #container {
 	float: left;
-	width: 84%;
+	width: 1100px;
 	height: 100%;
 	background: #EEEEEE;
 }
@@ -65,17 +65,13 @@ h3 {
 	height: 90%;
 }
 
-#section:after {
+.wrap:after {
 	conternt: '';
 	display: block;
 	clear: both;
 }
 
-#section:after {
-	conternt: '';
-	display: block;
-	clear: both;
-}
+
 
 #sectionHeader {
 	margin: 2% 0 2% 3%;
@@ -175,7 +171,7 @@ h3 {
     position: relative;
 }
 
-#keyword{
+/* #keyword{
 	transition: border-color .2s;
     position: relative;
     z-index: 5;
@@ -187,7 +183,7 @@ h3 {
     border: 1px solid #ddd;
     line-height: 40px;
     color: #222;
-}
+} */
 #customerSearchBtn{
     position: absolute;
     top: 0px;

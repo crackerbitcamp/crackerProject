@@ -1,16 +1,18 @@
 @charset "UTF-8";
 
-#boardWriteFormOutDiv{
-	width: 100%;
-	height: 100%;
+#productWriteFormOutDiv{
+	
+	width: 1000px;
+	height: 800px;
 }
-
-.boardWriteForm{
+.productWriteForm{
 	position: absolute;
-	top:10%;	
-	margin-left : 18.5%;
+	left:50%;
+	top:50%;
+	margin-top: -400px;
+	margin-left: -500px;
+	
 }
-
 .writeBottomBtnClass{
 	margin :20px;
 	border-radius: 10px;
@@ -22,23 +24,14 @@
 	height : 30px;
 }
 
-#subject{
+.productInput{
 	border:0;
 	outline: none;
 	width: 500px;
-}
-.inputTypeText{
-	border:0;
-	outline: none;
-	width: 500px;
-}
-.inputTypeTextS{
-	border:0;
-	outline: none;
-	width: 250px;
+	font-size: 20px;
 }
 
-#category{
+#category1{
 	text-align:center;
 	width: 110px;
 	height : 40px;
@@ -48,15 +41,36 @@
 	border-radius: 10px;
 	background-color: #f76900;
 }
-#subject{
-	font-size: 20px;
-	margin-left: 10px;
-	
+.inputTextForm_imgForm{
+	margin: 30px;
+	width: 300px;
+	height: auto;
+	border: 0;
+	border-radius: 20px;
+	outline: none;
+	padding-left: 10px;
+	background-color: white;
+	border: #f76900 2px solid;
+	padding: 10px;
+}
+
+.inputTextForm_product{
+	margin: 10px;
+	width: 500px;
+	height: auto;
+	border: 0;
+	border-radius: 20px;
+	outline: none;
+	padding-left: 10px;
+	background-color: #eeeeee;
+	border: #f76900 2px solid;
+	padding: 10px;
 }
 .inputTextForm{
 	margin: 30px;
 	width: 800px;
 	height: auto;
+	border: 0;
 	border-radius: 20px;
 	outline: none;
 	padding-left: 10px;
