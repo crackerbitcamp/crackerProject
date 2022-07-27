@@ -44,31 +44,16 @@
 	</div>
 	
 	<div class="recipeBoardView_content_menu">
-			<button type="button" id="goodBtn">추천하기</button>
-	
-			<input type="button" value="목록" style="margin: 5px;" onclick="location.href='/index/recipeBoard/recipeBoardList?pg=${pg}'">
-			<input type="button" value="글수정" id="recipeBoardUpdateBtn">
-			<input type="button" value="삭제" id="recipeBoardDeleteBtn">
+			<input type="button" value="목록" style="margin: 5px;" onclick="location.href='/index/admin/adminRecipeBoardList?pg=${pg}'">
+			
+			<input type="button" value="삭제" id="recipeboardDeleteBtn">
 		
 	</div>
 	
 </div> <!-- recipeBoardView_subject -->
 
 
-	<!-- 댓글 입력창 -->
-	<div class="comment_form_div">
-		<div>
-			댓글입력 : <input type="text" id="commentContent"> <input
-				type="button" id="commentBtn" value="댓글입력">
-		</div>
-		<ul  id="commentInside">
-		</ul>
-	</div>
-
 	
-	<!-- 댓글창 내려오는곳  -->
-	<div style="border: 1px blue solid;" id="commentInside">
-	</div>
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/recipeBoard/recipeBoardView.js"></script>
@@ -101,33 +86,10 @@ $(function(){
 			console.log(e);
 		}
 	});//ajax
-	
-	$('#recipeBoardDeleteBtn').click(function(){
-		if(confirm('선택하신 항목 삭제하시겠습니까')){
-			$.ajax({
-				type:'post',
-				url : '/index/recipeBoard/recipeBoardDelete',
-				data : 'seq='+$('input[name=seq]').val(),
-					
-				success : function(){
-						alert('삭제 되었습니다.');
-						location.href='/index/recipeBoard/recipeBoardList';
-				},
-				
-				error:function(e){
-					console.log(e);
-				}
-			});
-		}
-	});
-});
-
-$('#recipeBoardUpdateBtn').click(function(){
-	location.href='/index/recipeBoard/recipeBoardUpdateForm?seq='
-		+$('input[name=seq]').val()+'&pg='+$('input[name=pg]').val();
 });
 
 
 </script>
+
 </body>
 </html>

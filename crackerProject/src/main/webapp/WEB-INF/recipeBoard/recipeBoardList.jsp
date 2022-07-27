@@ -188,12 +188,14 @@ function recipeBoardPaging(pg2) {
 <script type="text/javascript">
 	$(function() {
 		var recipeBoardUrl;
-		if($('#keyword').val()==null){
+		if($('#keyword').val()==''){
+			
 			recipeBoardUrl = '/index/recipeBoard/getRecipeBoardList';
 		}else{
 			recipeBoardUrl = '/index/recipeBoard/recipeBoardSearch';
 		}
 		var images = $('#content img:first-child').attr('src');
+	
 		$.ajax({
 			type : 'post',
 			url : recipeBoardUrl,

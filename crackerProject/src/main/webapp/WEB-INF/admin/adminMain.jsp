@@ -7,6 +7,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/index/css/reset.css" rel="stylesheet" type="text/css" />
 <link rel="stylesheet" href="../css/adminCSS/admincss.css">
 
 </head>

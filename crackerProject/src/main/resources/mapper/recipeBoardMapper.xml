@@ -65,5 +65,20 @@
 				
 		]]>
 	</select>
+	<!-- 삭제 -->
+	<delete id="recipeBoardDelete" parameterType="Int">
+		
+	
+			delete recipeboard where seq = #{seq}
+
+	</delete>
+		<!-- 글수정  -->
+	<select id="recipeBoardUpdate" parameterType="java.util.Map">
+		update recipeboard set category=#{category}
+						,content=#{content}
+						,subject=#{subject}
+						 where seq = #{seq}
+	
+	</select>
 	
 </mapper>

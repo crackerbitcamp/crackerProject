@@ -27,7 +27,7 @@
 
 	padding: 20px;
 	position : relative;
-	width: 1655px;
+	
 	background : #f3f3f3;	
 	height: 1800px;
 
@@ -247,7 +247,7 @@ function recipeBoardPaging(pg2) {
 					}))).appendTo($('#recipeBoardListDiv'));
 					$('.recipeCard_'+items.seq).click(function(){
 						
-						location.href = '/index/recipeBoard/recipeBoardView?seq='
+						location.href = '/index/admin/adminRecipeBoardView?seq='
 											+items.seq+'&pg='+$('#pg').val();
 						
 						
