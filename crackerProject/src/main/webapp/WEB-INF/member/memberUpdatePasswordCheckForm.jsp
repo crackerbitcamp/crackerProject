@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="/index/css/member.css">
 <head>
 <body>
-		<form id = "memberUpdateFormPasswordCheckForm" style="display: block; margin-top: 100px;">
+		<form id = "memberUpdateFormPasswordCheckForm" style="display: block;">
 			<div id = "memberUpdateFormDiv">
 				<div><b class = "updateIdName">아이디</b><input type="text" value="${memberDTO.memberemail }" disabled class="write-input-name-wrap"></div>
 				<div><b class = "updatePwdName">비밀번호</b><input type = "password" name = "memberpwd" class="write-input-name-wrap"></div>

@@ -331,7 +331,7 @@ border-bottom: 2px solid;
 			</dl>	
 			<dl>
 				<dt>배송주소 </dt>
-				<dd id="memberaddress">${item.memberDTO.memberaddress1}${item.memberDTO.memberaddress2}</dd>
+				<dd id="memberaddress">${item.memberDTO.memberaddress1} ${item.memberDTO.memberaddress2}</dd>
 			</dl>
 			<dl>
 				<dt>연락처 </dt>
@@ -345,6 +345,10 @@ border-bottom: 2px solid;
 					<div class="dropiteminfo">
 						<dt class="productName" id="productName">${item.productJoinDTO.productName }</dt>
 						<input type="hidden" class="random1" id="merchant_uid" value="">
+						<input type="hidden" id="productSubject" value="${item.productJoinDTO.productSubject }">
+						<input type="hidden" id="mainPhoto" value="${ item.productJoinDTO.mainPhoto}">
+						<input type="hidden" id="productbuydate" value="${ item.day}">
+						<input type="hidden" id="productqty1" value="${item.shopqty}">
 						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
 					</div>
 				</div>
@@ -423,13 +427,16 @@ function requestPay() {
         		url : '/index/shop/memberBuyList',
         		type: "POST",
         		data: {
-        			'productName' : $('#productName').text(),
-        	        amount: parseInt($('#totalprice').text()),
-        	        buyer_email: $('#memberemail').text(),
-        	        buyer_name: $('#membername').text(),
-        	        buyer_tel:  $('#membertel').text(),
-        	        buyer_addr: $('#memberaddress').text(),
-        	        buyer_postcode: $('#memberzipcode').text()
+        	        'productordernumber' : $('.random1').val(),
+        			'productsubject' : $('#productSubject').val(),
+        	        'productprice': parseInt($('#totalprice').text()),
+        	        'productqty' : $('#productqty1').val(),
+        	        'productphoto' : $('#mainPhoto').val(),
+        	        'productbuydate' : $('#productbuydate').val(),
+        	        'memberemail': $('#memberemail').text(),
+        	        'membername': $('#membername').text(),
+        	        'membertel':  $('#membertel').text(),
+        	        'memberaddress': $('#memberaddress').text(),
                  },
                 success: function(data){
                  	alert("확인")

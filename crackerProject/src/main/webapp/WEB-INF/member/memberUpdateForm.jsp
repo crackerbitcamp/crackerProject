@@ -25,8 +25,6 @@
          <input type = "hidden" value="${memberDTO.membername }" name = "membername">
          <input type = "hidden" id = "memberemail" name = "memberemail" value="${memberDTO.memberemail }">
          <input type = "hidden" name = "membertel" id="UpdateTelcheck" value="${memberDTO.membertel1 }${memberDTO.membertel2}${memberDTO.membertel3}">
-         <h2>회원정보 수정</h2>
-         <hr style="border: 2px solid">
          <div class="updateForm-input" style=" margin:auto; padding-top: 50px;">
             <span style="font-size: 24px;" id = "updateemail">아이디</span>
             <input type = "text" id = "memberemail1"class="updateinput" value="${memberDTO.memberemail}" disabled style="background: none;">

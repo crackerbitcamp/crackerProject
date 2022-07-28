@@ -37,6 +37,7 @@
 					<ul class="boardMenuTopUl">
 						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminBoardList" id="adminList">자유게시판</a></li>
 						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminRecipeBoardList" id="adminList">레시피게시판</a></li>
+		
 					
 					</ul>
 				</li>
@@ -45,7 +46,7 @@
 						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productWriteForm">상품 등록</a></li>
 						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productBoardWriteForm">상품게시글 등록</a></li>
 						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productMangeList">상품 목록</a></li>
-						<li class="productMenu"><img src="../image/gear.svg"><a href="#">상품 게시글 목록</a></li>
+						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productMangeBoardList">상품 게시글 목록</a></li>
 						
 					</ul>
 				</li>

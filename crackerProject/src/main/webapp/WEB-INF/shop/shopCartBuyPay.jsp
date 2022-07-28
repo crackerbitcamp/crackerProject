@@ -413,7 +413,7 @@ function requestPay() {
         pg: "html5_inicis",
         pay_method: "card",
         merchant_uid: $('#merchant_uid').text(),
-        name: $('#productName').text(),
+        name: $('#productName').text()+" 외 다수",
         amount: parseInt($('#totalprice').text()),
         buyer_email: $('#memberemail').text(),
         buyer_name: $('#membername').text(),
@@ -426,13 +426,13 @@ function requestPay() {
         		url : '/index/shop/memberBuyList',
         		type: "POST",
         		data: {
-        			'productName' : $('#productName').text(),
-        	        amount: parseInt($('#totalprice').text()),
-        	        buyer_email: $('#memberemail').text(),
-        	        buyer_name: $('#membername').text(),
-        	        buyer_tel:  $('#membertel').text(),
-        	        buyer_addr: $('#memberaddress').text(),
-        	        buyer_postcode: $('#memberzipcode').text()
+        			'productName' : $('#productName').text(),	
+ 					'totalprice' : $('#totalprice').text(),
+        	        'memberemail' : $('#memberemail').text(),
+        	        'membername': $('#membername').text(),
+        	        'membertel' :  $('#membertel').text(),
+        	        'memberaddress': $('#memberaddress').text(),
+        	        'memberzipcode': $('#memberzipcode').text()
                  },
                 success: function(data){
                  	alert("확인")

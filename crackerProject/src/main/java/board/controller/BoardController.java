@@ -222,17 +222,19 @@ public class BoardController {
 	@ResponseBody
 	@PostMapping(value = "boardUpdate")
 	public void boardUpdate(@RequestParam Map<String, String> map) {
+		
 		boardService.boardUpdate(map);
 
 	}
 
 	// 답글
 	@GetMapping(value = "boardReplyForm")
-	public ModelAndView boardReplyForm(@RequestParam String seq, @RequestParam String pg) {
+	public ModelAndView boardReplyForm(@RequestParam String seq, @RequestParam String pg, @RequestParam String category) {
 		ModelAndView mav = new ModelAndView();
 
 		mav.addObject("pseq", seq);
 		mav.addObject("pg", pg);
+		mav.addObject("category", category);
 		mav.addObject("menu", "/WEB-INF/main/menu.jsp");
 		mav.addObject("nav", "/WEB-INF/main/nav.jsp");
 		mav.addObject("display", "/WEB-INF/board/boardReplyForm.jsp");
@@ -244,6 +246,7 @@ public class BoardController {
 	@ResponseBody
 	@PostMapping(value = "boardReply")
 	public void boardReply(@RequestParam Map<String, String> map) {
+		System.out.println("카테고리 오나 확인 = " + map.get("category"));
 		boardService.boardReply(map);
 	}
 

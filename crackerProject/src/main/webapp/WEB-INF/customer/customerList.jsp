@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<link rel="stylesheet" href="../css/adminCSS/admincss.css" type="text/css">    
 
 <div id="Session2">
 	<input type="hidden" id="pg" value="${requestScope.pg }"/>
 	<div id="Allcustomer">
-		<h3>고객문의 사항</h3>
+		<h3 style="margin-top:10px; margin-left: 10px;">고객문의 사항</h3>
 		<form id = "customerSearchForm" name = "customerSearchForm" >
 			<input type="hidden" name="pg" id="searchPg" value="1"/>
 			<div style = "text-align:center;">
@@ -19,10 +21,10 @@
 	</div>
 		<table id="customerListTable">
 			<tr>
-				<th class="thHead">문의번호</th>
-				<th class="thHead">사용자</th>
-				<th class="thHead">문의제목</th>
-				<th class="thHead">문의날짜</th>
+				<th class="thHead" style="width: 15%;">번호</th>
+				<th class="thHead" style="width: 25%;">사용자</th>
+				<th class="thHead" style="width: 35%;">제목</th>
+				<th class="thHead">날짜</th>
 			</tr>	
 			<!-- 동적처리 -->
 		</table>

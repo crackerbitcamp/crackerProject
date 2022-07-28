@@ -25,7 +25,7 @@
 					  where rn between #{startNum} and #{endNum}
 	</select>
 	<select id="getProduct" parameterType="java.util.Map" resultType="product">
-		select * from product where productname=#{productName}
+		select * from product where productcode=#{productCode}
 	</select>
 	
 	<insert id="productBoardWrite" parameterType="java.util.Map">

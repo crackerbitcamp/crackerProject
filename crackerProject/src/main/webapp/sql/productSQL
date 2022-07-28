@@ -1,17 +1,18 @@
---상품 SQL
-
+-- 상품 SQL
 create table product(
-productseq number not null,
+productseq number not null,  -- 상품번호
 productCode varchar2(40) primary key,
-productname varchar2(40) not null,
-productCategory varchar2(40) not null,
-mainPhoto varchar2(500),
-productOrigin varchar2(400) not null,
-productWeight varchar2(100) not null,
-productLife varchar2(300) not null,
+productname varchar2(40) not null, -- 상품이름
+productCategory varchar2(40) not null, -- 상품카테고리
+mainPhoto varchar2(500), -- 메인사진
+productOrigin varchar2(400) not null, -- 상품 원산지
+productWeight varchar2(100) not null, -- 상품 중량
+productLife varchar2(300) not null, -- 유통기한
 logtime date default SYSDATE);
 
-create sequence seq_product nocycle nocache;
+create sequence seq_product nocycle nocache;	
+
+ 
 
 --상품게시글 SQL
 create table productBoard(
