@@ -433,7 +433,7 @@ function requestPay() {
                  },
                 success: function(data){
                  	alert("확인")
-                 },
+                 }, 
                  error:function(e){
                  	console.log(e)
                  }
