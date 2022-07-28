@@ -130,7 +130,7 @@
 										productCode : $('#productSelect').val()
 									},
 									url : '/index/product/getProduct',
-									type : 'post',
+								 	type : 'post',
 									success : function(data) {
 										//alert(JSON.stringify(data));
 										$('#productCode')
