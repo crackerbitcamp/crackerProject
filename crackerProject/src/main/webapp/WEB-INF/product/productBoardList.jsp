@@ -8,8 +8,8 @@
 </head>
 <body>
 <form>
-	<input type="text" id="productCategory"value="${category}">
 	<div id="productListForm">
+	<input type="text" id="productCategory"value="${category}">
 		
 	</div>
 </form>
