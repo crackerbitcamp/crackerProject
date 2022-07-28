@@ -257,7 +257,7 @@ $(function(){
 	 }else if(today1 == 8){
 		 today1 = 1;
 	 }else if(today1 == 9){
-		 today1 = 2;
+		 today1 = 2; 
 	 }
 	  var todayLabel = week[today1];        
 	 return todayLabel;
