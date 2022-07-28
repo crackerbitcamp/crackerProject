@@ -8,7 +8,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<!-- header -->
+<!-- header --> 
 <link href="/index/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/header.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/indexCSS/userHistory.css" rel="stylesheet" type="text/css" />
