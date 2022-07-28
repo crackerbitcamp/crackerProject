@@ -1,11 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/d84eab0825.js" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style type="text/css" src="/index/css/reset.css"></style>
 <style type="text/css">
 
@@ -202,6 +204,13 @@ width: 40px;
     line-height: 145px;
 	
 }
+
+.itemimg{
+ width: 100px;
+ height: 50px;
+ 
+}
+
 .steps {
 	float: right;
     padding-right: 5px;
@@ -220,9 +229,9 @@ width: 40px;
 
 </head>
 <body>
-
-
-
+	<input type = "hidden" class ="test1">
+	<div class="itemSearch"></div>
+	<input type = "hidden" value="${memEmail}" id = "memberEmail" name = "memberEmail" >
 	<div id="cartViewList">
 
 	<section id="cart_itemList" class="cart_itemList">        
@@ -241,40 +250,30 @@ width: 40px;
 	       		<div class="cartTable" >
 					<div class="head" style="line-height: 48px;">
 					    <div class="item-checkbox" >
-					    	<input title="모든 상품을 결제상품으로 설정" type="checkbox" checked="checked" 
+					    	<input type="checkbox" checked="checked" 
 					          class="chk-all" name="chk-all" id="chk-all">전체선택</div>
 					    <div class="item-product" >상품정보</div>
 					    <div class = "item-price">상품갯수</div>
 					    <div class="item-price">상품금액</div>
 					</div>
-					         
-					    <!-- for문 돌리기 -->    
-					 <div class="body">
-						<div class="item-checkbox-select">
-						<input title="모든 상품을 결제상품으로 설정" type="checkbox" checked="checked" 
-						class="chk" name="chk" ></div>
-						<div id="item-product-img"><a><img src="/index/image/상품1.jpg"></a></div>
-						<div class="item-product-select">
-							<h3 >상품 아이템이름</h3>
-						 	<p>상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명상품설명</p>
-						</div>
-							<div class="item-price-select">0개</div>
-							<div class="item-price-select" >77.777원</div>
-					</div>
+					    <!-- for문 돌리기 -->  
+					 <div class = "test">
+
+					
+	        		</div>
 	        	</div>
-	        	
-	        	<button >선택 삭제하기</button>
+	        	<button id ="itemDel">선택 삭제하기</button>
 	    	    <div class="total-price">
 	                <div class="cart-total-price__inner" style="margin-top: 40px;">
 	                    <div class="price-area">
 	                    	총 상품가격
-	                        <span class="final-product-price">12,500</span>원
+	                        <span class="final-product-price"></span>원
 	                        &#43;
 	                     	총 배송비
-	                        <span class="final-delivery-charge">0</span>원
+	                        <span class="final-delivery-charge"></span>원
 	                        &#61;
 	                      	 총 주문금액
-	                        <span class="final-order-price" data-final-order-price="12500">12,500</span>원
+	                        <span class="final-order-price" data-final-order-price="12500"></span>원
 	                    </div>
 	                </div>
 		
@@ -286,7 +285,6 @@ width: 40px;
      	  </div>
      </section>
     </div> 
-
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
 </script>
 <script type="text/javascript" src="/index/js/shop/cartView.js">
@@ -296,43 +294,21 @@ width: 40px;
 <script type="text/javascript">
 
 $('#chk-all').click(function(){
-		if($('#chk-all').is(":checked")){
-			$(".chk").prop("checked", true);
-		}
-		else{
-			$(".chk").prop("checked", false);
-		}
-	});
-	
-	
+	if($('#chk-all').is(":checked")){
+		$(".chk").prop("checked", true);
+	}
+	else{
+		$(".chk").prop("checked", false);
+	}
+});	
 	$(".chk").click(function(){
-		var total = $("input[name=chk]").length;
-		var checked = $("input[name=chk]:checked").length;
-		
+		var total = $(".chk").length;
+		var checked = $(".chk:checked").length;
 		
 		if(total != checked) $("#chk-all").prop("checked", false);
 		else $("#chk-all").prop("checked", true); 
 	
 });
-
-
-	var input ;
-	$('.minus').click(function(){
-	    input = $('.input').val();
-		if(input > 0){
-		$('.input').prop('value',(input-1));
-		}
-	});
-	$('.input').on('change',function(){
-		input = $('.input').val();
-	});
-	
-	$('.plus').click(function(){
-	    input = $('.input').val();
-		$('.input').prop('value',(parseInt(input)+1));
-	});
-
-	
 </script>
 
 </body>

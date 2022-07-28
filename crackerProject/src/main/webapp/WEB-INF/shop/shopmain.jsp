@@ -377,14 +377,14 @@ a{
 							</c:if>
 							<c:if test="${memLogin!=null}">
 							<li>
-								<a>내 정보</a>
+								<a href = "/index/shop/shopMypage">내 정보</a>
 							</li>
 							<li>
-								<a>장바구니</a>
+								<a href = "/index/shop/cartView">장바구니</a>
 							</li>
 							</c:if>
 						<li>
-							<a>고객센터</a>
+							<a href = "/index/customer/customerWriteForm">고객센터</a>
 						</li>
 						<li>
 							<a>배송지역 검색</a>

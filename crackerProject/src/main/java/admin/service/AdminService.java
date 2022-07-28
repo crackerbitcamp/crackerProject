@@ -2,6 +2,8 @@ package admin.service;
 
 import java.util.Map;
 
+import member.bean.MemberDTO;
+
 
 
 public interface AdminService {
@@ -23,6 +25,8 @@ public interface AdminService {
 	public Map<String, Object> getadminRecipeList(String pg);
 
 	public Map<String, Object> adminrecipeSearch(Map<String, String> map);
+
+	public MemberDTO getMember(String seq);
 
 
 	

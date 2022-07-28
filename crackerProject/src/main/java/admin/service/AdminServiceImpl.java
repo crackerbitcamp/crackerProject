@@ -222,6 +222,13 @@ public class AdminServiceImpl implements AdminService {
 	}
 
 
+	@Override
+	public MemberDTO getMember(String seq) {
+		
+		return adminDAO.getMember(seq);
+	}
+
+
 	
 
 

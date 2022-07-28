@@ -44,7 +44,7 @@ table {
 	display: block;
 }
 
-#adminMemberListTable th {
+/* #adminMemberListTable th {
 	border-top:none;
 	font-size : 1.3em;
 	
@@ -54,7 +54,7 @@ table {
 	font-size : 1.2em;
 	border-top : none;
 }
-
+ */
 #adminMemberListTable a {
 	text-decoration-line: none;
 	color : black;
@@ -80,7 +80,7 @@ table {
 			<div style="text-align: center;">
 				<select name="searchOption">
 					<option value="membername">이름</option>
-					<option value="memberid">아이디</option>
+					<option value="memberemail">아이디</option>
 				</select>
 		
 					<input type="search" name="memberSearchkeyword" id="memberSearchkeyword" value="${memberSearchkeyword }">
@@ -95,11 +95,11 @@ table {
 			
 				<table id="adminMemberListTable" border="1" cellspacing="0" cellpadding="7" frame="hsides" rules="rows" >
 					<tr>
-						<th width="200"><input type="checkbox" id="allSelect" value="전체선택" style="float:left;"/> 아이디</th>
+						<th width="300"><!-- <input type="checkbox" id="allSelect" value="전체선택" style="float:left;"/> --> 아이디</th>
 						<th width="100">이름</th>
-						<th width="300">이메일</th>
+						<th width="300">닉네임</th>
 						<th width="200">핸드폰번호</th>
-						<th width="100">닉네임</th>
+						
 					</tr>
 				<!-- 동적 처리 -->			
 				</table>

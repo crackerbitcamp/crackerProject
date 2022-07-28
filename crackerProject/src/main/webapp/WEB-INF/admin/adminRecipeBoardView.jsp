@@ -21,7 +21,7 @@
 
 <input type = "hidden" name="seq" id="seq" value="${seq}"/>
 <input type = "hidden" name="pg" id ="pg" value="${pg}"/>
-<input type="text" id="category" value="레시피"/>
+<input type="hidden" id="category" value="레시피"/>
 
 
 <div id="recipeBoardView_subject">
@@ -46,7 +46,7 @@
 	<div class="recipeBoardView_content_menu">
 			<input type="button" value="목록" style="margin: 5px;" onclick="location.href='/index/admin/adminRecipeBoardList?pg=${pg}'">
 			
-			<input type="button" value="삭제" id="recipeboardDeleteBtn">
+			<input type="button" value="삭제" id="adminRecipeboardDeleteBtn">
 		
 	</div>
 	
@@ -86,6 +86,24 @@ $(function(){
 			console.log(e);
 		}
 	});//ajax
+});
+$('#adminRecipeboardDeleteBtn').click(function(){
+	if(confirm('선택하신 항목 삭제하시겠습니까')){
+		$.ajax({
+			type:'post',
+			url : '/index/recipeBoard/recipeBoardDelete',
+			data : 'seq='+$('input[name=seq]').val(),
+				
+			success : function(){
+					alert('삭제 되었습니다.');
+					location.href='/index/recipeBoard/recipeBoardList';
+			},
+			
+			error:function(e){
+				console.log(e);
+			}
+		});
+	}
 });
 
 

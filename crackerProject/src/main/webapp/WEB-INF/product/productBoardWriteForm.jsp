@@ -6,7 +6,8 @@
 
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<link href="/index/css/productCSS/productWriteForm.css" rel="stylesheet"
+	type="text/css" />
 <link href="/index/css/productCSS/product.css" rel="stylesheet"
 	type="text/css" />
 </head>
@@ -22,24 +23,49 @@
 					</div>
 					<div class="productBoardLoadForm">
 						<ul>
-							<li>상품 선택
-								<select id="productSelect">
-								</select>
+							<li>
+								<div class="inputTextForm_product">
+									<span>상품 : </span><select id="productSelect">
+									<option>상품을 선택하세요</option>
+									</select>
+								
+								</div>
 							</li>
 
-							<li>상품코드<span id="productCode" class="productLoadSpan"></span>
-							<input
-								id="productCodeHide" name="productCode" type="hidden">
+							<li>
+							<div class="inputTextForm_product">
+								<span>상품코드 : </span><span id="productCode" class="productLoadSpan"></span>
+								
+								<input
+									id="productCodeHide" name="productCode" type="hidden">
+							</div>
 							</li>
-							<li>상품명<span id="productName" class="productLoadSpan"></span>
+							<li>
+								<div class="inputTextForm_product">
+								<span>상품명 : </span><span id="productName" class="productLoadSpan"></span>
+								</div>
 							</li>
-							<li>상품카테고리<span id="productCategory" class="productLoadSpan"></span>
+							<li>
+								<div class="inputTextForm_product">
+								<span>카테고리 : </span><span id="productCategory" class="productLoadSpan"></span>
+								</div>
 							</li>
-							<li>원산지<span id="productOrigin" class="productLoadSpan"></span>
+							<li>
+								<div class="inputTextForm_product">
+									<span>원산지 : </span><span id="productOrigin" class="productLoadSpan"></span>
+								</div>
 							</li>
-							<li>중량<span id="productWeight" class="productLoadSpan"></span>
+							
+							<li>
+								<div class="inputTextForm_product">
+									<span>중량 : </span><span id="productWeight" class="productLoadSpan"></span>
+								</div>
 							</li>
-							<li>유통기한<span id="productLife" class="productLoadSpan"></span>
+							
+							<li>
+								<div class="inputTextForm_product">	
+									<span>유통기한 : </span><span id="productLife" class="productLoadSpan"></span>
+								</div>
 							</li>
 						</ul>
 					</div>
@@ -47,27 +73,37 @@
 			</div>
 			<div>
 				<ul>
-					<li>제목<input type="text" name="productSubject" id="productSubject">
+					<li>
+						<div class="inputTextForm">
+						
+							<span>제목 : </span><input type="text" name="productSubject" id="productSubject" class="productInput">
+						</div>
 					</li>
 
-					<li>금액<input type="text" name="productPrice" id="productPrice">
+					<li>
+						<div class="inputTextForm">
+							<span>금액 : </span><input type="text" name="productPrice" id="productPrice" class="productInput">
+						</div>
 					</li>
-					<li>수량<input type="text" name="productQty" id="productQty">
+					<li>
+						<div class="inputTextForm">
+							<span>수량 : </span><input type="text" name="productQty" id="productQty" class="productInput">
+						</div>
 					</li>
 
 
 
 				</ul>
-				<div>
-					내용
+				<div class="inputTextForm">
+					상세 내용을 입력해주세요
 					<textarea name="productContent" id="productContent"></textarea>
 
+					<button type="button" id="productBoardWriteBtn" class="writeBottomBtnClass">작성하기</button>
+					<button type="button" class="writeBottomBtnClass">다시작성</button>
+					<button type="button" class="writeBottomBtnClass">취소</button>
+		
 				</div>
 			</div>
-
-			<button type="button" id="productBoardWriteBtn">작성하기</button>
-			<button type="button">다시작성</button>
-			<button type="button">취소</button>
 
 		</div>
 	</form>
@@ -101,7 +137,7 @@
 									url : '/index/product/getProduct',
 									type : 'post',
 									success : function(data) {
-										alert(JSON.stringify(data));
+										//alert(JSON.stringify(data));
 										$('#productCode')
 												.html(data.productCode);
 										$('#productName')

@@ -1,6 +1,7 @@
 package shop.dao;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
@@ -12,6 +13,7 @@ import crackeremail.bean.CrackeremailDTO;
 import member.bean.MemberDTO;
 import product.bean.ProductBoardDTO;
 import product.bean.ProductJoinDTO;
+import product.bean.ProductbuylistDTO;
 
 @Repository
 @Transactional
@@ -46,9 +48,43 @@ public class ShopDAOMyBatis implements ShopDAO {
 	@Override
 	public Map<String, Object> shopcartForm(Map<String, String> map) {
 		ProductJoinDTO productJoinDTO = sqlSession.selectOne("productSQL.getProductBoardView",map);
+		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.getMember",map.get("memberemail"));
+		if(memberDTO.getMemberaddress1() != null) {
+		ProductbuylistDTO productbuylistDTO = new ProductbuylistDTO();
+		productbuylistDTO.setMemberemail(map.get("memberemail"));
+		productbuylistDTO.setProductcontent(productJoinDTO.getProductContent());
+		productbuylistDTO.setProductimg(productJoinDTO.getMainPhoto());
+		productbuylistDTO.setProductprice(productJoinDTO.getProductPrice());
+		productbuylistDTO.setProductqty(Integer.parseInt(map.get("shopqty")));
+		productbuylistDTO.setProductseq(productJoinDTO.getSeq());
+		productbuylistDTO.setProductsubject(productJoinDTO.getProductSubject());
+		productbuylistDTO.setProducttotalprice(Integer.parseInt(map.get("totalprice")));
+		
+		int su = sqlSession.selectOne("shopSQL.productbuylistSelectOne",productbuylistDTO);
+		System.out.println("int su = " + su);
+		if(su == 0) {
+			sqlSession.insert("shopSQL.productbuylistInsert",productbuylistDTO);
+		}else {
+			productbuylistDTO = sqlSession.selectOne("shopSQL.productbuylistSelect",productbuylistDTO);
+			map.put("productqty", productbuylistDTO.getProductqty()+"");
+			map.put("Producttotalprice", productbuylistDTO.getProducttotalprice()+"");
+			sqlSession.update("shopSQL.productbuylistQtyUpdate",map);
+			System.out.println("변경된 Map  : "+map);
+			}
+		}
 		Map<String,Object>map1 = new HashMap<String,Object>();
-		map1.put("productJoinDTO",productJoinDTO);
+		map1.put("Memberaddress1", memberDTO.getMemberaddress1());
 		return map1;
+	}
+
+	@Override
+	public List<ProductbuylistDTO> getcartView(String memberEmail) {
+		return sqlSession.selectList("shopSQL.getcartView",memberEmail);
+	}
+
+	@Override
+	public void cartViewDelete(Map<String, String> map) {
+		sqlSession.delete("shopSQL.cartViewDelete",map);
 	}
 
 }

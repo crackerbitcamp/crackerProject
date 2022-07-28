@@ -1,5 +1,8 @@
 package shop.controller;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -18,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import crackeremail.bean.CrackeremailDTO;
 import member.bean.MemberDTO;
+import product.bean.ProductbuylistDTO;
 import shop.service.ShopService;
 
 
@@ -70,6 +74,8 @@ public class ShopController {
 		mav.setViewName("/shop/shopMypage");
 		return mav;
 	}
+	
+
 	@GetMapping("/shop/cartView")
 	public ModelAndView cartView() {
 		ModelAndView mav = new ModelAndView();
@@ -118,13 +124,53 @@ public class ShopController {
 		return mav;
 	}
 	
+	//장바구니 담기 눌럿을 경우
+	@PostMapping("/shop/memberBuyList")
+	@ResponseBody
+	public void memberBuyList(@RequestParam Map<String,String>map) {
+		System.out.println(map);
+	}
 	//장바구니
 	@PostMapping("/shop/shopcartForm")
 	@ResponseBody
-	public void shopcartForm(@RequestParam Map<String,String>map){
+	public Map<String, Object> shopcartForm(@RequestParam Map<String,String>map){
+		System.out.println("장바구니 넘어오는값 : "+map);
 		Map<String,Object>map1 = shopService.shopcartForm(map);
 		System.out.println(map1);
+		return map1;
 	}
+	//장바구니
+	@PostMapping("/shop/getcartView")
+	@ResponseBody
+	public List<ProductbuylistDTO> getcartView(@RequestParam String memberEmail) {
+		List<ProductbuylistDTO> list = shopService.getcartView(memberEmail);
+		System.out.println(list);
+		return list;
+	}
+	@PostMapping("/shop/cartViewDelete")
+	@ResponseBody
+	public void cartViewDelete(@RequestParam String productseq,HttpSession session) {
+		String memEmail = (String)session.getAttribute("memEmail");
+		Map<String,String>map = new HashMap<String,String>();
+		map.put("productseq", productseq);
+		map.put("memberEmail", memEmail);
+		shopService.cartViewDelete(map);
+	}
+	
+	@GetMapping("/shop/shopmemberpasswordcheckForm")
+	public ModelAndView shopmemberpasswordcheckForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("MyPageInclude", "/WEB-INF/member/memberUpdateForm.jsp");
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
+	@GetMapping("/shop/customerWriteForm")
+	public ModelAndView customerWriteForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("MyPageInclude", "/WEB-INF/customer/customerWriteForm.jsp");
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
+}	
 
 	
-}

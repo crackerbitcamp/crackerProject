@@ -33,14 +33,22 @@ $('#cartBtn').click(function(){
 		swal('로그인을 해주세요.', '', 'warning').then(function() {
 			location.href = '/index/member/memberLoginForm'
 		});
-	} else {
+	}else if($('#totalprice').val() == '0'){
+		swal('수량을 입력해주세요','','warning')
+	}
+	else {
 		$.ajax({
 			type : 'post',
 			data : $('#productBoardViewForm').serialize(),
 			url : '/index/shop/shopcartForm',
-			success : function() {
-				swal('장바구니에 추가되었습니다.','','success')
-				location.href = '/index/shop/cartView'
+			success : function(data) {
+				if(data.Memberaddress1 == null){
+					swal('주소를 먼저 입력해주세요', '', 'warning').then(function() {
+						location.href = '/index/shop/shopproductbuy'
+				});
+				}else{
+					swal('장바구니에 추가되었습니다.','','success')
+				}
 			},
 			error : function(e) {
 				console.log(e);

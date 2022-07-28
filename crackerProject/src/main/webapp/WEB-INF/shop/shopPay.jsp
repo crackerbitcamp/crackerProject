@@ -344,8 +344,7 @@ border-bottom: 2px solid;
 					<dt id="dropshipday" class="dropshipday"><span>${item.day }</span> 도착 예정</dt>
 					<div class="dropiteminfo">
 						<dt class="productName" id="productName">${item.productJoinDTO.productName }</dt>
-						<input type="text" id="merchant_uid" onload>
-						document.write( '<p>' + jbRandom + '</p>' );
+						<input type="hidden" class="random1" id="merchant_uid" value="">
 						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
 					</div>
 				</div>
@@ -393,6 +392,15 @@ border-bottom: 2px solid;
 <!-- iamport.payment.js  1.1.8 -->
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script type="text/javascript">
+$(function(){ 
+const random1 = Math.floor(Math.random()*100000000000000);
+console.log(random1);
+
+$('.random1').val(random1);
+
+});
+
+
 function requestPay() {
 	var IMP = window.IMP; // 생략 가능
     IMP.init("imp06570380"); // 예: imp00000000
@@ -411,26 +419,33 @@ function requestPay() {
         buyer_postcode: "01181"
     }, function (rsp) { // callback
         if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
-            // jQuery로 HTTP 요청
-            jQuery.ajax({
-                url: "{서버의 결제 정보를 받는 endpoint}", // 예: https://www.myservice.com/payments/complete
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                data: {
-                    imp_uid: rsp.imp_uid,
-                    merchant_uid: rsp.merchant_uid
-                }
-            }).done(function (data) {
-              // 가맹점 서버 결제 API 성공시 로직
-            }) 
-          } else {
-            alert("결제에 실패하였습니다. 에러 내용: " +  rsp.error_msg);
+        	$.ajax({
+        		url : '/index/shop/memberBuyList',
+        		type: "POST",
+        		data: {
+        			name: $('#productName').text(),
+        	        amount: parseInt($('#totalprice').text()),
+        	        buyer_email: $('#memberemail').text(),
+        	        buyer_name: $('#membername').text(),
+        	        buyer_tel:  $('#membertel').text(),
+        	        buyer_addr: $('#memberaddress').text(),
+        	        buyer_postcode: $('#memberzipcode').text()
+                 },
+                success: function(data){
+                 	alert("확인")
+                 }, 
+                 error:function(e){
+                 	console.log(e)
+                 }
+        	});
           }
         });
-  }
-
-
+}
+   
+  
 </script>
+
+
 </html>
 <%-- 확인 : ${item.memberDTO.memberemail}<br>
 	productJoinDTO.seq : ${item.productJoinDTO.seq }<br>
