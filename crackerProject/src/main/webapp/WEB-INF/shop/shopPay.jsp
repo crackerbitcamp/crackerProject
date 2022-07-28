@@ -428,7 +428,6 @@ function requestPay() {
         		type: "POST",
         		data: {
         	        'productordernumber' : $('.random1').val(),
-        			'productname': $('#productName').text(),
         			'productsubject' : $('#productSubject').val(),
         	        'productprice': parseInt($('#totalprice').text()),
         	        'productqty' : $('#productqty1').val(),
