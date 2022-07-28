@@ -1,5 +1,4 @@
-게시판 SQL
-
+--게시판 SQL
 create table board(
 seq number primary key,
 category varchar2(40) not null,

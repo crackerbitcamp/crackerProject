@@ -22,11 +22,12 @@
 </head>
 <body>
 
+
 <div id="boardWriteFormOutDiv" >
 		<form name="boardReplyForm" id="boardWriteForm" class="boardWriteForm">
-			
-			<input type = "hidden" name="pseq" id= "pseq" value="${pseq}">
-			<input type="hidden" name="pg" value="${pg}">
+			<input type = "hidden" name="category" id= "category" value="${category}">
+			<input type = "hidden" name="pseq" id="pseq" value="${pseq}">
+			<input type="hidden" name="pg" id="pg" value="${pg}">
 
 			<div class="inputTextForm">
 				<select id="category">
@@ -43,7 +44,7 @@
 			<button class="writeBottomBtnClass" type="button"  id="boardReplyBtn1">답글쓰기</button>
 			<button	class="writeBottomBtnClass" type="button"  id="boardReplyReturnBtn">다시작성</button>
 			<button	class="writeBottomBtnClass" type="button" 
-				onclick=onclick ="location.href='/index/board/boardList?pg=${pg}'">목록</button>
+				onclick="location.href='/index/board/boardList?pg=${pg}'">목록</button>
 			</div>
 
 			<div id="contentDiv"></div>
@@ -83,7 +84,9 @@ $('#boardReplyBtn1').click(function(){
 			data: {
 				'subject' : $('#subject').val(),
 				'pseq' : $('#pseq').val(),
-				 content},
+				'category' : $('#category').val(),
+				 content
+				 },
 			success:function(){ 
 				alert('답글을 등록하였습니다.');
 				location.href='/index/board/boardList?pg='+$('#pg').val();

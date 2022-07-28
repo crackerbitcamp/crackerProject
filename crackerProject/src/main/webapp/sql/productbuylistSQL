@@ -1,0 +1,11 @@
+-- 장바구니 SQL
+create table productbuylist(
+productseq number not null,
+productimg varchar2(2000) not null,
+productsubject varchar2(150) not null,
+productcontent varchar2(2000) not null,
+productprice number not null,
+productqty number not null,
+producttotalprice number not null,
+productdelivery number default 0 not null,
+memberemail varchar2(40) not null);

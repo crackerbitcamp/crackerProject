@@ -1,5 +1,4 @@
-멤버 SQL
-
+--멤버 SQL
 create table crackermember(
 memberseq number not null,
 memberemail varchar2(40) primary key, --기본키, unique, not null, 무결성 제약 조건
@@ -9,7 +8,19 @@ membertel1 varchar2(10) not null,
 membertel2 varchar2(10) not null,
 membertel3 varchar2(10) not null,
 membernickname varchar2(30) not null,
+memberaddress1 varchar2(100),
+memberaddress2 varchar2(100),
+memberzipcode number(30),
 logtime date
 );
 
-create sequence seq_crackermember nocycle nocache;
+create sequence seq_crakermember nocycle nocache;
+
+
+--이메일 SQL
+create table crackeremail(
+seq number not null,
+nickname varchar2(40),
+email varchar2(40) not null, 
+name varchar2(40) not null,
+category varchar2(30));
