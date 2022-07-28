@@ -8,6 +8,8 @@
 <title>Insert title here</title>
 <script src="https://kit.fontawesome.com/d84eab0825.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript" src="/index/js/shop/cartView.js"></script>
 <style type="text/css" src="/index/css/reset.css"></style>
 <style type="text/css">
 
@@ -106,7 +108,7 @@
     text-align: center;
 }
 .item-product-select{
-	width: 56%;
+	width: 58%;
     display: inline-block;
     float: left;
 }
@@ -208,6 +210,7 @@ width: 40px;
 .itemimg{
  width: 100px;
  height: 50px;
+ margin-left: 6px;
  
 }
 
@@ -230,6 +233,8 @@ width: 40px;
 </head>
 <body>
 	<input type = "hidden" class ="test1">
+	<input type = "text" class = "memberemail">
+	<input type = "text" name = "day" id="day">
 	<div class="itemSearch"></div>
 	<input type = "hidden" value="${memEmail}" id = "memberEmail" name = "memberEmail" >
 	<div id="cartViewList">
@@ -247,7 +252,7 @@ width: 40px;
 	       		<div class="cartTable" >
 					<div class="head" style="line-height: 48px;">
 					    <div class="item-checkbox" >
-					    	<input type="checkbox" checked="checked" 
+					    	<input type="checkbox"
 					          class="chk-all" name="chk-all" id="chk-all">전체선택</div>
 					    <div class="item-product" >상품정보</div>
 					    <div class = "item-price">상품갯수</div>
@@ -255,7 +260,6 @@ width: 40px;
 					</div>
 					    <!-- for문 돌리기 -->  
 					 <div class = "test">
-
 					
 	        		</div>
 	        	</div>
@@ -282,14 +286,8 @@ width: 40px;
      	  </div>
      </section>
     </div> 
-<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
-</script>
-<script type="text/javascript" src="/index/js/shop/cartView.js">
-</script>
-
 
 <script type="text/javascript">
-
 $('#chk-all').click(function(){
 	if($('#chk-all').is(":checked")){
 		$(".chk").prop("checked", true);
@@ -306,6 +304,8 @@ $('#chk-all').click(function(){
 		else $("#chk-all").prop("checked", true); 
 	
 });
+	
+
 </script>
 
 </body>

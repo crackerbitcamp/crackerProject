@@ -1,0 +1,14 @@
+-- 구매목록 SQL
+create table memberbuylist(
+productordernumber number not null,
+productname varchar2(40) not null,
+productsubject varchar2(150) not null,
+productprice number not null,
+productqty number not null,
+productphoto varchar2(500) not null,
+productbuydate varchar2(40) not null,
+memberemail varchar2(40) not null,
+membername varchar2(40) not null,
+membertel varchar2(80) not null,
+memberaddress varchar2(300) not null
+);

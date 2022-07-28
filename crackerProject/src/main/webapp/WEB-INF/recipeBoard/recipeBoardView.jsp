@@ -14,15 +14,16 @@
 	font-size: 7px;
 	color: red;
 }
+
 </style>
 </head>
 <body>
 <form id="recipeBoardViewForm">
 
-<input type = "hidden" name="seq" id="seq" value="${seq}"/>
-<input type = "hidden" name="pg" id ="pg" value="${pg}"/>
-<input type="text" id="memEmail" value="${memEmail }" />
-<input type="text" id="category" value="레시피"/>
+	<input type="hidden" name="seq" id="seq" value="${seq}"/>
+	<input type="hidden" name="pg" id ="pg" value="${pg}"/>
+	<input type="hidden" id="memEmail" value="${memEmail }" />
+	<input type="hidden" id="category" value="레시피"/>
 
 
 <div id="recipeBoardView_subject">
@@ -70,10 +71,6 @@
 		</ul>
 	</div>
 
-	
-	<!-- 댓글창 내려오는곳  -->
-	<div style="border: 1px blue solid;" id="commentInside">
-	</div>
 </form>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript" src="../js/recipeBoard/recipeBoardView.js"></script>

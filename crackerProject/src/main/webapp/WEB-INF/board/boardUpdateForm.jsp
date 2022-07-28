@@ -13,15 +13,19 @@
 	height: 1000px;
 }
 
-#boardUpdateForm div{
+#boardWriteFormOutDiv {
+	height: 600px;
+}
+#subjectDiv, #contentDiv{
 	color: red;
 	font-size: 8pt;
 	font-weight: bold;
+	margin-left: 5%;
 }
 
 </style>
 </head>
-<body>
+<body> 
 	
 	<div id="boardWriteFormOutDiv" >
 		<form class="boardWriteForm" name=“boardWriteForm" id="boardWriteForm">

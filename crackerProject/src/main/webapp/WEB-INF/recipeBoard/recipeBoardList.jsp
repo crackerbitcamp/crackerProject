@@ -155,7 +155,6 @@
    	margin: auto;
    	margin-top: 20px;
    	font-size: 1.3rem;
-  	border-bottom:1px solid #ebeef1;
   	font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -182,14 +181,14 @@
 	
 		<input type="hidden" id="pg" value="${pg}">
 		<input type="hidden" id="category" value = "${category}">
- 		<select id="category">
+ 		<select id="category" onchange="if(this.value) location.href=(this.value);">
 			<option selected >선택</option>
-			<option value="한식">한식</option>
-			<option value="양식">양식</option>
-			<option value="일식">일식</option>
-			<option value="중식">중식</option>
-			<option value="아시아">아시아</option>
-			<option value="분식">분식</option>
+			<option value="?category=한식">한식</option>
+			<option value="?category=양식">양식</option>
+			<option value="?category=일식">일식</option>
+			<option value="?category=중식">중식</option>
+			<option value="?category=아시아">아시아</option>
+			<option value="?category=분식">분식</option>
 		</select>
 		<button type="button" id="recipeBoardWriteFormBtn">글쓰기</button>
 	<div id="recipeBoardListDiv"> </div>

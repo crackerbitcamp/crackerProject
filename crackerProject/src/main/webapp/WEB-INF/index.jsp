@@ -180,7 +180,7 @@ body{
 .imagecard {
 	position: relative;
 	width : 91%;
-	height: 750px;
+	height: 100%;
 	margin : 0 auto;
 	
 	/* border: 1px blue solid; */
@@ -205,7 +205,9 @@ body{
 /* footer */
 .footer {
  	position : relative;
-	bottom: 8px;
+ 	display: inline-block;
+ 	width: 100%;
+	bottom: -100px;
 	font-family: 'Noto Sans KR', sans-serif;
 }
 
@@ -217,6 +219,7 @@ body{
 	width: 100%;
 	height: 50px;
 	margin: 0 auto;
+	margin-bottom: 50px;
 	
 }
 
@@ -252,6 +255,7 @@ body{
 	text-decoration: none;
 	color :  #666;
 	margin-right: 30px;
+    margin-left: 30px;
 	
 }
 .copy {
@@ -318,16 +322,14 @@ body{
 
 				<c:if test="${not empty display}">
 					<div class="">
-						<img alt="돋보기" src="/index/image/home/search.svg">
-						<input type="text" value="${keyword}" id="keyword">
-						<button type="button">검색</button>
+						<input type="hidden" value="${keyword}" id="keyword">
 					</div>
 				</c:if>
 			<div id="header_ul">
 				
 				<ul id="header_menu_ul">
 					<li class="header_menu_item"><input type="hidden" value="${keyword }" id="keyword" ></li>
-					<li class="header_menu_item"><a href="#" class="menu_item_a"><span>SHOP</span></a></li>
+					<li class="header_menu_item"><a href="/index/shop/shopmain" class="menu_item_a"><span>SHOP</span></a></li>
 					<li class="header_menu_item"><a href="/index/board/boardList" class="menu_item_a"><span>FREE</span></a></li>
 					<li class="header_menu_item"><a href="/index/recipeBoard/recipeBoardList" class="menu_item_a"><span>RECIPE</span></a></li>
 
@@ -359,7 +361,7 @@ body{
 							<option value="board">자유게시판</option>
 							<option value="recepiBoard">레시피</option>
 						</select>
-						<input type="text" id="boardSearch" placeholder="음식명">
+						<input type="text" id="boardSearch" placeholder="검색어를 입력하세요">
 						<input type="submit" id="boardSearchBtn" value="검색" onclick="#">
 					</div>
 
@@ -374,7 +376,7 @@ body{
 				
 				<div class="display_title">
 							<h2 class="display_title_text">레시피 리스트</h2>
-							<a class="display_title_list" href="#">리스트 더보기</a>
+							<a class="display_title_list" href="/index/recipeBoard/recipeBoardList">리스트 더보기</a>
 				</div>
 				
 					<div id="imagecard">
@@ -463,7 +465,7 @@ body{
 			
 					<div class="display_title">
 							<h2 class="display_title_text">자유 게시판 & 질문 게시판</h2>
-							<a class="display_title_list" href="#">게시글 더보기</a>
+							<a class="display_title_list" href="/index/board/boardList">게시글 더보기</a>
 					</div>
 				
 			
@@ -480,7 +482,7 @@ body{
 				
 					<div class="display_title">
 							<h2 class="display_title_text">레시피 전체 게시판</h2>
-							<a class="display_title_list" href="#">레시피 더보기</a>
+							<a class="display_title_list" href="/index/recipeBoard/recipeBoardList">레시피 더보기</a>
 					</div>
 				
 				<div class="imagecard">
@@ -501,6 +503,39 @@ body{
 			
 				
 		</div> <!-- wrap -->
+		
+	<div class="footer">
+		<div class="footerArea">
+			<dl class="btmnav">
+				<dt class="blind">bottom navigation</dt>
+				<dd>
+					<a href="#">About</a>
+				</dd>
+				<dd>
+					<a href="#">개인정보보호</a>
+				</dd>
+				<dd>
+					<a href="#">광고문의</a>
+				</dd>
+				<dd>
+					<a href="#">Contact us</a>
+				</dd>
+				<dd>
+					<a href="#">Location</a>
+				</dd>
+			</dl>
+
+			<p class="copy">
+				Copyright &copy; COMPANY Design<br> Powered by Webazit, e-mail
+				: <a href="mailto:cracker@community.com">cracker@community.com</a>
+			</p>
+		</div>
+		<!-- footerArea -->
+
+	</div>
+	<!-- footer -->	
+		
+		
 
 		
 			
@@ -548,16 +583,13 @@ body{
 					<c:if test="${memEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="location.href='/index/member/memberLogout'" style="cursor: pointer;">로그아웃</button>
 						<button class="userHistoryBtnClass" id="UpdatePasswordCheckForm" onclick="location.href='/index/member/memberUpdatePasswordCheckForm'" style="cursor: pointer;">회원 정보 수정</button>
-						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
 						<button class="userHistoryBtnClass" id="customerWriteForm" onclick="location.href='/index/customer/customerWriteForm'" style="cursor: pointer;">문의 하기</button>
 					</c:if>
 					<c:if test="${naverEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="openPopUp()" style="cursor: pointer;">로그아웃</button>
-						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
 					</c:if>
 					<c:if test="${kakaoEmail != null }">
 						<button class="userHistoryBtnClass" id="logoutBtn" onclick="kakaoLogoutForm()" style="cursor: pointer;">로그아웃</button>
-						<button type="button" id="recipeBoardWriteFormBtn">레시피 글쓰기</button>
 					</c:if>
 				<div>
 				</div>

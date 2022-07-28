@@ -12,9 +12,10 @@ body .wrap{
 
 
 .management li {
-	margin-left : 15px;
-	list-style: none;
-	padding: 10px;
+	margin-left: 20px;
+    list-style: none;
+    padding: 10px;
+    text-align: left;
 }
 .boardMenuTopUl{
 	padding:0;
@@ -46,7 +47,7 @@ body .wrap{
 	width: 230px;
 	min-height: 1000px;
 	float: left;
-	background: #353535;
+	background: #787878;
 }
 #header {
 /* 	width: 75%;
@@ -58,7 +59,7 @@ body .wrap{
 	float: left;
 	width: 1100px;
 	height: 100%;
-	background: #EEEEEE;
+	margin-left: 50px;
 }
 #section {
 	width: 90%;
@@ -139,6 +140,11 @@ body .wrap{
 #samePage {color: red; text-decoration: none;}
 #otherPage {color: black; text-decoration: none;}
 
+#Session2 {
+	
+	height: 417px;
+}
+
 #currentPaging{
 	width: 40px;
 	height: 40px;
@@ -147,6 +153,7 @@ body .wrap{
     color: #fff;
     display: inline-block;
     line-height: 40px;
+    
 }
 #paging{
 	width: 40px;
@@ -186,17 +193,17 @@ body .wrap{
 } */
 #customerSearchBtn{
     position: absolute;
-    top: 0px;
+    top: 4px;
     right: 0px;
     z-index: 6;
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 30px;
 }
 
 #customerListTable{
-	margin-left: auto; margin-right: auto;
-	clear: both;
-	width: 100%
+	width: 100%;
+	text-align: center;
+
 }
 
 #searchOption{
@@ -236,14 +243,7 @@ body .wrap{
 
 #adminCustomerPagingDiv{
 	text-align: center;
-	
-	width : auto; 
-	position: absolute;
-	margin-top: 24px; 
-	margin-bottom: 24px;
-    bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
+
 }
 
 

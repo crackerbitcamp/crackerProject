@@ -48,4 +48,9 @@ public class ShopServiceImpl implements ShopService {
 		shopDAO.cartViewDelete(map);
 	}
 
+	@Override
+	public Map<String, Object> shopCartPay(Map<String, Object> map) {
+		return shopDAO.shopCartPay(map);
+	}
+
 }
