@@ -16,10 +16,11 @@
 #boardWriteFormOutDiv {
 	height: 600px;
 }
-#boardUpdateForm div{
+#subjectDiv, #contentDiv{
 	color: red;
 	font-size: 8pt;
 	font-weight: bold;
+	margin-left: 5%;
 }
 
 </style>
