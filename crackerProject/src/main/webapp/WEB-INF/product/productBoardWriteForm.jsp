@@ -25,21 +25,16 @@
 						<ul>
 							<li>
 								<div class="inputTextForm_product">
-									<span>상품 : </span><select id="productSelect">
+									<span>상품코드: </span><select id="productSelect">
 									<option>상품을 선택하세요</option>
 									</select>
+									<input
+										id="productCodeHide" name="productCode" type="hidden"/>
 								
 								</div>
 							</li>
 
-							<li>
-							<div class="inputTextForm_product">
-								<span>상품코드 : </span><span id="productCode" class="productLoadSpan"></span>
-								
-								<input
-									id="productCodeHide" name="productCode" type="hidden">
-							</div>
-							</li>
+		
 							<li>
 								<div class="inputTextForm_product">
 								<span>상품명 : </span><span id="productName" class="productLoadSpan"></span>
@@ -123,16 +118,16 @@
 					//alert(JSON.stringify(data));
 					$.each(data.list, function(index, items) {
 						$('<option/>', {
-							'valute' : items.productName,
-							'text' : items.productName
-						}).addClass('productNameOption').appendTo(
+							'valute' : items.productCode,
+							'text' : items.productCode
+						}).addClass('productCodeOption').appendTo(
 								$('#productSelect'));
 					});
 					$('#productSelect').change(
 							function() {
 								$.ajax({
 									data : {
-										productName : $('#productSelect').val()
+										productCode : $('#productSelect').val()
 									},
 									url : '/index/product/getProduct',
 									type : 'post',
