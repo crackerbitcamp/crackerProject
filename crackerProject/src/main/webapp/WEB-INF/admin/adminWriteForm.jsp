@@ -5,7 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>회원가입</title>
-
+<link href="/index/css/boardCSS/boardWrite.css" rel="stylesheet"
+	type="text/css" />
 <style type = "text/css">
 
 table {
@@ -23,69 +24,48 @@ table {
 <body>
 <h2 align="center">회원가입</h2>
 <form name="adminWriteForm" id="adminWriteForm" >
-<table border="1" align="center">
-<tr>
-<td width="100" align="center">이름</td>
-<td>
-		<input type="text" name="adminname" id="adminname" placeholder="이름 입력">
+	<div class="inputTextForm"> 
+	
+		<input class="inputTypeText" type="text" name="adminname" id="adminname" placeholder="이름 입력">
 		<div id="adminnameDiv"></div>
-		</td>
-</tr>
+	</div>
 
-<tr>
-<td align="center">아이디</td>
-<td>
-		<input type="text" name="adminid" id="adminid" placeholder="아이디 입력" >
+
+	<div class="inputTextForm"> 
+		<input class="inputTypeText" type="text" name="adminid" id="adminid" placeholder="아이디 입력" >
 		<input type="hidden" name="overlapid" value="">
 		<div id="adminidDiv"></div>
-		</td>
-</tr>
-
-<tr>
-<td align="center">비밀번호</td>
-<td>
-		<input type="password" name="adminpwd" id="adminpwd" placeholder="비밀번호 입력" >
+	</div>
+	<div class="inputTextForm"> 
+		<input class="inputTypeText" type="password" name="adminpwd" id="adminpwd" placeholder="비밀번호 입력" >
 		<div id="adminpwdDiv"></div>
-		</td>
-</tr>
-
-<tr>
-<td align="center">재확인</td>
-<td>
-		<input type="password" name="adminrepwd" id="adminrepwd" placeholder="비밀번호 확인">
+	</div>
+	<div class="inputTextForm"> 
+		<input class="inputTypeText" type="password" name="adminrepwd" id="adminrepwd" placeholder="비밀번호 확인">
 		<div id="adminrepwdDiv"></div>
-		</td>
-</tr>
+	</div>
 
 
 
-
-		<tr>
-			<td align="center">이메일</td>
-			<td>
-			<input type="text" name="adminmail1" id="adminmail1" placeholder="이메일 입력">
+	<div class="inputTextForm"> 
+			<input type="text" name="adminmail1" id="adminmail1" placeholder="이메일 입력" class="inputTypeTextS">
 			
 			@
-			<input type="text" list="adminmail2" name="adminmail2" placeholder="직접입력">
+			<input type="text" list="adminmail2" name="adminmail2"  placeholder="직접입력" class="inputTypeTextS">
 			<datalist id="adminmail2">
 				<option value="gmail.com">
 				<option value="daum.net">
   	  			<option value="naver.com">
 			</datalist> 
 			<div id="adminmail1Div"></div> 
-			</td>
-		<tr>
-
-
-	<tr>
-		<td colspan="2" align="center">
+	</div>	
+		
 			<!-- <input type="button" value="회원가입" onclick="check()"> on : ~할때 -->
-			<input type="button" value="회원가입" id="adminWriteBtn">
-			<input type="reset" value="다시작성">		
-		</td>
-		</tr>
+			<button type="button" class="writeBottomBtnClass" id="adminWriteBtn">회원가입</button>
+			<button type="reset" class="writeBottomBtnClass">다시작성</button>
+		
+ 
 
-</table>
 </form>
 
 <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>

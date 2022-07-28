@@ -20,9 +20,9 @@
     clear: both;
 }
 #productBoardWriteForm .productBoarContent{
-	background: #ffffff;
+	background: #eeeeee;
 	border: blue 1px solid;
-	width: 1300px;
+	width: 100%;
 	height: auto;
 }
 #mainPhoto{
@@ -31,10 +31,11 @@
 	
 }
 #productSelect{
-	width: 300px;
-	height:30px;
+	width: 200px;
+	height:20px;
 	text-align: center;
-	font-size: 20px;	
+	font-size: 15px;
+	border: 0;	
 }
 .productLoadSpan{
 	font-size: 20px;
