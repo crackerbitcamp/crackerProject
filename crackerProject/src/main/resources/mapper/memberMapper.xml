@@ -16,7 +16,7 @@
 								#{membernickname},
 								'',
 								'',
-								'',
+								'',						
 								sysdate)
 	</insert>
 	<select id="memberLoginCheck" parameterType="java.util.Map" resultType="member">
@@ -38,7 +38,7 @@
 	<update id="memberUpdate" parameterType="member">
 		update crackermember set memberpwd = #{memberpwd} , 
 			    memberemail = #{memberemail} , membertel1 = #{membertel1}, membertel2 = #{membertel2}, membertel3 = #{membertel3}
-			    ,membernickname = #{membernickname} where membername = #{membername}
+			    ,membernickname = #{membernickname} where membername = #{membername} and memberemail = #{memberemail}
 	</update>
 	
 	<!-- 하루당 사이트 가입자수 -->

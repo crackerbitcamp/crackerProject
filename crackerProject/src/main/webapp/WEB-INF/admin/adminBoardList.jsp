@@ -77,20 +77,70 @@
 	margin: auto;
 	border-bottom:1px solid #ebeef1;
 }
+.boardSearchBtn {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -1px;
+	width: 20%;
+	font-size: 0.813rem;
+	color: #ffffff;
+	border-radius: 50px;
+	background-color: #777777;
+	height: 100%;
+	-webkit-appearance: none;
+	border : 0px;
+}
+.boardSearch{
+
+  width: 79%;
+  height: 30px;
+
+  font-size: 15px;
+  border: 0;
+  border-radius: 30px;
+  outline: none;
+  padding-left: 10px;
+  background-color: white;
+}
+.searchForm{
+	margin: 45px auto 0 auto;
+	width: 31%;
+	overflow: hidden;
+	padding-right:20px;
+	padding-left:20px;
+	border-radius: 30px;
+	border: #777777 3px solid;
+	position: relative;
+	background-color: white;
+	
+
+}
+
 </style>
 </head>
 <body>
+	<input type="hidden" id="pg" value="${pg}"/>
+	<input type="hidden" id="keyword" value="${keyword}"/>
+
 	<div id="boardListDiv">
-	
+		<div class="searchForm">
+			<span></span><input type="text" class="boardSearch" id="boardSearch"/><button type="button" id="boardSearchBtn" class="boardSearchBtn">검색</button>
+		</div>
 	</div>
+		<div id="boardPagingDiv"></div>
 	
 	
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
 <script type="text/javascript">
+$('#boardSearchBtn').click(function(){
+	location.href='/index/admin/adminBoardList?keyword='+$('#boardSearch').val();
+});
+
 $(function(){
 	
 	var boardUrl;
-	if($('#keyword').val()==null){
+	if($('#keyword').val()==''){
 		boardUrl = '/index/board/getBoardList';
 	}else{
 		boardUrl = '/index/board/boardSearch';
@@ -104,7 +154,7 @@ $(function(){
 		success : function(data){
 			$.each(data.list, function(index, items){
 				//alert(JSON.stringify(data));
-				//alert(data.memLogin);
+				
 				$('<div/>').addClass('listMenu')
 					.append($('<div/>',{
 					align: 'center',
@@ -129,7 +179,7 @@ $(function(){
 				
 
 				$('.subjectA_'+items.seq).click(function(){
-						location.href = '/index/board/boardView?seq='
+						location.href = '/index/admin/adminBoardView?seq='
 										+items.seq+'&pg='+$('#pg').val();
 					
 				});
@@ -166,7 +216,7 @@ function boardPaging(pg2) {
 	   var keyword = $('#keyword').val();
 
 	   if(keyword == ''){
-	      location.href = "/index/board/boardList?pg=" + pg2;
+	      location.href = "/index/admin/adminBoardList?pg=" + pg2;
 	   }else{
 		  $('#searchPg').val(pg2);
 		  $('#boardSearchBtn').trigger('click');

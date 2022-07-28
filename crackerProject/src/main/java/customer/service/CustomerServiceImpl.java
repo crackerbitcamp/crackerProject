@@ -29,6 +29,7 @@ public class CustomerServiceImpl implements CustomerService {
 	
 	@Override
 	public void customerWrite(Map<String, String> map) {
+		
 		customerDAO.customerWrite(map);
 
 	}

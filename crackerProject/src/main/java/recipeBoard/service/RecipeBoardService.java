@@ -16,4 +16,9 @@ public interface RecipeBoardService {
 
 	public Map<String, Object> recipeBoardSearch(Map<String, String> map);
 
+	public void recipeBoardDelete(int seq);
+
+	public void recipeBoardUpdate(Map<String, String> map);
+
+
 }

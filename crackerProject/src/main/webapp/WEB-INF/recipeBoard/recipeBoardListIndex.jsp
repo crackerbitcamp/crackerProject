@@ -5,16 +5,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style type="text/css">
 
 #recipeBoardListIndexDiv .recipeCard2{
    float: left;
    margin-left: 10px;
    margin-right: 10px;
+   margin-bottom: 15px;
    border : #dddddd solid 1px;
    padding: 5px 5px 5px 5px;
    box-shadow: 1px 1px 3px #333333;
-   width: 310px;
+   width: 280px;
    height: 350px;
    
 }
@@ -27,7 +31,7 @@
 #recipeBoardListIndexDiv{
    position : relative;
    float : left;
-   margin : 0 16px;
+   margin : 15px 0px 0px 16px;
    
 }
 
@@ -46,27 +50,31 @@
 	margin-top: 10px;
  	font-size : 1.5em;
 	color : #6e6e6e;
+	font-family: 'Noto Sans KR', sans-serif;
 }
 
 #recipeindexnickNamefont {
-   margin-top : 8px;
-   font-size : 15px;
+   margin-top : 12px;
+   font-size : 13px;
+   font-family: 'Noto Sans KR', sans-serif;
 }
 
 #recipeindexsubjectfont {
 	width: 280px;
-  	margin-top : 15px;
-  	margin-left : 15px;
+  	margin-top : 20px;
   	font-weight : bolder;
   	overflow: hidden;
   	text-overflow: ellipsis;
   	white-space: nowrap;
   	color : #f76900;
+  	font-size : 22px;
+  	font-family: 'Noto Sans KR', sans-serif;
 }
 
 #recipeindexlogtimefont {
-   margin-top : 20px;
+   margin-top : 25px;
    font-size : 10px;
+   font-family: 'Noto Sans KR', sans-serif;
 }
 
 </style>
@@ -115,7 +123,7 @@
 					})).append($('<img>', {
 							id : 'recipelistindeximg',
 							src : img,
-							width : '300px',
+							width : '270px',
 							height : '200px',
 						})).append($('<div/>',{
 							id : 'recipelistindexAll'

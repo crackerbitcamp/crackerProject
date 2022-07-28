@@ -232,5 +232,10 @@ public class MemberController{
 		   mav.setViewName("/index");
 		   return mav;
 	   }
+	@PostMapping("/memberDelete")
+	@ResponseBody
+	public void memberDelete(@RequestParam String memberemail) {
+		memberService.memberDelete(memberemail);
+	}
 }
 

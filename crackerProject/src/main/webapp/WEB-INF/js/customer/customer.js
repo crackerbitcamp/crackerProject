@@ -5,13 +5,16 @@ $(function(){
 		dataType: 'json',
 		success:function(data){
 			if(data.name != null){
+				
 				$('#name').val(data.name);
 				$('#email').val(data.email);
 				
-			}else{
-			alert('먼저 회원가입을하세요')
-			location.href = '/index/member/memberLoginForm';
+			}else if(data.kakaoNickname != null){
+		
+				$('#name').val(data.kakaoNickname);
+				$('#email').val(data.kakaoEmail);	
 			}
+			else{}
 		},
 		error:function(e){
 			console.log(e);

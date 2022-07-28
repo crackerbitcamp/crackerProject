@@ -7,7 +7,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<link rel="stylesheet" href="../css/adminCSS/admincss.css">
+<link href="/index/css/reset.css" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="../css/adminCSS/admincss.css" type="text/css">
 
 </head>
 
@@ -19,11 +20,15 @@
 	
 		</div>
 	
-		<div id="header"></div>
+		<div id="header">
+			<div>
+				
+			</div>
+		</div>
 		
 		<div id="container">
 			<c:if test="${empty display}">
-				<div id="sectionHeader"></div>
+				
 				<div id="sectioncontainer">
 					<div id="adminSection1" class="section">
 		
@@ -35,15 +40,7 @@
 						<jsp:include page="${adminSection2}" />
 		
 					</div>
-					<div id="adminSection3" class="section">
-						세션3
-						<jsp:include page="${adminSection3}" />
-		
-					</div>
-					<div id="adminSection4" class="section">
-						세션4
-						<jsp:include page="${adminSection4}" />
-					</div>
+					
 				</div>
 			</c:if>
 	

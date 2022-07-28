@@ -11,7 +11,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
 <style type="text/css">
-    
+
 
 #recipeBoardListDiv .recipeCard {
 /* 	border : #dddddd solid 1px; 
@@ -27,7 +27,7 @@
 
 	padding: 20px;
 	position : relative;
-	width: 1655px;
+	
 	background : #f3f3f3;	
 	height: 1800px;
 
@@ -148,6 +148,46 @@
 	margin-bottom : 20px;
 }
 
+.boardSearchBtn {
+	display: block;
+	position: absolute;
+	top: 0;
+	right: -1px;
+	width: 20%;
+	font-size: 0.813rem;
+	color: #ffffff;
+	border-radius: 50px;
+	background-color: #777777;
+	height: 100%;
+	-webkit-appearance: none;
+	border : 0px;
+}
+#boardSearch{
+
+  width: 79%;
+  height: 30px;
+
+  font-size: 15px;
+  border: 0;
+  border-radius: 30px;
+  outline: none;
+  padding-left: 10px;
+  background-color: white;
+}
+#searchForm{
+	margin: 45px auto 0 auto;
+	width: 31%;
+	overflow: hidden;
+	padding-right:20px;
+	padding-left:20px;
+	border-radius: 30px;
+	border: #777777 3px solid;
+	position: relative;
+	background-color: white;
+	
+
+}
+
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -159,8 +199,14 @@
 	
 		<input type="hidden" id="pg" value="${pg}">
 		<input type="hidden" id='category' value = "${category}">
-	<div id="recipeBoardListDiv"> </div>
+		<input type="hidden" id='keyword' value = "${keyword}">
+	<div id="recipeBoardListDiv"> 
+		<div id="searchForm">
+			<span></span><input type="text" id="boardSearch"/><button type="button" id="recipeBoardSearchBtn" class="boardSearchBtn">검색</button>
+		</div>
+		
 		<div id="recipeBoardPagingDiv"></div>
+	</div>
 	</div>
 
 
@@ -173,12 +219,16 @@ function recipeBoardPaging(pg2) {
 	location.href="/index/admin/adminRecipeBoardList?pg="+pg2;
 	
 }
+
+$('#recipeBoardSearchBtn').click(function(){
+	location.href='/index/admin/adminRecipeBoardList?keyword='+$('#boardSearch').val();
+});
 </script>
 
 <script type="text/javascript">
 	$(function() {
 		var recipeBoardUrl;
-		if($('#keyword').val()==null){
+		if($('#keyword').val()==''){
 			recipeBoardUrl = '/index/recipeBoard/getRecipeBoardList';
 		}else{
 			recipeBoardUrl = '/index/recipeBoard/recipeBoardSearch';
@@ -193,7 +243,7 @@ function recipeBoardPaging(pg2) {
 			},
 			dataType : 'json',
 			success : function(data) {
-
+				//alert(JSON.stringify(data));
 				$.each(data.list, function(index, items) {
 					
 					$('<input/>', {
@@ -247,7 +297,7 @@ function recipeBoardPaging(pg2) {
 					}))).appendTo($('#recipeBoardListDiv'));
 					$('.recipeCard_'+items.seq).click(function(){
 						
-						location.href = '/index/recipeBoard/recipeBoardView?seq='
+						location.href = '/index/admin/adminRecipeBoardView?seq='
 											+items.seq+'&pg='+$('#pg').val();
 						
 						
@@ -255,7 +305,7 @@ function recipeBoardPaging(pg2) {
 				}); //each
 				
 				//페이징처리
-				$('#recipeBoardPagingDiv').html(data.recipeBoardPaging.pagingHTML);
+				$('#recipeBoardPagingDiv').html(data.recipeBoardPaging.PagingHTML);
 
 			},
 			error : function(e) {

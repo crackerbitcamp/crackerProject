@@ -27,6 +27,11 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	@Override
 	public RecipeBoardDTO getRecipeBoardView(String seq) {
 		
+		if(session.getAttribute("memHit") != null) {
+			recipeBoardDAO.setHit(seq);
+			session.removeAttribute("memHit");
+		}
+		
 		return recipeBoardDAO.getRecipeBoardView(seq);
 	}
 
@@ -38,7 +43,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 		
 		map.put("endNum", endNum+"");
 		map.put("startNum", startNum+"");
-		System.out.println(map);
+	
 		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardList(map);
 		//세션
 		System.out.println(list);
@@ -62,7 +67,7 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	public void recipeBoardWrite(Map<String, String> map) {
 		String nickName = (String) session.getAttribute("memLogin");
 		map.put("nickName",nickName);
-		System.out.println(map.get("nickName"));
+	
 		
 		recipeBoardDAO.recipeBoardWrite(map);
 		
@@ -107,28 +112,40 @@ public class RecipeBoardServiceImpl implements RecipeBoardService {
 	@Override
 	public Map<String, Object> recipeBoardSearch(Map<String, String> map) {
 		//1페이지당 5개
-				String memLogin= (String)session.getAttribute("memLogin");
-				int endNum=Integer.parseInt(map.get("pg"))*5;
-				int startNum=endNum-4;
-				
-				map.put("startNum",startNum+"");
-				map.put("endNum",endNum+"");
-				
-				List<BoardDTO> list = recipeBoardDAO.getRecipeBoardSearch(map);
-				//페이징 처리
-				int totalA = recipeBoardDAO.getTotalSearchA(map);
-				recipeBoardPaging.setCurrenPage(Integer.parseInt(map.get("pg")));
-				recipeBoardPaging.setPageBlock(3);
-				recipeBoardPaging.setPageSize(5);
-				recipeBoardPaging.setTotalA(totalA);
-				recipeBoardPaging.makePagingHTML();
-				
-				Map<String,Object> sendMap = new HashMap<String,Object>();
-				sendMap.put("list",list);
-				sendMap.put("recipeBoardPaging",recipeBoardPaging);
-				sendMap.put("memLogin",memLogin);
-				
-				return sendMap;
+		String memLogin= (String)session.getAttribute("memLogin");
+		int endNum=Integer.parseInt(map.get("pg"))*5;
+		int startNum=endNum-4;
+		
+		map.put("startNum",startNum+"");
+		map.put("endNum",endNum+"");
+		
+		List<BoardDTO> list = recipeBoardDAO.getRecipeBoardSearch(map);
+		//페이징 처리
+		int totalA = recipeBoardDAO.getTotalSearchA(map);
+		recipeBoardPaging.setCurrenPage(Integer.parseInt(map.get("pg")));
+		recipeBoardPaging.setPageBlock(3);
+		recipeBoardPaging.setPageSize(5);
+		recipeBoardPaging.setTotalA(totalA);
+		recipeBoardPaging.makePagingHTML();
+		
+		Map<String,Object> sendMap = new HashMap<String,Object>();
+		sendMap.put("list",list);
+		sendMap.put("recipeBoardPaging",recipeBoardPaging);
+		sendMap.put("memLogin",memLogin);
+		
+		return sendMap;
+	}
+
+
+	@Override
+	public void recipeBoardDelete(int seq) {
+		recipeBoardDAO.recipeBoardDelete(seq);	
+		
+	}
+
+	@Override
+	public void recipeBoardUpdate(Map<String, String> map) {
+		recipeBoardDAO.recipeBoardUpdate(map);
 	}
 
 }

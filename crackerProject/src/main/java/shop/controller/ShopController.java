@@ -3,6 +3,10 @@ package shop.controller;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -79,6 +83,13 @@ public class ShopController {
 		mav.setViewName("/shop/shopMypage");
 		return mav;
 	}
+
+	@GetMapping("/shop/shopCheckout")
+	public ModelAndView shopCheckout() {
+		ModelAndView mav = new ModelAndView();
+		mav.setViewName("/shop/shopCheckout");
+		return mav;
+	}
 	
 	@PostMapping("/shop/shopPayForm")
 	@ResponseBody
@@ -102,14 +113,24 @@ public class ShopController {
 	@GetMapping("/shop/shopPay")
 	public ModelAndView shopPay(HttpSession session) {
 		ModelAndView mav = new ModelAndView();
+		
 		session.getAttribute("shoppay");
 		mav.addObject("item",session.getAttribute("shoppay"));
+		
 		System.out.println("어떻게 들어오나 확인"+session.getAttribute("shoppay"));
-		mav.setViewName("/shop/shopPay");
+		mav.addObject("MyPageInclude", "/WEB-INF/shop/shopPay.jsp");
+		mav.setViewName("/shop/shopMypage");
+
 		return mav;
 	}
 	
 	//장바구니 담기 눌럿을 경우
+	@PostMapping("/shop/memberBuyList")
+	@ResponseBody
+	public void memberBuyList(@RequestParam Map<String,String>map) {
+		System.out.println(map);
+	}
+	//장바구니
 	@PostMapping("/shop/shopcartForm")
 	@ResponseBody
 	public Map<String, Object> shopcartForm(@RequestParam Map<String,String>map){
@@ -136,3 +157,5 @@ public class ShopController {
 		shopService.cartViewDelete(map);
 	}
 }	
+
+	
