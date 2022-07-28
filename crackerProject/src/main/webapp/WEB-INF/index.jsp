@@ -180,7 +180,7 @@ body{
 .imagecard {
 	position: relative;
 	width : 91%;
-	height: 750px;
+	height: 100%;
 	margin : 0 auto;
 	
 	/* border: 1px blue solid; */
