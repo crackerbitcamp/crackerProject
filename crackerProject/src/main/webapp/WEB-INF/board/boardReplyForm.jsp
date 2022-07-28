@@ -20,6 +20,7 @@
 <form name="boardReplyForm" id="boardReplyForm">
 <input type = "hidden" name="pseq" id= "pseq" value="${pseq}">
 <input type = "hidden" name="pg" id= "pg" value="${pg}">
+<input type = "hidden" name="category" id= "category" value="${category}">
 	<table border="1" cellspacing="0" cellpadding="5">
 		<tr>
 			<td width="70" align="center">
@@ -78,7 +79,9 @@ $('#boardReplyBtn1').click(function(){
 			data: {
 				'subject' : $('#subject').val(),
 				'pseq' : $('#pseq').val(),
-				 content},
+				'category' : $('#category').val(),
+				 content
+				 },
 			success:function(){ 
 				alert('답글을 등록하였습니다.');
 				location.href='/index/board/boardList?pg='+$('#pg').val();
