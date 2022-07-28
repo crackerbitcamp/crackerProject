@@ -4,10 +4,15 @@
 <html>
 <head>
 <style>
+
+#productBoardViewForm {
+	text-align:center;
+}
 .content{
 	width: 100%;
 	min-width: 1280px;
 	margin: 0 auto;
+	padding : 100px 0px;
 }
 
 .shopcontent dl>dt{
@@ -121,7 +126,7 @@ background: none;
 		<input type = "hidden" name = "memberemail" id = "memberemail" value="${memEmail}">
 		<input type="hidden" name = "seq" id="seq" value="${seq}">
 		<div class = "image" style="max-width:510px; max-height: 510px;display: inline-block; float: left;">
-		<img id="productMainPhoto" style="max-width: 510px; min-height: 510px;">
+		<img id="productMainPhoto" style="max-width: 510px; min-height: 510px; margin-left: 160px;">
 		</div>
 		<div class = "shopcontent" style="width: 510px; height: 510px; display: inline-block; padding-left: 20px;">
 			<div class="shopsubject">
@@ -174,7 +179,6 @@ background: none;
 		</div>
 		<div style="display: flex;">
 			<ul style="width: 510px; list-style: none; display: inline-block; padding-left:0;">
-				<li><img src = "/index/image/home/china.jpeg" style="width: 65px; height: 65px;"></li>
 			</ul>
 			<div class = "contentBtn" style=" display: inline-block; margin-top: 20px;">
 				<button type = "button" id = "cartBtn"style="width: 247px; height: 56px; margin-right: 10px; border: 1px solid #666; font-size: 16px; line-height: 54px; color: #333; font-weight: bold; cursor: pointer; display: initial; float: left;">장바구니</button>
@@ -184,7 +188,7 @@ background: none;
 	</div>
 </form>
 
-	<div class="menubar">
+<!-- 	<div class="menubar">
 		<ul class="menubarUl">
 			<li class="collapsible">
 				<h2 class="title">
@@ -213,7 +217,7 @@ background: none;
 				<p class="item">내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들내용들</p>
 			</li>
 		</ul>
-	</div>
+	</div> -->
 	<div>
 		<div id="productContent_div"></div>
 	</div>

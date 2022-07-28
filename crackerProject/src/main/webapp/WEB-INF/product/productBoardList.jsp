@@ -8,18 +8,32 @@
 <style type="text/css">
 #productListForm {
 	border: 1px solid red;
+	text-align:center;
 }
 
 .productListLi {
 	border: 1px solid blue;
-    width: 30%;
-    height: 450px;
-    margin: 20px 10px;
+    width: 25%;
+    height: 400px;
+    margin: 20px 22px;
     display: inline-block;
 }
 
 .productListTop {
 	margin: 30px 90px 30px 110px;
+}
+
+#productName {
+	margin-top: 15px;
+	text-align: center;
+	font-size : 1.5rem;
+}
+
+#productPrice {
+	margin-top: 15px;
+	text-align : center;
+	font-size : 1.5rem;
+	font-weight: 700;
 }
 
 
