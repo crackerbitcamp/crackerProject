@@ -5,6 +5,7 @@ import java.util.Map;
 
 import crackeremail.bean.CrackeremailDTO;
 import product.bean.ProductbuylistDTO;
+import shop.bean.MemberbuylistDTO;
 
 public interface ShopService {
 
@@ -21,5 +22,11 @@ public interface ShopService {
 	public void cartViewDelete(Map<String, String> map);
 
 	public Map<String, Object> shopCartPay(Map<String, Object> map);
+
+	public void memberBuyList2(Map<String, String> map);
+
+	public void memberBuyList(Map<String, String> map);
+
+	public List<MemberbuylistDTO> getbuylist(String memberemail);
 
 }

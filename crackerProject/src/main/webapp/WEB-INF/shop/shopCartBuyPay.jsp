@@ -368,7 +368,8 @@ border-bottom: 2px solid;
 			</dl>
 			<dl>
 				<dt>총 결제금액 </dt>
-				<dd id="totalprice" class="totalprice">${item.finalorderprice }원</dd>
+<%-- 				<dd id="totalprice" class="totalprice">${item.finalorderprice }원</dd> --%>
+				<dd id="totalprice" class="totalprice">100원</dd>
 			</dl>
 			<dl>
 				<dt>총결제방법 </dt>
@@ -378,6 +379,8 @@ border-bottom: 2px solid;
 					</div>
 				</dd>
 			</dl>
+			<input type="hidden" id="seq" value="${item.seq}">
+			<input type="hidden" id="productbuydate" value="${item.productbuydate }">
 		</section>
 		
 		<section class="Checkoutinfo">
@@ -388,6 +391,7 @@ border-bottom: 2px solid;
 		</section>
 	</section>
 	
+	
 </body>
 
 <!-- jQuery -->
@@ -396,6 +400,7 @@ border-bottom: 2px solid;
 <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
 <script type="text/javascript">
 $(function(){ 
+	
 const random1 = Math.floor(Math.random()*100000000000000);
 console.log(random1);
 
@@ -423,19 +428,20 @@ function requestPay() {
     }, function (rsp) { // callback
         if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
         	$.ajax({
-        		url : '/index/shop/memberBuyList',
+        		url : '/index/shop/memberBuyList2',
         		type: "POST",
         		data: {
-        			'productName' : $('#productName').text(),	
- 					'totalprice' : $('#totalprice').text(),
-        	        'memberemail' : $('#memberemail').text(),
-        	        'membername': $('#membername').text(),
-        	        'membertel' :  $('#membertel').text(),
-        	        'memberaddress': $('#memberaddress').text(),
-        	        'memberzipcode': $('#memberzipcode').text()
+        			'seq' : $('#seq').val(),
+    				'productbuydate' : $('#productbuydate').val(),
+    		        'memberemail' : $('#memberemail').text(),
+    		        'membername': $('#membername').text(),
+    		        'membertel' :  $('#membertel').text(),
+    		        'memberaddress': $('#memberaddress').text()
                  },
                 success: function(data){
-                 	alert("확인")
+                	alert("구입 완료").then(function() {
+                		location.href = '/index/shop/buylist'
+					});
                  }, 
                  error:function(e){
                  	console.log(e)
@@ -443,7 +449,12 @@ function requestPay() {
         	});
           }
         });
+  
 }
+
+$(function() {
+	
+});
    
   
 </script>

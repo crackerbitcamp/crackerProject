@@ -15,6 +15,7 @@ import member.bean.MemberDTO;
 import product.bean.ProductBoardDTO;
 import product.bean.ProductJoinDTO;
 import product.bean.ProductbuylistDTO;
+import shop.bean.MemberbuylistDTO;
 
 @Repository
 @Transactional
@@ -87,8 +88,46 @@ public class ShopDAOMyBatis implements ShopDAO {
 	public void cartViewDelete(Map<String, String> map) {
 		sqlSession.delete("shopSQL.cartViewDelete",map);
 	}
-
 	
+	@Override
+	public void memberBuyList(Map<String, String> map) {
+		sqlSession.insert("shopSQL.memberBuyList2",map);
+	}
+
+	@Override
+	public void memberBuyList2(Map<String, String> map) {
+		Map<String, String> map1 = new HashMap<String, String>();
+		String seq = (String)map.get("seq");
+		String[] productseq = seq.split(",");
+		
+		String memberemail = map.get("memberemail");
+		String membername = map.get("membername");
+		String membertel =map.get("membertel");
+		String memberaddress =map.get("memberaddress");
+		String productbuydate = map.get("productbuydate");
+		
+		map1.put("memberemail",memberemail);
+		map1.put("membername",membername);
+		map1.put("membertel",membertel);
+		map1.put("memberaddress",memberaddress);
+		map1.put("productbuydate", productbuydate);
+		
+		ProductbuylistDTO productbuylistDTO = null;
+		
+		for(int i = 0;  i < productseq.length; i++) {
+			map.put("productseq", productseq[i]);
+			productbuylistDTO = sqlSession.selectOne("shopSQL.cartBuyList",map);
+			map1.put("productseq", productseq[i]);
+			map1.put("productsubject", productbuylistDTO.getProductsubject());
+			map1.put("productprice", productbuylistDTO.getProducttotalprice()+"");
+			map1.put("productqty",productbuylistDTO.getProductqty()+"");
+			map1.put("productphoto",productbuylistDTO.getProductimg());
+			sqlSession.insert("shopSQL.memberBuyList2",map1);
+			sqlSession.delete("shopSQL.cartViewDelete2",map1);
+		}
+		
+		
+	}
 	
 	
 	@Override
@@ -97,7 +136,7 @@ public class ShopDAOMyBatis implements ShopDAO {
 		String result = seq.replaceAll("\\\"","");
 		String result1 = result.replaceAll("\\[", "");
 		String result2 = result1.replaceAll("\\]", "");
-		
+		System.out.println("result2"+result2);
 		
 		String[] productseq = result2.split(",");
 		
@@ -118,8 +157,17 @@ public class ShopDAOMyBatis implements ShopDAO {
 		map.put("membername", memberDTO.getMembername());
 		map.put("membertel", memberDTO.getMembertel1()+memberDTO.getMembertel2()+memberDTO.getMembertel3());
 		map.put("memberaddress", memberDTO.getMemberaddress1()+memberDTO.getMemberaddress2());
-		
+		map.put("seq", result2);
 		return map;
 	}
+
+	@Override
+	public List<MemberbuylistDTO> getbuylist(String memberemail) {
+		return sqlSession.selectList("shopSQL.getbuylist",memberemail);
+	}
+
+
+
+
 
 }

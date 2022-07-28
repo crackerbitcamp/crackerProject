@@ -103,20 +103,20 @@ public class MemberServiceImpl implements MemberService{
 	@Override
 	public String phoneCheck(String findphone) {
 		makeRandomNumber();
-//		String api_key = "NCSFYVT2OWOGPS5N";
-//	    String api_secret = "HGOBLW60MTMXGQ4O5QB7IQG2JJFKGZFG";
-//	    Message coolsms = new Message(api_key, api_secret);
-//	    
-//	    HashMap<String, String> params = new HashMap<String, String>();
-//	    params.put("to", findphone);    // 수신전화번호
-//	    params.put("from", "01035181404");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
-//	    params.put("type", "SMS");
-//	    params.put("text", "[cracker] 인증번호는" + "["+authNumber+"]" + "입니다."); // 문자 내용 입력
-//	    try {
-//			coolsms.send(params);
-//		} catch (CoolsmsException e) {
-//			e.printStackTrace();
-//		}
+		String api_key = "NCSFYVT2OWOGPS5N";
+	    String api_secret = "HGOBLW60MTMXGQ4O5QB7IQG2JJFKGZFG";
+	    Message coolsms = new Message(api_key, api_secret);
+	    
+	    HashMap<String, String> params = new HashMap<String, String>();
+	    params.put("to", findphone);    // 수신전화번호
+	    params.put("from", "01035181404");    // 발신전화번호. 테스트시에는 발신,수신 둘다 본인 번호로 하면 됨
+	    params.put("type", "SMS");
+	    params.put("text", "[cracker] 인증번호는" + "["+authNumber+"]" + "입니다."); // 문자 내용 입력
+	    try {
+			coolsms.send(params);
+		} catch (CoolsmsException e) {
+			e.printStackTrace();
+		}
 		return Integer.toString(authNumber);
 	}
 

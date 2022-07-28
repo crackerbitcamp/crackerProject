@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import crackeremail.bean.CrackeremailDTO;
 import product.bean.ProductbuylistDTO;
+import shop.bean.MemberbuylistDTO;
 import shop.dao.ShopDAO;
 
 @Service
@@ -51,6 +52,23 @@ public class ShopServiceImpl implements ShopService {
 	@Override
 	public Map<String, Object> shopCartPay(Map<String, Object> map) {
 		return shopDAO.shopCartPay(map);
+	}
+
+	@Override
+	public void memberBuyList2(Map<String, String> map) {
+		shopDAO.memberBuyList2(map);
+		
+	}
+
+	@Override
+	public void memberBuyList(Map<String, String> map) {
+		shopDAO.memberBuyList(map);
+		
+	}
+
+	@Override
+	public List<MemberbuylistDTO> getbuylist(String memberemail) {
+		return shopDAO.getbuylist(memberemail);
 	}
 
 }

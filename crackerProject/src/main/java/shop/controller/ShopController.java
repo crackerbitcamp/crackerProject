@@ -24,6 +24,7 @@ import org.springframework.web.servlet.ModelAndView;
 import crackeremail.bean.CrackeremailDTO;
 import member.bean.MemberDTO;
 import product.bean.ProductbuylistDTO;
+import shop.bean.MemberbuylistDTO;
 import shop.service.ShopService;
 
 
@@ -127,10 +128,18 @@ public class ShopController {
 		return mav;
 	}
 	
-	//장바구니 담기 눌럿을 경우
+	//결제되었을때
 	@PostMapping("/shop/memberBuyList")
 	@ResponseBody
 	public void memberBuyList(@RequestParam Map<String,String>map) {
+		shopService.memberBuyList(map);
+		System.out.println(map);
+	}
+	
+	@PostMapping("/shop/memberBuyList2")
+	@ResponseBody
+	public void memberBuyList2(@RequestParam Map<String,String>map) {
+		shopService.memberBuyList2(map);
 		System.out.println(map);
 	}
 	//장바구니
@@ -199,6 +208,20 @@ public class ShopController {
 		mav.setViewName("/shop/shopMypage");
 		return mav;
 	}
+	
+	@GetMapping("/shop/buylist")
+	public ModelAndView buylist() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("MyPageInclude", "/WEB-INF/shop/buylist.jsp");
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
+	@PostMapping("/shop/getbuylist")
+	@ResponseBody
+	public List<MemberbuylistDTO> getbuylist(@RequestParam String memberemail) {
+		return shopService.getbuylist(memberemail);
+	}
+	
 }	
 
 	

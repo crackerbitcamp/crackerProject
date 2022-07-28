@@ -29,7 +29,7 @@ a{
 	<div class="main_menu">
 		<div style="height: 122px; display: flex; box-sizing: border-box; text-align: center; align-items: center; padding: 1px; width: 96.2%;">
 			<div style="width: 220px; height: 100%; background: #286db4;  border-right: 1px solid #d3d3d3">
-				<div style="font-family: '맑은 고딕','malgun gothic';font-size: 32px; color: white; width: 220px; padding-top: 30px;"><a href = "/index/shop/shopMypage" style="color: white;">My배송</a></div>
+				<div style="font-family: '맑은 고딕','malgun gothic';font-size: 32px; color: white; width: 220px; padding-top: 30px;"><a href = "/index/shop/shopMypage" style="color: white;">MyPage</a></div>
 			</div>
 				<div style="height: 100%; width : 30%; background: #82bce2; border-right: 1px solid #d3d3d3;">
 					<div style="width: 100%; height: 50%;">
@@ -62,7 +62,6 @@ a{
 				<li style="font-weight: bold; margin-bottom: 10px;">My 쇼핑</li>
 				<li><a href = "/index/shop/cartView">장바구니</a></li>
 				<li><a href="/index/shop/shoporder">주문목록/배송조회</a></li>
-				<li>구매완료</li>
 				<li>취소/반품/교환/환불내역</li>
 			</ul>
 			<ul style="list-style: none; margin: 0; padding: 0; border: 1px solid #80878d;">

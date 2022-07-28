@@ -349,6 +349,7 @@ border-bottom: 2px solid;
 						<input type="hidden" id="mainPhoto" value="${ item.productJoinDTO.mainPhoto}">
 						<input type="hidden" id="productbuydate" value="${ item.day}">
 						<input type="hidden" id="productqty1" value="${item.shopqty}">
+						<input type="hidden" id="productseq" value="${item.ProductJoinDTO.seq}">
 						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
 					</div>
 				</div>
@@ -427,7 +428,7 @@ function requestPay() {
         		url : '/index/shop/memberBuyList',
         		type: "POST",
         		data: {
-        	        'productordernumber' : $('.random1').val(),
+        	        'productseq' : $('#productseq').val(),
         			'productsubject' : $('#productSubject').val(),
         	        'productprice': parseInt($('#totalprice').text()),
         	        'productqty' : $('#productqty1').val(),
@@ -439,7 +440,9 @@ function requestPay() {
         	        'memberaddress': $('#memberaddress').text(),
                  },
                 success: function(data){
-                 	alert("확인")
+                	alert("구입 완료").then(function() {
+                		location.href = '/index/shop/buylist'
+					});
                  }, 
                  error:function(e){
                  	console.log(e)

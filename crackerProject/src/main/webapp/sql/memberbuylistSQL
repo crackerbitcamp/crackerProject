@@ -1,7 +1,6 @@
 -- 구매목록 SQL
 create table memberbuylist(
-productordernumber number not null,
-productname varchar2(40) not null,
+productseq number not null,
 productsubject varchar2(150) not null,
 productprice number not null,
 productqty number not null,
