@@ -116,6 +116,12 @@ background: none;
 	
 }
 
+#productContentForm {
+	width : 100%;
+	height: 100%;
+	
+}
+
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -128,7 +134,7 @@ background: none;
 		<div class = "image" style="max-width:510px; max-height: 510px;display: inline-block; float: left;">
 		<img id="productMainPhoto" style="max-width: 510px; min-height: 510px; margin-left: 160px;">
 		</div>
-		<div class = "shopcontent" style="width: 510px; height: 510px; display: inline-block; padding-left: 20px;">
+		<div class = "shopcontent" style="width: 510px; display: inline-block; padding-left: 20px;">
 			<div class="shopsubject">
 				<dl>
 					<dt id="productSubject_dt"style="margin: 0 auto; width: 100%; font-size: 28px; line-height: 37px; font-weight: bold; border-bottom: 1px solid #99848452;"></dt>
@@ -174,6 +180,10 @@ background: none;
 				</dl>
 					<input type = "hidden" name = "totalprice" id="totalprice" />
 					<input type = "hidden" name = "day" id="day">
+				<dl>
+					<dt style="float: right; font-size: 16px;"> 상품 내용 </dt>
+					<dd><b id="productContent_div" style="font-size : 13px; font-family : Tahoma;"></b></dd>
+				</dl>
 		</div>
 		
 		</div>

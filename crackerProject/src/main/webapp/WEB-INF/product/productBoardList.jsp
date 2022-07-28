@@ -7,12 +7,12 @@
 <title>Insert title here</title>
 <style type="text/css">
 #productListForm {
-	border: 1px solid red;
+	/* border: 1px solid red; */
 	text-align:center;
 }
 
 .productListLi {
-	border: 1px solid blue;
+	/* border: 1px solid blue; */
     width: 25%;
     height: 400px;
     margin: 20px 22px;
