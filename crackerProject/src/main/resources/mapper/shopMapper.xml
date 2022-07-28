@@ -42,4 +42,8 @@
 		delete productbuylist where memberemail = #{memberEmail} and productseq = #{productseq}
 	</delete>
 	
+	<select id="cartBuyList" parameterType="java.util.Map" resultType="productbuylist">
+		select * from productbuylist where productseq = #{productseq} and memberemail = #{memberemail}
+	</select>
+	
 </mapper>

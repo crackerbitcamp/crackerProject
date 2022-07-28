@@ -14,14 +14,15 @@
 </head>
 <body>
 	<div class="container">
-	<h2>회원가입 현황</h2>
+	<h2 style="margin-top:10px;">회원가입 현황</h2>
    	 <button id="sendAjax" onclick="window.location.reload()">새로고침</button>
 	<br>
    	 <canvas id="myChart" width="460px" height="300px"></canvas>
     </div>
-    <button id="memberGraphBtn" >CRACKER 회원</button>
-    <button id="memberDayGraphBtn" >가입자 현황</button>
-    
+    <div style="margin-top: 10px;">
+    	<button id="memberGraphBtn" >CRACKER 회원</button>
+    	<button id="memberDayGraphBtn" >가입자 현황</button>
+    </div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
   	  integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
   	  crossorigin="anonymous"></script>

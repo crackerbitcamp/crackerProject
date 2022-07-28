@@ -11,6 +11,8 @@ import java.util.Map;
 
 import javax.servlet.http.HttpSession;
 
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -144,7 +146,7 @@ public class ShopController {
 	@ResponseBody
 	public List<ProductbuylistDTO> getcartView(@RequestParam String memberEmail) {
 		List<ProductbuylistDTO> list = shopService.getcartView(memberEmail);
-		System.out.println(list);
+		System.out.println( "확인 : "+list);
 		return list;
 	}
 	@PostMapping("/shop/cartViewDelete")
@@ -168,6 +170,31 @@ public class ShopController {
 	public ModelAndView customerWriteForm() {
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("MyPageInclude", "/WEB-INF/customer/customerWriteForm.jsp");
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
+	@PostMapping("/shop/shopCartPay")
+	@ResponseBody
+	public Map<String,Object> shopCartPay(@RequestParam Map<String,Object>map,HttpSession session) {
+		System.out.println("들어오는 확인 : " + map);
+		String jsonDate = map.get("list").toString();
+		/*
+		 * JSONParser parser = new JSONParser(); Object obj = null; try { obj =
+		 * parser.parse(jsonDate); } catch (ParseException e) { e.printStackTrace(); }
+		 */
+		map.put("memberemail", session.getAttribute("memEmail"));
+		map.put("list", jsonDate);
+		Map<String,Object>map1 = shopService.shopCartPay(map);
+		session.setAttribute("item", map1);
+		return map1;
+	}
+	
+	@GetMapping("/shop/shopCartBuyPay")
+	public ModelAndView shopCartBuyPay(HttpSession session) {
+		ModelAndView mav = new ModelAndView();
+		System.out.println("item =" + session.getAttribute("item"));
+		mav.addObject("item",session.getAttribute("item"));
+		mav.addObject("MyPageInclude", "/WEB-INF/shop/shopCartBuyPay.jsp");
 		mav.setViewName("/shop/shopMypage");
 		return mav;
 	}

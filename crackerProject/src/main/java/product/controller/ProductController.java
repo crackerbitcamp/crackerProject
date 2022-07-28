@@ -91,6 +91,19 @@ public class ProductController {
 		
 	}
 	
+	@GetMapping(value="productMangeBoardList")
+	public ModelAndView productMangeBoardList(@RequestParam(required = false, defaultValue = "1") String pg) {
+		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("pg",pg);
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/product/productMangeBoardList.jsp");
+		
+		mav.setViewName("/admin/adminMain");
+		return mav;
+		
+	}
+	
 	@ResponseBody
 	@PostMapping(value="getProductMangeList")
 	public Map<String,Object> getProductMangeList(@RequestParam(required = false,defaultValue="1" )String pg){
@@ -161,7 +174,7 @@ public class ProductController {
 		//System.out.println(map);
 		mav.addObject("category",map.get("category"));
 		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
-		mav.addObject("z", "/WEB-INF/product/productBoardList.jsp");
+		mav.addObject("display", "/WEB-INF/product/productBoardList.jsp");
 		mav.setViewName("/shop/shopmain");
 		return mav;
 	}
