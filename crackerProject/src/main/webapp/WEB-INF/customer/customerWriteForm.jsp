@@ -9,7 +9,7 @@
 <style type="text/css">
 
 
-#customerTable{
+#customerTable{ 
 	margin: 50px auto;
     display: flex;
     width: 900px;
