@@ -118,6 +118,11 @@ public class ShopController {
 		return mav;
 	}
 	
+	@PostMapping("/shop/memberBuyList")
+	@ResponseBody
+	public void memberBuyList(@RequestParam Map<String,String>map) {
+		System.out.println(map);
+	}
 	//장바구니
 	@PostMapping("/shop/shopcartForm")
 	@ResponseBody

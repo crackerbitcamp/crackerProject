@@ -2,6 +2,7 @@ package shop.service;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -34,5 +35,4 @@ public class ShopServiceImpl implements ShopService {
 	public Map<String, Object> shopcartForm(Map<String, String> map) {
 		return shopDAO.shopcartForm(map);
 	}
-
 }
