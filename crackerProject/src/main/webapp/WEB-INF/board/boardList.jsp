@@ -131,7 +131,6 @@
    	margin: auto;
    	margin-top: 20px;
    	font-size: 1.3rem;
-  	border-bottom:1px solid #ebeef1;
   	font-family: 'Noto Sans KR', sans-serif;
 
 }

@@ -30,7 +30,7 @@
 	top: 150px;
 	left:320px;
 	width : 750px;
-	height: 700px;
+	height: 430px;
 	border: 1px solid red;
 	background-color: white;
 }
@@ -48,7 +48,7 @@
 .modalcenter{
 	width: 500px;
 	height: 671px;
-	margin: 0 auto;
+	margin: 30px auto;
 }
 
 .modalcheck{

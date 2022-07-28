@@ -22,35 +22,35 @@
 	<input type = "hidden" id = "checkemail" value="fail">
 		<div class="write-input-wrap">	
 			<div class = "write-input-name-wrap">아이디</div>  
-			<input type = "text" placeholder="ex)cracker123@naver.com" id = "memberWriteEmail" name = "memberemail">
+			<input type = "text" placeholder=" ex)cracker123@naver.com" id = "memberWriteEmail" name = "memberemail">
 			<div class="input-group-addon">
 				<button type="button" class="email-btn" id="mail-Check-Btn">본인인증</button>
 			</div>
-			<input type =text class="write-input-name-wrap" id="mail-Check-Num" placeholder="인증번호 6자리를 입력해주세요!" disabled maxlength="6">
+			<input type =text class="write-input-name-wrap" id="mail-Check-Num" placeholder=" 인증번호 6자리를 입력해주세요!" disabled maxlength="6">
 			<div id = "memberWriteEmailDiv" class="memberWrite"></div>
 			
 			<div class = "write-input-name-wrap">비밀번호</div>  
-			<input type = "password" placeholder="비밀번호를 입력해 주세요" id = "memberWritePwd" name = "memberpwd">
+			<input type = "password" placeholder=" 비밀번호를 입력해 주세요" id = "memberWritePwd" name = "memberpwd">
 			<div id="memberWritePwdDiv" class="memberWrite"></div>
 			
 					<div class = "write-input-name-wrap">비밀번호 재확인</div>  
-			<input type = "password" placeholder="비밀번호를 다시한번 입력해 주세요" id = "memberWriterePwd">
+			<input type = "password" placeholder=" 비밀번호를 다시한번 입력해 주세요" id = "memberWriterePwd">
 			<div class = "write-input-name-wrap">이름</div>  
-			<input type = "text" placeholder="이름을 입력해주세요 " id = "memberWriteName" name = "membername">
+			<input type = "text" placeholder=" 이름을 입력해주세요 " id = "memberWriteName" name = "membername">
 			<div id ="memberWriteNameDiv" class="memberWrite"></div>
 			
 			<div class = "write-input-name-wrap">닉네임</div>
-			<input type = "text" placeholder="닉네임 입력" id = "memberWriteNickname" name = "membernickname">
+			<input type = "text" placeholder=" 닉네임 입력" id = "memberWriteNickname" name = "membernickname">
 			<div id ="memberWriteNicknameDiv" class="memberWrite"></div>
 			<div class = "write-input-name-wrap">전화번호</div>  
 			<select id = "phoneselect" name = "membertel1">
-			<option>-----------선택-----------</option>
+			<option>선택</option>
 			<option>010</option>
 			<option>019</option>
 			<option>017</option>
 			</select>
-			&nbsp;-&nbsp;<input type = "tel" placeholder="번호 입력 " id = "memberWritephone1" name = "membertel2" maxlength="4">
-			&nbsp;-&nbsp;<input type = "tel" placeholder="번호 입력 " id = "memberWritephone2" name = "membertel3" maxlength="4">
+			&nbsp;-&nbsp;<input type = "tel" placeholder=" 번호 입력 " id = "memberWritephone1" name = "membertel2" maxlength="4">
+			&nbsp;-&nbsp;<input type = "tel" placeholder=" 번호 입력 " id = "memberWritephone2" name = "membertel3" maxlength="4">
 			<div id="memberWritephoneDiv" class="memberWrite"></div>
 		</div>
 	</form>

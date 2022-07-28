@@ -12,7 +12,7 @@
 	margin-left: 11px;
 	margin-bottom: 15px;
 	color: #000000;
-	font-family: 'Nanum Gothic', sans-serif;
+	font-family: 'Noto Sans KR', sans-serif;
 	font-size: 18px;
 	font-weight: bold;
 	text-align: right; /* 오른쪽으로 정렬 */
@@ -26,11 +26,9 @@
 
 <div class="mainnav" style="board: red 1px solid">
 	<ul>
-
-		<li><a href="/index/board/boardList">전체</a></li>
-		<li><a href="#">인기</a></li>
-		<li><a href="#">자유게시판</a></li> <!-- 해당 카테고리 이동 경로 직접연결 -->
-		<li><a href="/index/board/recipeBoardList">레시피 게시판</a></li>
+		<li><a href="#">SHOP</a></li>
+		<li><a href="/index/board/boardList">FREE</a></li>
+		<li><a href="/index/board/recipeBoardList">RECIPE</a></li>
 		
 	</ul>
 </div>	
