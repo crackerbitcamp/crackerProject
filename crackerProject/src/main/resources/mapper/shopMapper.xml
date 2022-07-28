@@ -42,8 +42,32 @@
 		delete productbuylist where memberemail = #{memberEmail} and productseq = #{productseq}
 	</delete>
 	
+	<delete id="cartViewDelete2" parameterType="java.util.Map">
+		delete productbuylist where memberemail = #{memberemail} and productseq = #{productseq}
+	</delete>
+	
 	<select id="cartBuyList" parameterType="java.util.Map" resultType="productbuylist">
 		select * from productbuylist where productseq = #{productseq} and memberemail = #{memberemail}
 	</select>
 	
+	<!-- 구입완료DB -->
+	<insert id="memberBuyList2" parameterType="java.util.Map" >
+		insert into memberBuyList values(
+				#{productseq},
+				#{productsubject},
+				#{productprice},
+				#{productqty},
+				#{productphoto},
+				#{productbuydate},
+				#{memberemail},
+				#{membername},
+				#{membertel},
+				#{memberaddress}
+		)
+	</insert>
+	
+	<!-- 구입목록 -->
+	<select id="getbuylist" parameterType="String" resultType="memberbuylist">
+		select * from memberbuylist where memberemail = #{memberemail}
+	</select>
 </mapper>

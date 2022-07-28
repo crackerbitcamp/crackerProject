@@ -9,7 +9,7 @@
 <script src="https://kit.fontawesome.com/d84eab0825.js" crossorigin="anonymous"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
-<script type="text/javascript" src="/index/js/shop/cartView.js"></script>
+<script type="text/javascript" src="/index/js/shop/buylist.js"></script>
 <style type="text/css" src="/index/css/reset.css"></style>
 <style type="text/css">
 
@@ -108,7 +108,7 @@
     text-align: center;
 }
 .item-product-select{
-	width: 58%;
+	width: 60%;
     display: inline-block;
     float: left;
 }
@@ -126,7 +126,7 @@
 }
 
 .item-product-select h3{
-	display: flex;
+	text-align : center;
     padding-left: 15px; 
 }
 .item-product-select p{
@@ -232,28 +232,23 @@ width: 40px;
 
 </head>
 <body>
-	<input type = "hidden" class ="test1">
-	<input type = "hidden" class = "memberemail">
-	<input type = "hidden" name = "day" id="day">
-	<div class="itemSearch"></div>
-	<input type = "hidden" value="${memEmail}" id = "memberEmail" name = "memberEmail" >
+	<input type = "hidden" value="${memEmail}" id = "memberemail" name = "memberemail" >
 	<div id="cartViewList">
 
 	<section id="cart_itemList" class="cart_itemList">        
         <section class="carttitle">
-            <h1 class="shop_basket">장바구니</h1>
-            <p class="shop_pree">무료배송 (19,800원 이상 구매가능)</p>
+            <h1 class="shop_basket">주문목록</h1>
+            <p class="shop_pree">구매된 상품</p>
 
      		 <span class="steps">
-			 <em>장바구니&gt;</em>주문결제 &gt;주문완료
+				장바구니&gt;주문결제 &gt;<em>주문완료</em>
 			</span>
 		 </section>
 	   	 <div id="cartContent">
 	       		<div class="cartTable" >
 					<div class="head" style="line-height: 48px;">
 					    <div class="item-checkbox" >
-					    	<input type="checkbox"
-					          class="chk-all" name="chk-all" id="chk-all">전체선택</div>
+					    	주문날짜</div>
 					    <div class="item-product" >상품정보</div>
 					    <div class = "item-price">상품갯수</div>
 					    <div class="item-price">상품금액</div>
@@ -263,50 +258,10 @@ width: 40px;
 					
 	        		</div>
 	        	</div>
-	        	<button id ="itemDel">선택 삭제하기</button>
-	    	    <div class="total-price">
-	                <div class="cart-total-price__inner" style="margin-top: 40px;">
-	                    <div class="price-area">
-	                    	총 상품가격
-	                        <span class="final-product-price"></span>원
-	                        &#43;
-	                     	총 배송비
-	                        <span class="final-delivery-charge"></span>원
-	                        &#61;
-	                      	 총 주문금액
-	                        <span class="final-order-price" data-final-order-price="12500"></span>원
-	                    </div>
-	                </div>
-		
-	    			<div id="cart-button">
-	    				<button class="cart-button-shop" id="cart-button-shop" onClick="location.href='/index/shop/shopmain'">쇼핑 하러가기</button>
-	    				<button class="cart-button-shop"  id="cart-button-buy" >구매하기</button>
-	    			</div>            
-	        	</div>
      	  </div>
      </section>
     </div> 
 
-<script type="text/javascript">
-$('#chk-all').click(function(){
-	if($('#chk-all').is(":checked")){
-		$(".chk").prop("checked", true);
-	}
-	else{
-		$(".chk").prop("checked", false);
-	}
-});	
-	$(".chk").click(function(){
-		var total = $(".chk").length;
-		var checked = $(".chk:checked").length;
-		
-		if(total != checked) $("#chk-all").prop("checked", false);
-		else $("#chk-all").prop("checked", true); 
-	
-});
-	
-
-</script>
 
 </body>
 </html>

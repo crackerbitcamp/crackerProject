@@ -16,5 +16,6 @@
 		<typeAlias type="product.bean.ProductDTO" alias="product"/>
 		<typeAlias type="product.bean.ProductJoinDTO" alias="productJoin"/>
 		<typeAlias type="product.bean.ProductbuylistDTO" alias="productbuylist"/>
+		<typeAlias type="shop.bean.MemberbuylistDTO" alias="memberbuylist"/>
 	</typeAliases>
 </configuration>
