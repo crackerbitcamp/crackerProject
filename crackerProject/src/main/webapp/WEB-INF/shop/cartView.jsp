@@ -242,9 +242,6 @@ width: 40px;
      		 <span class="steps">
 			 <em>장바구니&gt;</em>주문결제 &gt;주문완료
 			</span>
-		<div class="tabs">
-			<span id="cartItemCount" class="cartItemCount">일반구매 (2)</span>
-		</div>
 		 </section>
 	   	 <div id="cartContent">
 	       		<div class="cartTable" >

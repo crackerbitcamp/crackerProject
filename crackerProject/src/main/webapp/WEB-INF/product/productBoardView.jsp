@@ -250,8 +250,16 @@ $(function(){
  document.getElementById('day').value =  month+day+'('+getTodayLabel()+')';
  function getTodayLabel() {        
 	 var week = new Array('일', '월', '화', '수', '목', '금', '토');        
-	 var today = new Date().getDay()+3;   
-	  var todayLabel = week[today];        
+	 var today = new Date().getDay();
+	 var today1 = today+3;
+	 if(today1 == 7){
+		 today1 = 0;
+	 }else if(today1 == 8){
+		 today1 = 1;
+	 }else if(today1 == 9){
+		 today1 = 2;
+	 }
+	  var todayLabel = week[today1];        
 	 return todayLabel;
 	 }
  </script>
