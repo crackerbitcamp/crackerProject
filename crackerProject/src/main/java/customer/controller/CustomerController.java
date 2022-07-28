@@ -35,6 +35,15 @@ public class CustomerController {
 		mav.setViewName("/index");
 		return mav;
 	}
+	@GetMapping(value="customerList")
+	public ModelAndView customerList() {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/customer/customerList.jsp");
+		mav.setViewName("/admin/adminMain");
+		return mav;
+	}
 	//문의하기 작성
 		@PostMapping(value="customerWrite")
 		@ResponseBody

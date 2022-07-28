@@ -17,11 +17,7 @@ $(function(){
 				//alert(JSON.stringify(data));
 				$.each(data.list, function(index, items){
 					
-					$('<li/>').addClass('productListLi')
-					.append($('<a/>',{
-						'href' : '#',
-						class:'productListA'+items.seq
-					})
+					$('<li/>').addClass('productListLi'+items.seq)
 					
 					.append($('<div/>',{
 						'text' : '상품명:'+items.productName,
@@ -38,11 +34,11 @@ $(function(){
 					})).append($('<div/>',{
 						'text' : '남은수량:'+items.productQty+'개',
 						
-					})))
+					}))
 					.appendTo($('.productListCategory_ul'+categoryIndex));
 					
-					$('.productListA'+items.seq).click(function(){
-						location.href = '/index/product/productBoardView?seq='
+					$('.productListLi'+items.seq).click(function(){
+						location.href = '/index/product/productMangeBoardView?seq='
 							+items.seq
 						
 					});//.productListA'+items.productSeq
