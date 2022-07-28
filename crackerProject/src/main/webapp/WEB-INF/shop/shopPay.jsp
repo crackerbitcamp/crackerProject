@@ -344,7 +344,7 @@ border-bottom: 2px solid;
 					<dt id="dropshipday" class="dropshipday"><span>${item.day }</span> 도착 예정</dt>
 					<div class="dropiteminfo">
 						<dt class="productName" id="productName">${item.productJoinDTO.productName }</dt>
-						<input type="hidden" class="random1" id="merchant_uid">
+						<input type="hidden" class="random1" id="merchant_uid" value="">
 						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
 					</div>
 				</div>
@@ -419,26 +419,28 @@ function requestPay() {
         buyer_postcode: "01181"
     }, function (rsp) { // callback
         if (rsp.success) { // 결제 성공 시: 결제 승인 또는 가상계좌 발급에 성공한 경우
-            // jQuery로 HTTP 요청
-            jQuery.ajax({
-                url: "{서버의 결제 정보를 받는 endpoint}", // 예: https://www.myservice.com/payments/complete
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                data: {
-                    imp_uid: rsp.imp_uid,
-                    merchant_uid: rsp.merchant_uid
-                }
-            }).done(function (data) {
-              // 가맹점 서버 결제 API 성공시 로직]
-              alert("구매완료되었습니다.");
-              location.href="/index/shop/shopmain"
-            }) 
-          } else {
-            alert("결제에 실패하였습니다.");
-        
+        	$.ajax({
+        		url : '/index/shop/memberBuyList',
+        		type: "POST",
+        		data: {
+        			name: $('#productName').text(),
+        	        amount: parseInt($('#totalprice').text()),
+        	        buyer_email: $('#memberemail').text(),
+        	        buyer_name: $('#membername').text(),
+        	        buyer_tel:  $('#membertel').text(),
+        	        buyer_addr: $('#memberaddress').text(),
+        	        buyer_postcode: $('#memberzipcode').text()
+                 },
+                success: function(data){
+                 	alert("확인")
+                 },
+                 error:function(e){
+                 	console.log(e)
+                 }
+        	});
           }
         });
-  }
+}
   
   
 </script>
