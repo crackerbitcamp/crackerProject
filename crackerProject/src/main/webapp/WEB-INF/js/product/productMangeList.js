@@ -12,7 +12,7 @@ $(function(){
 			$.each(data.list, function(index, items){
 				$('<li/>').addClass('getProductMangeListLi'+items.productCode)
 				.append($('<div/>',{
-							'text' : items.productCode
+							'text' : '상품코드 : '+items.productCode
 					}))
 				.append($('<div/>')
 						.append($('<img/>',{
@@ -20,11 +20,11 @@ $(function(){
 							'src' : '/index/storage/'+items.mainPhoto
 						})
 					)).append($('<div/>',{
-							'text' : items.productCategory
+							'text' : '카테고리 : '+items.productCategory
 							
 					}))
 					.append($('<div/>',{
-							'text' : items.productName
+							'text' : '상품명 : '+items.productName
 					}))
 					
 					.appendTo($('#productMangeListUl'))
