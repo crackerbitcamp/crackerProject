@@ -27,7 +27,7 @@
 				<th class="thHead">날짜</th>
 			</tr>	
 			<!-- 동적처리 -->
-		</table>
+		</table> 
 		
 		<div id="adminCustomerPagingDiv"></div>
 </div>

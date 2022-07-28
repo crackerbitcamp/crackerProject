@@ -28,8 +28,8 @@ public class ProductServiceImpl implements ProductService {
 
 	@Override
 	public Map<String,Object> getProductMangeList(String pg) {
-		int endNum = Integer.parseInt(pg)*5;
-		int startNum = endNum-4;
+		int endNum = Integer.parseInt(pg)*20;
+		int startNum = endNum-19;
 		
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();

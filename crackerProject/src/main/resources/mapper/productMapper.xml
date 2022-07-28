@@ -53,5 +53,20 @@
 		and productContent like '%'||#{keyword}||'%'
 	</select>
 	
-	
+	<delete id="productDelete" parameterType="java.util.Map">
+		delete product where productcode=#{productCode}
+	</delete>
+	<delete id="productBoardDelete" parameterType="java.util.Map">
+		delete productboard where seq=#{seq}
+	</delete>
+	<update id="productUpdate" parameterType="java.util.Map">
+		update product set
+			productCode = #{productCode},
+			productName = #{productName},
+			productCategory = #{productCategory},
+			productOrigin = #{productOrigin},
+			productWeight = #{productWeight},
+			productLife = #{productLife}
+			where productCode=#{productCodeHide}
+	</update>
 </mapper>

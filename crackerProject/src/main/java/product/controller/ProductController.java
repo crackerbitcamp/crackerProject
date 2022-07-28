@@ -31,6 +31,7 @@ import com.google.gson.JsonObject;
 
 import product.bean.ProductDTO;
 import product.bean.ProductJoinDTO;
+import product.dao.ProductDAO;
 import product.service.ProductService;
 
 @Controller
@@ -39,6 +40,8 @@ public class ProductController {
 	
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private ProductDAO productDAO;
 	
 	@GetMapping(value="productWriteForm")
 	public ModelAndView productMangeWriteForm() {
@@ -55,7 +58,7 @@ public class ProductController {
 								HttpSession session) {
 		//실제폴더
 		String filePath = session.getServletContext().getRealPath("/WEB-INF/storage");
-		System.out.println(filePath);
+		
 		
 		String fileName1 = mainPhoto.getOriginalFilename();
 		String fileName2 = UUID.randomUUID().toString();
@@ -178,5 +181,54 @@ public class ProductController {
 		mav.setViewName("/shop/shopmain");
 		return mav;
 	}
-
+	
+	@GetMapping(value="productMangeView")
+	public ModelAndView productMangeView(@RequestParam Map<String,String> map) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("productCode",map.get("productCode"));
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/product/productMangeView.jsp");
+		mav.setViewName("/admin/adminMain");
+		return mav;
+	}
+	@GetMapping(value="productUpdateForm")
+	public ModelAndView productUpdateForm(@RequestParam Map<String,String> map) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("productCode",map.get("productCode"));
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/product/productUpdateForm.jsp");
+		mav.setViewName("/admin/adminMain");
+		return mav;
+	}
+	@ResponseBody
+	@PostMapping(value="productDelete")
+	public void productDelete(@RequestParam Map<String,String> map) {
+		productDAO.productDelete(map);
+	}
+	@ResponseBody
+	@PostMapping(value="productUpdate")
+	public void productUpdate(@RequestParam Map<String,String> map) {
+		
+		productDAO.productUpdate(map);
+	}
+	
+	@GetMapping(value="productMangeBoardView")
+	public ModelAndView productMangeBoardView(@RequestParam Map<String,String> map) {
+		ModelAndView mav = new ModelAndView();
+		
+		mav.addObject("seq",map.get("seq"));
+		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
+		mav.addObject("display", "/WEB-INF/product/productMangeBoardView.jsp");
+		mav.setViewName("/admin/adminMain");
+		return mav;
+	}
+	@ResponseBody
+	@PostMapping(value="productBoardDelete")
+	public void productBoardDelete(@RequestParam Map<String,String> map) {
+		
+		productDAO.productBoardDelete(map);
+	}
+	
 }

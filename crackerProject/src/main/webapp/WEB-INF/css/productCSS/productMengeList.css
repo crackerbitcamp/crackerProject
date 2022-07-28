@@ -5,7 +5,7 @@
 	width:300px;
 	height: 300px;
 }
-.getProductMangeListLi{
+#productMangeListUl li{
 	background-color: #ffffff;
 	float: left;
 	width: 320px;

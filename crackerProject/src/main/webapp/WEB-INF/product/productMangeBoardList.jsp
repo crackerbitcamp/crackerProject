@@ -5,6 +5,8 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link href="/index/css/productCSS/productBoardMangeList.css" rel="stylesheet"
+	type="text/css" />
 </head>
 <body>
 	<div id="productListForm" class="productForm">
