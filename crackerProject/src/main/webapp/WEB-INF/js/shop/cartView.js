@@ -5,10 +5,11 @@ $(function(){
 		data : {'memberEmail' : memberEmail},
 		url : '/index/shop/getcartView',
 		success:function(data){
-			//alert(JSON.stringify(data));
+			//alert(JSON.Stringify(data));
 			var productdelivery = 0; //배송비
 			$.each(data,function(index,items){
 				
+
 				$('<input/>', {
 					type : 'hidden',
 					id : 'contentA'
@@ -21,6 +22,10 @@ $(function(){
 					value : items.producttotalprice
 				}).appendTo($('.itemSearch'));
 				
+				$('.memberemail').val(items.memberemail);
+				
+				
+				$('.day').val(items.day);
 				$('<div>',{
 					class : 'itemtext'
 				})
@@ -32,7 +37,7 @@ $(function(){
 					name : 'chk',
 					checked : 'checked',
 					value : items.productseq,
-					item : items.producttotalprice
+					item : items.producttotalprice,
 				})))).append($('<div/>',{
 					class : 'item-product-img'
 				}).append($('<img>',{
@@ -110,11 +115,38 @@ $(function(){
 //					$('.chk').attr('checked',false);
 //				}
 //			});
+			
+			var list = []
+			var list1 = []
+			$('#cart-button-buy').on('click',function(){
+				$('.chk:checked').each(function(){
+					list.push($(this).val());
+				});
+				$.ajax({
+					traditional: true,
+					data : { 'list' : JSON.stringify(list),
+						'productbuydate' : $('#day').val(),
+						'finaldeliverycharge' : $('.final-delivery-charge').text(),
+						'finalorderprice' : $('.final-order-price').text()
+					},
+					type : 'text',
+					url : '/index/shop/shopCartPay',
+					type : 'post',
+					success:function(data){
+						location.href = '/index/shop/shopCartBuyPay'
+					},error:function(e){
+						
+					}
+				});
+			});
+			
+			
 		},error:function(e){
 			console.log(e);
 		}
 	});
 });
+
 $(function(){
 	var test = '';
 
@@ -139,4 +171,37 @@ $(function(){
 			location.reload();
 		});
 	});
+});
+
+
+
+
+$(function(){
+	 var date = new Date()
+	 var month = (date.getMonth()+1)+"월" //월
+	 var day = (date.getDate()+3)+"일"   //일
+	 getTodayLabel() 
+
+	 document.getElementById('day').value =  month+day+'('+getTodayLabel()+')';
+	 function getTodayLabel() {        
+	    var week = new Array('일', '월', '화', '수', '목', '금', '토');        
+	    var today = new Date().getDay();
+	    var today1 = today+3;
+	    if(today1 == 7){
+	       today1 = 0;
+	    }else if(today1 == 8){
+	       today1 = 1;
+	    }else if(today1 == 9){
+	       today1 = 2;
+	    }
+	     var todayLabel = week[today1];        
+	    return todayLabel;
+	    }
+});
+
+$(function(){
+	var list = new Array();
+
+
+	
 });

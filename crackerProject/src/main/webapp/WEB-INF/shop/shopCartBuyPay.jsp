@@ -312,48 +312,51 @@ border-bottom: 2px solid;
 			<h2>구매자정보</h2>
 			<dl>
 				<dt>이름 </dt>
-				<dd id="membername">${item.memberDTO.membername }</dd>
+				<dd id="membername">${item.membername }</dd>
 			</dl>	
 			<dl>
 				<dt>이메일 </dt>
-				<dd id="memberemail">${item.memberDTO.memberemail }</span></dd>
+				<dd id="memberemail">${item.memberemail }</span></dd>
 			</dl>
 			<dl>
 				<dt>휴대폰 번호 </dt>
-				<dd id="membertel">${item.memberDTO.membertel1 }-${item.memberDTO.membertel2 }-${item.memberDTO.membertel3 }</dd>
+				<dd id="membertel">${item.membertel}</dd>
 			</dl>
 		</section>
 		<section id="RecipientInfo" class="Checkoutinfo">
 			<h2>받는사람정보</h2>
 			<dl>
 				<dt>이름 </dt>
-				<dd id="membername">${item.memberDTO.membername }</dd>
+				<dd id="membername">${item.membername }</dd>
 			</dl>	
 			<dl>
 				<dt>배송주소 </dt>
-				<dd id="memberaddress">${item.memberDTO.memberaddress1}${item.memberDTO.memberaddress2}</dd>
+				<dd id="memberaddress">${item.memberaddress}</dd>
 			</dl>
 			<dl>
 				<dt>연락처 </dt>
-				<dd id="membertel">${item.memberDTO.membertel1 }${item.memberDTO.membertel2 }${item.memberDTO.membertel3 }</dd>
+				<dd id="membertel">${item.membertel}</dd>
 			</dl>
 		</section>
+
 		<section id="delivery" class="UserInfo">
 			<h2 style="border-bottom: 0px;">배송</h2>
+				<c:forEach items="${item.list} " begin="0" varStatus="status">
 				<div class="dropship">
-					<dt id="dropshipday" class="dropshipday"><span>${item.day }</span> 도착 예정</dt>
+					<dt id="dropshipday" class="dropshipday"><span>${item.productbuydate}</span> 도착 예정</dt>
 					<div class="dropiteminfo">
-						<dt class="productName" id="productName">${item.productJoinDTO.productName }</dt>
+						<dt class="productName" id="productName">${item.productbuylistDTO[(status.index)].productsubject}</dt>
 						<input type="hidden" class="random1" id="merchant_uid" value="">
-						<dt class="productqty" id="productqty">${item.shopqty }개 / 무료배송</dt>
+						<dt class="productqty" id="productqty">${item.productbuylistDTO[(status.index)].productqty}개 </dt>
 					</div>
 				</div>
+				</c:forEach>
 		</section>
 		<section id="priceInfo" class="Checkoutinfo">
 			<h2>결제정보</h2>
 			<dl>
 				<dt>총상품가격 </dt>
-				<dd>${item.totalprice }원</dd>
+				<dd>${item.finalorderprice-item.finaldeliverycharge }원</dd>
 			</dl>	
 			<dl>
 				<dt>즉시할인 </dt>
@@ -361,11 +364,11 @@ border-bottom: 2px solid;
 			</dl>
 			<dl>
 				<dt>배송비 </dt>
-				<dd>0원</dd>
+				<dd>${item.finaldeliverycharge }원</dd>
 			</dl>
 			<dl>
 				<dt>총 결제금액 </dt>
-				<dd id="totalprice" class="totalprice">${item.totalprice }원</dd>
+				<dd id="totalprice" class="totalprice">${item.finalorderprice }원</dd>
 			</dl>
 			<dl>
 				<dt>총결제방법 </dt>

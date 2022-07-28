@@ -21,4 +21,6 @@ public interface ShopDAO {
 
 	public void cartViewDelete(Map<String, String> map);
 
+	public Map<String, Object> shopCartPay(Map<String, Object> map);
+
 }
