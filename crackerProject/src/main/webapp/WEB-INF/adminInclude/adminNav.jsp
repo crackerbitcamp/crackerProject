@@ -46,11 +46,11 @@
 						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productWriteForm">상품 등록</a></li>
 						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productBoardWriteForm">상품게시글 등록</a></li>
 						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productMangeList">상품 목록</a></li>
-						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productMangeBoardList">상품 게시글 목록</a></li>
+						<li class="productMenu"><img src="../image/gear.svg"><a href="/index/product/productMangeBoardList">상품 게시글</a></li>
 						
 					</ul>
 				</li>
-				<li><img src="../image/gear.svg"><a href="#" id="adminList">사용자 관리</a></li>
+				<li><img src="../image/gear.svg"><a href="/index/customer/customerList" id="adminList">문의내용</a></li>
 			
 			</ul>
 			</c:if>
