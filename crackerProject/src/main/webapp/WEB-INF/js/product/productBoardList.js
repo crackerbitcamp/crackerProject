@@ -9,24 +9,20 @@ $(function(){
 				
 				$('<div/>').addClass('productListLi')
 				.append($('<a/>',{
-					'href' : '#',
+					href : '#',
 					class:'productListA'+items.seq
 				})
-				
-				.append($('<div/>',{
-					'text' : '상품명:'+items.productName,
-					
+				.append($('<div/>').append($('<img/>',{
+					src : '/index/storage/'+items.mainPhoto,
+					width : '100%',
+					height : '300px'
 						
-				})).append($('<div/>').append($('<img/>',{
-					'src' : '/index/storage/'+items.mainPhoto
 				}))).append($('<div/>',{
-					'text' : items.productSubject,
-					
+					id : 'productName',
+					text : '['+items.productName+'] '+items.productSubject
 				})).append($('<div/>',{
-					'text' : '가격:'+items.productPrice+'원',
-					
-				})).append($('<div/>',{
-					'text' : '남은수량:'+items.productQty+'개',
+					id : 'productPrice',
+					text : +items.productPrice+'원 / ' + '남은 수량 : '+items.productQty+'개'
 					
 				})))
 				.appendTo($('#productListForm'));

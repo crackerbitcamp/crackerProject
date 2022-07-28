@@ -8,9 +8,11 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel ="stylesheet" href="/index/css/indexCSS/indexmodal.css">
-<link href="/index/css/shopCSS/shopMain.css" rel="stylesheet"
-	type="text/css" />
+<link href="/index/css/shopCSS/shopMain.css" rel="stylesheet" type="text/css" />
 <link href="/index/css/reset.css" rel="stylesheet" type="text/css" />
+<link rel="preconnect" href="https://fonts.googleapis.com"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> 
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
 <style>
 
 *{
@@ -406,23 +408,25 @@ a{
 							<span class="icon">
 								<img src="//www.thebanchan.co.kr/fo/images/ico/ico_category.png" class="off">
 								<img src="//www.thebanchan.co.kr/fo/images/ico/ico_category_on.png" class="on">
-							</span>
-						카테고리</a>
+							</span>카테고리
+						</a>
 					</li>
+					
 					<li class=""><a href="javascript:void(0);" onclick="overpass.link('SALE')">할인특가</a></li>
 					<li class=""><a href="javascript:void(0);" onclick="overpass.link('NEW')">신상품</a></li>
 					<li class="gbnLine"><a href="javascript:void(0);" onclick="overpass.link('BEST')">베스트</a></li>
 					<li class="gbnLine"><a href="javascript:void(0);" onclick="overpass.link('THISGOURMET')"><i class="ico-up"></i>이달의맛집</a></li>
 					<li><a href="javascript:void(0);" onclick="overpass.link('7DAY')">7데이</a></li>
-					<li><a href="javascript:void(0);" onclick="overpass.link('REGULARMENU')">정기식단</a></li>
-					
+					<li><a href="javascript:void(0);" onclick="overpass.link('REGULARMENU')">정기식단</a></li>					
 				</ul>
+				
 				<ul class="gnb-right">
                		<li><a href="javascript:overpass.dispctg.goCtgList({disp_type : 'BRAND'});">프렌즈스토어</a></li>
 					<li><a href="/event/initEventAndCoupon.action">이벤트/혜택</a></li>
 				</ul>
 			</div>
 		</div>
+		
 		<div class="gnb-sub-wrap">
 			<div class="inner-box">
 				<ul class= "mnu-type">
@@ -430,7 +434,6 @@ a{
 					<li><a href="/index/product/productBoardList?category=냉동식품">냉동식품</a></li>
 					<li><a href="/index/product/productBoardList?category=생선">생선</a></li>
 					<li><a href="/index/product/productBoardList?category=고기">고기</a></li>
-
 				</ul>
 			</div>
 		</div>
