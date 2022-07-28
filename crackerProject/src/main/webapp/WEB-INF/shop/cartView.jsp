@@ -229,7 +229,7 @@ width: 40px;
 
 </head>
 <body>
-	<input type = "text" class ="test1">
+	<input type = "hidden" class ="test1">
 	<div class="itemSearch"></div>
 	<input type = "hidden" value="${memEmail}" id = "memberEmail" name = "memberEmail" >
 	<div id="cartViewList">
