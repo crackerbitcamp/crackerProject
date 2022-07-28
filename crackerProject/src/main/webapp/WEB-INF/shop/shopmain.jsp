@@ -377,7 +377,7 @@ a{
 							</c:if>
 							<c:if test="${memLogin!=null}">
 							<li>
-								<a>내 정보</a>
+								<a href = "/index/shop/shopMypage">내 정보</a>
 							</li>
 							<li>
 								<a>장바구니</a>

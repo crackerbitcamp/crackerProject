@@ -34,7 +34,7 @@
 		<div style="float: left; width: 220px; background: #e1e4e6;">
 			<ul style="list-style: none; margin: 0; padding: 0; border: 1px solid #80878d;">
 				<li style="font-weight: bold; margin-bottom: 10px;">My 쇼핑</li>
-				<li>장바구니</li>
+				<li><a href = "/index/shop/cartView">장바구니</a></li>
 				<li><a href="/index/shop/shoporder">주문목록/배송조회</a></li>
 				<li>취소/반품/교환/환불내역</li>
 			</ul>
@@ -52,7 +52,7 @@
 			</ul>
 		</div>
 				<div style="float: left; width: 70%; margin: 10px 0 0 10px;">
-				<c:if test="${empty display}">
+				<c:if test="${empty MyPageInclude}">
 				
 				</c:if>
 					<jsp:include page="${MyPageInclude}"></jsp:include>

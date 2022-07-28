@@ -11,5 +11,35 @@
 	<update id="memberaddressUpdate" parameterType ="java.util.Map">
 		update crackermember set memberaddress1 = #{addr1}, memberaddress2 = #{addr2}, memberzipcode = #{zipcode} where memberemail = #{email}
 	</update>
-		
+	<insert id="productbuylistInsert" parameterType="productbuylist">
+		insert into productbuylist values(
+			#{productseq},
+			#{productimg},
+			#{productsubject},
+			#{productcontent},
+			#{productprice},
+			#{productqty},
+			#{producttotalprice},
+			0,
+			#{memberemail}
+		)
+	</insert>
+	<select id="productbuylistSelectOne" resultType="int" parameterType="productbuylist">
+		select count(*) from productbuylist where productseq = #{productseq} and memberemail = #{memberemail}
+	</select>
+	<select id="productbuylistSelect" resultType="productbuylist" parameterType="productbuylist">
+		select * from productbuylist where productseq = #{productseq} and memberemail = #{memberemail}
+	</select>
+	<update id="productbuylistQtyUpdate" parameterType="java.util.Map">
+		update productbuylist set productqty = #{productqty}+#{shopqty}, producttotalprice = #{Producttotalprice}+#{totalprice} where productseq = #{seq} and memberemail = #{memberemail}
+	</update>
+	
+	<select id="getcartView" resultType="productbuylist" parameterType="String">
+		select * from productbuylist where memberemail = #{memberEmail}
+	</select>
+	
+	<delete id="cartViewDelete" parameterType="java.util.Map">
+		delete productbuylist where memberemail = #{memberEmail} and productseq = #{productseq}
+	</delete>
+	
 </mapper>

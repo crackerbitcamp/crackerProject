@@ -15,5 +15,6 @@
 		<typeAlias type="crackeremail.bean.CrackeremailDTO" alias="email"/>
 		<typeAlias type="product.bean.ProductDTO" alias="product"/>
 		<typeAlias type="product.bean.ProductJoinDTO" alias="productJoin"/>
+		<typeAlias type="product.bean.ProductbuylistDTO" alias="productbuylist"/>
 	</typeAliases>
 </configuration>
