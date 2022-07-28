@@ -31,7 +31,9 @@ div{
 	display: block;
 }
 
-
+#wrap {
+	height:100%;
+}
 
 .header-wrap .header-top .inner-box{
 	height: 145px;
@@ -316,6 +318,81 @@ a{
 	margin: 40px;
 }
 
+/* footer */
+.footer {
+ 	position : relative;
+ 	width: 100%;
+ 	bottom : -100px;
+	font-family: 'Noto Sans KR', sans-serif;
+}
+
+.footer .footerArea { 
+	border-top: 1px solid #cccccc;
+	padding: 0; /* 좌측과 우축의 여백을 제거 */
+	color: #666;
+	font-size: 0.9em;
+	width: 100%;
+	height: 50px;
+	margin: 0 auto;
+	margin-bottom: 50px;
+	
+}
+
+.footer .footerArea:after {
+	content: '';
+	display: block;
+	clear: both;
+}
+
+.btmnav {
+	float: right; /* 오른쪽 정렬 */
+	margin-right: 30px;
+	margin-top: 18px;
+}
+
+.btmnav dd {
+	float: left;
+	
+}
+
+.btmnav dd:after {
+	content: '|';
+	padding: 0 0.7em;
+	color: #999;
+}
+
+.btmnav dd:last-child:after { /* 마지막 자식 작대기 없애기 */
+	content: '';
+	padding: 0 0;
+}
+
+.btmnav dd a {
+	text-decoration: none;
+	color :  #666;
+	margin-right: 30px;
+    margin-left: 30px;
+	
+}
+.copy {
+	float: left;
+	line-height: 1.8;
+	margin-left: 20px;
+	margin-top: 18px;
+}
+
+.copy a {
+	text-decoration: none;
+	color :  #666;
+}
+
+.blind {
+	display: block;
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: -1000em;
+}
+
 
 </style>
 </head>
@@ -432,7 +509,7 @@ a{
 				<ul class= "mnu-type">
 					<li><a href="/index/product/productBoardList?category=밀키트">밀키트</a></li>
 					<li><a href="/index/product/productBoardList?category=냉동식품">냉동식품</a></li>
-					<li><a href="/index/product/productBoardList?category=생선">생선</a></li>
+					<li><a href="/index/product/productBoardList?category=생선">수산</a></li>
 					<li><a href="/index/product/productBoardList?category=고기">고기</a></li>
 				</ul>
 			</div>
@@ -453,7 +530,7 @@ a{
 			</article>
 		</section>
 		
-		<div style="boarder: red solid 1px; width: 100%; height: 500px;">
+		<div id="wrap">
 			<div class="productForm">
 				<div>
 					
@@ -469,6 +546,37 @@ a{
 	<c:if test="${not empty display}">
 				<jsp:include page="${display}" />
 	</c:if>
+	
+		<div class="footer">
+		<div class="footerArea">
+			<dl class="btmnav">
+				<dt class="blind">bottom navigation</dt>
+				<dd>
+					<a href="#">About</a>
+				</dd>
+				<dd>
+					<a href="#">개인정보보호</a>
+				</dd>
+				<dd>
+					<a href="#">광고문의</a>
+				</dd>
+				<dd>
+					<a href="#">Contact us</a>
+				</dd>
+				<dd>
+					<a href="#">Location</a>
+				</dd>
+			</dl>
+
+			<p class="copy">
+				Copyright &copy; COMPANY Design<br> Powered by Webazit, e-mail
+				: <a href="mailto:cracker@community.com">cracker@community.com</a>
+			</p>
+		</div>
+		<!-- footerArea -->
+
+	</div>
+	<!-- footer -->	
 	
 </body>
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>

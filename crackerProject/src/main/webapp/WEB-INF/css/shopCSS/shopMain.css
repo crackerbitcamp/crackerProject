@@ -22,11 +22,9 @@
 	height: 290px;
 }
 .productForm{
-	position: absolute;
 	left:50%;
 	width: 1400px;
 	height: auto;
-	margin-left: -700px;
 }
 .productForm .productFormTitle{
 	border-bottom: 1px solid #dddddd;
