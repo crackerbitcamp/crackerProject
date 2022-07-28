@@ -30,8 +30,9 @@
 }
 .productForm .productFormTitle{
 	border-bottom: 1px solid #dddddd;
-	border-top: 1px solid #dddddd;
+	padding: 50px 30px 30px 30px;
 	text-align: center;
 	font-size: 50px;
+	font-family: 'Noto Sans KR', sans-serif;
 
 }
