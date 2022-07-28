@@ -22,5 +22,11 @@ public interface ProductDAO {
 
 	public List<ProductJoinDTO> productSearch(String keyword);
 
+	public void productDelete(Map<String, String> map);
+
+	public void productUpdate(Map<String, String> map);
+
+	public void productBoardDelete(Map<String, String> map);
+
 
 }

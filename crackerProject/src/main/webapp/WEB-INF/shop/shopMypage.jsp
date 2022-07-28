@@ -9,11 +9,23 @@ a{
 	text-decoration: none;
 	color : black;
 }
+.header {
+    text-align: center;
+}
+.logo {
+	padding-top:30px;
+	padding-bottom: 30px; 
+}
 </style>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
+<div class="header">
+	<h1 class="logo">
+		<a href="/index/shop/shopmain"><img src ="/index/image/home/LOGO2.jpeg" style="height: 50px;"></a>
+	</h1>
+</div>	
 	<div class="main_menu">
 		<div style="height: 122px; display: flex; box-sizing: border-box; text-align: center; align-items: center; padding: 1px; width: 96.2%;">
 			<div style="width: 220px; height: 100%; background: #286db4;  border-right: 1px solid #d3d3d3">

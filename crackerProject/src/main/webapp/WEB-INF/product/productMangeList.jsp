@@ -10,13 +10,14 @@
 <body>
 <form>
 <input id="pg" value="${pg}" type="hidden">
-<button type="button" id="productWriteFormBtn">상품등록</button>
-<button type="button" id="productBoardWriteFormBtn">상품 게시글 등록</button>
-<button type="button" id="#">상품 게시판</button>
+
 <div>
+	<h1>크래커 샾</h1>
 	<ul id="productMangeListUl">
-		<li>크래커 샵 상품</li>
+		
 	</ul>
+	
+	
 </div>
 </form>
 

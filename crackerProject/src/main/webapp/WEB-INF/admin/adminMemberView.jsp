@@ -17,7 +17,16 @@ table {
 .historyback {
 	margin-left : 200px;
 }
-
+.writeBottomBtnClass{
+	margin :20px;
+	border-radius: 10px;
+	background-color: #f76900;
+	border: #f76900 2px solid;
+	color: white;
+	font-size: 15px;
+	width: 80px;
+	height : 30px;
+}
 .inputTextForm{
 	margin: 30px;
 	width: 500px;
@@ -46,6 +55,7 @@ table {
 			<div>
 				<div class="inputTextForm">
 					<span>아이디 : </span><span id="memberEmail"> </span>
+					<input type="hidden" id="memberemail"/>
 				</div>
 			</div>
 			<div>
@@ -63,9 +73,22 @@ table {
 					<span>번호 : </span><span id="memberPhone"> </span>
 				</div>
 			</div>
+			<div>
+				<div class="inputTextForm">
+					<span>주소 : </span><span id="addres"> </span>
+				</div>
+			</div>
 		
-<!-- 			<input type="button" id="adminMemberdDeleteBtn" value="선택삭제" />  -->
-		
+ 			<!-- <input type="button" id="adminMemberdDeleteBtn" value="선택삭제" />  -->
+			<div >
+				<span  id="productContent"></span>
+				
+
+			
+				<button type="button" id="memberDeleteBtn"class="writeBottomBtnClass">삭제</button>
+				<button type="button" class="writeBottomBtnClass" onclick="location.href='/index/admin/adminMemberList'">목록</button>
+	
+			</div>
 
 		</form>
 	
@@ -83,7 +106,9 @@ $(function(){
 			$('#memberEmail').html(data.memberemail);
 			$('#memberNickName').html(data.membernickname);
 			$('#memberName').html(data.membername);
-			$('#memberPhone').html(data.membertel1+'-'+data.membertel2+'-'+data.membertel3)
+			$('#memberPhone').html(data.membertel1+'-'+data.membertel2+'-'+data.membertel3);
+			$('#addres').html(data.memberaddress1+' / '+data.memberaddress2)
+			$('#memberemail').val(data.memberemail);
 		},
 		error:function(e){
 			console.log(e);
@@ -91,7 +116,23 @@ $(function(){
 		
 	});
 	
-})
+});
+$('#memberDeleteBtn').click(function(){
+	if(confirm('선택하신 항목 삭제하시겠습니까')){
+		$.ajax({
+			url : '/index/member/memberDelete',
+			data : {'memberemail' : $('#memberemail').val()},
+			type : 'post',
+			success : function(){
+				alert('삭제되었습니다.')
+				location.href='/index/admin/adminMemberList'
+			},
+			error : function (){
+				
+			}
+		});
+	}
+});
 </script>
 </body>
 </html>

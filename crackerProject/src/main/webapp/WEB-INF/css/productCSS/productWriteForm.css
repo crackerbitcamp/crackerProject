@@ -78,6 +78,18 @@
 	border: #f76900 2px solid;
 	padding: 10px;
 }
+.inputTextForm_update{
+	margin: 30px;
+	width: 600px;
+	height: auto;
+	border: 0;
+	border-radius: 20px;
+	outline: none;
+	padding-left: 10px;
+	background-color: white;
+	border: #f76900 2px solid;
+	padding: 10px;
+}
 .cke_chrome{
 
 	border: 0
