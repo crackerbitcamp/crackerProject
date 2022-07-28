@@ -1,5 +1,6 @@
 package shop.dao;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -85,6 +86,40 @@ public class ShopDAOMyBatis implements ShopDAO {
 	@Override
 	public void cartViewDelete(Map<String, String> map) {
 		sqlSession.delete("shopSQL.cartViewDelete",map);
+	}
+
+	
+	
+	
+	@Override
+	public Map<String, Object> shopCartPay(Map<String, Object> map) {
+		String seq = (String)map.get("list");
+		String result = seq.replaceAll("\\\"","");
+		String result1 = result.replaceAll("\\[", "");
+		String result2 = result1.replaceAll("\\]", "");
+		
+		
+		String[] productseq = result2.split(",");
+		
+		
+		ProductbuylistDTO productbuylistDTO = null;
+		List <ProductbuylistDTO> list = new ArrayList<ProductbuylistDTO>();
+		for(int i = 0;  i < productseq.length; i++) {
+			map.put("productseq", productseq[i]);
+			productbuylistDTO = sqlSession.selectOne("shopSQL.cartBuyList",map);
+			list.add(productbuylistDTO);
+		}
+		map.put("productbuylistDTO", list);
+		
+		
+		MemberDTO memberDTO = sqlSession.selectOne("memberSQL.getMember",map.get("memberemail"));
+		//map에 담을 데이터
+		map.put("memberemail", memberDTO.getMemberemail());
+		map.put("membername", memberDTO.getMembername());
+		map.put("membertel", memberDTO.getMembertel1()+memberDTO.getMembertel2()+memberDTO.getMembertel3());
+		map.put("memberaddress", memberDTO.getMemberaddress1()+memberDTO.getMemberaddress2());
+		
+		return map;
 	}
 
 }
