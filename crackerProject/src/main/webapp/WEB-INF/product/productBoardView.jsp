@@ -168,7 +168,7 @@ background: none;
 					<dd><b  id="productPrice_total"style="font-size: 16px; font-family : Tahoma;"></b></dd>
 				</dl>
 					<input type = "hidden" name = "totalprice" id="totalprice" />
-					<input type = "text" name = "day" id="day">
+					<input type = "hidden" name = "day" id="day">
 		</div>
 		
 		</div>
