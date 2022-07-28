@@ -156,6 +156,21 @@ public class ShopController {
 		map.put("memberEmail", memEmail);
 		shopService.cartViewDelete(map);
 	}
+	
+	@GetMapping("/shop/shopmemberpasswordcheckForm")
+	public ModelAndView shopmemberpasswordcheckForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("MyPageInclude", "/WEB-INF/member/memberUpdateForm.jsp");
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
+	@GetMapping("/shop/customerWriteForm")
+	public ModelAndView customerWriteForm() {
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("MyPageInclude", "/WEB-INF/customer/customerWriteForm.jsp");
+		mav.setViewName("/shop/shopMypage");
+		return mav;
+	}
 }	
 
 	
