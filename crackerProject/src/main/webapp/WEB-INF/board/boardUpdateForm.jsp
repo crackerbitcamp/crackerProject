@@ -25,7 +25,7 @@
 
 </style>
 </head>
-<body>
+<body> 
 	
 	<div id="boardWriteFormOutDiv" >
 		<form class="boardWriteForm" name=“boardWriteForm" id="boardWriteForm">
