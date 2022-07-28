@@ -161,7 +161,7 @@ public class ProductController {
 		//System.out.println(map);
 		mav.addObject("category",map.get("category"));
 		mav.addObject("nav", "/WEB-INF/adminInclude/adminNav.jsp");
-		mav.addObject("z", "/WEB-INF/product/productBoardList.jsp");
+		mav.addObject("display", "/WEB-INF/product/productBoardList.jsp");
 		mav.setViewName("/shop/shopmain");
 		return mav;
 	}
