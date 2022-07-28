@@ -10,6 +10,7 @@
 <link rel ="stylesheet" href="/index/css/indexCSS/indexmodal.css">
 <link href="/index/css/shopCSS/shopMain.css" rel="stylesheet"
 	type="text/css" />
+<link href="/index/css/reset.css" rel="stylesheet" type="text/css" />
 <style>
 
 *{
@@ -357,7 +358,7 @@ a{
 			<div class="inner-box">
 			
 				<h1 class="logo">
-					<a href="/index/shop/shopmain"><img src ="/index/image/home/LOGO2.jpeg" style="width: 184px; height: 50px;"></a>
+					<a href="/index/shop/shopmain"><img src ="/index/image/home/LOGO2.jpeg" style="height: 50px;"></a>
 				</h1>
 				<div class="search-wrap">
 					<div class="search-form">
@@ -445,7 +446,7 @@ a{
 				</div>
 			</article>
 		</section>
-		<div style="boarder: red solid 1px; width: 1500px; height: 500px;">
+		<div style="boarder: red solid 1px; width: 100%; height: 500px;">
 			<div class="productForm">
 				<div>
 					
