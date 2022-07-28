@@ -8,6 +8,9 @@
 <link href="/index/css/boardCSS/boardWrite.css" rel="stylesheet"
 	type="text/css" />
 <style>
+#display{
+	height: 700px;
+}
 .ck-editor__editable {
 	height: 1000px;
 }

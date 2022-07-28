@@ -7,6 +7,9 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="../css/member.css">
 <style type="text/css">
+#header_menuDiv {
+	position: inherit;
+}
 #memberNavForm {
 	height: auto;
     width: 900px;

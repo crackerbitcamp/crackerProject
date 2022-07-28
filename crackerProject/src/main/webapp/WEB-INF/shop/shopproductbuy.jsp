@@ -99,7 +99,7 @@
 </style>
 </head>
 <body>
-<input type="text" id="memEmail" name="memEmail" value="${memEmail }"/>
+<input type="hidden" id="memEmail" name="memEmail" value="${memEmail }"/>
 <div class="productcontent_wrap">
 	<div class="productcontent_box">
 	<form id="memberaddressForm">

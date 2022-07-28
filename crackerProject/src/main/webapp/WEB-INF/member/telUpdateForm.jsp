@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<input type = "text" id = "findIdCheckDiv" value="fail">
+	<input type = "hidden" id = "findIdCheckDiv" value="fail">
 	<form id = "findidForm">
 	<fieldset id="find-Idfieldset-wrap">
 			<legend>핸드폰 변경하기</legend>

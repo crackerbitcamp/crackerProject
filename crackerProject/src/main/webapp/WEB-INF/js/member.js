@@ -2,13 +2,13 @@
 function idinfo(){
 		url = "/index/member/memberFindIdForm";
 		name = '';
-		specs = "width=550,height=200,top=200,left=100";
+		specs = "width=600,height=300,top=200,left=100";
 		window.open(url,name,specs);
 }
 function telUpdateForm(){
 	url = "/index/member/telUpdateForm";
 	name = '';
-	specs = "width=550,height=128,top=200,left=100";
+	specs = "width=600,height=300,top=200,left=100";
 	window.open(url,name,specs);
 }
 

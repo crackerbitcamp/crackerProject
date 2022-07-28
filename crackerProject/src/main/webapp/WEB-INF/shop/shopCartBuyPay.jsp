@@ -379,8 +379,8 @@ border-bottom: 2px solid;
 					</div>
 				</dd>
 			</dl>
-			<input type="text" id="seq" value="${item.seq}">
-			<input type="text" id="productbuydate" value="${item.productbuydate }">
+			<input type="hidden" id="seq" value="${item.seq}">
+			<input type="hidden" id="productbuydate" value="${item.productbuydate }">
 		</section>
 		
 		<section class="Checkoutinfo">
