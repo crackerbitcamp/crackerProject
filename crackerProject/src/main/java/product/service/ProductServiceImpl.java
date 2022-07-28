@@ -30,7 +30,7 @@ public class ProductServiceImpl implements ProductService {
 	public Map<String,Object> getProductMangeList(String pg) {
 		int endNum = Integer.parseInt(pg)*20;
 		int startNum = endNum-19;
-		
+		 
 		
 		Map<String,Integer> map = new HashMap<String,Integer>();
 		map.put("startNum", startNum);
