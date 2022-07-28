@@ -5,11 +5,33 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<style type="text/css">
+#productListForm {
+	border: 1px solid red;
+}
+
+.productListLi {
+	border: 1px solid blue;
+    width: 30%;
+    height: 450px;
+    margin: 20px 10px;
+    display: inline-block;
+}
+
+.productListTop {
+	margin: 30px 90px 30px 110px;
+}
+
+
+</style>
 </head>
 <body>
 <form>
+	<div class="productListTop">
+		<img src="/index/image/shopmain/shopmealkit1.png" style="width:1200px; height:200px;">
+	</div>
 	<div id="productListForm">
-	<input type="text" id="productCategory"value="${category}">
+	<input type="hidden" id="productCategory"value="${category}">
 		
 	</div>
 </form>

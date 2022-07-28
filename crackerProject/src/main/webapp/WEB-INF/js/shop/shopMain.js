@@ -24,19 +24,19 @@ $(function(){
 					})
 					
 					.append($('<div/>',{
-						'text' : '상품명:'+items.productName,
+						'text' : '카테고리:'+items.productName,
 						
 							
 					})).append($('<div/>').append($('<img/>',{
 						'src' : '/index/storage/'+items.mainPhoto
 					}))).append($('<div/>',{
-						'text' : items.productSubject,
+						'text' : '상품명 : '+items.productSubject,
 						
 					})).append($('<div/>',{
-						'text' : '가격:'+items.productPrice+'원',
+						'text' : '가격 : '+items.productPrice+'원',
 						
 					})).append($('<div/>',{
-						'text' : '남은수량:'+items.productQty+'개',
+						'text' : '남은수량 : '+items.productQty+'개',
 						
 					})))
 					.appendTo($('.productListCategory_ul'+categoryIndex));
