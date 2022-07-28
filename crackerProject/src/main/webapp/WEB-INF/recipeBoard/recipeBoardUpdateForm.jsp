@@ -12,7 +12,7 @@
 	height: 1000px;
 }
 #boardWriteFormOutDiv{
-	
+	height: 600px;
 }
 
 </style>

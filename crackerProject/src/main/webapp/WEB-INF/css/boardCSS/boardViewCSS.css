@@ -40,12 +40,13 @@ ul{
     clear: both;
 
 }
+
 #boardView_subject{
 	margin:auto;
 	width: 60%;
-	height: auto;
+	height: 100%;
 	background-color: #ffffff;
-	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
+/* 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%); */
 	margin-bottom: 5px;
 }
 .boardView_content{
@@ -67,7 +68,7 @@ ul{
 
 .boardView_content_subject{
 	border-bottom: 1px solid #dddfe4;
-	padding: 20px 0px 20px 0px;
+	padding: 13% 0% 3% 0%;
 }
 
 .boardView_content_menu{

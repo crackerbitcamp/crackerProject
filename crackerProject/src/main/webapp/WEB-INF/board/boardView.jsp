@@ -13,12 +13,12 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
 </head>
 <body>
-	<form name="boardViewForm">
+	<form name="boardViewForm" id="boardViewForm">
 		<input type="hidden" name="seq" id="seq" value="${seq}" />
 		<input type="hidden" name="pg" value="${pg}" />
-		<input type="text" id="memEmail" value="${memEmail }" />
-		<input type="text" id="category" value="자유"/>
-		
+		<input type="hidden" id="memEmail" value="${memEmail }" />
+		<input type="hidden" id="category" value="프리"/>
+
 		<div id="boardView_subject">
 			<div class="boardView_content_subject">
 				<span id="subjectSpan"></span>

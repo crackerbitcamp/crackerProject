@@ -45,7 +45,7 @@
 	width: 60%;
 	height: auto;
 	background-color: #ffffff;
-	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%);
+/* 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%); */
 	margin-bottom: 5px;
 }
 .recipeBoardView_content{
@@ -67,7 +67,7 @@
 
 .recipeBoardView_content_subject{
 	border-bottom: 1px solid #dddfe4;
-	padding: 20px 0px 20px 0px;
+	padding: 13% 0% 3% 0%;
 }
 
 .recipeBoardView_content_menu{

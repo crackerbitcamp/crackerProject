@@ -25,10 +25,11 @@
 
 #boardListDiv2{
 /* 	border: 1px solid red; */
-	width : 45%;
+	width : 93%;
 	height: 300px;
 	background-color: #fff;
-	margin-top: 20px;
+	margin-top: 2%;
+	margin-left:2%;
 /* 	box-shadow: 0 1px 3px 0 rgb(0 0 0 / 15%); */
 /* 	border: solid 1px #98a0a7; */
 }
@@ -52,7 +53,7 @@
 	float: left;
 	/* text-align: left; */
 	margin: 12px;
-	width: 41%;
+	width: 40%;
 	white-space : nowrap;
  	overflow: hidden;
 	text-overflow: ellipsis;
@@ -63,11 +64,17 @@
 	color : black; 
 }
 
+#boardListDiv2 .nickName{
+	float: left;
+	width: 15%;
+	margin: 12px;
+}
+
 #boardListDiv2 .logtime{
 /* 	border: 1px red solid; */
 	float: left;
 	margin: 12px;
-	width: 18%;
+	width: 15%;
 	
 }
 
@@ -75,8 +82,7 @@
 /* 	border: 1px red solid; */
 	text-align:center;
 	height:14%;
-	width:95%;
-	margin: auto;
+	width:100%;
 	border-bottom:1px solid #aaaaaa;
 
 }
@@ -90,11 +96,11 @@
 	<div class="listMenu">
 		<div class="category"><span style="font-size: large;font-weight: 900;">분류</span></div>
 		<div class="subjcet"><span style="font-size: large;font-weight: 900;">제목</span></div>
+		<div class="nickName"><span style="font-size: large;font-weight: 900;">닉네임</span></div>
 		<div class="logtime"><span style="font-size: large;font-weight: 900;">작성날짜</span></div>
 		<div class="goodCount"><span style="font-size: large;font-weight: 900;">추천</span></div>
 	</div>
 </div>
-	
 		
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js">
@@ -122,8 +128,11 @@ $(document).ready(function(){
 						href:'#',
 						text: items.subject,
 						class: 'subjectA subjectA_'+items.seq
-					}))
-				).append($('<div/>',{
+				}))).append($('<div/>',{
+					class: 'nickName',
+					align: 'center',
+					text: items.nickname
+				})).append($('<div/>',{
 					class: 'logtime',
 					align: 'center',
 					text: items.logtime.toLocaleString()
