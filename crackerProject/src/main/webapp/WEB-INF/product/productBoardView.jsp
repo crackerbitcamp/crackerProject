@@ -12,7 +12,7 @@
 	width: 100%;
 	min-width: 1280px;
 	margin: 0 auto;
-	padding : 100px 0px;
+	padding : 100px 0px; 
 }
 
 .shopcontent dl>dt{
