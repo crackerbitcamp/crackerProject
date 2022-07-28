@@ -37,6 +37,7 @@
 					<ul class="boardMenuTopUl">
 						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminBoardList" id="adminList">자유게시판</a></li>
 						<li class="boardMenu"><img src="../image/gear.svg"><a href="/index/admin/adminRecipeBoardList" id="adminList">레시피게시판</a></li>
+		
 					
 					</ul>
 				</li>

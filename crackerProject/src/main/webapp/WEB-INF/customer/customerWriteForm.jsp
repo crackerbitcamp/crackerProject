@@ -22,10 +22,12 @@
 	text-align: center;
 }
 
+
 .customerTableData #content {
 	width : 650px;
 	height : 250px;
 	margin-left : 0px;
+	display: flex;
 }
 
 #customerTable input{
