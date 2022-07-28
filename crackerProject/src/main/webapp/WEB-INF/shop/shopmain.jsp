@@ -10,6 +10,7 @@
 <link rel ="stylesheet" href="/index/css/indexCSS/indexmodal.css">
 <link href="/index/css/shopCSS/shopMain.css" rel="stylesheet"
 	type="text/css" />
+<link href="/index/css/reset.css" rel="stylesheet" type="text/css" />
 <style>
 
 *{
@@ -29,6 +30,7 @@ div{
 }
 
 
+
 .header-wrap .header-top .inner-box{
 	height: 145px;
 	text-align: center;
@@ -41,11 +43,8 @@ div{
 }
 
 .header-wrap .header-top .logo{
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	transform : franslate(-50%, -50%);
-	top: 66px;
+	padding-top:50px;
+	
 }
 
 h1{
@@ -55,10 +54,9 @@ h1{
 }
 
 .header-wrap .header-top .search-wrap{
-	position: absolute;
-	top: 71px;
-	left: 0px;
 	width: 220px;
+    float: right;
+    margin-top: 100px;
 }
 
 #hd_sch{
@@ -91,6 +89,7 @@ input{
 
 .search-form{
 	position: relative;
+	margin-top: -50px;
 }
 
 .search-form .btn-search{
@@ -147,9 +146,10 @@ body html{
 }
 
 .header-wrap .header-top .util-wrap{
-	position: absolute;
-	top: 10;
-	right: 0;
+	display: flex;
+    float: right;
+    margin-right: -275px;
+    margin-top: -90px;
 }
 
 .header-wrap .header-top .util-wrap > ul > li a{
@@ -229,8 +229,10 @@ header{
 .imgs {
     position: relative;
     overflow: hidden;
+    width:1000px;
     height:400px;
     background-color: #000;
+    margin:auto;
 }
 
 .gnb-sub-wrap .mnu-type{
@@ -357,14 +359,16 @@ a{
 			<div class="inner-box">
 			
 				<h1 class="logo">
-					<a href="/index/shop/shopmain"><img src ="/index/image/home/LOGO2.jpeg" style="width: 184px; height: 50px;"></a>
+					<a href="/index/shop/shopmain"><img src ="/index/image/home/LOGO2.jpeg" style="height: 50px;"></a>
 				</h1>
+				
 				<div class="search-wrap">
 					<div class="search-form">
 						<input type = "text" id="hd_sch" class="sch_input" autocomplete="off" data-typing="off">
 						<button type="submit" id="btnSearch" class="btn-search">검색</button>
 					</div>
 				</div>
+				
 				<div class="util-wrap">
 					<ul>
 							<c:if test="${memLogin==null}">
@@ -438,14 +442,15 @@ a{
 		<section id="content" class="main">
 			<article class="article visual-article">
 				<div class="imgs">
-  					<img src="/index/image/home/china.jpeg" alt="no">
-  					<img src="/index/image/home/japan.jpeg" alt="no">
-  					<img src="/index/image/home/korea.jpeg" alt="no">
-  					<img src="/index/image/home/ddukbokki.jpeg" alt="no">
+  					<img src="/index/image/shopmain/shopmain7.jpg" alt="no">
+  					<img src="/index/image/shopmain/shopmain2.jpg" alt="no">
+  					<img src="/index/image/shopmain/shopmain8.jpg" alt="no">
+  					<img src="/index/image/shopmain/shopmain9.jpg" alt="no">
 				</div>
 			</article>
 		</section>
-		<div style="boarder: red solid 1px; width: 1500px; height: 500px;">
+		
+		<div style="boarder: red solid 1px; width: 100%; height: 500px;">
 			<div class="productForm">
 				<div>
 					
