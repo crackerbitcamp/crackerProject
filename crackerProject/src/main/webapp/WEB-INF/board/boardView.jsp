@@ -17,7 +17,7 @@
 		<input type="hidden" name="seq" id="seq" value="${seq}" />
 		<input type="hidden" name="pg" value="${pg}" />
 		<input type="hidden" id="memEmail" value="${memEmail }" />
-		<input type="hidden" id="category" value="프리"/>
+		<input type="hidden" name="category" id="category" value="자유"/>
 
 		<div id="boardView_subject">
 			<div class="boardView_content_subject">

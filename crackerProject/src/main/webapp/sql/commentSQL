@@ -1,5 +1,4 @@
-코맨트 SQL
-
+--코맨트 SQL
 create table commentText(
 seq number not null,
 nickname varchar2(30) not null,
@@ -14,4 +13,4 @@ likeIt number default 0 NOT NULL, -- 좋아요
 logtime DATE DEFAULT SYSDATE
 );
 
-create sequence seq_customer nocycle nocache
+create sequence seq_comment nocycle nocache;

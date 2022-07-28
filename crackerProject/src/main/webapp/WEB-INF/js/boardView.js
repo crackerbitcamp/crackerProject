@@ -53,9 +53,7 @@ $(function(){
 	
 	
 	$('#boardReplyBtn').click(function(){
-		location.href='/index/board/boardReplyForm?pg='
-				+$('input[name=pg]').val()+'&seq='
-				+$('input[name=seq]').val();
+		location.href='/index/board/boardReplyForm?pg='+$('input[name=pg]').val()+'&seq='+$('input[name=seq]').val()+'&category='+$('input[name=category]').val();
 		
 	});
 	

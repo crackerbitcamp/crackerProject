@@ -70,6 +70,7 @@
 			update board set step=step+1 where ref = #{ref} and step > #{step};
 			<!-- insert -->
 			insert into board Values (seq_board.nextval
+									, #{category}
 									, #{nickname}
 									, #{name}
 									, #{email}
@@ -81,6 +82,7 @@
 									, #{pseq}
 									, 0 <!-- reply -->
 									, 0 <!-- hit -->
+									, 0 <!-- good -->
 									,sysdate);
 			<!-- reply update -->	
 			update board set reply=reply+1 where seq = #{pseq};
