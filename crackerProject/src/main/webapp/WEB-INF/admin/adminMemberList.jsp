@@ -15,8 +15,8 @@ table {
 }
 
 #currentPaging {
-	color: red;
-	text-decoration: underline;
+	color: #fff;
+	text-decoration: none;
 	cursor: pointer;
 }
 #paging {
@@ -72,6 +72,7 @@ table {
 	
 	
 	<h2 align="center">회원 리스트</h2>
+	<br>
 	<input type="hidden" id="pg" value="${pg }" /> <!-- requestScope 생략 가능 -->
 
 		<form id="adminMemberSearchForm">
