@@ -62,6 +62,7 @@ public class ShopController {
 	public void memberaddressUpdate(@RequestParam Map<String,String>map) {
 		shopService.memberaddressUpdate(map);
 	}
+	
 	@GetMapping("/shop/shopMypage")
 	public ModelAndView shopMypage() {
 		ModelAndView mav = new ModelAndView();
