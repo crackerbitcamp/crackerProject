@@ -13,6 +13,9 @@
 	height: 1000px;
 }
 
+#boardWriteFormOutDiv {
+	height: 600px;
+}
 #boardUpdateForm div{
 	color: red;
 	font-size: 8pt;

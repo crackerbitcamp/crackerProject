@@ -20,7 +20,6 @@ public interface BoardService {
 
 	public Map<String, Object> boardSearch(Map<String, String> map);
 
-
 	public BoardDTO getBoard(String seq);
 
 	public void boardUpdate(Map<String, String> map);
